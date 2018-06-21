@@ -1,4 +1,4 @@
-# bazel-proposals
+# Bazel Proposals and Design Documents
 
 This is an index of all design documents and proposals for [Bazel](https://bazel.build).
 
