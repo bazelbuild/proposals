@@ -2,6 +2,8 @@
 
 This is an index of all design documents and proposals for [Bazel](https://bazel.build).
 
+These documents were publicly sent for review on the [bazel-discuss](https://groups.google.com/forum/#!forum/bazel-discuss) mailing list.
+
 # Index
 
 | Last updated | Title                                                                                                                           | Author    | Category              | Status      |
