@@ -7,7 +7,6 @@ These documents were publicly sent for review on the [bazel-discuss](https://gro
 # Index
 
 | Last updated | Title                                                                                                                                      | Author(s) alias    | Category              | Status          |
-|              |                                                                                                                                            |                    |                       |                 |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------|-----------------|
 |   2018-06-28 | [Shrinking the Bazel binary](https://docs.google.com/document/d/1Igmv-2GfXkoVFWTXvBYPeniQom8nLAwzqzridDlBIS4/edit)                         | buchgr, twerth     | Bazel                 |                 |
 |   2018-06-20 | [C++ rules skylark migration plan](https://docs.google.com/document/d/1Adqu7--verca4gCh3ZdnVMjjCz4VzurHxKEZAh9u03E)                        | hlopko             | C++                   |                 |
