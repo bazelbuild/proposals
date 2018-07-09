@@ -49,7 +49,7 @@ These documents were publicly sent for review on the [bazel-discuss](https://gro
 |   2018-03-05 | [Output Map Madness](https://docs.google.com/document/d/1ic9lJPn-0VqgKcqSbclVWwYDW2eiV-9k6ZUK_xE6H5E/edit)                      | brandjon        | Skylark  |
 |   2016-07-25 | [Saner Skylark Sets](https://bazel.build/designs/skylark/saner-skylark-sets.html)                                               | dslomov         | Skylark  |
 
-### WIP
+### Work in progress
 
 | Last updated | Title                                                                                                                           | Author(s) alias | Category              |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------|-----------------------|
