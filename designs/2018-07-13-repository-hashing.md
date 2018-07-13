@@ -1,4 +1,4 @@
-# Bazel hashing of external direcotry output
+# Bazel hashing of external directory output
 
 ## Background
 
