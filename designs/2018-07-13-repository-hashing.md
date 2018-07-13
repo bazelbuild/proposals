@@ -80,12 +80,33 @@ opened instead.
     dangling symlinks), the link itself is hashed.
 
 
-### no unrelated files
+### unrelated files
 
-Unrelated file like the `.git` subdirectory should be cleaned up by the
-repository rule itself. Only the repository rule has the semantic knowledge of
-which parts form the actual source, or, at least, are reproducible, and which
-are temporary and without byte-for-byte reproducible content.
+For external repository rules like `git_repository`, additional directories
+are created besides the actual source code, e.g., the `.git` subdirectory.
+And while the actual source is determined by the specified commit id,
+the contents of those subdirectories are not. The knowledge which additional
+such files and directories are created is specific to the individual rule.
+
+#### Proposal: rules clean up themselves
+
+We propose that the rules are in charge of removing all unrelated files
+and directories; at the very least they must remove all parts that
+are not byte-for-byte reproducible.
+
+#### Alternative considered: rules tell bazel to ignore certain parts
+
+An alternative considered was be that the rules would declare which parts of
+the created directory are not part of the code and should be ignored by bazel.
+This would, however imply an even more complicated interface, as rules will
+have to then return two kind of information: the actual resolved information
+(i.e., the new dict of keyword arguments), as well as the set of objects
+to ignore.
+
+This seems quite some extension of the interface for unclear benefits;
+as the directory of an external repository is completely removed
+before another call to the rule, we cannot save bandwidth by keeping
+the `.git` repository around.
 
 ## Proposed rollout
 
@@ -116,4 +137,3 @@ via the `name` attribute. As rules will only start to become reproducible
 one by one, in the transition period an option will be used to specify the
 repository rules for which verification should happen (defaulting to the
 empty list, so this feature is opt-in as well).
-
