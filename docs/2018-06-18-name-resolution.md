@@ -1,9 +1,15 @@
-# Name resolution in Skylark
+---
+created: 2018-06-18
+status: Approved
+reviewers:
+  - dslomov
+  - alandonovan
+title: Name resolution in Skylark
+authors:
+  - laurentlb
+---
 
-> Author: [laurentlb](https://github.com/laurentlb/)<br/>
-> Created: 2018-06-18<br/>
-> Status: Approved, to be implemented.<br/>
-> Reviewers: [dslomov](https://github.com/dslomov/), [alandonovan](https://github.com/alandonovan/)<br/>
+# Name resolution in Skylark
 
 This document lists the differences between Bazel implementation of Skylark and
 the [language specification](https://docs.bazel.build/versions/master/skylark/spec.html),
