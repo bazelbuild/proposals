@@ -228,16 +228,16 @@ This is a **breaking change** for Bazel.
 
 Two sections in this document constitute breaking changes to Bazel:
 
- * [Lexical binding of variables](#lexical-binding-of-variables) is fixing a bug
-   and a surprising behavior (almost every modern language uses lexical
-   binding). We also believe very few files rely on this behavior. User impact
-   should be low.
+*   [Lexical binding of variables](#lexical-binding-of-variables) is fixing a
+    bug and a surprising behavior (almost every modern language uses lexical
+    binding). We also believe very few files rely on this behavior. User impact
+    should be low.
 
-* [Rebinding in BUILD files](#rebinding-in-build-files) is making the language
-  stricter in BUILD files. We believe the benefits are greater than the
-  migration costs. In particular, it improves consistency (difference between
-  BUILD and bzl files), increases files readability, and reduces maintenance
-  cost in the long-term.
+*   [Rebinding in BUILD files](#rebinding-in-build-files) is making the language
+    stricter in BUILD files. We believe the benefits are greater than the
+    migration costs. In particular, it improves consistency (difference between
+    BUILD and bzl files), increases files readability, and reduces maintenance
+    cost in the long-term.
 
 
 For a smooth rollout, we'll use the
