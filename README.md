@@ -69,6 +69,7 @@ list.
 |   2018-06-15 | [Skylark API to the C++ toolchain](https://docs.google.com/document/d/1M8JA7kzZnWpLZ3WEX9rp6k2u_nlwE8smsHYgVTSSJ9k)                | [@mhlopko](https://github.com/mhlopko)                                         | C++, Skylark          |
 |   2018-05-31 | [Skylark Build Configuration](https://docs.google.com/document/d/1vc8v-kXjvgZOdQdnxPTaV0rrLxtP2XwnD2tAZlYJOqw)                     | [@gregestren](https://github.com/gregestren)                                   | Configurability       |
 |   2018-04-26 | [Garbage Collection for the Repository Cache](https://docs.google.com/document/d/1IuciCmnY0Z9naciq10G2zb94mCb9xfpFLh5ZIgMcPqU/)    | [@aehlig](https://github.com/aehlig)                                           | External Repositories |
+|   2018-04-06 | [Bazel Runfiles Libraries](https://docs.google.com/document/d/e/2PACX-1vSDIrFnFvEYhKsCMdGdD40wZRBX3m3aZ5HhVj4CtHPmiXKDCxioTUbYsDydjKtFDAzER5eg7OjJWs3V/pub) | [@laszlocsomor](https://github.com/laszlocsomor) | Bazel                 |
 |   2018-03-07 | [Diamond Splitting for External Repositories](https://docs.google.com/document/d/1254CQ8T4Rmeasg4NO1NPail2kLPC50VJ7Ok6JsoSe-c/)    | [@dsmolov](https://github.com/dsmolov)                                         | External Repositories |
 |   2017-10-06 | [A Brave New World for the Bazel WORKSPACE File](https://docs.google.com/document/d/13OlvrQcPG15cnrY5InEwJ4J3rV_ykHTuHqEZVTqY2lk/) | [@aehlig](https://github.com/aehlig), [@dsmolov](https://github.com/dsmolov)   | External Repositories |
 
