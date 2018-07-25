@@ -1,5 +1,5 @@
 # Bazel hashing of external directory output
-
+   
 ## Background
 
 We allow repository rules to follow freely floating targets, provided
