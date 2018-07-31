@@ -43,6 +43,7 @@ list.
 
 | Last updated | Title                                                                                                                                | Author(s) alias                                                              | Category              |
 | ------------ | -------------------------------------------------------------------------------------------------------                              | ------------------------------------------                                   | --------              |
+|   2018-07-31 | [Splitting large BEP events](https://docs.google.com/document/d/1O1vXaIiXPfSJZv__OaEHHoMftE7PwlAFePmF-mfN3pQ) | [@buchgr](https://github.com/buchgr) | Build Event Protocol |
 |   2018-07-27 | [Toolchain Modes](https://github.com/bazelbuild/proposals/pull/21)                                                                   | [@katre](https://github.com/katre)                                           | Configurability |
 |   2018-07-17 | [Skyframe threading model](https://docs.google.com/document/d/1nqlwcQXxBSDKuSz2Ml_trdGJI71lQ5zXTw2CBFwqW4U/edit)                     | [@tomlu](https://github.com/tomlu)                                           | Skyframe              |
 |   2018-07-13 | [Bazel hashing of external directory output](designs/2018-07-13-repository-hashing.md)                                                       | [@aehlig](https://github.com/aehlig)                                         | External Repositories |
