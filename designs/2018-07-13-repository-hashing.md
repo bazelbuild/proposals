@@ -144,7 +144,7 @@ be opt-in initially, even before we fully switch to the `WORKSAPCE` versus
 distinction is done. We add a new option. This option will
 specify a Skylark file, where the value `resolved` is taken from and expected
 to have the same structure as a resolved value in  a file written by the
-`--eperimental_repository_resolved_file` option. Repositories are associated
+`--experimental_repository_resolved_file` option. Repositories are associated
 via the `name` attribute. As rules will only start to become reproducible
 one by one, in the transition period an option will be used to specify the
 repository rules for which verification should happen (defaulting to the
