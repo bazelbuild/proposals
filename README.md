@@ -45,6 +45,7 @@ list.
 
 | Last updated | Title                                                                                                                                | Author(s) alias                                                              | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------- |
+|   2018-08-16 | [Args Directory Support](https://docs.google.com/document/d/11agWFiOUiz2htBLj6swPTob5z78TrCxm8DQE4uJLOwM)                            | [@tomlu](https://github.com/tomlu)                                           | Skylark |
 |   2018-08-10 | [Decoupling `android_ndk_repository` from Bazel](https://docs.google.com/document/d/1VwZSiuzK8xhRxM1N_S50WjRCxMOo7wLWqO3PKrwqZqU/edit#) | [@jin](https://github.com/jin) | Android |
 |   2018-08-07 | [Repository Remapping Revisited](https://docs.google.com/document/d/1YBltt_jd4QTRzxkp1amsgfS6P8yBVDF4n1KGb3jcf_w/edit?usp=sharing)                                                                   | [@dkelmer](https://github.com/dkelmer)                                           | External Repositories |
 |   2018-07-27 | [Toolchain Modes](https://github.com/bazelbuild/proposals/pull/21)                                                                   | [@katre](https://github.com/katre)                                           | Configurability |
