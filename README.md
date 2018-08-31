@@ -71,6 +71,7 @@ list.
 
 | Last updated | Title                                                                                                                              | Author(s) alias                                                                | Category              |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------    | ------------------------------------------------------------------------------ | --------              |
+|   2018-06-28 | [External C/C++ libraries rules](https://docs.google.com/document/d/1Gv452Vtki8edo_Dj9VTNJt5DA_lKTcSMwrwjJOkLaoU/edit?usp=sharing) | [@ichern](https://github.com/irengrig)                                         | Bazel                 |
 |   2018-06-28 | [Shrinking the Bazel binary](https://docs.google.com/document/d/1Igmv-2GfXkoVFWTXvBYPeniQom8nLAwzqzridDlBIS4/edit)                 | [@buchgr](https://github.com/buchgr), [@meistert](https://github.com/meistert) | Bazel                 |
 |   2018-06-20 | [C++ rules skylark migration plan](https://docs.google.com/document/d/1Adqu7--verca4gCh3ZdnVMjjCz4VzurHxKEZAh9u03E)                | [@mhlopko](https://github.com/mhlopko)                                         | C++                   |
 |   2018-06-18 | [Name resolution](docs/2018-06-18-name-resolution.md)                                                                              | [@laurentlb](https://github.com/laurentlb)                                     | Skylark               |
