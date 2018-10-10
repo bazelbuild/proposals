@@ -50,6 +50,7 @@ list.
 
 | Last updated | Title                                                                                                                                | Author(s) alias                                                              | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------- |
+|   2018-10-10 | [Platform Inheritance](designs/2018-10-09-platform-inheritance.md)                                                              | [@katre](https://github.com/katre)       | Configurability |
 |   2018-08-07 | [Repository Remapping Revisited](https://docs.google.com/document/d/1YBltt_jd4QTRzxkp1amsgfS6P8yBVDF4n1KGb3jcf_w/edit?usp=sharing)                                                                   | [@dkelmer](https://github.com/dkelmer)                                           | External Repositories |
 |   2018-07-04 | [Update Download Functions in repository_ctx](https://docs.google.com/document/d/1znnk1u3kdl4iOh3ptmJnW7nHr8UtkVl__Au4atLzNKc)       | [@dkelmer](https://github.com/dkelmer)                                       | External Repositories |
 |   2018-05-23 | [Crosstool in Skylark](https://docs.google.com/document/d/1Nqf16jqDGWSrPp4VuRxh0iNnVBoAXsO0meDH69J9xoc)                              | [@mhlopko](https://github.com/mhlopko)                                       | C++                   |
@@ -62,7 +63,6 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2018-10-09 | [Platform Inheritance](designs/2018-10-09-platform-inheritance.md)                                                              | [@katre](https://github.com/katre)       | Configurability |
 |   2018-07-24 | [Test execution on Windows without Bash](https://github.com/laszlocsomor/proposals/blob/win-test-runner/designs/2018-07-18-windows-native-test-runner.md) | [@laszlocsomor](https://github.com/laszlocsomor) | Windows  |
 |   2018-03-23 | [Moving Skylark out of Bazel](https://docs.google.com/document/d/15ysfoMXRqZDdz0OOY1mtpeWd7LjDnXKl4fOVSLGACAY/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Skylark  |
 |   2018-03-05 | [Output Map Madness](https://docs.google.com/document/d/1ic9lJPn-0VqgKcqSbclVWwYDW2eiV-9k6ZUK_xE6H5E/edit)                      | [@brandjon](https://github.com/brandjon) | Skylark  |

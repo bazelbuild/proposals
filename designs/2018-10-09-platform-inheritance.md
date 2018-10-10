@@ -1,12 +1,13 @@
 ---
 created: 2018-10-09
 last updated: 2018-10-09
-status: Draft
+status: In Review
 reviewers:
   - gregce
 title: Platform Inheritance
 authors:
   - katre
+discussion thread: https://groups.google.com/forum/#!topic/bazel-dev/wKacIE4MIRM
 ---
 
 # Abstract
