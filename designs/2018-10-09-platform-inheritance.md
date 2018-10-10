@@ -18,12 +18,19 @@ Heavy users of [Bazel platforms](https://docs.bazel.build/versions/master/platfo
 
 Currently, platforms in Bazel (declared with the [`platform` rule](https://docs.bazel.build/versions/master/be/platform.html#platform) do not have any form of inheritance. If users want to declare a platform that is semantically "other platform, with added constraint", they have to copy and paste the constraint values from the first platform to the second, and keep them in sync manually.
 
-This would be useful for the execution platforms defined by remote execution systems, which are frequently a small set of base platforms, and then additional platforms which take the base and add extra capabilities, such as network access or extra memory. See the GitHub issue at: https://github.com/bazelbuild/bazel/issues/6218.
+The ability to define a parent for a platform would be useful for the execution platforms defined by remote execution systems, which are frequently a small set of base platforms, and then additional platforms which take the base and add extra capabilities, such as network access or extra memory. See the GitHub issue at: https://github.com/bazelbuild/bazel/issues/6218.
 
 
 # Proposal
 
 A platform that inherits from another will receive all of its constraint values, except for those that conflict with the constraints defined directly on the child platform. Because of the problems of merging constraint values and the possibilities for conflicts, platforms have a single parent that they inherit from, instead of a set of other platforms that they depend on.
+
+A new attribute, `parent`, will be added to the existing `platform` rule to set
+the base which the new platform inherits from. All constraint values set
+directly on the new platform will override values for the same constraint
+setting from the parent platform.
+
+## Example
 
 Example:
 ```
@@ -52,14 +59,18 @@ platform(
 ```
 
 
-In this example, the `extend` platform will have the constraint values `:banana` (inherited from the parent platform`) and `:clubs` (which overrides the constraint `:heart` set on the parent platform).
+In this example, the `extend` platform will have the constraint values `:banana` (inherited from the parent platform) and `:clubs` (which overrides the constraint `:heart` set on the parent platform).
 
 
 ## Remote Execution Properties
 
-The `remote\_execution\_properties` attribute of a platform also needs to be inherited from the parent, but the merging behavior is slightly more complicated because the attribute is a single string.
+The
+[`remote_execution_properties`](https://docs.bazel.build/versions/master/be/platform.html#platform.remote_execution_properties)
+attribute of a platform also needs to be inherited from the parent, but the
+merging behavior is slightly more complicated because the attribute is a single
+string.
 
-If the parent does not set the remote execution properties attribute, the value from the child will be used. If the parent is set but not the child, the parent will be used. If both are set, the child value will be used, but the literal string `{PARENT\_REMOTE\_EXECUTION\_PROPERTIES}` will be replaced with the parent's attribute value, allowing the child to contain it. It is the responsibility of whatever system consumes this property to handle any duplicated data that is present: Bazel does not consume this data directly.
+If the parent does not set the remote execution properties attribute, the value from the child will be used. If the parent is set but not the child, the parent will be used. If both are set, the child value will be used, but the literal string `{PARENT_REMOTE_EXECUTION_PROPERTIES}` will be replaced with the parent's attribute value, allowing the child to contain it. It is the responsibility of whatever system consumes this property to handle any duplicated data that is present: Bazel does not consume this data directly.
 
 
 # Implementation
