@@ -35,12 +35,12 @@ setting from the parent platform.
 
 Example:
 ```
-constraint_value(name = "fruit")
-constraint_setting(name = "banana", constraint_setting = ":fruit")
-constraint_setting(name = "apple", constraint_setting = ":fruit")
-constraint_value(name = "suit")
-constraint_setting(name = "hearts", constraint_setting = ":suit")
-constraint_setting(name = "clubs", constraint_setting = ":suit")
+constraint_setting(name = "fruit")
+constraint_value(name = "banana", constraint_setting = ":fruit")
+constraint_value(name = "apple", constraint_setting = ":fruit")
+constraint_setting(name = "suit")
+constraint_value(name = "hearts", constraint_setting = ":suit")
+constraint_value(name = "clubs", constraint_setting = ":suit")
 
 platform(
     name = "base",
