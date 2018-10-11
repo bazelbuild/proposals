@@ -60,7 +60,7 @@ platform(
 ```
 
 
-In this example, the `extend` platform will have the constraint values `:banana` (inherited from the parent platform) and `:clubs` (which overrides the constraint `:heart` set on the parent platform).
+In this example, the `extend` platform will have the constraint values `:banana` (inherited from the parent platform) and `:clubs` (which overrides the constraint `:hearts` set on the parent platform).
 
 
 ## Remote Execution Properties
