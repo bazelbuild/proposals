@@ -18,6 +18,7 @@ list.
 |   2018-08-20 | [Skylark API to the C++ toolchain](https://docs.google.com/document/d/1g91BWJITcYw_X-VxsDC0VgUn5E9g0kRBGoBSpoO41gA/edit)                   | [@mhlopko](https://github.com/mhlopko)           | C++                   |
 |   2018-08-03 | [Skyframe threading model](https://docs.google.com/document/d/1nqlwcQXxBSDKuSz2Ml_trdGJI71lQ5zXTw2CBFwqW4U/edit)                           | [@tomlu](https://github.com/tomlu)               | Skyframe              |
 |   2018-04-26 | [Per-Rule Execution Platform Constraints](https://docs.google.com/document/d/1p1J2ktWTpoKvNATjC6U29vhz1_-Dgbe9YRPr5wisfzY)                 | [@katre](https://github.com/katre)               | Configurability       |
+|   2017-10-06 | [Dynamic Bazel Configurations](https://docs.google.com/document/d/1uoU8t7loTOu6uyzez-ilhcYgEXg4xjViJu0aqrf69TY/edit#heading=h.xsc8wmorka3u)     | [@gregestren](https://github.com/gregestren) | Configurability
 |   2017-03-03 | [Label-keyed String Dictionary Type for Build Attributes](https://bazel.build/designs/2017/03/03/label-keyed-string-dict-type.html)        | [@serynth](https://github.com/serynth)           | Configurability       |
 |   2016-10-18 | [Invalidation of remote repositories](https://bazel.build/designs/2016/10/18/repository-invalidation.html)                                 | [@damienmg](https://github.com/damienmg)         | External Repositories |
 |   2016-10-11 | [Distribution Artifact for Bazel](https://bazel.build/designs/2016/10/11/distribution-artifact.html)                                       | [@aehlig](https://github.com/aehlig)             | Release               |
@@ -50,6 +51,7 @@ list.
 
 | Last updated | Title                                                                                                                                | Author(s) alias                                                              | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------- |
+|   2018-10-10 | [Platform Inheritance](designs/2018-10-09-platform-inheritance.md)                                                              | [@katre](https://github.com/katre)       | Configurability |
 |   2018-08-07 | [Repository Remapping Revisited](https://docs.google.com/document/d/1YBltt_jd4QTRzxkp1amsgfS6P8yBVDF4n1KGb3jcf_w/edit?usp=sharing)                                                                   | [@dkelmer](https://github.com/dkelmer)                                           | External Repositories |
 |   2018-07-04 | [Update Download Functions in repository_ctx](https://docs.google.com/document/d/1znnk1u3kdl4iOh3ptmJnW7nHr8UtkVl__Au4atLzNKc)       | [@dkelmer](https://github.com/dkelmer)                                       | External Repositories |
 |   2018-05-23 | [Crosstool in Skylark](https://docs.google.com/document/d/1Nqf16jqDGWSrPp4VuRxh0iNnVBoAXsO0meDH69J9xoc)                              | [@mhlopko](https://github.com/mhlopko)                                       | C++                   |
