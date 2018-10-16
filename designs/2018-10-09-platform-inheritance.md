@@ -26,10 +26,7 @@ The ability to define a parent for a platform would be useful for the execution 
 
 A platform that inherits from another will receive all of its constraint values, except for those that conflict with the constraints defined directly on the child platform. Because of the problems of merging constraint values and the possibilities for conflicts, platforms have a single parent that they inherit from, instead of a set of other platforms that they depend on.
 
-A new attribute, `parent`, will be added to the existing `platform` rule to set
-the base which the new platform inherits from. All constraint values set
-directly on the new platform will override values for the same constraint
-setting from the parent platform.
+A new attribute, `parents`, will be added to the existing `platform` rule to set the base which the new platform inherits from. The attribute will be a list of labels, but it will be an error to have more than one value. This will, however, allow for later migration to allowing multiple inheritance of platforms. All constraint values set directly on the new platform will override values for the same constraint setting from the parent platform.
 
 ## Example
 
@@ -52,7 +49,7 @@ platform(
 
 platform(
     name = "extend",
-    parent = ":base",
+    parents = [":base"],
     constraint_values = [
       ":clubs",
     ],
