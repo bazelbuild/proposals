@@ -10,7 +10,7 @@ and are sent for review on the
 [bazel-dev](https://groups.google.com/forum/#!forum/bazel-dev) mailing
 list.
 
-### State diagram of the design process:
+### State diagram of the design process
 
 ![State diagram of the design process](images/states.png)
 
