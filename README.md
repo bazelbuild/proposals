@@ -1,12 +1,18 @@
 # Bazel Proposals and Design Documents
 
-This is an index of all design documents and proposals for
+This is an index of all proposals and design documents for
 [Bazel](https://bazel.build).
+
+## Workflow
 
 New proposals follow the [design process](https://bazel.build/designs/index.html)
 and are sent for review on the
 [bazel-dev](https://groups.google.com/forum/#!forum/bazel-dev) mailing
 list.
+
+### State diagram of the design process
+
+![State diagram of the design process](images/states.png)
 
 # Index
 
