@@ -38,6 +38,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2018-10-10 | [Platform Inheritance](designs/2018-10-09-platform-inheritance.md)                                                     | [@katre](https://github.com/katre)       | Configurability |
 |   2018-10-15 | [Managing Breaking Changes in Bazel](https://docs.google.com/document/d/1Dj5PBLmPVg9ZyApm4GobM3y-mDgY3mVaqpRVttOe-ZQ/)| [@dslomov](https://github.com/dslomov) | Community       |
 |   2018-09-04 | [Starlark Build Configuration](https://docs.google.com/document/d/1vc8v-kXjvgZOdQdnxPTaV0rrLxtP2XwnD2tAZlYJOqw)                     | [@juliexxia](https://github.com/juliexxia), [@gregestren](https://github.com/gregestren)                                   | Configurability       |
 |   2018-08-20 | [Crosstool in Skylark](https://docs.google.com/document/d/1Nqf16jqDGWSrPp4VuRxh0iNnVBoAXsO0meDH69J9xoc/edit)           | [@scentini](https://github.com/scentini), [@mhlopko](https://github.com/mhlopko)   | C++                   |
@@ -54,7 +55,6 @@ list.
 | Last updated | Title                                                                                                                                | Author(s) alias                                                              | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------- |
 |   2018-10-17 | [Old Flags to Platform Migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls) | [@aragos](https://github.com/aragos) | Configurability |
-|   2018-10-10 | [Platform Inheritance](designs/2018-10-09-platform-inheritance.md)                                                              | [@katre](https://github.com/katre)       | Configurability |
 |   2018-08-07 | [Repository Remapping Revisited](https://docs.google.com/document/d/1YBltt_jd4QTRzxkp1amsgfS6P8yBVDF4n1KGb3jcf_w/edit?usp=sharing)                                                                   | [@dkelmer](https://github.com/dkelmer)                                           | External Repositories |
 |   2018-07-04 | [Update Download Functions in repository_ctx](https://docs.google.com/document/d/1znnk1u3kdl4iOh3ptmJnW7nHr8UtkVl__Au4atLzNKc)       | [@dkelmer](https://github.com/dkelmer)                                       | External Repositories |
 |   2018-05-23 | [Crosstool in Skylark](https://docs.google.com/document/d/1Nqf16jqDGWSrPp4VuRxh0iNnVBoAXsO0meDH69J9xoc)                              | [@mhlopko](https://github.com/mhlopko)                                       | C++                   |

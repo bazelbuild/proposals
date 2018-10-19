@@ -1,7 +1,7 @@
 ---
 created: 2018-10-09
 last updated: 2018-10-09
-status: In Review
+status: Approved
 reviewers:
   - gregce
 title: Platform Inheritance
