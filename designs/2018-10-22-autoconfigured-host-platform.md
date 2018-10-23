@@ -1,14 +1,14 @@
 ---
 created: 2018-10-22
-last updated: 2018-10-22
-status: Draft
+last updated: 2018-10-23
+status: In Review
 reviewers:
   - gregce@google.com
   - schmitt@google.com
 title: Auto-configured Host Platform
 authors:
   - katre
-discussion thread: PENDING
+discussion thread: https://groups.google.com/forum/#!msg/bazel-dev/s-YHxjyu4IE/CJ5nMejnBQAJ
 ---
 
 # Abstract
