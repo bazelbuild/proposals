@@ -60,6 +60,7 @@ list.
 
 | Last updated | Title                                                                                                                                | Author(s) alias                                                              | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------ | -------- |
+|   2018-10-29 | [Multiplex persistent worker](https://docs.google.com/document/d/1OC0cVj1Y1QYo6n-wlK6mIwwG7xS2BJX7fuvf1r5LtnU/edit?usp=sharing)               | [@borkaehw](https://github.com/borkaehw) | Bazel |
 |   2018-10-24 | [Resource auto-tuning via flags](https://docs.google.com/document/d/11N3SXtjPgGnlu0-cUU9gVegUMr5Wrjj_h8PCTGdQlB8/edit)               | [@jmmv](https://github.com/jmmv) | Performance |
 |   2018-10-23 | [Auto-configured Host Platform](designs/2018-10-22-autoconfigured-host-platform.md)                                           | [@katre](https://github.com/katre)       | Configurability |
 |   2018-10-23 | [Partial C++ Starlark API](https://docs.google.com/document/d/1_irTE1a8aTg8Hhf5mmlEXsFcwOw6-hz3a8FxufCyVKA/edit?ts=5bcf15dc#heading=h.7795zogmlqtv) | [@oquenchil](https://github.com/oquenchil) | C++ |
