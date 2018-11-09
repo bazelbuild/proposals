@@ -3,10 +3,10 @@ created: 2018-11-09
 last updated: 2018-11-09
 status: Draft
 reviewers:
-  - [serynth](https://github.com/serynth)
+  - serynth
 title: Config Setting Chaining
 authors:
-  - [gregestren](https://github.com/gregestren)
+  - gregestren
 ---
 
 # Config Setting Chaining
@@ -19,8 +19,8 @@ that enable `AND` and `OR` chaining, i.e. the ability to express *"this conditio
 matches if `config_settings` A, B, **and** C are true"* and *"this condition matches
 if `config settings` A, B, **o**r C are true"*.
 
-This addresses long-standing user feedback about the awkwardness of
-expressing these combinations with the current API.
+This addresses long-standing user feedback on the awkwardness of expressing
+these combinations with the current API.
 
 These extensions will be added to a standard Starlark library rather than core
 Bazel.
@@ -70,11 +70,11 @@ its `values` attribute matches. This keeps both the model and its implementation
 logic simple and adds less runtime overhead than more sophisticated models
 like regex parsing.
 
-Experience has shown that this simplicity sometimes makes it hard for users
-to express what they want. One of the most commonly expressed limitations is
-lack of boolean chaining. If you have `config_setting`s `:config1, `:config2,
-and `:config3 and want a `select` branch to trigger if any of them are true, you
-can write:
+Experience shows that this simplicity sometimes makes it hard for users to
+express what they want. One of the most commonly expressed limitations is lack
+of boolean chaining. If you have `config_setting`s `:config1`, `:config2`, and
+`:config3` and want a `select` branch to trigger if any of them are true, you can
+write:
 
 ```python
 select({
@@ -86,12 +86,13 @@ select({
 ```
 
 This is obviously redundant, scales poorly, and risks bugs if you, for example,
-change the value of `":desired_branch"` but accidentally forget a line.
+change the value of `":desired_branch"` but accidentally forget to update a
+line.
 
 If you want the `select` to trigger when *all* conditions are true, the story is
 even worse. There are basically two practical options. One is to define a new
 `config_setting` `:config1_and_2_and_3` and manually copy all `values` entries
-from the original ones here. This has the same scalability and bug issues as
+from the original ones there. This has the same scalability and bug issues as
 above. The other is to "chain" `select`s by having an initial `select` trigger
 on `:config1`, have that branch resolve to a dependency with its own `select`
 triggering on `:config2`, and so on. This is extremely verbose, hard to read,
@@ -117,16 +118,16 @@ sh_binary(
 
 This works well for embedding `OR` chains directly into `select` statements. But
 it's not reusable (since it binds the conditions and values they select together,
-so other `select`s can't re-use this) and doesn't offer a solution for `AND`.
+so other `select`s can't re-use them) and doesn't offer a solution for `AND`.
 
 ## Proposal
 
 This document proposes new Starlark macros that leverage the
 [`alias`](https://docs.bazel.build/versions/master/be/general.html#alias) rule
-to create new  `config_setting`s that `OR`-  or `AND`-wrap other
+to create new  `config_setting`s that `OR` or `AND`-wrap other
 `config_setting`s. Because these are real `config_setting`s, they can be used
-anywhere any other `config_setting` can be used. This makes them portable and
-easy to use.
+anywhere `config_setting`s are accepted. This makes them protable and easy to
+use.
 
 This proposal is inspired by ideas expressed by [@jfancher](https://github.com/jfancher) in
 [https://github.com/bazelbuild/bazel/issues/6449](https://github.com/bazelbuild/bazel/issues/6449#issuecomment-431471309).
@@ -137,7 +138,6 @@ Given `config_setting`s `:config1`, `:config2`, and `:config3`, a new macro in
 the [Skylib](https://github.com/bazelbuild/bazel-skylib)
 [`selects`](https://github.com/bazelbuild/bazel-skylib/blob/master/lib/selects.bzl)
 module called `config_setting_group` provides `OR` or `AND` chaining as follows:
-[`selects`](https://github.com/bazelbuild/bazel-skylib/blob/master/lib/selects.bzl)
 
 **OR:**
 ```python
@@ -246,7 +246,7 @@ def _config_setting_or_group(name, settings):
         _config_setting_always_true(name)
         return
 
-        # One entry? Just alias directly to it.
+    # One entry? Just alias directly to it.
     elif len(settings) == 1:
         native.alias(
             name = name,
@@ -338,7 +338,7 @@ def _config_setting_and_group(name, settings):
 def _config_setting_always_true(name):
     """ Returns a config_setting with the given name that's always true.
 
-    This is achieved by constructing a two-entry OR chain that where each
+    This is achieved by constructing a two-entry OR chain where each
     config_setting takes opposite values of a boolean flag.
     """
     name_on = name + "_stamp_binary_on_check"
@@ -354,11 +354,11 @@ def _config_setting_always_true(name):
     return _config_setting_or_group(name, [":" + name_on, ":" + name_off])
 ```
 
-### Error Reporting
+### Error Messages
 
 This approach produces good, but not perfect, errors on `select` fails.
 
-A failed `AND` evaluation of:
+A failed `AND` evaluation of
 
 ```python
 selects.config_setting_group(
@@ -371,7 +371,21 @@ select({
 })
 ```
 
-produces the error:
+produces the error
+
+```shell
+ERROR: /home/me/workspace/BUILD:10:10:
+Configurable attribute "cmd" doesn't match this configuration (would a default
+condition help?).
+Conditions checked:
+ //:config2
+```
+
+This is pretty *good*: it reports the first condition in the `AND` chain that
+doesn't match. This is precise, easily traceable, and actionable.
+
+`OR` chaining isn't quite as clear. When the equivalent `select` on `:any_config`
+fails, this produces
 
 ```shell
 ERROR: /home/me/workspace/BUILD:10:10:
@@ -381,29 +395,15 @@ Conditions checked:
  //:config3
 ```
 
-This is pretty *good*: it reports the first condition in the `AND` chain that
-doesn't match. This is precise, easily traceable, and actionable.
-
-`OR` chaining isn't quite as clear. When the equivalent `select` on `:any_config`
-fails, this produces:
-
-```shell
-ERROR: /home/me/workspace/BUILD:10:10:
-Configurable attribute "cmd" doesn't match this configuration (would a default
-condition help?).
-Conditions checked:
- //:config4
-```
-
 This only mentions the final condition. It makes no reference to any of the
 other conditions that were checked. There's no obvious way to improve this. One
-option is to create a new `config_setting` for the final link of the chain
-called `:config1_or_2_or_3_or_4`. But this also seems confusing and not worth
-the mild benefit.
+option is to create a new `config_setting` for the final chain link called
+`:config1_or_2_or_3`. But this also seems confusing and not worth the mild
+benefit.
 
 ## Alternatives
 
-The main alternative approach would be to embed chaining support direclty into
+The main alternative approach would be to ad chaining support directly to
 `config_setting`. This proposal rejects that approach for the following reasons:
 
 1. We value keeping `config_setting` as simple as possible. This keeps the core
@@ -420,14 +420,15 @@ logic writtern in Starlark. This proposal continues that momentum.
 
 1. Putting the logic in Starlark makes it easy for users to understand it, fork
 it for project-specific needs, and contribute patches. Logic in Bazel core is a
-huge barrier to wide participation.
+huge barrier to wide community participation.
 
 1. This proposal doesn't complicate `select` *at all* for users who don't need
 these features.
 
-1. Keeping the core logic simple helps preserve efficiency guarantees. Even the
-current logic has contributed to Bazel freezes and OOMs under rogue
-`select`s. More powerful models make it harder to reign these corner cases in.
+1. Keeping the core logic simple helps maintain efficiency guarantees. Even the
+current logic has contributed to Bazel freezes and OOMs with rogue
+`select`s (which thankfully have since been bug-fixed). More powerful models
+make it harder to reign these corner cases in.
 
 ## Followups
 
@@ -442,7 +443,7 @@ match*".
 [`selects.with_or`](https://github.com/bazelbuild/bazel-skylib/blob/8cecf885c8bf4c51e82fd6b50b9dd68d2c98f757/lib/selects.bzl#L17)
 called `selects.with_and`. This would provide `AND`-style embedded chaining
 directly in `select`s without having to define any new rules. This could work by
-implicitly calling `config_setting_group` with `match_all` and returning a
+implicitly calling `config_setting_group` with `match_all` and passing a
 reference to that alias to the `select`.
 
 ## Testing
@@ -450,7 +451,7 @@ reference to that alias to the `select`.
 Since `select` users heavily depend on the correctness of `config_setting` to
 control their build flow, thorough unit tests will be added to the `selects`
 module's [test
-file](https://github.com/bazelbuild/bazel-skylib/blob/master/tests/selects_tests.bzl).
+script](https://github.com/bazelbuild/bazel-skylib/blob/master/tests/selects_tests.bzl).
 
 ## References
 
