@@ -1,7 +1,7 @@
 ---
 created: 2018-11-09
 last updated: 2018-11-09
-status: Draft
+status: In review
 reviewers:
   - serynth
 title: Config Setting Chaining
