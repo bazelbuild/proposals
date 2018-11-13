@@ -7,6 +7,7 @@ reviewers:
 title: Config Setting Chaining
 authors:
   - gregestren
+discussion thread: https://groups.google.com/d/topic/bazel-dev/HWBijMHRTrg/discussion
 ---
 
 # Config Setting Chaining
