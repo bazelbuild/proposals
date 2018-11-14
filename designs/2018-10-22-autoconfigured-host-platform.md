@@ -1,7 +1,7 @@
 ---
 created: 2018-10-22
-last updated: 2018-10-23
-status: In Review
+last updated: 2018-11-14
+status: Approved
 reviewers:
   - gregce@google.com
   - schmitt@google.com
