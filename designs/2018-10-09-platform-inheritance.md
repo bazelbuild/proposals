@@ -1,7 +1,7 @@
 ---
 created: 2018-10-09
-last updated: 2018-10-19
-status: Approved
+last updated: 2018-11-14
+status: Implemented
 reviewers:
   - gregce
 title: Platform Inheritance
