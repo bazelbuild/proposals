@@ -333,7 +333,6 @@ As circular dependencies are not allowed, projects can always avoid this
 confusingly-looking semantics of a recursive bazel sync by presenting the
 entries in their `WORKSPACE` file in topological order.
 
-
 ### Recursive `sync` is necessarily sequential
 
 Another consequence of having a  precedence order on definitions of external
@@ -390,3 +389,64 @@ http_archive(
   assignments = {"z" : "y", "s" : "t", "a" : "b", "u" : "v", "x" : "y"},
 )
 ```
+
+
+### "Declare what you use" might lead to dropping of top-level definitions
+
+It is generally good practise to declare all the dependencies of a project
+that are used directly, including those that are also a dependency of another
+directly used dependency. The reason for this approach (sometimes also called
+"strict deps") is that direct dependencies might change their dependencies and,
+unless we declare all direct dependencies, some might become dangling once they
+no longer get pulled in indirectly.
+
+We encourage declaring all direct dependencies on external repositories in the
+world of recursive workspaces as well. This might imply that a definition in
+the top-level workspace is ignored if the same repository is pulled in earlier
+as an indirect dependency. As long as the dependency graph at a repository level
+is cycle free, the order can be chosen in such a way, that the definition in the
+top-level `WORKSPACE` file is discovered first. However, such an order might
+still become invalid if the declared (branch-following) direct dependencies
+change their dependency structure. Hence ease of declaring intent in the
+`WORKSPACE` file (i.e., not having to care about the structure of indirect
+dependencies) is conflicting with the desire of not having ingored repository
+definitions in the top-level `WORKSPACE` file. This proposal favours simplicity
+of writing `WORKSPACE` files over ease of reading off the version of a
+dependency from the `WORKSPACE` file.
+
+### Opt-out of recursion to break cyclic dependencies
+
+While the definitions of repositories have to be acyclic, and the dependency
+graph of the targets has to be acyclic as well, the latter need not induce
+a cycle-free graph on the repositories the targets come from. In other words,
+there might well be repositories `@A` and `@B` such that a target from `@A`
+depends on some target in `@B`, and some target in `@B` depends on a target of
+`@A`. In this case, the `WORKSPACE` files of `@A` and `@B` contain each other,
+making it a priori impossible to specify both `@A` and `@B` in a recursive
+workspace.
+
+As an escape-hatch for these situations, i.e., cyclic dependencies between
+repositories in conjunction with the need to chose specific versions for
+both, we allow another magic parameter `recursive` to every repository rule
+(magic in the sense as `assignments` is a magic parameter that has a special
+meaning regardless of how the rule otherwise choses to interpret its
+parameters). If set to `False`, it will prevent recursive expansion of that
+repository, even in recursive `sync`s. For commands other than a recursive
+`sync`, this parameter is always ignored. If a rule is not recursive, it is
+the responsibility of the author of the global `WORKSPACE` file to ensure that
+all dependencies of the targets in that repository are added to the global
+workspace in some way.
+
+### Support for resolved files in direct dependencies
+
+This design basically proposes using resolved files as a checked-in cache for
+the depth-first traversal of the dependency graph. Now, if a direct dependency
+has a resolved file already, it might be desirable to use that instead of
+recursively traversing its `WORKSPACE` file. First of all, this would
+be faster, as fewer repositories would have to bloaded. Second, and more
+importantly, the commited resolved file might contain a well tested snapshot of
+the needed dependencies that works well together. So, to allow supporting
+reusing resolved files in dependencies, we allow the `recursive` parameter to
+be a string as well. If it is, and a file with that name exists relative to the
+top of the external repository, then this file is read as a resolved file
+instead of recursively interpreting the `WORKSPACE` in this repository.
