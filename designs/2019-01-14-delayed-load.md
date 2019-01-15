@@ -50,7 +50,8 @@ that still have to be defined, we suggest adding a new boolean
 parameter `delay_load` to the `load` statement, defaulting to
 `False`. (As the value cannot be a string, there is no overlap
 with with aliased imports; but we can still decide to disallow an
-import to be aliased to `delay_load`.) It will be an error if a
+import to be aliased to `delay_load`.) Delayed loading is only available
+in a `WORKSPACE` context. It will be an error if a
 `delay_load` is set to `True` in a file
 not included (directly or indirectly) from the
 (top-level) `WOKRSPACE` file.
