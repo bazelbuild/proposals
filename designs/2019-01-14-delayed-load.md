@@ -51,16 +51,17 @@ parameter `delay_load` to the `load` statement, defaulting to
 `False`. (As the value cannot be a string, there is no overlap
 with with aliased imports; but we can still decide to disallow an
 import to be aliased to `delay_load`.) It will be an error if a
-value different from `False` is used if the file containing the
-`load` statement is not included (directly or indirectly) from the
+`delay_load` is set to `True` in a file
+not included (directly or indirectly) from the
 (top-level) `WOKRSPACE` file.
 
 If a `load` statement with `delay_load` set to `True` is executed,
 it binds the corresponding variables not to a value, but to a thunk
-that is evaluated on first use. On that first use, the repository
+that is evaluated on first use (in particular, the thunk is never
+executed if the symbol is never used). On that first use, the repository
 with the file to be loaded has to be already defined, otherwise
-bazel will error out. At the same time, the definition of the
-external repository the file load from belongs to (if was taken
+bazel will error out. At the same time,
+the external repository that the file was loaded from (if it was taken
 from an external repository) will be made immutable; any further
 attempts to redefine that external repository will be ignored.
 
