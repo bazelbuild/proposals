@@ -49,6 +49,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2019-01-15 | [Bazel Starlark API: add ctx.resolve_tools](https://docs.google.com/document/d/1xPsvTY-vWav9zX--7ieXjUilcl7M46m-88_oNV0QhEU/edit) | [@laszlocsomor](https://github.com/laszlocsomor) |  Starlark |
 |   2018-11-16 | [Old Flags to Platform Migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls) | [@aragos](https://github.com/aragos) |  Configurability |
 |   2018-11-14 | [Auto-configured Host Platform](designs/2018-10-22-autoconfigured-host-platform.md)                                    | [@katre](https://github.com/katre)                                                 | Configurability       |
 |   2018-11-09 | [Config Setting Chaining](designs/2018-11-09-config-setting-chaining.md) | [@gregestren](https://github.com/gregestren) | Configurability  |
