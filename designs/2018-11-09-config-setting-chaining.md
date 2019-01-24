@@ -43,7 +43,7 @@ the
 rule:
 
 ```python
-confifg_setting(
+config_setting(
     name = "if_arm",
     values = {"cpu": "arm"}
 )
