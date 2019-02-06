@@ -1,6 +1,6 @@
 ---
 created: 2019-01-14
-last updated: 2019-01-14
+last updated: 2019-02-06
 status: draft
 title: Delaying of `load` statements
 authors:
@@ -90,3 +90,67 @@ statements appear in the file before any other statements. Moreover,
 the recursive `*_deps` pattern is not tied to a fixed traversal
 strategy; `*_deps` functions may choose to first define all or some
 repositories before calling their `deps` functions.
+
+# Possible implementation
+
+Unfortunately, the evaluation of a `WORKSPACE` file is not that
+imperative, as it is evaluated in the Skyframe framework. If other
+information is needed, e.g., a file from a different repository,
+then it has to be requested and, if not yet available, the current
+computation has to return `null` and gets restarted once the value
+is fetched. The dependency graph of computations depending on other
+values has to be cycle free.
+
+## Extending of `SkyKey`s for fragments of the `WORKSPACE` file
+
+The `SkyKey` for a fragment of the `WORKSPACE` file is currently
+given by the path and the index of the chunk; here, the `WORKSPACE`
+file is divided into chunks at each block of `load` statements. The
+only way, these keys are obtained is by starting with the initial
+key, asking for the corresponding value and get the next key as
+the `next()` part of the value, and so on, following this chain.
+
+Now, if we would keep this structure of the `SkyKey`, upon evaluating
+a delayed `load`, the `compute` function for such a key would have
+to ask for that repository to be fetched and wait to be restarted.
+Doing this directly, the newly discovered definition of the repository
+would never be made known to Skyframe.
+
+To overcome this problem, we propose to extend the `SkyKey` for
+the `WORKSPACE` by a "subindex" which is the set of the names of
+the newly discovered repository definitions in earlier evaluations.
+Then upon a thunk being forced with the repository not yet loaded,
+the `compute` function can return a value with the repositories
+discovered so far (in particular, the newly discovered definition
+of the repository that was loaded lazily). That value will have as
+a `next` value the same key, with the subindex extended by the name
+of the repository the thunk referred to (and where the definition
+was just discovered). When the `compute` function for that extended
+key is evaluated, the subindex tells for which repositories the
+definition is already available from previous iterations; for those,
+the function will ask for the respective files to be fetched, even
+if the loading is delayed.
+
+A [proof-of-concept implementation of delayed `load`
+statements](https://bazel-review.googlesource.com/c/bazel/+/88830)
+based on this extension of the `WorkspaceFileKey`s is available.
+
+## Handling of `native.existing_rules()`
+
+Special care has to be taken in the implementation of the function
+`native.existing_rules()`. Under the proposed change of the
+`SkyKey` structure, a `WORKSPACE` chunk is evaluated several times
+and on later iterations with repository definitions known from
+previous iterations. Doing so without changing the implementation
+of `native.existing_rules()` can lead to such a call anticipating
+definitions happening only later in that chunk; in particular, it
+could lead to a different execution path being taken the second
+time this Starlark code is evaluated.
+
+Fortunately, the proposed subindex contains the names of all the
+repositories which should be considered not known from previous
+chunks, but, instead, only be mentioned in `native.existing_rules()`
+if freshly defined in the current evaluation. To do so, the list
+of anticipated definitions, i.e., the subindex, has to be passed
+through the whole Starlark evaluation mechanism. (This has not been
+done in the mentioned prototype implementation.)
