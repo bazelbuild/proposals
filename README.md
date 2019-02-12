@@ -92,6 +92,8 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2019-02-12 | [Execution Transitions](designs/2019-02-12-execution-transitions.md) | [@katre](https://github.com/katre) | Configurability |
+|   2019-02-12 | [Toolchain Transitions](designs/2019-02-12-toolchain-transitions.md) | [@katre](https://github.com/katre) | Configurability |
 |   2019-01-14 | [Delaying of `load` statements](designs/2019-01-14-delayed-load.md)                                                             | [@aehlig](https://github.com/aehlig)     | External Repositories |
 |   2018-11-27 | [Repository rules with multiple return values](designs/2018-11-27-meta-rules.md)                                                | [@aehlig](https://github.com/aehlig)     | External Repositories |
 |   2018-11-09 | [Customizing the Python Stub Template](https://github.com/bazelbuild/rules_python/blob/master/proposals/2018-11-08-customizing-the-python-stub-template.md)                            | [@brandjon](https://github.com/brandjon)                                           | Python |
