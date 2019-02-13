@@ -12,9 +12,10 @@ authors:
 # Abstract
 
 Historically, Bazel has had a single configuration used for targets that need to
-be executed on the host. This is called the **host configuration**, and is created
-when Bazel begins analysis. Every dependency that is built for the host platform
-shares the same host configuration.
+be executed on the host. This is called the
+[**host configuration**](https://docs.bazel.build/versions/master/guide.html#configurations),
+and is created when Bazel begins analysis. Every dependency that is built for
+the host platform shares the same host configuration.
 
 This fails to work properly when actions can be executed on platforms different
 from the host platform (for example, using remote execution). In these cases,
@@ -55,6 +56,15 @@ and
 any tools (which are built for the execution platform) will use the latter flag.
 This allows, for example, building output targets with debugging code, while
 using optimized builds for tools that are invoked during the build.
+
+Since the selected execution platform is strictly a function of the required
+toolchains, the target platform, and the available execution platforms and
+toolchains, there are no worries that this will add any non-determinism to the
+build. However, the new data added (the selected execution platform label) will
+cause the configuration key to change, as the configuration itself is different.
+This could be avoided if there were an out-of-band way to pass information into
+a transition, or a way to use transition factories instead of static transitions
+when defining attribute configurations.
 
 For native rules, accessing the new transition will involve changing transitions
 from `.cfg(HostTransitions.INSTANCE)` to `.cfg(ExecTransition.INSTANCE)`.

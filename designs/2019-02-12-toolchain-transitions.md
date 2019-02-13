@@ -11,13 +11,12 @@ authors:
 
 # Abstract
 
-Toolchains need access to two separate platforms, both relating to the target
-that requires the toolchain: the target platform of the original target, and the
-execution platform of the original target. This is because a toolchain needs to
-select the proper tools to use in the build (and which will be run on the
-execution platform), but it also may want to build additional code that can be
-linked into the target (and which, then, needs to be built for the eventual
-target platform).
+Toolchains need access to two separate platforms: the target platform of the
+original target that requires a toolchain, and the execution platform of the
+original target. This is because a toolchain needs to select the proper tools to
+use in the build (and which will be run on the execution platform), but it also
+may want to build additional code that can be linked into the target (and which,
+then, needs to be built for the eventual target platform).
 
 See the related design for [Execution Transitions](2019-02-12-execution-transitions.md).
 
@@ -57,9 +56,9 @@ In this build graph, we have several targets which require different configurati
     initial configuration (C1).
 1.  `compiler` - Because the `foo_library` rule intends to use this as the
     executable for an action while building the output of `example`, it needs to
-    be in a different configuration (C2). C2 is the result of using the
-    [Execution Transition](2019-02-12-execution-transitions.md) on C1 from
-    `example`.
+    be in a different configuration (C2). C2 is the result of applying the
+    [Execution Transition](2019-02-12-execution-transitions.md) to C1 (which is
+    the original configuration used by `example`).
 
 The simplest implementation is to allow the toolchain implementation (the target
 `foo_toolchain_impl` in this example) to use almost the same configuration as
