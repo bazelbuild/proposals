@@ -1,12 +1,13 @@
 ---
 created: 2019-02-12
-last updated: 2019-02-12
-status: Draft
+last updated: 2019-02-13
+status: In Review
 reviewers:
   - gregce
 title: Toolchain Transitions
 authors:
   - katre
+discussion thread: https://groups.google.com/forum/#!topic/bazel-dev/5osWxhoF0Fk
 ---
 
 # Abstract
