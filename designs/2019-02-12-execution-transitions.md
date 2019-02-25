@@ -71,6 +71,10 @@ place:
     internal-only flag to the `--platforms` flag. This will replace any value of
     `--platforms` set by `getHost()`.
 1.  The internal-only flag will be cleared.
+1.  After other transitions have been applied, the (in process)
+    [flag migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls/edit)
+    process will then update related legacy flags, such as `--cpu` and
+    `--crosstool_top`.
 
 The `getHost` method will be called to allow for flags to be set to reasonable
 default values for non-target builds. For example, users expect that when they
