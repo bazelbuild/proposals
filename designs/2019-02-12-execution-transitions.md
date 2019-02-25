@@ -41,12 +41,13 @@ If no execution platform is selected, this internal-only flag will be cleared.
 Then, when the new execution transition is used, the following steps will take
 place:
 
-1.  The previous execution platform's label will be copied from the
-    internal-only flag to the `--platforms` flag.
-1.  The internal-only flag will be cleared.
 1.  For all fragments, the
     [FragmentOptions.getHost](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/config/FragmentOptions.java;l=61)
     method will be called.
+1.  The previous execution platform's label will be copied from the
+    internal-only flag to the `--platforms` flag. This will replace any value of
+    `--platforms` set by `getHost()`.
+1.  The internal-only flag will be cleared.
 
 The `getHost` method will be called to allow for flags to be set to reasonable
 default values for non-target builds. For example, users expect that when they
