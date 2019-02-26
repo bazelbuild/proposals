@@ -61,6 +61,20 @@ In this build graph, we have several targets which require different configurati
     [Execution Transition](2019-02-12-execution-transitions.md) to C1 (which is
     the original configuration used by `example`).
 
+The new toolchain transition only applies to the dependency from a target to its
+toolchains, and is not applicable for other attributes. The transition will be
+added to the toolchain dependencies in
+[`DependencyResolver.partiallyResolveDependencies`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/DependencyResolver.java;bpv=;bpt=1;l=320).
+
+Another advantage to using the target configuration (C1 in the above example)
+for toolchain implementations is that `select()` and `config_setting` will work
+as users expect. Currently, toolchain implementations are analyzed in the host
+configuration, and so all flags in `config_setting`s will reflect that, instead
+of the target configuration. Using the target configuration will allow users to
+better match their `select()` calls with the actual flags seen.
+
+## Implementation
+
 The simplest implementation is to allow the toolchain implementation (the target
 `foo_toolchain_impl` in this example) to use almost the same configuration as
 the original target (`example`). The differences are in a few internal-only
@@ -76,7 +90,14 @@ correct execution platform, using the previously defined execution transition.
 Secondly, the toolchain-&gt;library dependency (`foo_toolchain_impl` -&gt;
 `standard_library`) can use the identity transition, to inherit the original
 target's configuration. This avoids the need to transition to a special
-configuration, and then back to the original target configuration.
+configuration, and then back to the original target configuration. Any
+internal-only flags should ideally be cleared as part of this.
+
+After other transitions have been applied, the (in process)
+[flag migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls/edit)
+process will then update related legacy flags, such as `--cpu` and
+`--crosstool_top`.
+
 
 The new transition will not be exposed to Starlark rules (or to native rules,
 outside of the toolchain resolution system).
@@ -91,12 +112,15 @@ require a migration period.
 1.  Add a new incompatible flag, `--incompatible_enable_toolchain_transition`.
 1.  Add `exec` as a synonym for `host` for the `cfg` parameter to
     [attribute declaration](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/skylark/SkylarkAttr.java;drc=a65ce6d547ee36f7d1fbeb81105d22849193371f;bpt=1;l=269).
-1.  Existing toolchains add `cfg = "exec"` to all dependencies. This is a no-op
-    change.
+1.  Existing toolchains add `cfg = "exec"` to all attributes. This is a no-op
+    change, since every toolchain dependency is currently implicitly in the host
+    configuration.
 1.  If the incompatible flag is set, enable the new toolchain transition for
     target-&gt;toolchain dependencies.
 1.  Update [Starlark's attribute machinery](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/skylark/SkylarkAttr.java;drc=a65ce6d547ee36f7d1fbeb81105d22849193371f;bpt=1;l=269)
     to use the execution transition for `exec` instead of the host transition.
+    This migration will need to be carefully tested and may need its own
+    incompatible flag.
 
 There would need to be pauses for Bazel releases between steps 2 and 3, and 3
 and 4. Steps 4 and 5 can happen in the same release.
