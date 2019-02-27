@@ -34,19 +34,47 @@ execution platform (the closest flag available is
 [`--extra_execution_platforms`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/PlatformOptions.java;l=56?q=extra_execution_platforms),
 which adds available execution platforms, but does not select one).
 
-To enable the new transition, during toolchain resolution, the selected
+This new transition needs to be usable on any attribute, regardless of whether
+the rule involved is providing a toolchain itself. As an example, the `genrule`
+rule has an attribute named `tools`, which should be built in the context of the
+execution platform, instead of the current host platform.
+
+Because of this, the execution transition will be a single-instanced
+implementation of
+[`PatchTransition`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/config/transitions/PatchTransition.java),
+similarly to how
+[`HostTransition.INSTANCE`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/config/HostTransition.java)
+is implemented. This will require special handling in
+[`DependencyResolver`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/DependencyResolver.java)
+to pass in the correct execution platform.
+
+For native rules, accessing the new transition will involve changing transitions
+from `.cfg(HostTransitions.INSTANCE)` to `.cfg(ExecTransition.INSTANCE)`.
+
+For Starlark rules, a new argument to the existing `cfg` parameter will be
+added, allowing rules to declare attributes with `cfg = "exec"` instead of `cfg
+= "host"`.
+
+## Implementation
+
+To implement the new transition, during toolchain resolution, the selected
 execution platform's label will be added to an internal-only flag on
-[PlatformOptions](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/PlatformOptions.java).
+[`PlatformOptions`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/PlatformOptions.java).
 If no execution platform is selected, this internal-only flag will be cleared.
 Then, when the new execution transition is used, the following steps will take
 place:
 
-1.  The previous execution platform's label will be copied from the
-    internal-only flag to the `--platforms` flag.
-1.  The internal-only flag will be cleared.
 1.  For all fragments, the
     [FragmentOptions.getHost](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/config/FragmentOptions.java;l=61)
     method will be called.
+1.  The previous execution platform's label will be copied from the
+    internal-only flag to the `--platforms` flag. This will replace any value of
+    `--platforms` set by `getHost()`.
+1.  The internal-only flag will be cleared.
+1.  After other transitions have been applied, the (in process)
+    [flag migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls/edit)
+    process will then update related legacy flags, such as `--cpu` and
+    `--crosstool_top`.
 
 The `getHost` method will be called to allow for flags to be set to reasonable
 default values for non-target builds. For example, users expect that when they
@@ -67,12 +95,15 @@ This could be avoided if there were an out-of-band way to pass information into
 a transition, or a way to use transition factories instead of static transitions
 when defining attribute configurations.
 
-For native rules, accessing the new transition will involve changing transitions
-from `.cfg(HostTransitions.INSTANCE)` to `.cfg(ExecTransition.INSTANCE)`.
+### Other implementation possibilities
 
-For Starlark rules, a new argument to the existing `cfg` parameter will be
-added, allowing rules to declare attributes with `cfg = "exec"` instead of `cfg
-= "host"`.
+Instead of using an internal-only flag which is set unconditionally during
+toolchain resolution, `DependencyResolver` could be updated to detect that the
+new `Executiontransition.INSTANCE` transition is being used, and directly inject
+the execution platform at that point. This would simplify the configuration
+changes, at the cost of making the implementation less flexible. In particular,
+it would require more work to identify an execution transition that is part of a
+composed transition.
 
 # Backwards Compatibility
 
