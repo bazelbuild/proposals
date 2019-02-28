@@ -2,7 +2,8 @@
 created: 2019-02-26
 last updated: 2019-02-26
 status: Draft
-reviewers:
+reviewers: 
+  - ulfjack
 title: Remote File System for Bazel
 authors:
   - royrah
