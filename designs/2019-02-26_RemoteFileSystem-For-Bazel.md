@@ -13,7 +13,7 @@ discussion thread:
 # Overview
 Bazel as a build tool natively expects files of the build action requested to be present on Disk. For a monorepo of a significant size, dumping out the entire repository for every single build , even with bazel's caching is going to be a significant overhead.
 
-Statistically, a repo which is ~2 GBs of source needs around 1-2 mins to dump out to disk. This proposal intends to address this particular issue by extending bazel to support a Remote File system , which can talk to any repository which supports Content addressable storage of source files to be able to provide on demand , requested files/contents hashes/file stats via HTTP/GRPC endpoints.
+Statistically, a repo which is ~2 GBs of source needs around 1-2 mins to dump out to disk. This proposal intends to address this particular issue by extending bazel to support a Remote File system , which can talk to any repository which supports Content addressable storage of source files to be able to provide on demand , requested files/contents hashes/file stats via HTTP/GRPC endpoints. Alternatively , a FUSE store can be specified as the type and associated mount point can be passed along as a startup option.
 
 # Existing Approaches
 Currently , the bazel server does not support OOTB any way to get around having files on the local disk where bazel server is running. Even with the remote [ BuildFarm ] setup , the local files are uploaded to the remote server for being actioned on.
@@ -53,41 +53,6 @@ RemoteFileSystem options should at the minimum be the following :
 4. **--remote_filesystem_prefixes** : enables the delegating file system to decide what paths should be delegated to the RemoteFileSystem
 5. **--remote_filesystem_version** : optional parameter to point to version of the underlying repository to be used , defaults to master
 
-```Java
-public static DelegatingFileSystem make(
-        FileSystem writeDelegate, FileSystem remoteDelegate, PathFragment ... customPrefixes ) throws DigestHashFunction.DefaultHashFunctionNotSetException {
-   //Basic checks to ensure read and write delegates are compliant, then call a private constructor
-
- return new DelegatingFileSystem(writeDelegate, readDelegate, customPrefixes);
-}
-private FileSystem getDelegate(Path path) {
-    //based of custom prefixes/other implementation detail figure out the correct handler for operations
-}
-```
-
-An example :
-```Java
-@Override
-protected long getFileSize(Path path, boolean followSymlinks) throws IOException {
-    return getDelegate(path).getFileSize(path, followSymlinks);
-}
-```
-The RemoteFileSystem consists of the client which makes the HTTP/GRPC calls to the backend server .Minimally looks as follows :
-
-```Java
-private RemoteFileSystemClient remoteClient;
-
-public RemoteFileSystem() throws DigestHashFunction.DefaultHashFunctionNotSetException {}
-
-public RemoteFileSystem(DigestHashFunction hashFunction) {
-    super(hashFunction);
-}
-
-public RemoteFileSystem(RemoteFileSystemOptions remoteOptions, PathFragment workspaceDir, BlazeServerStartupOptions startupOptions)
-        throws DigestHashFunction.DefaultHashFunctionNotSetException {
- remoteClient = RemoteFileSystemClientFactory.create(remoteOptions, workspaceDir, startupOptions);
-}
-```
 
 Any server attempting to support a remote file system implementation , will need to support the following requests :
 
@@ -118,14 +83,25 @@ import "build/bazel/remote/execution/v2/remote_execution.proto";
 //file system enabled.
 service RemoteFileSystem {
 
-    rpc FetchData(FileSystemRequest) returns (FileSystemResponse) {
-        option (google.api.http) = { get: "/remotefs/{type}/{repo_version}/{path}" };
+    rpc FetchDigest(FileSystemRequest) returns (build.bazel.remote.execution.v2.Digest) {
+        option (google.api.http) = { get: "/remotefs/digest/{repo_version}/{path}" };
+    }
+
+    rpc FetchStat(FileSystemRequest) returns (FileStat) {
+        option (google.api.http) = { get: "/remotefs/file_stat/{repo_version}/{path}" };
+    }
+
+    rpc FetchDirents(FileSystemRequest) returns (DirectoryEntries) {
+        option (google.api.http) = { get: "/remotefs/dirents/{repo_version}/{path}" };
+    }
+
+    rpc FetchContent(FileSystemRequest) returns (stream DataChunk) {
+        option (google.api.http) = { get: "/remotefs/file_content/{repo_version}/{path}" };
     }
 }
 
-//a request to the remote file system is almost exclusively always comprised of 3 components
-//the type of the request,  a path to resolve , and the version of the repository against which to find the path
-//The type parameter helps the server respond appropriately to different queries
+//a request to the remote file system is always comprised of 2 components
+//a path to resolve , and the version of the repository against which to find the path
 message FileSystemRequest {
     //the relative path for this request, note that this relative to the WORKSPACE
     string path = 1;
@@ -136,31 +112,6 @@ message FileSystemRequest {
     //default value for this be master , and can be overridden with an empty string to if the underlying
     //FileSystem of the remote server doesn't rely on versions.
     string repo_version = 2;
-
-    enum RequestType {
-        //request for hash of the file denoted by the path
-        DIGEST = 0;
-
-        //request for file state returning {@FileStat}
-        FILE_STAT = 1;
-
-        //request for listing directory entries at a particular path
-        DIRENTS = 2;
-
-        //request for the actual byte content of a file
-        FILE_CONTENT = 3;
-    }
-
-    RequestType type = 3;
-}
-
-message FileSystemResponse {
-    oneof response {
-        build.bazel.remote.execution.v2.Digest digest = 1;
-        DirectoryEntries entries = 2;
-        FileStat filestat = 3;
-        OutputFile filecontent = 4;
-    }
 }
 
 //collection containing the names of all entities within the directory denoted by the path
@@ -192,34 +143,28 @@ message FileStat {
     //like file sysytems
     int64 last_change_time = 4;
 
-    //Is the requested path a regular file ?
-    bool isFile = 5;
+    //Type of the file requested corresponding to the path
+    enum FileType {
+        //a regular file
+        REGULAR_FILE = 0;
+
+        // a Direcotry
+        DIRECTORY = 1;
+
+        //Symlink or jucntion ( for windows )
+        SYMLINK = 2;
+    }
+
+    FileType fileType = 5;
 }
 
-message OutputFile {
-    // The full path of the file relative to the input root, including the
-    // filename. The path separator is a forward slash `/`.
-    string path = 1;
-
-    // The digest of the file's content.
-    build.bazel.remote.execution.v2.Digest digest = 2;
-
-    // The raw content of the file.
-    //
-    // This field may be used by the server to provide the content of a file
-    // inline in an
-    // [ActionResult][google.devtools.remoteexecution.v1test.ActionResult] and
-    // avoid requiring that the client make a separate call to
-    // [ContentAddressableStorage.GetBlob] to retrieve it.
-    //
-    // The client SHOULD NOT assume that it will get raw content with any request,
-    // and always be prepared to retrieve it via `digest`.
-    bytes content = 3;
+message DataChunk {
+    // The raw content of the file, chunked to 1MB blocks.
+    bytes content = 1;
 }
 
 ```
 
 # Caveats
-1. This implementation currently, causes a server restart on change of the source tree ( branch in git terminology ). 
-2. There is presently a need to have BUILD/WORKSPACE files locally dumped to disk before kicking off the build, Need to figure out if atleast the BUILD files can be remoted too.
+1. There is presently a need to have BUILD/WORKSPACE files locally dumped to disk before kicking off the build.
 
