@@ -57,20 +57,48 @@ added, allowing rules to declare attributes with `cfg = "exec"` instead of `cfg
 
 ## Implementation
 
-To implement the new transition, during toolchain resolution, the selected
-execution platform's label will be added to an internal-only flag on
-[`PlatformOptions`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/PlatformOptions.java).
-If no execution platform is selected, this internal-only flag will be cleared.
-Then, when the new execution transition is used, the following steps will take
-place:
+### Sidebar: Transition Factories
+
+Currently, Bazel's [`ConfigurationTransition`
+interface](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/config/transitions/ConfigurationTransition.java)
+can be implemented by code which wants to transition from one configuration to
+another. However, most configuration transitions are static instances, created
+once for each
+[attribute](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/packages/Attribute.java;l=655).
+Execution transitions need to be specific to each configured target, since they
+need to know the execution platform that was selected for that target.
+
+The solution for this is a standard computer science approach: we replace static
+transition instances with higher-level Transition Factories. Transitions which
+require extra information at creation time can be created by factories which
+have access to the needed data. This is actually the what the currently
+implemented
+[`SplitTransitionProvider`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/packages/Attribute.java;l=296)
+and
+[`RuleTransitionFactory`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/packages/RuleTransitionFactory.java)
+work, except in an ad hoc and unrelated manner.
+
+In addition to the new Transition Factory interface, additional helper classes
+will be added such as wrappers (to convert a `ConfigurationTransition` to a
+factory) and a new `ComposingTransitionFactory` (analogous to the existing
+[`ComposingTransition`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/config/transitions/ComposingTransition.java).
+
+### Execution Transition
+
+To implement the new execution transition, using the result of toolchain
+resolution, a new transition factory will be created and used. This factory will
+access the
+[`UnloadedToolchainContext`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/ToolchainResolver.java;l=459)
+present in the rule, and pass the selected execution platform to the newly
+created `Configurationtransition` instance that it creates.
+
+In the new transition, the following steps will take place:
 
 1.  For all fragments, the
     [FragmentOptions.getHost](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/config/FragmentOptions.java;l=61)
     method will be called.
-1.  The previous execution platform's label will be copied from the
-    internal-only flag to the `--platforms` flag. This will replace any value of
-    `--platforms` set by `getHost()`.
-1.  The internal-only flag will be cleared.
+1.  The previous execution platform's label will be copied to the `--platforms`
+    flag. This will replace any value of `--platforms` set by `getHost()`.
 1.  After other transitions have been applied, the (in process)
     [flag migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls/edit)
     process will then update related legacy flags, such as `--cpu` and
@@ -97,7 +125,7 @@ when defining attribute configurations.
 
 ### Other implementation possibilities
 
-Instead of using an internal-only flag which is set unconditionally during
+Instead of using a transition factory which is set unconditionally during
 toolchain resolution, `DependencyResolver` could be updated to detect that the
 new `Executiontransition.INSTANCE` transition is being used, and directly inject
 the execution platform at that point. This would simplify the configuration
