@@ -71,7 +71,7 @@ need to know the execution platform that was selected for that target.
 The solution for this is a standard computer science approach: we replace static
 transition instances with higher-level Transition Factories. Transitions which
 require extra information at creation time can be created by factories which
-have access to the needed data. This is actually the wat the currently
+have access to the needed data. This is actually the what the currently
 implemented
 [`SplitTransitionProvider`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/packages/Attribute.java;l=296)
 and
