@@ -1,7 +1,7 @@
 ---
 created: 2019-02-12
-last updated: 2019-02-13
-status: In Review
+last updated: 2019-03-22
+status: Approved
 reviewers:
   - gregce
 title: Execution Transitions
@@ -122,6 +122,9 @@ cause the configuration key to change, as the configuration itself is different.
 This could be avoided if there were an out-of-band way to pass information into
 a transition, or a way to use transition factories instead of static transitions
 when defining attribute configurations.
+
+Bazel queries need to ensure that the `--nohost_deps` flag also ignores
+execution dependencies.
 
 ### Other implementation possibilities
 
