@@ -3,7 +3,8 @@ created: 2019-04-04
 last updated: 2019-04-04
 status: To be reviewed
 reviewers:
-  - ?
+  - lberki
+  - laurentlb
 title: Dependencies pruning in starlark
 authors:
   - emmanuel-p
