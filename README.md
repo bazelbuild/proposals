@@ -77,6 +77,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2019-04-22 | [Move //tools/build_defs/pkg to rules_pkg](https://docs.google.com/document/d/1GAbAiW0nVbxGlwsdXhFIcn3owlZJkMJiXBt-ttA9z_k/edit)     | [@aiuto](https://github.com/aiuto) | Bazel |
 |   2019-04-16 | [Common Bazel Constraints](https://docs.google.com/document/d/1bqPF7CjHI03xHZmpy8gOE186uNjeU3dGYU8v2t-qiJ8/edit)     | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2019-04-09 | [Experimental Content-Based Output Paths](https://docs.google.com/document/d/17snvmic26-QdGuwVw55Gl0oOufw9sCVuOAvHqGZJFr4/edit#heading=h.t17gam73gxzg) | [@gregestren](https://github.com/gregestren) | Configurability
 |   2018-11-07 | [Starlark Build Configurations - Parameterized-Transitions API](https://docs.google.com/document/d/1VIRx06cZB4wLU-ASq1XKFHmx67yfHtNOCbCempaPeaA)           | [@juliexxia](https://github.com/juliexxia)                                   | Configurability       |
