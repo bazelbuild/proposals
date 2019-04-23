@@ -71,7 +71,7 @@ need to know the execution platform that was selected for that target.
 The solution for this is a standard computer science approach: we replace static
 transition instances with higher-level Transition Factories. Transitions which
 require extra information at creation time can be created by factories which
-have access to the needed data. This is actually the what the currently
+have access to the needed data. This is actually how the currently
 implemented
 [`SplitTransitionProvider`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/packages/Attribute.java;l=296)
 and
@@ -90,7 +90,7 @@ resolution, a new transition factory will be created and used. This factory will
 access the
 [`UnloadedToolchainContext`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/ToolchainResolver.java;l=459)
 present in the rule, and pass the selected execution platform to the newly
-created `Configurationtransition` instance that it creates.
+created `ConfigurationTransition` instance that it creates.
 
 In the new transition, the following steps will take place:
 
@@ -130,7 +130,7 @@ execution dependencies.
 
 Instead of using a transition factory which is set unconditionally during
 toolchain resolution, `DependencyResolver` could be updated to detect that the
-new `Executiontransition.INSTANCE` transition is being used, and directly inject
+new `ExecutionTransition.INSTANCE` transition is being used, and directly inject
 the execution platform at that point. This would simplify the configuration
 changes, at the cost of making the implementation less flexible. In particular,
 it would require more work to identify an execution transition that is part of a

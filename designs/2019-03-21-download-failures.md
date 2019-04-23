@@ -1,7 +1,7 @@
 ---
 created: 2019-03-21
 last updated: 2019-03-21
-status: To be reviewed
+status: Implemented
 title: Handling download failures
 authors:
   - aehlig
