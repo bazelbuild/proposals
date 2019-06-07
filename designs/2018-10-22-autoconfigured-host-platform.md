@@ -44,7 +44,7 @@ This change removes some functionality: the current behavior uses the `--cpu` an
 This change will be released in several steps, with several pauses between releases in accordance with the Incompatible Change Policy:
 1. Add the new repository, but do not directly use the new label anywhere.
   - This is finished.
-2. Add an incompatibility flag, `----incompatible_auto_configure_host_platform`, defaulting to `false`. When this flag is enabled, there will be the following effects:
+2. Add an incompatibility flag, `--incompatible_auto_configure_host_platform`, defaulting to `false`. When this flag is enabled, there will be the following effects:
   - The default values of `--host_platform` and `--platforms` will be `@local_config_platforms//:host`.
   - The `platform` rule will ignore the current `host_platform` and `target_platform` attributes, thus stopping the use of `--cpu` and `--host_cpu` to configure these.
 3. These changes will then be available for a release, in order for users to test and verify.
