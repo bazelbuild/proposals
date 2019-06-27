@@ -116,7 +116,7 @@ platform will then follow this logic:
    platform exists, fail with an error describing the situation.
 
 In order for legacy platforms to continue working, a platform that does not set
-the `spawn_strategies attribute will be considered to support every execution
+the `spawn_strategies` attribute will be considered to support every execution
 strategy.
 
 At this point target configuration can continue as it currently does.
