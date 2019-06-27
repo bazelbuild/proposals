@@ -1,4 +1,4 @@
---
+---
 created: 2019-06-25
 last updated: 2019-06-25
 status: In Review
@@ -9,6 +9,7 @@ reviewers:
   - philwo (lead)
   - ishikhman
   - agoulti
+discussion thread: https://groups.google.com/d/msg/bazel-dev/NjcyelfHvyA/n9Buk1mODQAJ
 ---
 
 # Background
