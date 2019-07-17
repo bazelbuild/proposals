@@ -128,8 +128,8 @@ When an action is executed, each available strategy is checked in order to see
 if it supports the action (based on execution requirements from the tags and
 other sources, such as the toolchain).
 
-To consider the execution platform, the selection of spawn strategy only needs
-to add a check that the selected execution platform (which is currently
+When considering the execution platform, the selection of spawn strategy only
+needs to add a check that the selected execution platform (which is currently
 available as
 [Spawn.getExecutionPlatform](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/actions/BaseSpawn.java;l=155?q=BaseSpawn)),
 so no new interfaces need to be added.
@@ -152,3 +152,8 @@ The changes in this proposal will not take effect unless the new attribute on
 `platform` is specified. Therefore, any existing users will see no changes until
 the platforms they use are updated.
 
+# Documentation
+
+As part of this work, documentation and tutorials also need to be added, with
+special attention to examples that cause errors or misconfiguration, and how to
+recover.
