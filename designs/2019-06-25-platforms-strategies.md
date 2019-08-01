@@ -1,7 +1,7 @@
 ---
 created: 2019-06-25
-last updated: 2019-06-25
-status: In Review
+last updated: 2019-08-01
+status: Dropped
 title: Platforms and Strategies
 authors:
   - katre
@@ -11,6 +11,12 @@ reviewers:
   - agoulti
 discussion thread: https://groups.google.com/d/msg/bazel-dev/NjcyelfHvyA/n9Buk1mODQAJ
 ---
+
+# Status
+
+This proposal has been dropped due to being likely to confuse users. See the
+[discussion thread](https://groups.google.com/d/msg/bazel-dev/NjcyelfHvyA/n9Buk1mODQAJ)
+for more details.
 
 # Background
 
