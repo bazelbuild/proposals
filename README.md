@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2019-05-10 | [Bazel with NPM package manager](https://docs.google.com/document/d/1uaeQpPrSH4q46zGuXLgtzMkLVXk7Er9I-P_-ScwwGLk/edit?usp=sharing)         | [@ichern](https://github.com/irengrig)           | External Repositories |
 |   2019-05-27 | [Authentication for `ctx.download`](designs/2019-05-27-auth.md)                                                        | [@aehlig](https://github.com/aehlig)                                               | External Repositories |
 |   2019-04-29 | [Forcing non-cache-hits in the repository cache](designs/2019-04-29-cache.md)                                                              | [@aehlig](https://github.com/aehlig)             | External Repositories |
 |   2019-04-05 | [Handling download failures](designs/2019-03-21-download-failures.md)                                                                      | [@aehlig](https://github.com/aehlig)             | External Repositories |
@@ -55,6 +56,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2019-06-22 | [Target-level execution properties](https://docs.google.com/document/d/1w3fu8zu_sRw_gK1dFAvkY2suhbQQ82tc0zdjet-dpCI/edit#)                 | [@agoulti](https://github.com/agoulti)           | Configurability       |
 |   2019-07-11 | [Load Bazel Protobuf rules from @rules_proto](https://docs.google.com/document/d/1Wai_okIK_NnhNJZai5nkTUvZVHdV5pp1YwNLFtWwpC4/edit?usp=sharing) | [@Yannic](https://github.com/Yannic) | Protobuf |
 |   2019-05-08 | [Android Native to Starlark Migration](https://docs.google.com/document/d/175BlYH-Z_V_FFGAVP-JA5FowLATRjY_MtOrglxFnfcE/edit)                                                                      | [@timpeut](https://github.com/timpeut)             | Android |
 |   2019-04-12 | [Propagate tags from the targets to actions](https://docs.google.com/document/d/1X2GtuuNT6UqYYOK5lJWQEdPjAgsbdB3nFjjmjso-XHo/edit?usp=sharing)| [@ishikhman](https://github.com/ishikhman)              | Bazel, Starlark       |
@@ -83,6 +85,7 @@ list.
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
 |   2019-08-21 | [s/skydoc/stardoc/g: a plan](https://docs.google.com/document/d/1HrUHFyfU0HpWG6F6ws-8zESZ16h4N7p8WsOPR9iqJbo/edit#)| [@jin](https://github.com/jin) | Documentation |
+|   2019-08-22 | [Replacing native &lt;lang&gt;_proto_library rules with Starlark](https://docs.google.com/document/d/1u95vlQ1lWeQNR4bUw5T4cMeHTGJla2_e1dHHx7v4Dvg/edit#) | [@Yannic](https://github.com/Yannic) | Protobuf |
 |   2019-07-23 | [Always dirty repository rules](https://docs.google.com/document/d/1tjRDH0sjujz9mP2yl2iDOssW5FoJYb6Mx8s14Z1w45A/edit#)| [@ichern](https://github.com/irengrig) | External Repositories |
 |   2019-05-27 | [Authentication for `ctx.download`](designs/2019-05-27-auth.md)                                                                                           | [@aehlig](https://github.com/aehlig)                                         | External Repositories |
 |   2019-05-02 | [HTTP downloads with Authorization using .netrc](designs/2019-05-01-http-auth.md) | [@genrym](https://github.com/genrym) | External Repositories |
@@ -92,7 +95,6 @@ list.
 |   2018-11-07 | [Starlark Build Configurations - Parameterized-Transitions API](https://docs.google.com/document/d/1VIRx06cZB4wLU-ASq1XKFHmx67yfHtNOCbCempaPeaA)           | [@juliexxia](https://github.com/juliexxia)                                   | Configurability       |
 |   2019-02-12 | [Design for a Python Toolchain](https://github.com/bazelbuild/rules_python/blob/master/proposals/2019-02-12-design-for-a-python-toolchain.md) | [@brandjon](https://github.com/brandjon) | Python |
 |   2019-01-24 | [Bazel Federation](https://docs.google.com/document/d/1dpdZjNCdXZE7SWXKuDQHxHDfXJyXjo5JhsTo-QsudHs/edit?usp=sharing) | [@dslomov](https://github.com/dslomov), [@laurentlb](https://github.com/laurentlb) | Community |
-|   2018-12-03 | [Bazel with NPM package manager](https://docs.google.com/document/d/1uaeQpPrSH4q46zGuXLgtzMkLVXk7Er9I-P_-ScwwGLk/edit?usp=sharing) | [@ichern](https://github.com/irengrig) | External Repositories |
 |   2018-12-03 | [On custom shell toolchain for Bazel Starlark rules](https://docs.google.com/document/d/1oY7wqoGsbF0OBrjZhvBDbqIRf1SZ-DcEFuv9jX5brDY/edit?usp=sharing) | [@ichern](https://github.com/irengrig) | Toolchains, Starlark |
 |   2018-11-07 | [Recursive Workspaces](designs/2018-11-07-design-recursive-workspaces.md)                                                                                 | [@aehlig](https://github.com/aehlig)                                         | External Repositoires |
 |   2018-11-07 | [Starlark Build Configurations - Parameterized-Transitions API](https://docs.google.com/document/d/1VIRx06cZB4wLU-ASq1XKFHmx67yfHtNOCbCempaPeaA)           | [@juliexxia](https://github.com/juliexxia)                                   | Configurability       |
