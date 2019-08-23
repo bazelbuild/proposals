@@ -21,10 +21,13 @@ list.
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
 |   2019-05-10 | [Bazel with NPM package manager](https://docs.google.com/document/d/1uaeQpPrSH4q46zGuXLgtzMkLVXk7Er9I-P_-ScwwGLk/edit?usp=sharing)         | [@ichern](https://github.com/irengrig)           | External Repositories |
+|   2019-05-27 | [Authentication for `ctx.download`](designs/2019-05-27-auth.md)                                                        | [@aehlig](https://github.com/aehlig)                                               | External Repositories |
+|   2019-04-29 | [Forcing non-cache-hits in the repository cache](designs/2019-04-29-cache.md)                                                              | [@aehlig](https://github.com/aehlig)             | External Repositories |
 |   2019-04-05 | [Handling download failures](designs/2019-03-21-download-failures.md)                                                                      | [@aehlig](https://github.com/aehlig)             | External Repositories |
 |   2018-12-14 | [Versioned Documentation](https://docs.google.com/document/d/1MNe8IWz7td4_Yr3r43YL-hrFSmQvFutum-av-Sny56s/edit#)                           | [@jin](https://github.com/jin)                   | Documentation         |
 |   2018-11-26 | [Update Download Functions in repository_ctx](https://docs.google.com/document/d/1znnk1u3kdl4iOh3ptmJnW7nHr8UtkVl__Au4atLzNKc)             | [@dkelmer](https://github.com/dkelmer)           | External Repositories |
 |   2018-11-14 | [Platform Inheritance](designs/2018-10-09-platform-inheritance.md)                                                                         | [@katre](https://github.com/katre)               | Configurability       |
+|   2018-11-09 | [Config Setting Chaining](designs/2018-11-09-config-setting-chaining.md)                                                                   | [@gregestren](https://github.com/gregestren)     | Configurability       |
 |   2018-10-29 | [Progress reporting for external repositories](designs/2018-10-29-external-repositories-reporting.md)                                      | [@aehlig](https://github.com/aehlig)             | External Repositories |
 |   2018-11-10 | [Symlinks in Remote Execution](https://docs.google.com/document/d/1zqXCrQk1gF6kRvHXxpMiEfZGNBJ7rlVN8PeBl195_Zc)                            | [@buchgr](https://github.com/buchgr)              | Remote Execution      |
 |   2018-08-27 | [Args Directory Support](https://docs.google.com/document/d/11agWFiOUiz2htBLj6swPTob5z78TrCxm8DQE4uJLOwM)                                  | [@tomlu](https://github.com/tomlu)               | Skylark               |
@@ -53,6 +56,8 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2019-07-11 | [Load Bazel Protobuf rules from @rules_proto](https://docs.google.com/document/d/1Wai_okIK_NnhNJZai5nkTUvZVHdV5pp1YwNLFtWwpC4/edit?usp=sharing) | [@Yannic](https://github.com/Yannic) | Protobuf |
+|   2019-05-08 | [Android Native to Starlark Migration](https://docs.google.com/document/d/175BlYH-Z_V_FFGAVP-JA5FowLATRjY_MtOrglxFnfcE/edit)                                                                      | [@timpeut](https://github.com/timpeut)             | Android |
 |   2019-04-12 | [Propagate tags from the targets to actions](https://docs.google.com/document/d/1X2GtuuNT6UqYYOK5lJWQEdPjAgsbdB3nFjjmjso-XHo/edit?usp=sharing)| [@ishikhman](https://github.com/ishikhman)              | Bazel, Starlark       |
 |   2019-03-22 | [Execution Transitions](designs/2019-02-12-execution-transitions.md) | [@katre](https://github.com/katre) | Configurability |
 |   2019-03-22 | [Toolchain Transitions](designs/2019-02-12-toolchain-transitions.md) | [@katre](https://github.com/katre) | Configurability |
@@ -61,7 +66,6 @@ list.
 |   2019-01-11 | [Selecting Between Python 2 and 3](https://github.com/bazelbuild/rules_python/blob/master/proposals/2018-10-25-selecting-between-python-2-and-3.md)                            | [@brandjon](https://github.com/brandjon)                                           | Python |
 |   2018-11-16 | [Old Flags to Platform Migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls) | [@aragos](https://github.com/aragos) |  Configurability |
 |   2018-11-14 | [Auto-configured Host Platform](designs/2018-10-22-autoconfigured-host-platform.md)                                    | [@katre](https://github.com/katre)                                                 | Configurability       |
-|   2018-11-09 | [Config Setting Chaining](designs/2018-11-09-config-setting-chaining.md) | [@gregestren](https://github.com/gregestren) | Configurability  |
 |   2018-11-05 | [Multiplex persistent worker](https://docs.google.com/document/d/1OC0cVj1Y1QYo6n-wlK6mIwwG7xS2BJX7fuvf1r5LtnU/edit?usp=sharing)               | [@borkaehw](https://github.com/borkaehw) | Bazel |
 |   2018-10-15 | [Managing Breaking Changes in Bazel](https://docs.google.com/document/d/1Dj5PBLmPVg9ZyApm4GobM3y-mDgY3mVaqpRVttOe-ZQ/)| [@dslomov](https://github.com/dslomov) | Community       |
 |   2018-09-04 | [Starlark Build Configuration](https://docs.google.com/document/d/1vc8v-kXjvgZOdQdnxPTaV0rrLxtP2XwnD2tAZlYJOqw)                     | [@juliexxia](https://github.com/juliexxia), [@gregestren](https://github.com/gregestren)                                   | Configurability       |
@@ -79,12 +83,14 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2019-08-22 | [Replacing native &lt;lang&gt;_proto_library rules with Starlark](https://docs.google.com/document/d/1u95vlQ1lWeQNR4bUw5T4cMeHTGJla2_e1dHHx7v4Dvg/edit#) | [@Yannic](https://github.com/Yannic) | Protobuf |
+|   2019-07-23 | [Always dirty repository rules](https://docs.google.com/document/d/1tjRDH0sjujz9mP2yl2iDOssW5FoJYb6Mx8s14Z1w45A/edit#)| [@ichern](https://github.com/irengrig) | External Repositories |
+|   2019-05-27 | [Authentication for `ctx.download`](designs/2019-05-27-auth.md)                                                                                           | [@aehlig](https://github.com/aehlig)                                         | External Repositories |
 |   2019-05-02 | [HTTP downloads with Authorization using .netrc](designs/2019-05-01-http-auth.md) | [@genrym](https://github.com/genrym) | External Repositories |
 |   2019-04-22 | [Move //tools/build_defs/pkg to rules_pkg](https://docs.google.com/document/d/1GAbAiW0nVbxGlwsdXhFIcn3owlZJkMJiXBt-ttA9z_k/edit)     | [@aiuto](https://github.com/aiuto) | Bazel |
 |   2019-04-16 | [Common Bazel Constraints](https://docs.google.com/document/d/1bqPF7CjHI03xHZmpy8gOE186uNjeU3dGYU8v2t-qiJ8/edit)     | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2019-04-09 | [Experimental Content-Based Output Paths](https://docs.google.com/document/d/17snvmic26-QdGuwVw55Gl0oOufw9sCVuOAvHqGZJFr4/edit) | [@gregestren](https://github.com/gregestren) | Configurability
 |   2018-11-07 | [Starlark Build Configurations - Parameterized-Transitions API](https://docs.google.com/document/d/1VIRx06cZB4wLU-ASq1XKFHmx67yfHtNOCbCempaPeaA)           | [@juliexxia](https://github.com/juliexxia)                                   | Configurability       |
-|   2018-10-29 | [Progress reporting for external repositories](designs/2018-10-29-external-repositories-reporting.md)                                                     | [@aehlig](https://github.com/aehlig)                                         | External Repositoires |
 |   2019-02-12 | [Design for a Python Toolchain](https://github.com/bazelbuild/rules_python/blob/master/proposals/2019-02-12-design-for-a-python-toolchain.md) | [@brandjon](https://github.com/brandjon) | Python |
 |   2019-01-24 | [Bazel Federation](https://docs.google.com/document/d/1dpdZjNCdXZE7SWXKuDQHxHDfXJyXjo5JhsTo-QsudHs/edit?usp=sharing) | [@dslomov](https://github.com/dslomov), [@laurentlb](https://github.com/laurentlb) | Community |
 |   2018-12-03 | [On custom shell toolchain for Bazel Starlark rules](https://docs.google.com/document/d/1oY7wqoGsbF0OBrjZhvBDbqIRf1SZ-DcEFuv9jX5brDY/edit?usp=sharing) | [@ichern](https://github.com/irengrig) | Toolchains, Starlark |
@@ -103,8 +109,6 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2019-05-08 | [Android Native to Starlark Migration](https://docs.google.com/document/d/175BlYH-Z_V_FFGAVP-JA5FowLATRjY_MtOrglxFnfcE/edit?ts=5cd0b4da#heading=h.5mcn15i0e1ch)                                                                      | [@timpeut](https://github.com/timpeut)             | Android |
-|   2019-04-29 | [Forcing non-cache-hits in the repository cache](designs/2019-04-29-cache.md)                                                   | [@aehlig](https://github.com/aehlig)     | External Repositories |
 |   2019-04-18 | [Remote Repository Cache](https://docs.google.com/document/d/1aagKnM8kRmMvLqSXasShsI-NYOBZYtgNrbYWLPwBoBg/edit)                 | [jmillikin](https://john-millikin.com)   | External Repositories |
 |   2019-04-05 | [Propagate tags from the targets to the actions](https://docs.google.com/document/d/1X2GtuuNT6UqYYOK5lJWQEdPjAgsbdB3nFjjmjso-XHo/edit?usp=sharing)                                                             | [@ishikhman](https://github.com/ishikhman)     | Bazel, Starlark |
 |   2019-01-14 | [Delaying of `load` statements](designs/2019-01-14-delayed-load.md)                                                             | [@aehlig](https://github.com/aehlig)     | External Repositories |
@@ -129,6 +133,7 @@ list.
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
+|   2019-08-01 | [Platforms and Strategies](designs/2019-06-25-platforms-strategies.md)                                                                                    | [@katre](https://github.com/katre)                                           | Configurability, Execution Strategy |
 |   2018-06-14 | [Platforms and Configurations](https://docs.google.com/document/d/1XyGTHgcfI9aL-JHpC-xMztEPZQauXhFzBZXTKMbgFRw) | [@katre](https://github.com/katre)         | C++, Skylark          |
 |   2016-09-19 | [Recursive WORKSPACE file parsing](https://bazel.build/designs/2016/09/19/recursive-ws-parsing.html)            | [@kchodorow](https://github.com/kchodorow) | External Repositories |
 |   2015-03-06 | [bazel init a.k.a ./configure for Bazel](https://bazel.build/designs/2015/03/06/bazel-init.html)                | [@damienmg](https://github.com/damienmg)   | Bazel                 |
