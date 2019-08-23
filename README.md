@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2019-04-22 | [Move //tools/build_defs/pkg to rules_pkg](https://docs.google.com/document/d/1GAbAiW0nVbxGlwsdXhFIcn3owlZJkMJiXBt-ttA9z_k/edit)     | [@aiuto](https://github.com/aiuto) | Bazel |
 |   2019-05-10 | [Bazel with NPM package manager](https://docs.google.com/document/d/1uaeQpPrSH4q46zGuXLgtzMkLVXk7Er9I-P_-ScwwGLk/edit?usp=sharing)         | [@ichern](https://github.com/irengrig)           | External Repositories |
 |   2019-05-27 | [Authentication for `ctx.download`](designs/2019-05-27-auth.md)                                                        | [@aehlig](https://github.com/aehlig)                                               | External Repositories |
 |   2019-04-29 | [Forcing non-cache-hits in the repository cache](designs/2019-04-29-cache.md)                                                              | [@aehlig](https://github.com/aehlig)             | External Repositories |
@@ -89,7 +90,6 @@ list.
 |   2019-07-23 | [Always dirty repository rules](https://docs.google.com/document/d/1tjRDH0sjujz9mP2yl2iDOssW5FoJYb6Mx8s14Z1w45A/edit#)| [@ichern](https://github.com/irengrig) | External Repositories |
 |   2019-05-27 | [Authentication for `ctx.download`](designs/2019-05-27-auth.md)                                                                                           | [@aehlig](https://github.com/aehlig)                                         | External Repositories |
 |   2019-05-02 | [HTTP downloads with Authorization using .netrc](designs/2019-05-01-http-auth.md) | [@genrym](https://github.com/genrym) | External Repositories |
-|   2019-04-22 | [Move //tools/build_defs/pkg to rules_pkg](https://docs.google.com/document/d/1GAbAiW0nVbxGlwsdXhFIcn3owlZJkMJiXBt-ttA9z_k/edit)     | [@aiuto](https://github.com/aiuto) | Bazel |
 |   2019-04-16 | [Common Bazel Constraints](https://docs.google.com/document/d/1bqPF7CjHI03xHZmpy8gOE186uNjeU3dGYU8v2t-qiJ8/edit)     | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2019-04-09 | [Experimental Content-Based Output Paths](https://docs.google.com/document/d/17snvmic26-QdGuwVw55Gl0oOufw9sCVuOAvHqGZJFr4/edit) | [@gregestren](https://github.com/gregestren) | Configurability
 |   2018-11-07 | [Starlark Build Configurations - Parameterized-Transitions API](https://docs.google.com/document/d/1VIRx06cZB4wLU-ASq1XKFHmx67yfHtNOCbCempaPeaA)           | [@juliexxia](https://github.com/juliexxia)                                   | Configurability       |
