@@ -86,6 +86,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2019-10-15 | [Visibility for implicit attributes](designs/2019-10-15-tool-visibility.md)                                                                               | [@aehlig](https://github.com/aehlig)                                         | Build API             |
 |   2019-08-23 | [Execution Platforms vs. Strategies](https://docs.google.com/document/d/1U9HzdDmtRnm244CaRM6JV-q2408mbNODAMewcGjnnbM/edit#)| [@aragos](https://github.com/aragos) | Configurability |
 |   2019-08-21 | [s/skydoc/stardoc/g: a plan](https://docs.google.com/document/d/1HrUHFyfU0HpWG6F6ws-8zESZ16h4N7p8WsOPR9iqJbo/edit#)| [@jin](https://github.com/jin) | Documentation |
 |   2019-08-22 | [Replacing native &lt;lang&gt;_proto_library rules with Starlark](https://docs.google.com/document/d/1u95vlQ1lWeQNR4bUw5T4cMeHTGJla2_e1dHHx7v4Dvg/edit#) | [@Yannic](https://github.com/Yannic) | Protobuf |
