@@ -1,6 +1,6 @@
 ---
 created: 2019-10-15
-last updated: 2018-10-15
+last updated: 2018-10-17
 status: To be reviewed
 reviewers:
   - laurentlb
@@ -73,3 +73,15 @@ The change is not backwards compatible; it might be that a rule uses
 a tool that is not visible to definition of the rule, but to all
 uses of the rule. Therefore, this change will be guarded by the new
 flag `--incompatible_visibility_private_attributes_at_definition`.
+
+Also, changing the way the visibility is verified might block potential
+use cases of the current way.
+
+## Private attribute as a replacement for rule visibility
+
+Currently, bazel has no concept of visibility that can be used to restrict
+usage of a rule or `bzl` file. It is possible to abuse the visibility checks
+for private attributes at the place a rule is used to restrict usage of that
+rule, simply by adding a private dummy attribute and restricting its visibility
+appropriately. This would no longer work with the proposed change.
+
