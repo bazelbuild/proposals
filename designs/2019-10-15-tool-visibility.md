@@ -1,6 +1,6 @@
 ---
 created: 2019-10-15
-last updated: 2018-10-17
+last updated: 2018-10-23
 status: To be reviewed
 reviewers:
   - laurentlb
@@ -54,6 +54,46 @@ in [`rules_apple`](https://github.com/bazelbuild/rules_apple).
 In fact, that tool motivated the [first
 request](https://github.com/bazelbuild/bazel/issues/7377) for the
 feature addressed in this proposal.
+
+## Example
+
+The general scheme of [depending on a
+tool](https://docs.bazel.build/versions/1.0.0/skylark/rules.html#private-attributes-and-implicit-dependencies)
+is to have a rule definition in  `//foo/rule:rule.bzl` as follows.
+
+```
+def _impl(ctx):
+  ...
+
+foo_binary = rule(
+  implementation = _impl,
+  attrs = {
+    "srcs" : ...,
+    ...
+    "_tool" : attr.label(default=Label("//foo/tool:foobuilder"),
+                         executable=True, cfg="host"),
+  }
+```
+
+Now, if that rule is used, say in `//bar`, with a `BUILD` file like the
+following.
+
+```
+load("//foo/rule:rule.bzl", "foo_binary")
+
+foo_binary(
+  name = "myapp",
+  srcs = ...
+)
+```
+
+Then `//bar:myapp` implicitly depends on `//foo/tool:foobuilder`, so
+`//foo/tool:foobuilder` must be visible by `//bar:myapp`. This visibility
+allows targets in `//bar` to also use `foobuilder` directly, even if it
+is intended to be an implementation detail of `foo_binary`. This unrestricted
+use makes it hard for the `//foo` package to evolve the command-line interface
+of `foobuilder`.
+
 
 # Proposal
 
