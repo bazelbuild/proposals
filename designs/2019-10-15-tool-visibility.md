@@ -106,6 +106,9 @@ rule definition). In this way, it will be possible to restrict the
 visibility of a tool to the package containing the rule definition,
 while still allowing the rule to be used everywhere.
 
+In the previous example, this means the visibility could be restricted
+to `//foo/rule:__pkg__` where the rule is defined, instead of every user
+of the rule like `//bar:myapp`.
 
 # Backward-compatibility
 
