@@ -69,7 +69,7 @@ to perform the actual check.
 The simplest option to enable this feature would be to simply to expose all
 [`ConstraintValueInfoApi`](https://source.bazel.build/bazel/+/master:src/main/java/com/google/devtools/build/lib/skylarkbuildapi/platform/ConstraintValueInfoApi.java)
 values from the current target platform's `PlatformInfo`. This would be fairly
-easy to add as a new attribute on either `SkylarkRuleContextApi' or
+easy to add as a new attribute on either `SkylarkRuleContextApi` or
 `ToolchainContextApi`, depending on which form of rule code is preferred:
 
 ```py
