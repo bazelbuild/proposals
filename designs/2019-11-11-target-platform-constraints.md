@@ -1,13 +1,14 @@
 ---
 created: 2019-11-11
-last updated: 2019-11-11
-status: Draft
+last updated: 2019-11-13
+status: In Review
 reviewers:
   - aragos
   - laurentlb
 title: Exposing Target Platform Constraints
 authors:
   - katre
+discussion thread: https://groups.google.com/d/msg/bazel-dev/WcysNkM7OLg/W2JCqBZKAgAJ
 ---
 
 
