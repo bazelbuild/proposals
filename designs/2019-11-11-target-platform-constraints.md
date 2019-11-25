@@ -50,7 +50,7 @@ toolchain = ctx.toolchains['//tools/cpp:toolchain_type']
 
 # Proposal: A check method that takes a constraint value label
 
-One option is to expose a method (on `SkylarkRuleContextApi`) to check whether a
+We can add a method (on `SkylarkRuleContextApi`) to check whether a
 given constraint value is present. The value passed would need to be a valid
 `ConstraintValueInfo` provider, obtained by an implicit depdency on the
 constraint value definition that is to be checked. This ensures both that the
