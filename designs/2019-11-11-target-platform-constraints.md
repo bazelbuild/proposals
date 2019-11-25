@@ -1,10 +1,10 @@
 ---
 created: 2019-11-11
-last updated: 2019-11-13
-status: In Review
+last updated: 2019-11-25
+status: Approved
 reviewers:
   - aragos
-  - laurentlb
+  - cparsons
 title: Exposing Target Platform Constraints
 authors:
   - katre
