@@ -59,7 +59,7 @@ available to use the constraint value.
 
 ```py
 def _impl(ctx):
-  windows_constraint = ctx.attr._windows_constraint[platform_common.ConstraintSettingInfo]
+  windows_constraint = ctx.attr._windows_constraint[platform_common.ConstraintValueInfo]
   if ctx.target_platform_has_constraint(windows_constraint):
     platform_separator = '\\'
 
