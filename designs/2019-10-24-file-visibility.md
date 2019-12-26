@@ -1,7 +1,7 @@
 ---
 created: 2019-10-24
-last updated: 2019-10-24
-status: To be reviewed
+last updated: 2019-10-30
+status: Implemented
 reviewers:
   - laurentlb
 title: Visibility for source files
@@ -53,6 +53,27 @@ intention might have been to only expose the application and its
 manual page. As a result of this, every package can depend on,
 e.g., the file `util.c` directly, making it hard for the package
 to evolve this internal interface without breaking other packages.
+
+It is the usage of a file that exposes it with the `default_visibility`.
+A file `testtool.c` never used in the `BUILD` file of its package
+cannot be used by other packages either. But any use, even in a
+private target exposes it. E.g., adding the following to said `BUILD`
+file will still publicly expose the `testtool.c` even for non-test targets
+(as opposed to the private test-only binary generated from that file).
+
+```
+cc_binary(
+  name = "testtool",
+  srcs = ["testtool.c"],
+  testonly = True,
+  visibility = ["//visibility:private"],
+)
+```
+
+This semantics, that a use of a file in a private target exposes that
+very file with the default visibility is often considered counterintuitive
+and has led to unintended dependencies in the past.
+
 
 # Proposal
 
