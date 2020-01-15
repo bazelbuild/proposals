@@ -119,8 +119,8 @@ reasonable period of time thereafter.
 
 In the event that a client receives a reference to content that is no longer
 present in the CAS, it **MAY** re-issue the request with
-`oldest_content_accepted` set to a value later than the original attempt, to
-induce a re-fetch from origin.
+`oldest_content_accepted` set to a timestamp more recent than the original
+attempt, to induce a re-fetch from origin.
 
 Servers **MAY** cache fetched content and reuse it for subsequent requests,
 subject to `oldest_content_accepted`. Servers **MAY** fetch content that they
@@ -503,7 +503,7 @@ message Qualifier {
 
 1. Refactor the existing `HttpDownloader` path to support non-HTTP
    implementations. While the default implementation will match existing
-   behavior, it will be possible modules to inject a new `Downloader` with
+   behavior, it will be possible for modules to inject a new `Downloader` with
    custom logic.
 
 2. Add a new `--experimental_remote_downloader=ADDRESS` flag to `RemoteModule`,
@@ -511,8 +511,8 @@ message Qualifier {
    implementation should leverage existing support code for mTLS credentials
    and UNIX socket proxying.
 
-3. After the implementation has received enough use to consider stable, rename
-   the flag to `--remote_downloader`.
+3. After the implementation has received enough use to be considered stable,
+   rename the flag to `--remote_downloader`.
 
 ## Backward-compatibility
 
@@ -543,7 +543,7 @@ straightforward to implement a caching intermediate proxy for downloads with the
 
 ## Direct downloads
 
-The first version of the Remote Reposiotry Cache proposal had the server stream
+The first version of the Remote Repository Cache proposal had the server stream
 downloads directly, as in `ByteStream`:
 
 ```proto
