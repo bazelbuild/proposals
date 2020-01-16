@@ -113,14 +113,13 @@ service Fetcher {
 }
 ```
 
-If a request is successful then servers **SHOULD** ensure the referenced assets
+If a request is successful then servers **MUST** ensure the referenced assets
 are present in the CAS at the time of response and (if supported) for a
 reasonable period of time thereafter.
 
-In the event that a client receives a reference to content that is no longer
-present in the CAS, it **MAY** re-issue the request with
-`oldest_content_accepted` set to a timestamp more recent than the original
-attempt, to induce a re-fetch from origin.
+The client **MAY** request a resource be re-fetched from its origin by
+setting the request field `oldest_content_accepted` to a timestamp more recent
+than the previous attempt.
 
 Servers **MAY** cache fetched content and reuse it for subsequent requests,
 subject to `oldest_content_accepted`. Servers **MAY** fetch content that they
@@ -163,9 +162,16 @@ message FetchBlobRequest {
   string instance_name = 1;
 
   // The timeout for the underlying fetch, if content needs to be retrieved from
-  // origin. This value is allowed to exceed the RPC deadline, in which case the
-  // server *SHOULD* keep the fetch going after the RPC completes, to be made
-  // available for future Fetch calls.
+  // origin.
+  //
+  // If unset, the server *MAY* apply an implementation-defined timeout.
+  //
+  // If set, and the user-provided timeout exceeds the RPC deadline, the server
+  // *SHOULD* keep the fetch going after the RPC completes, to be made
+  // available for future Fetch calls. The server may also enforce (via clamping
+  // and/or an INVALID_ARGUMENT error) implementation-defined minimum and
+  // maximum timeout values.
+  //
   // If this timeout is exceeded on an attempt to retrieve content from origin
   // the client will receive DEADLINE_EXCEEDED in [FetchBlobResponse.status].
   google.protobuf.Duration timeout = 2;
@@ -175,6 +181,8 @@ message FetchBlobRequest {
   // Upon retries of Fetch requests that cannot be completed within a single RPC,
   // clients *SHOULD* provide the same value for subsequent requests as the
   // original, to simplify combining the request with the previous attempt.
+  //
+  // If unset, the client *SHOULD* accept content of any age.
   google.protobuf.Timestamp oldest_content_accepted = 3;
 
   // The URI(s) of the content to fetch. These may be resources that the server can
@@ -411,12 +419,14 @@ message PushDirectoryResponse { /* empty */ }
 
 ## Qualifiers
 
-Qualifiers are used to disambiguate or sub-select content that shares a URI.
-This may include specifying a particular commit or branch, in the case of URIs
-referencing a repository; they could also be used to specify a particular
-subdirectory of a repository or tarball. Qualifiers may also be used to ensure
-content matches what the client expects, even when there is no ambiguity to be
-had -- for example, a qualifier specifying a checksum value.
+Qualifiers are used to disambiguate, sub-select, or validate content that shares
+a URI. This may include specifying a particular commit or branch, in the case of
+URIs referencing a repository; they could also be used to specify a particular
+subdirectory of a repository or tarball.
+
+Qualifiers may also be used to ensure content matches what the client expects,
+even when there is no ambiguity to be had -- for example, a qualifier specifying
+a checksum value.
 
 For example, a particular subdirectory of a particular branch
 of a git repository might be identified as:
