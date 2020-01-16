@@ -1,6 +1,6 @@
 ---
 created: 2018-10-22
-last updated: 2018-11-14
+last updated: 2019-06-06
 status: Approved
 reviewers:
   - gregce@google.com
@@ -43,16 +43,18 @@ This change removes some functionality: the current behavior uses the `--cpu` an
 
 This change will be released in several steps, with several pauses between releases in accordance with the Incompatible Change Policy:
 1. Add the new repository, but do not directly use the new label anywhere.
-2. Add an incompatibility flag, `----incompatible_auto_configure_host_platform`, defaulting to `false`. When this flag is enabled, there will be two effects:
-  - First, the platform defined in `@bazel_tools//platforms:host_platform` will inherit from the new `@local_config_platforms//:host` platform. This will use a select to only be enabled when the flag is enabled.
-  - Second, the platform defined in `@bazel_tools//platforms:target_platform` will inherit from `@bazel_tools//platforms:host_platform`. Similarly, this will depend on a select so it can be controlled via the incompatible flag.
-  - Third, the `platform` rule will ignore the current `host_platform` and `target_platform` attributes.
+  - This is finished.
+2. Add an incompatibility flag, `--incompatible_auto_configure_host_platform`, defaulting to `false`. When this flag is enabled, there will be the following effects:
+  - The default values of `--host_platform` and `--platforms` will be `@local_config_platforms//:host`.
+  - The `platform` rule will ignore the current `host_platform` and `target_platform` attributes, thus stopping the use of `--cpu` and `--host_cpu` to configure these.
 3. These changes will then be available for a release, in order for users to test and verify.
 4. Next, the incompatible flag will be flipped to `true` by default.
-5. Again, wait a release to be sure there are no issues.
-6. At this point, the default values of `--host_platform` and `--platforms` can be updated to be `@local_config_platforms//:host`.
-7. Again, wait a release to be sure there are no issues.
-8. At this point, the incompatible flag, the legacy platforms in `@bazel_tools//platforms`, and the legacy cpu detection code in the Platform rule implementation can all be removed.
+5. Wait a release to be sure there are no issues.
+6. At this point, the incompatible flag, the legacy platforms in `@bazel_tools//platforms`, and the legacy cpu detection code in the Platform rule implementation can all be removed.
 
 In addition, this only affects the default values of the existing `--host_platform` and `--platforms` flags. Any users who wish to opt out of platform auto-detection can instead write platform targets representing their host and target and then set the relevant flag.
 
+If any users are currently expecting `@bazel_tools//:target_platform` or
+`@bazel_tools//:host_platform` to change in response the the `--cpu` and
+`--host_cpu` flags, they can be advised to set up platform mappings, or to use
+statically defined platforms, to accomplish the same behavior.
