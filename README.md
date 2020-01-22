@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability           
 |   2019-12-17 | [Exposing Target Platform Constraints](designs/2019-11-11-target-platform-constraints.md)                                       | [@katre](https://github.com/katre)       | Configurability |
 |   2019-10-24 | [Visibility for source files](designs/2019-10-24-file-visibility.md)                                                                                      | [@aehlig](https://github.com/aehlig)                                         | Build API
 |   2019-04-22 | [Move //tools/build_defs/pkg to rules_pkg](https://docs.google.com/document/d/1GAbAiW0nVbxGlwsdXhFIcn3owlZJkMJiXBt-ttA9z_k/edit)     | [@aiuto](https://github.com/aiuto) | Bazel |
@@ -59,7 +60,6 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
-|   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability           
 |   2019-10-31 | [Automatically migrating `maven_jar` to `rules_jvm_external`](https://docs.google.com/document/d/1CqxPv-TwvFWBHgtg7_QhVfck4vH4rnmCU_IuMdC7O2M/edit#) | [@jin](https://github.com/jin) | External Repositories |
 |   2019-08-26 | [Versioned Runtime APIs under Platforms & Toolchains](https://docs.google.com/document/d/1TkbNTpBCE1MobexzmjUEpEaYzZVVXPt1cCTK-z2bvig/edit#) | [@aragos](https://github.com/aragos) | Configurability |
 |   2019-06-22 | [Target-level execution properties](https://docs.google.com/document/d/1w3fu8zu_sRw_gK1dFAvkY2suhbQQ82tc0zdjet-dpCI/edit#)                 | [@agoulti](https://github.com/agoulti)           | Configurability       |
