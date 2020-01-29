@@ -25,6 +25,13 @@ and security characteristics in some cases. This proposal expands the remote
 execution APIs to support downloading inputs from external sources, allowing the
 build tool to offload expensive or privileged network requests.
 
+Note: The Protobuf components of this proposal have been submitted (with slight
+changes) in [bazelbuild/remote-apis#112][remote-apis-pr-112]
+as [`build/bazel/remote/asset/v1/remote_asset.proto`][remote_asset.proto].
+
+[remote-apis-pr-112]: https://github.com/bazelbuild/remote-apis/pull/112
+[remote_asset.proto]: https://github.com/bazelbuild/remote-apis/blob/master/build/bazel/remote/asset/v1/remote_asset.proto
+
 # Background
 
 When a build tool is calculating which actions to execute as part of a build, it
