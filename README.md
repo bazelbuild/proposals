@@ -60,9 +60,8 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
-
 |   2020-01-14 | [Remote Downloads](designs/2020-01-14-remote-downloads.md) | [@EricBurnett](https://github.com/EricBurnett), [@jmillikin](https://john-millikin.com), [@sstriker](https://github.com/sstriker) | External Repositories |
-|   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability           
+|   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability |
 |   2019-10-31 | [Automatically migrating `maven_jar` to `rules_jvm_external`](https://docs.google.com/document/d/1CqxPv-TwvFWBHgtg7_QhVfck4vH4rnmCU_IuMdC7O2M/edit#) | [@jin](https://github.com/jin) | External Repositories |
 |   2019-08-26 | [Versioned Runtime APIs under Platforms & Toolchains](https://docs.google.com/document/d/1TkbNTpBCE1MobexzmjUEpEaYzZVVXPt1cCTK-z2bvig/edit#) | [@aragos](https://github.com/aragos) | Configurability |
 |   2019-06-22 | [Target-level execution properties](https://docs.google.com/document/d/1w3fu8zu_sRw_gK1dFAvkY2suhbQQ82tc0zdjet-dpCI/edit#)                 | [@agoulti](https://github.com/agoulti)           | Configurability       |
