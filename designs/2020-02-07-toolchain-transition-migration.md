@@ -1,14 +1,14 @@
 ---
 created: 2020-02-07
-last updated: 2020-02-07
-status: Draft
+last updated: 2020-02-10
+status: Under Review
 reviewers:
   - gregce
   - cparsons (for Starlark API implications)
 title: Toolchain Transition Migration
 authors:
   - katre
-discussion thread:
+discussion thread: https://groups.google.com/d/msg/bazel-dev/g23uuZ7zSTM/X0qoXh8XBAAJ
 ---
 
 # Migrating to Toolchain Transitions
