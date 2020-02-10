@@ -92,6 +92,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2020-02-10 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
 |   2020-01-13 | [Rules for software license compliance](https://docs.google.com/document/d/1uwBuhAoBNrw8tmFs-NxlssI6VRolidGYdYqagLqHWt8)     | [@aiuto](https://github.com/aiuto) | License Rules, Bazel |
 |   2019-12-20 | [Incompatible Target Skipping](https://docs.google.com/document/d/12n5QNHmFSkuh5yAbdEex64ot4hRgR-moL1zRimU7wHQ/edit?ts=5dfbe2fe)               |  [@AustinSchuh](https://github.com/AustinSchuh), [@gregestren](https://github.com/gregestren)                                        | Configurability
 |   2019-10-15 | [Visibility for implicit attributes](designs/2019-10-15-tool-visibility.md)                                                                               | [@aehlig](https://github.com/aehlig)                                       | Build API
@@ -122,7 +123,6 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2020-02-07 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
 |   2020-01-27 | [Package Validation Proposal](https://docs.google.com/document/d/1FfRXzW5RAB7tixbd1Lac51GNqNGQN932ZuTRdg8oUWU)                  | [@kkress](https://github.com/kkress)   | Bazel, Starlark |
 |   2020-01-16 | [Starlark project files](https://docs.google.com/document/d/1Sl9J5VVuaYlckmvvSmcwBvcvKAGVKwaMo4qILFVmXpo/edit)                 | [@robbertvanginkel](https://github.com/robbertvanginkel)   | Bazel, Starlark |
 |   2019-04-18 | [Remote Repository Cache](https://docs.google.com/document/d/1aagKnM8kRmMvLqSXasShsI-NYOBZYtgNrbYWLPwBoBg/edit)                 | [jmillikin](https://john-millikin.com)   | External Repositories |
