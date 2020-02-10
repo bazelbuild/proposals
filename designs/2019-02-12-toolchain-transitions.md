@@ -104,6 +104,12 @@ outside of the toolchain resolution system).
 
 # Migration
 
+**NOTE: OBSOLETE**
+
+See the new migration plan in [Toolchain Transition Migration](2020-02-07-toolchain-transition-migration.md).
+
+**Old Version**
+
 After the new transition, existing toolchains will need to be updated to use the
 execution transition on dependencies which are expected to work on the execution
 platform. Native rules can be updated immediately, but Starlark rules will
