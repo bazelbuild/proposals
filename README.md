@@ -92,7 +92,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
-|   2020-02-10 | [Mandatory `load()` statements in BUILD files](https://docs.google.com/document/d/1UwgGtsWZRJxXewLCoqf1zD1Y_houN1ldwZpQ4xdoAa4/) | [@lberki](https://github.com/lberki) | Skylark |
+|   2020-02-10 | [Mandatory `load()` statements in BUILD files](https://docs.google.com/document/d/1UwgGtsWZRJxXewLCoqf1zD1Y_houN1ldwZpQ4xdoAa4/) | [@lberki](https://github.com/lberki) | Starlark |
 |   2020-02-10 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
 |   2020-01-13 | [Rules for software license compliance](https://docs.google.com/document/d/1uwBuhAoBNrw8tmFs-NxlssI6VRolidGYdYqagLqHWt8)     | [@aiuto](https://github.com/aiuto) | License Rules, Bazel |
 |   2019-12-20 | [Incompatible Target Skipping](https://docs.google.com/document/d/12n5QNHmFSkuh5yAbdEex64ot4hRgR-moL1zRimU7wHQ/edit?ts=5dfbe2fe)               |  [@AustinSchuh](https://github.com/AustinSchuh), [@gregestren](https://github.com/gregestren)                                        | Configurability
