@@ -20,7 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
-|   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability           
+|   2020-02-10 | [Mandatory `load()` statements in BUILD files](https://docs.google.com/document/d/1UwgGtsWZRJxXewLCoqf1zD1Y_houN1ldwZpQ4xdoAa4/)           | [@lberki](https://github.com/lberki)             | Skylark               |
 |   2019-12-17 | [Exposing Target Platform Constraints](designs/2019-11-11-target-platform-constraints.md)                                       | [@katre](https://github.com/katre)       | Configurability |
 |   2019-10-24 | [Visibility for source files](designs/2019-10-24-file-visibility.md)                                                                                      | [@aehlig](https://github.com/aehlig)                                         | Build API
 |   2019-04-22 | [Move //tools/build_defs/pkg to rules_pkg](https://docs.google.com/document/d/1GAbAiW0nVbxGlwsdXhFIcn3owlZJkMJiXBt-ttA9z_k/edit)     | [@aiuto](https://github.com/aiuto) | Bazel |
