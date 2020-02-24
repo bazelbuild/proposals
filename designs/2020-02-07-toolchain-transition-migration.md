@@ -68,7 +68,7 @@ Here is the proposed timeline:
 ## Migrating Starlark Rules
 
 Starlark rules can migrate with the following steps:
-1.  Add `cfg = "exec"` or `cfg = "target"` to the attributes of your
+1.  Add `cfg = "exec"` or `cfg = "target"` to all label attributes of your
     **toolchain** rule. (ie, to `go_toolchain` or `scala_toolchain`)
     1.  Use the execution transition for dependencies that will execute as part
         of the target build.
@@ -77,6 +77,18 @@ Starlark rules can migrate with the following steps:
         1.  Technically `cfg = "target"` is not needed, as it is the default,
             but it is useful to document this clearly.
     1.  These changes are permanent.
+    1.  One possible migration path is the following:
+        1.  Add `cfg = "exec"` to **every** dependency. This is a no-op since
+            currently all dependencies are in the `host` configuration.
+        2.  Enable the `--incompatible_override_toolcgain_transition` flag and
+            test builds. The change should be minor, given the similarities
+            between `exec` and `host` dependencies, but this will reveal any
+            cases where this isn't true. Typically, this has been seen where the
+            depenedency itself has further dependencies, which are now free to
+            transition to unforseen configurations.
+        3.  Add `cfg = "target"` to dependencies where this makes sense. This
+            change can be done individually for each dependency and
+            tested/released separately, if desired, to ensure build correctness.
 1.  Add `incompatible_use_toolchain_transition = True` to **every** rule that
     uses a toolchain.
     1.  That is, every rule that sets `toolchains = ["//your/rule:toolchain_type"]`.
