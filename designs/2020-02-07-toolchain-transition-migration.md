@@ -80,12 +80,14 @@ Starlark rules can migrate with the following steps:
     1.  One possible migration path is the following:
         1.  Add `cfg = "exec"` to **every** dependency. This is a no-op since
             currently all dependencies are in the `host` configuration.
-        2.  Enable the `--incompatible_override_toolcgain_transition` flag and
+        2.  Enable the `--incompatible_override_toolchain_transition` flag and
             test builds. The change should be minor, given the similarities
             between `exec` and `host` dependencies, but this will reveal any
             cases where this isn't true. Typically, this has been seen where the
-            depenedency itself has further dependencies, which are now free to
-            transition to unforseen configurations.
+            dependency itself has further dependencies, which are now free to
+            transition to unforseen configurations. Feel free to ask for
+            assistance on [the bazel-discuss mailing list](https://groups.google.com/forum/#!forum/bazel-discuss)
+            or on [the tracking issue for toolchain transition implementation](https://github.com/bazelbuild/bazel/issues/10523).
         3.  Add `cfg = "target"` to dependencies where this makes sense. This
             change can be done individually for each dependency and
             tested/released separately, if desired, to ensure build correctness.
