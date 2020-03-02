@@ -92,6 +92,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2020-02-28 | [Measuring Configuration Overhead](https://docs.google.com/document/d/10ZxO2wZdKJATnYBqAm22xT1k5r4Vp6QX96TkqSUIhs0/) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2020-02-20 | [Action Groups (Multi-Toolchain Resolution)](https://docs.google.com/document/d/1m9xLRLg09lncQTuBUMhhG_lqDQGJRYMZPejvwdBXvqo/edit?usp=sharing) | [@juliexxia](https://github.com/juliexxia) | Configurability |
 |   2020-02-10 | [Mandatory `load()` statements in BUILD files](https://docs.google.com/document/d/1UwgGtsWZRJxXewLCoqf1zD1Y_houN1ldwZpQ4xdoAa4/) | [@lberki](https://github.com/lberki) | Starlark |
 |   2020-02-10 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
