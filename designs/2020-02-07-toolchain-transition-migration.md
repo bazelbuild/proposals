@@ -99,6 +99,14 @@ Starlark rules can migrate with the following steps:
 1.  When the global toolchain transition migration is complete, remove the
     `incompatible_use_toolchain_transition` attribute from your rules.
 
+**Note**: We have seen failures with the execution transition, specifically in
+cases where Android and iOS targets depend on a library which uses the execution
+transition, where the configuration ends up in a confused state and the
+Android/iOS flags are applied inappropriately. If this should happen, please
+file an issue and ping [@katre](https://github.com/katre) to investigate. You
+can also work around this by temporarily using `cfg = 'host'` for the attribute,
+to simulate the current behavior, instead of `cfg = 'exec'`.
+
 ## Migrating Native Rules
 
 Native rules migrate similarly to Starlark rules:
