@@ -60,6 +60,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2020-03-20 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
 |   2020-01-14 | [Remote Downloads](designs/2020-01-14-remote-downloads.md) | [@EricBurnett](https://github.com/EricBurnett), [@jmillikin](https://john-millikin.com), [@sstriker](https://github.com/sstriker) | External Repositories |
 |   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability |
 |   2019-10-31 | [Automatically migrating `maven_jar` to `rules_jvm_external`](https://docs.google.com/document/d/1CqxPv-TwvFWBHgtg7_QhVfck4vH4rnmCU_IuMdC7O2M/edit#) | [@jin](https://github.com/jin) | External Repositories |
@@ -95,7 +96,6 @@ list.
 |   2020-02-28 | [Measuring Configuration Overhead](https://docs.google.com/document/d/10ZxO2wZdKJATnYBqAm22xT1k5r4Vp6QX96TkqSUIhs0/) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2020-02-20 | [Action Groups (Multi-Toolchain Resolution)](https://docs.google.com/document/d/1m9xLRLg09lncQTuBUMhhG_lqDQGJRYMZPejvwdBXvqo/edit?usp=sharing) | [@juliexxia](https://github.com/juliexxia) | Configurability |
 |   2020-02-10 | [Mandatory `load()` statements in BUILD files](https://docs.google.com/document/d/1UwgGtsWZRJxXewLCoqf1zD1Y_houN1ldwZpQ4xdoAa4/) | [@lberki](https://github.com/lberki) | Starlark |
-|   2020-02-10 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
 |   2020-01-13 | [Rules for software license compliance](https://docs.google.com/document/d/1uwBuhAoBNrw8tmFs-NxlssI6VRolidGYdYqagLqHWt8)     | [@aiuto](https://github.com/aiuto) | License Rules, Bazel |
 |   2019-12-20 | [Incompatible Target Skipping](https://docs.google.com/document/d/12n5QNHmFSkuh5yAbdEex64ot4hRgR-moL1zRimU7wHQ/edit?ts=5dfbe2fe)               |  [@AustinSchuh](https://github.com/AustinSchuh), [@gregestren](https://github.com/gregestren)                                        | Configurability
 |   2019-10-15 | [Visibility for implicit attributes](designs/2019-10-15-tool-visibility.md)                                                                               | [@aehlig](https://github.com/aehlig)                                       | Build API
