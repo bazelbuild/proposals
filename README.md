@@ -126,6 +126,7 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2020-04-16 | [Dependency Discovery Proposal](https://github.com/blackducksoftware/bazel-dependency-enhancement/blob/master/bazel-next-gen-dependency-discovery-PRD.md) | [@stevebillings](https://github.com/stevebillings)   | External Repositories |
 |   2020-01-27 | [Package Validation Proposal](https://docs.google.com/document/d/1FfRXzW5RAB7tixbd1Lac51GNqNGQN932ZuTRdg8oUWU)                  | [@kkress](https://github.com/kkress)   | Bazel, Starlark |
 |   2019-04-18 | [Remote Repository Cache](https://docs.google.com/document/d/1aagKnM8kRmMvLqSXasShsI-NYOBZYtgNrbYWLPwBoBg/edit)                 | [jmillikin](https://john-millikin.com)   | External Repositories |
 |   2019-04-05 | [Propagate tags from the targets to the actions](https://docs.google.com/document/d/1X2GtuuNT6UqYYOK5lJWQEdPjAgsbdB3nFjjmjso-XHo/edit?usp=sharing)                                                             | [@ishikhman](https://github.com/ishikhman)     | Bazel, Starlark |
