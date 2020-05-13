@@ -1,11 +1,14 @@
 ---
 created: 2020-05-13
 last updated: 2020-05-13
-status: Draft
+status: Under review
 reviewers:
+  - gregce
+  - janakdr
 title: Passing Toolchain Context across Dependencies
 authors:
   - katre
+discussion thread: https://groups.google.com/d/msg/bazel-dev/5rVPa23XuOY/vLPFmHkNCQAJ
 ---
 
 # Abstract

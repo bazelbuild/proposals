@@ -94,6 +94,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2020-05-13 | [Passing Toolchain Context across Dependencies](designs/2020-05-13-toolchain-context-dependencies.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-05-11 | [External directory reshuffling](https://docs.google.com/document/d/1X1-JkqkmzvYmDHnr3OyHpFyKgoFb7K2BXs0xgYcetiM/edit#) | [@lberki](https://github.com/lberki) | External Repositories |
 |   2020-02-28 | [Measuring Configuration Overhead](https://docs.google.com/document/d/10ZxO2wZdKJATnYBqAm22xT1k5r4Vp6QX96TkqSUIhs0/) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2020-02-20 | [Action Groups (Multi-Toolchain Resolution)](https://docs.google.com/document/d/1m9xLRLg09lncQTuBUMhhG_lqDQGJRYMZPejvwdBXvqo/edit?usp=sharing) | [@juliexxia](https://github.com/juliexxia) | Configurability |
@@ -127,7 +128,6 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2020-05-13 | [Passing Toolchain Context across Dependencies](designs/2020-05-13-toolchain-context-dependencies.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-04-17 | [Dependency Discovery Proposal](https://github.com/stevebillings/bazel-dependency-enhancement/blob/master/bazel-next-gen-dependency-discovery-PRD.md) | [@stevebillings](https://github.com/stevebillings)   | External Repositories |
 |   2020-01-27 | [Package Validation Proposal](https://docs.google.com/document/d/1FfRXzW5RAB7tixbd1Lac51GNqNGQN932ZuTRdg8oUWU)                  | [@kkress](https://github.com/kkress)   | Bazel, Starlark |
 |   2019-04-18 | [Remote Repository Cache](https://docs.google.com/document/d/1aagKnM8kRmMvLqSXasShsI-NYOBZYtgNrbYWLPwBoBg/edit)                 | [jmillikin](https://john-millikin.com)   | External Repositories |
