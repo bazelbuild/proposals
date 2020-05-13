@@ -127,6 +127,7 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2020-05-13 | [Passing Toolchain Context across Dependencies](designs/2020-05-13-toolchain-context-dependencies.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-04-17 | [Dependency Discovery Proposal](https://github.com/stevebillings/bazel-dependency-enhancement/blob/master/bazel-next-gen-dependency-discovery-PRD.md) | [@stevebillings](https://github.com/stevebillings)   | External Repositories |
 |   2020-01-27 | [Package Validation Proposal](https://docs.google.com/document/d/1FfRXzW5RAB7tixbd1Lac51GNqNGQN932ZuTRdg8oUWU)                  | [@kkress](https://github.com/kkress)   | Bazel, Starlark |
 |   2019-04-18 | [Remote Repository Cache](https://docs.google.com/document/d/1aagKnM8kRmMvLqSXasShsI-NYOBZYtgNrbYWLPwBoBg/edit)                 | [jmillikin](https://john-millikin.com)   | External Repositories |
