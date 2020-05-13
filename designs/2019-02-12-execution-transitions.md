@@ -1,7 +1,7 @@
 ---
 created: 2019-02-12
-last updated: 2019-03-22
-status: Approved
+last updated: 2020-05-20
+status: Implemented
 reviewers:
   - gregce
 title: Execution Transitions
