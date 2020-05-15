@@ -53,15 +53,16 @@ configuration machinery.
 # Proposal
 
 Instead of inflating the configuration to use as a data channel, we can instead
-add a new field to the existing
+create a subclass of the existing
 [ConfiguredTargetKey](https://cs.opensource.google/bazel/bazel/+/master:src/main/java/com/google/devtools/build/lib/skyframe/ConfiguredTargetKey.java).
-Currently, it contains a Label and a BuildConfigurationValue.Key. By adding an
-additional nullable
+Currently, ConfiguredTargetKey contains a Label and a
+BuildConfigurationValue.Key. By adding a subclass with a
 [ToolchainContextKey](https://cs.opensource.google/bazel/bazel/+/master:src/main/java/com/google/devtools/build/lib/skyframe/ToolchainContextKey.java),
-the toolchain implementation (or `config_setting`) configured targets will have
-direct access to the parent target’s toolchain context. Because the toolchain
-context will already have been loaded from CT1, when CT2 requests it there will
-be no need for a Skyframe restart, as the value will already be present.
+the toolchain implementation configured targets (or `config_setting`
+implementation) will have direct access to the parent target’s toolchain
+context. Because the toolchain context will already have been loaded from CT1,
+when CT2 requests it there will be no need for a Skyframe restart, as the value
+will already be present.
 
 The ToolchainContextKey currently contains:
 *   A BuildConfigurationValue.Key pointing to the configuration
