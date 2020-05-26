@@ -62,7 +62,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
-|   2020-05-26 | [Starlark Directory Expansion in Args MapEach](https://docs.google.com/document/d/14MalcSscNHKriA9aHalRQSwNggSPO0JzSLbwzQMO_so) | [@haileiyu](https://github.com/haileiyu)   | Starlark |
+|   2020-05-26 | [Starlark Directory Expansion in Args MapEach](https://docs.google.com/document/d/14MalcSscNHKriA9aHalRQSwNggSPO0JzSLbwzQMO_so) |[@tomlu](https://github.com/tomlu) | Starlark |
 |   2020-05-19 | [Passing Toolchain Context across Dependencies](designs/2020-05-13-toolchain-context-dependencies.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-05-13 | [Execution Platforms vs. Strategies](https://docs.google.com/document/d/1U9HzdDmtRnm244CaRM6JV-q2408mbNODAMewcGjnnbM/edit#)| [@katre](https://github.com/katre) and [@aragos](https://github.com/aragos) | Configurability |
 |   2020-03-20 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
