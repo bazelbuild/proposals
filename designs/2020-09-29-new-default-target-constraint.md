@@ -7,6 +7,7 @@ reviewers:
 title: Adding a constraint to default target platform
 authors:
   - comius
+discussion thread: https://groups.google.com/g/bazel-dev/c/b8pAV4Tsv64/m/qZ13iNOlBQAJ
 ---
 
 Toolchain resolution already supports different languages in Bazel. Toolchains
