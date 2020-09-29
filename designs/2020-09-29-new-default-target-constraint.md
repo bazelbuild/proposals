@@ -33,12 +33,12 @@ tools that are used for compilation, however the compilation is done by the
 internal compiler of JDK coming from `java_runtime`.
 
 To build a Java target, where target and execution platform are the same,
-Java would already use two different JDKs: an embedded one for compilation and
+Java would already use two different JDKs: one from remote repository for compilation and
 a JDK installed on the machine to resolve symbols in system libraries and within
 runfiles and a stub used to execute the target.
 
 Rationalia for those two requirements are:
-- Use embedded JDK for compilation in order to have hermetic compiles.
+- Use JDK from remote repository for compilation in order to have hermetic compiles.
 - Use locally installed JDK in order to execute Java code without Bazel installed.
 
 # The problem
@@ -77,7 +77,7 @@ of resolution stays the same.
 
 Possible problem: The proposal has an effect on the users defining there own 
 target platform(s) - if the constraint is not added, Java will be executed using
-embedded JDK. Usually this works fine, without producing errors or crashes.
+JDK from remote repository. Usually this works fine, without producing errors or crashes.
 
 
 # Other options considered
@@ -94,4 +94,4 @@ undesired results or errors and crashes.
 3. Defining an additional toolchain type for Java. This seems to make code more
 complex and questionable when multiple different platforms a involved.
 
-4. Dropping one of the requirements for java and using just embedded JDK. 
+4. Dropping one of the requirements for java and using just the JDK from remote repository. 
