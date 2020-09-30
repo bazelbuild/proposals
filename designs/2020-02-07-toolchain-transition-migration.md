@@ -1,7 +1,7 @@
 ---
 created: 2020-02-07
-last updated: 2020-03-20
-status: Approved
+last updated: 2020-09-30
+status: Implemented
 reviewers:
   - gregce
   - cparsons (for Starlark API implications)
