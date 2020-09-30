@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2020-09-30 | [Passing Toolchain Context across Dependencies](designs/2020-05-13-toolchain-context-dependencies.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-05-13 | [Execution Transitions](designs/2019-02-12-execution-transitions.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-05-13 | [Old Flags to Platform Migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls) | [@aragos](https://github.com/aragos) |  Configurability |
 |   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability           
@@ -63,7 +64,6 @@ list.
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
 |   2020-05-28 | [Injecting Starlark Values Into Builtins](https://docs.google.com/document/d/1GW7UVo1s9X0cti9OMgT3ga5ozKYUWLPk9k8c4-34rC4/edit#) | [@brandjon](https://github.com/brandjon) | Starlark |
-|   2020-05-19 | [Passing Toolchain Context across Dependencies](designs/2020-05-13-toolchain-context-dependencies.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-05-13 | [Execution Platforms vs. Strategies](https://docs.google.com/document/d/1U9HzdDmtRnm244CaRM6JV-q2408mbNODAMewcGjnnbM/edit#)| [@katre](https://github.com/katre) and [@aragos](https://github.com/aragos) | Configurability |
 |   2020-03-20 | [Toolchain Transition Migration](designs/2020-02-07-toolchain-transition-migration.md)                                          | [@katre](https://github.com/katre)       | Configurability |
 |   2020-01-14 | [Remote Downloads](designs/2020-01-14-remote-downloads.md) | [@EricBurnett](https://github.com/EricBurnett), [@jmillikin](https://john-millikin.com), [@sstriker](https://github.com/sstriker) | External Repositories |
