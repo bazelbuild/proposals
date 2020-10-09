@@ -65,6 +65,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2020-10-08 | [Configured Query Starlark Output](https://docs.google.com/document/d/1kL6Tdmp6uLBa9lq_DbUSjIC87glOzKIyPoBeF95Rs4c/edit#) | [@c-parsons](https://github.com/c-parsons) | Configurability, Starlark |
 |   2020-05-28 | [Injecting Starlark Values Into Builtins](https://docs.google.com/document/d/1GW7UVo1s9X0cti9OMgT3ga5ozKYUWLPk9k8c4-34rC4/edit#) | [@brandjon](https://github.com/brandjon) | Starlark |
 |   2020-05-13 | [Execution Platforms vs. Strategies](https://docs.google.com/document/d/1U9HzdDmtRnm244CaRM6JV-q2408mbNODAMewcGjnnbM/edit#)| [@katre](https://github.com/katre) and [@aragos](https://github.com/aragos) | Configurability |
 |   2020-01-14 | [Remote Downloads](designs/2020-01-14-remote-downloads.md) | [@EricBurnett](https://github.com/EricBurnett), [@jmillikin](https://john-millikin.com), [@sstriker](https://github.com/sstriker) | External Repositories |
