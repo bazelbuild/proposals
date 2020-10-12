@@ -95,6 +95,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2020-10-12 | [Aspects Propagating Other Aspects](https://docs.google.com/document/d/1fVNyskIgMoiNeOOGt57LdDmEkAShkYUKYQTkf5yD1fA/edit)                                          | [@lberki](https://github.com/lberki)       | Build API |
 |   2020-07-17 | [Starlark Shorthand Flag Mapping](https://docs.google.com/document/d/1qDz9VEJNEY-sybYCg53WqIQFbsBMR3gVDYbFFwS1OM4/edit?usp=sharing) | [@WarkahScott](https://github.com/WarkahScott) | Configurability |
 |   2020-05-18 | [Starlark Directory Expansion in Args MapEach](https://docs.google.com/document/d/14MalcSscNHKriA9aHalRQSwNggSPO0JzSLbwzQMO_so) | [@haileiyu](https://github.com/haileiyu)   | Starlark |
 |   2020-05-11 | [External directory reshuffling](https://docs.google.com/document/d/1X1-JkqkmzvYmDHnr3OyHpFyKgoFb7K2BXs0xgYcetiM/edit#) | [@lberki](https://github.com/lberki) | External Repositories |
