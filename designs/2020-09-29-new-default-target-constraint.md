@@ -1,7 +1,7 @@
 ---
 created: 2020-09-29
-last updated: 2020-09-29
-status: Draft
+last updated: 2020-10-19
+status: Dropped
 reviewers:
   - katre
 title: Adding a constraint to default target platform
