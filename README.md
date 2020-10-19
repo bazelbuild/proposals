@@ -133,7 +133,6 @@ list.
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
 |   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
-|   2020-09-29 | [Adding a constraint to default target platform](designs/2020-09-29-new-default-target-constraint.md) | [@comius](https://github.com/comius) | Configurability |
 |   2020-08-14 | [Proposal: new format ‘flag_per_line’ for Args](https://docs.google.com/document/d/1nyxfVn7KAAi1sKvHCfrOjfONkhK8RYhvAesrAok3sJ8/edit?usp=sharing) | [@vmaverick](https://github.com/vmaverick)   | Starlark |
 |   2020-04-17 | [Dependency Discovery Proposal](https://github.com/stevebillings/bazel-dependency-enhancement/blob/master/bazel-next-gen-dependency-discovery-PRD.md) | [@stevebillings](https://github.com/stevebillings)   | External Repositories |
 |   2020-01-27 | [Package Validation Proposal](https://docs.google.com/document/d/1FfRXzW5RAB7tixbd1Lac51GNqNGQN932ZuTRdg8oUWU)                  | [@kkress](https://github.com/kkress)   | Bazel, Starlark |
@@ -161,6 +160,7 @@ list.
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
+|   2020-10-19 | [Adding a constraint to default target platform](designs/2020-09-29-new-default-target-constraint.md) | [@comius](https://github.com/comius) | Configurability |
 |   2020-09-30 | [Bazel Constraint Equality](https://docs.google.com/document/d/1vuBfhgplxaBPiocm3oEWLeFdv9tzojHozdCLRVKcfz8/edit) | [@aragos](https://github.com/aragos) | Configurability |
 |   2020-09-30 | [Versioned Runtime APIs under Platforms & Toolchains](https://docs.google.com/document/d/1TkbNTpBCE1MobexzmjUEpEaYzZVVXPt1cCTK-z2bvig/edit#) | [@aragos](https://github.com/aragos) | Configurability |
 |   2020-01-16 | [Starlark project files](https://docs.google.com/document/d/1Sl9J5VVuaYlckmvvSmcwBvcvKAGVKwaMo4qILFVmXpo/edit)                 | [@robbertvanginkel](https://github.com/robbertvanginkel)   | Bazel, Starlark |
