@@ -3,6 +3,7 @@ created: 2021-02-10
 last updated: 2021-02-10
 status: To be reviewed
 reviewers:
+  - coeuvre
   - philwo
 title: "Remote Output Service: place bazel-out/ on a FUSE file system"
 authors:
