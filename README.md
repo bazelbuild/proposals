@@ -58,6 +58,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2020-02-18 | [Require ProtoInfo for proto_lang_toolchain#blacklisted_protos](https://docs.google.com/document/d/1UmF_P4NDVl6Nw4JsHoHYp74iCdEQNh1O3-SVAX1CdjU/edit#) | [@Yannic](https://github.com/Yannic)   | Protobuf |
 |   2021-02-15 | [Toolchain resolution using configuration flags](https://docs.google.com/document/d/13yXhOQeMZQmlW3obyZ7fJP3sm3eVLbK3Nuk2LZjcZiU/edit?usp=sharing)                                          | [@comius](https://github.com/comius)       | Configurability |
 |   2021-02-15 | [Configured Query Starlark Output](https://docs.google.com/document/d/1kL6Tdmp6uLBa9lq_DbUSjIC87glOzKIyPoBeF95Rs4c/edit#) | [@c-parsons](https://github.com/c-parsons) | Configurability, Starlark |
 |   2021-02-15 | [Proposal: new format ‘flag_per_line’ for Args](https://docs.google.com/document/d/1nyxfVn7KAAi1sKvHCfrOjfONkhK8RYhvAesrAok3sJ8/edit?usp=sharing) | [@vmaverick](https://github.com/vmaverick)   | Starlark |
