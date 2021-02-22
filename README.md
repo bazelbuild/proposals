@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2021-02-18 | [Toolchainifying proto rules](https://docs.google.com/document/d/1go3UMwm2nM8JHhI3MZrtyoFEy3BYg5omGqQmOwcjmNE/edit?usp=sharing)                                              | [@Yannic](https://github.com/Yannic)                                 | Protobuf      |
 |   2021-02-10 | [Remote Output Service: place bazel-out/ on a FUSE file system](designs/2021-02-09-remote-output-service.md)                                              | [@EdSchouten](https://github.com/EdSchouten)                                 | Remote Execution      |
 |   2020-10-19 | [Bazel External Dependencies Overhaul](https://docs.google.com/document/d/1moQfNcEIttsk6vYanNKIy3ZuK53hQUFq1b1r0rmsYVg/edit)                                          | [@meteorcloudy](https://github.com/meteorcloudy), [@philwo](https://github.com/philwo), [@Wyverald](https://github.com/Wyverald)       | External Repositories |
 
@@ -47,6 +48,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2021-02-18 | [Require ProtoInfo for proto_lang_toolchain#blacklisted_protos](https://docs.google.com/document/d/1UmF_P4NDVl6Nw4JsHoHYp74iCdEQNh1O3-SVAX1CdjU/edit#) | [@Yannic](https://github.com/Yannic)   | Protobuf |
 |   2021-02-16 | [Selecting Between Python 2 and 3](https://github.com/bazelbuild/rules_python/blob/master/proposals/2018-10-25-selecting-between-python-2-and-3.md)                            | [@brandjon](https://github.com/brandjon)                                           | Python |
 |   2021-02-16 | [Remote Downloads](designs/2020-01-14-remote-downloads.md) | [@EricBurnett](https://github.com/EricBurnett), [@jmillikin](https://john-millikin.com), [@sstriker](https://github.com/sstriker) | External Repositories |
 |   2021-02-16 | [Starlark Directory Expansion in Args MapEach](https://docs.google.com/document/d/14MalcSscNHKriA9aHalRQSwNggSPO0JzSLbwzQMO_so) | [@haileiyu](https://github.com/haileiyu)   | Starlark |

@@ -5,6 +5,8 @@ status: To be reviewed
 reviewers:
   - coeuvre
   - philwo
+  - alexjski
+  - janakdr
 title: "Remote Output Service: place bazel-out/ on a FUSE file system"
 authors:
   - EdSchouten
@@ -58,12 +60,10 @@ The reason Bazel downloads output files is as follows:
   If a locally executing action depends on files that were built
   remotely, Bazel needs to download those files to satisfy the
   execution requirements of the locally executing action.
-- To serve as Bazel's bookkeeping. To a certain extent, Bazel is
-  capable of building projects whose dependency graph does not fit in
-  memory. Bazel keeps a finitely sized cache of file metadata (size,
-  hash, etc.) in memory. Once exhausted, Bazel may discard entries.
-  During a later stage of a build, Bazel may need to recompute these
-  entries by inspecting files on disk.
+- To serve as Bazel's bookkeeping across server restarts. A fresh
+  Bazel server in an existing workspace can load its action cache from
+  disk and then skip executing actions if the output files on disk match
+  the records in the action cache.
 - To guarantee forward progress of the build, even if objects were to
   disappear from the remote CAS. By having the files present locally,
   Bazel can reupload them if they were to disappear.
@@ -116,7 +116,7 @@ this space:
   forwarded through a character device to a userspace process.
 - For macOS there is [macFUSE](https://osxfuse.github.io) (also known as
   OSXFUSE). It implements a slightly older version of the FUSE protocol,
-  with minor macOS specific protocol extensions in place. In terms of
+  with minor macOS-specific protocol extensions in place. In terms of
   robustness and performance, it fares worse than Linux's FUSE
   implementation. Though still hosted on GitHub, this project is no
   longer Open Source. The last Open Source version no longer runs on
