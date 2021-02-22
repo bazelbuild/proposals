@@ -47,6 +47,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2021-02-16 | [Selecting Between Python 2 and 3](https://github.com/bazelbuild/rules_python/blob/master/proposals/2018-10-25-selecting-between-python-2-and-3.md)                            | [@brandjon](https://github.com/brandjon)                                           | Python |
 |   2021-02-16 | [Remote Downloads](designs/2020-01-14-remote-downloads.md) | [@EricBurnett](https://github.com/EricBurnett), [@jmillikin](https://john-millikin.com), [@sstriker](https://github.com/sstriker) | External Repositories |
 |   2021-02-16 | [Starlark Directory Expansion in Args MapEach](https://docs.google.com/document/d/14MalcSscNHKriA9aHalRQSwNggSPO0JzSLbwzQMO_so) | [@haileiyu](https://github.com/haileiyu)   | Starlark |
 |   2021-02-16 | [Test execution on Windows without Bash](https://github.com/laszlocsomor/proposals/blob/win-test-runner/designs/2018-07-18-windows-native-test-runner.md) | [@laszlocsomor](https://github.com/laszlocsomor) | Windows  |
@@ -129,7 +130,6 @@ list.
 |   2021-02-16 | [s/skydoc/stardoc/g: a plan](https://docs.google.com/document/d/1HrUHFyfU0HpWG6F6ws-8zESZ16h4N7p8WsOPR9iqJbo/edit#)| [@jin](https://github.com/jin) | Documentation |
 |   2021-02-16 | [Experimental Content-Based Output Paths](https://docs.google.com/document/d/17snvmic26-QdGuwVw55Gl0oOufw9sCVuOAvHqGZJFr4/edit) | [@gregestren](https://github.com/gregestren) | Configurability
 |   2021-02-15 | [Managing Breaking Changes in Bazel](https://docs.google.com/document/d/1Dj5PBLmPVg9ZyApm4GobM3y-mDgY3mVaqpRVttOe-ZQ/)| [@dslomov](https://github.com/dslomov) | Community       |
-|   2021-02-15 | [Selecting Between Python 2 and 3](https://github.com/bazelbuild/rules_python/blob/master/proposals/2018-10-25-selecting-between-python-2-and-3.md)                            | [@brandjon](https://github.com/brandjon)                                           | Python |
 |   2021-02-15 | [Separating Build API from Bazel](https://docs.google.com/document/d/1UDEpjP_qWQRYsPRvx7TOsdB8J4o5khfhzGcWplW7zzI)     | [@c-parsons](https://github.com/c-parsons)                                         | Starlark               |
 |   2021-02-15 | [Improved Command Line Reporting](https://bazel.build/designs/2017/07/13/improved-command-line-reporting.html)         | [@cvcal](https://github.com/cvcal)                                                 | Bazel                 |
 |   2021-02-15 | [Bazel External Dependencies Roadmap](https://docs.google.com/document/d/1ZGoqeUI5zz2IP2LP09aTellSRNRi53bCCW6tbnKAc8o) | [@dslomov](https://github.com/dslomov)                                             | External Repositories |
