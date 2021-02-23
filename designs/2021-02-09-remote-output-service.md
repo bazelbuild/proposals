@@ -87,10 +87,10 @@ remote execution to scale, some inherent downsides remain:
 - Bazel's memory usage has increased significantly. The ActionInputMap
   that gets created during build may easily consume multiple gigabytes
   of space for a sufficiently large project.
-- Incremental builds have become significantly slower. Because the
-  ActionInputMap is discarded after every build, Bazel effectively
-  assumes that the outputs have disappeared, thereby causing it to do a
-  full rebuild.
+- Incremental builds after a Bazel server restart are significantly slower.
+  Because the ActionInputMap does not outlive the Bazel server, a new
+  server has no output metadata, and thus has to regenerate all outputs
+  from scratch via a clean build.
 - Users now need to make a conscious choice whether they want to
   download output files or not. This makes it harder to do ad hoc
   exploration.
