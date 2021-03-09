@@ -3,9 +3,10 @@ created: 2021-03-06
 last updated: 2021-03-06
 status: To be reviewed
 reviewers:
-  - larsrc-google
-  - EricBurnett
   - bergsieker
+  - coeuvre
+  - EricBurnett
+  - larsrc-google
 title: "Remote Persistent Workers"
 authors:
   - ulfjack
