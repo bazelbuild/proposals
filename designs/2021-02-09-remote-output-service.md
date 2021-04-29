@@ -1,6 +1,6 @@
 ---
 created: 2021-02-10
-last updated: 2021-02-10
+last updated: 2021-04-28
 status: To be reviewed
 reviewers:
   - coeuvre
@@ -225,3 +225,30 @@ The goal is to implement this feature in such a way that local
 execution, plain remote execution, remote execution with
 `--remote_download_minimal`, the use of a local disk cache, etc. all
 remain functional.
+
+# Future work
+
+The initial goal of this proposal is to let the Remote Output Service
+offer a file system to Bazel that is fully writable, but simply
+augmented to support the creation of lazy-loading files. In the future
+it may be of interest to allow this file system to be read-only,
+requiring all changes to be made by Bazel through gRPC. This reduces the
+need for tracking changes in the file system, or scanning the file
+system when doing incremental builds. The following things will need to
+be kept in mind when implementing this:
+
+- Not all changes to Bazel's output directory are made through the
+  RemoteOutputService interface. Additioning wrapping of FileSystem will
+  need to be performed to prevent Bazel from making direct writes.
+- Making the output path read-only makes it impossible to run actions
+  with sandboxing disabled. This may be acceptable for many users,
+  though.
+
+Such a change could be decomposed into two separate parts:
+
+1. Adding a gRPC method that Bazel can use to write files into the file
+   system, as opposed to writing files directly. The protocol as
+   currently defined only allows the creation of files that are backed
+   by a remote CAS.
+2. Extending StartBuild() to allow Bazel to request the creation of a
+   read-only output directory.
