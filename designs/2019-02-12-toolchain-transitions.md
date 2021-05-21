@@ -1,7 +1,7 @@
 ---
 created: 2019-02-12
-last updated: 2019-03-22
-status: Approved
+last updated: 2020-09-30
+status: Implemented
 reviewers:
   - gregce
 title: Toolchain Transitions
@@ -103,6 +103,12 @@ The new transition will not be exposed to Starlark rules (or to native rules,
 outside of the toolchain resolution system).
 
 # Migration
+
+**NOTE: OBSOLETE**
+
+See the new migration plan in [Toolchain Transition Migration](2020-02-07-toolchain-transition-migration.md).
+
+**Old Version**
 
 After the new transition, existing toolchains will need to be updated to use the
 execution transition on dependencies which are expected to work on the execution
