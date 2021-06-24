@@ -238,8 +238,9 @@ dict of dicts, we think that new limits (beyond the existing limits on the
 number of Starlark computation steps) aren’t needed.
 
 Likewise, we considered adding a buildifier lint to suggest using
-`existing_rule()` in place of `existing_rules()` where possible, but this is now
-also obsolete.
+`existing_rule()` in place of `existing_rules()` where possible. Such a lint
+would still be worthwhile, but would now bring only a readability and constant
+factor performance benefit.
 
 ## Memoization
 
