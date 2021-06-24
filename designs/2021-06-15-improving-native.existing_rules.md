@@ -99,14 +99,15 @@ deleted, we can simply iterate `n` many times. We would also need a map from a
 target to its insertion order in `Package.Builder`, to ensure that subscripting
 the view by target name cannot access targets that were not in existence when
 the view was created. (If this map turns out to measurably increase memory
-usage, we can create it lazily so that packages that never call
-`existing_rule/s` don’t pay this cost.)
+usage, we can create and grow it lazily so that packages that never call
+`existing_rules()` don’t pay this cost.)
 
 Note that under this proposal, `existing_rules()[name]` would be about as
-efficient as `existing_rule(name)`, meaning that the former, commonly-seen usage
-would no longer be a performance antipattern. Calling `existing_rules()` by
-itself would not incur quadratic complexity in either time or space. That could
-only happen if the user looped over the result or made an explicit copy,
+efficient as `existing_rule(name)` (modulo the cost of the target creation order
+map if it’s created lazily), meaning that the former, commonly-seen usage would
+no longer be a performance antipattern. Calling `existing_rules()` by itself
+would not incur quadratic complexity in either time or space. That could only
+happen if the user looped over the result or made an explicit copy,
 respectively.
 
 # Backward compatibility
@@ -157,9 +158,10 @@ We considered several approaches for reducing the size of the dict returned by
 `existing_rules()` in cases where users don’t want all targets. Ultimately, we
 decided that returning a target view was much simpler and still delivers most of
 the performance benefit, in the sense that retrieving information about specific
-targets by name is always O(1). The only time built-in filtering is more
-efficient than using target views is when the user wants to iterate over some
-subset of the targets, e.g. all targets of a given rule kind.
+targets by name is O(1) (or amortized O(1) if the target insertion order map is
+generated lazily). The only time built-in filtering is more efficient than using
+target views is when the user wants to iterate over some subset of the targets,
+e.g. all targets of a given rule kind.
 
 Suppose that the built-in filtering is implemented by internally iterating over
 all targets and skipping over ones that don’t match the criteria. This avoids
