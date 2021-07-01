@@ -20,7 +20,6 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
-|   2021-06-23 | [Improving native.existing_rules](designs/2021-06-15-improving-native.existing_rules.md)                                                                  | [@tetromino](https://github.com/tetromino), [@brandjon](https://github.com/brandjon) | Build Language |
 |   2021-03-06 | [OSS License Declarations](https://docs.google.com/document/d/1XszGbpMYNHk_FGRxKJ9IXW10KxMPdQpF5wWbZFpA4C8) | [@aiuto](https://github.com/aiuto)                                 | Product |
 |   2021-03-06 | [Remote Persistent Workers](designs/2021-03-06-remote-persistent-workers.md)                                              | [@ulfjack](https://github.com/ulfjack)                                 | Remote Execution      |
 |   2021-02-18 | [Toolchainifying proto rules](https://docs.google.com/document/d/1go3UMwm2nM8JHhI3MZrtyoFEy3BYg5omGqQmOwcjmNE/edit?usp=sharing)                                              | [@Yannic](https://github.com/Yannic)                                 | Protobuf      |
@@ -38,6 +37,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2021-06-23 | [Improving native.existing_rules](designs/2021-06-15-improving-native.existing_rules.md)                               | [@tetromino](https://github.com/tetromino), [@brandjon](https://github.com/brandjon) | Build Language      |
 |   2021-06-09 | [Aspects Propagating other Aspects](https://docs.google.com/document/d/1WPq2g__IwrsSsxn4-rcfTSQODDtnKQTDhnHvtA37nlQ/edit?usp=sharing) | [@messa](https://github.com/mai93) | Starlark |
 |   2021-04-22 | [Custom constructors for providers](https://docs.google.com/document/d/1peAeaMOh9AkDgzMcOeJPkMCChYjFCkfdsPsKhgOxwfY/edit?usp=sharing)                                              | [@brandjon](https://github.com/brandjon)                                 | Build Language      |
 |   2021-03-24 | [Java common refactoring](https://docs.google.com/document/d/10isTEK5W9iCPp4BIyGBrLY5iti3Waaam6EeGVSjq3r8/edit?usp=sharing)                                             | [@comius](https://github.com/comius)                                 | Java rules      |
