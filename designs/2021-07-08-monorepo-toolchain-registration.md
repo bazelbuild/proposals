@@ -41,6 +41,10 @@ the existing `toolchain_type` rule definition, called `registered_toolchains`.
 This would give the path to targets of the `toolchain` rule, exactly the same as
 would be registered via the WORKSPACE `register_toolchains` function.
 
+It would be an error to use `registered_toolchains` to list toolchains of a
+different type than the actual `toolchain_type` the attribute is for. This can
+be checked and reported when the toolchain type is used.
+
 Example:
 
 ```python
