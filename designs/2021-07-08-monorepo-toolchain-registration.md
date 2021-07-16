@@ -1,12 +1,14 @@
 ---
 created: 2021-07-08
-last updated: 2021-07-08
-status: Draft
+last updated: 2021-07-16
+status: Review
 reviewers:
+  - nharmata
+  - gregestren
 title: Monorepo Toolchain Registration
 authors:
   - katre
-discussion thread:
+discussion thread: https://groups.google.com/g/bazel-dev/c/DKnlR3b8X2I
 ---
 
 # Monorepo Toolchain Registration
