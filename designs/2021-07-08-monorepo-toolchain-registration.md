@@ -1,7 +1,7 @@
 ---
 created: 2021-07-08
-last updated: 2021-07-08
-status: Draft
+last updated: 2021-07-21
+status: Dropped
 reviewers:
 title: Monorepo Toolchain Registration
 authors:
@@ -10,6 +10,13 @@ discussion thread:
 ---
 
 # Monorepo Toolchain Registration
+
+## DROPPED
+
+This proposal has been dropped as not providing enough benefit to be worth
+finalizing and implementing.
+
+# Original Proposal
 
 Although the current method of [registering
 toolchains](https://docs.bazel.build/versions/main/toolchains.html#registering-and-building-with-toolchains)
