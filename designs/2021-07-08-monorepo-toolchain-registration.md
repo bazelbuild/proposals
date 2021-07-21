@@ -16,7 +16,7 @@ discussion thread:
 This proposal has been dropped as not providing enough benefit to be worth
 finalizing and implementing.
 
-# Original Proposal
+## Original Proposal
 
 Although the current method of [registering
 toolchains](https://docs.bazel.build/versions/main/toolchains.html#registering-and-building-with-toolchains)
