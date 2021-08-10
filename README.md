@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2021-03-06 | [Rules authors SIG](designs/2021-08-10-rules-authors-sig.md) | [@alexeagle](https://github.com/alexeagle)                                 | Community |
 |   2021-03-06 | [OSS License Declarations](https://docs.google.com/document/d/1XszGbpMYNHk_FGRxKJ9IXW10KxMPdQpF5wWbZFpA4C8) | [@aiuto](https://github.com/aiuto)                                 | Product |
 |   2021-03-06 | [Remote Persistent Workers](designs/2021-03-06-remote-persistent-workers.md)                                              | [@ulfjack](https://github.com/ulfjack)                                 | Remote Execution      |
 |   2021-02-18 | [Toolchainifying proto rules](https://docs.google.com/document/d/1go3UMwm2nM8JHhI3MZrtyoFEy3BYg5omGqQmOwcjmNE/edit?usp=sharing)                                              | [@Yannic](https://github.com/Yannic)                                 | Protobuf      |
