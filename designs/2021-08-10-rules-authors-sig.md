@@ -132,9 +132,12 @@ This section is speculative, but should help to illustrate what kinds of specifi
 1. Tweak and share settings for GitHub actions/bots like [Stale](https://github.com/marketplace/actions/close-stale-issues)
 1. Solve a dev-infra shaped problem across rulesets, for example we introduced a pre-commit hook to most rulesets to trigger buildifier formatting before sending a PR, using https://github.com/keith/pre-commit-buildifier
 1. Maintain a prioritized list of issues and PRs on upstream repos such as bazelbuild/bazel that the rules authors would most like to see fixed/merged
-1. Make a decision about rules APIs so that there is more consistency for users, such as naming attributes similiarly
-1. Create a rules authoring style guide
+1. Make a decision about rules APIs so that there is more consistency for users, such as naming attributes similarly
+1. Extend the [rules authoring style guide](https://docs.bazel.build/versions/main/skylark/deploying.html)
 1. Allocate funding from a source like an OpenCollective to contributors (like Chrome does: https://opencollective.com/chrome)
+
+The SIG could potentially take over work that the Bazel core team would rather not continue to do.
+For example, it could take over maintenance of the list of ["recommended" rules](https://bazel.build/recommended-rules.html) which has not been updated in two years (https://github.com/bazelbuild/bazel/blame/master/site/docs/rules.md).
 
 ## Decision-making
 
