@@ -10,7 +10,7 @@ title: Rules Authors SIG
 authors:
   - [Alex Eagle](http://github.com/alexeagle), Aspect
   - [Daniel Wagner-Hall](http://github.com/illicitonion), Apple
-  - Helen Altshuler, EngFlow
+  - [Helen Altshuler](https://github.com/helenalt), EngFlow
   - [Keith Smiley](http://github.com/keith), Lyft
 ---
 
