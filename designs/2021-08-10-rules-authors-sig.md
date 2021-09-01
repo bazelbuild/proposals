@@ -82,7 +82,7 @@ We don't want SIG meetings to become a forum for users to ask for support or esc
 Any member joining the SIG should commit to active participation to
 support the goals of the group.
 
-We propose that the group be initially formed with a representative from each of the [recommended] rulesets.
+We propose that the group be initially formed with a representative from each of the [recommended] rulesets and each of the canonical rulesets (those hosted on the bazelbuild GitHub org).
 
 > We could consider some metric of popularity as well, as some
 > recommended rulesets don't seem actively maintained.
