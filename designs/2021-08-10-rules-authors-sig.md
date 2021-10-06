@@ -1,9 +1,9 @@
 ---
 created: 2021-08-10
 last updated: 2021-08-19
-status: To be reviewed
+status: Approved
 reviewers:
-  - philwo [?]
+  - philwo
   - sventiffe
   - hicksjoseph
 title: Rules Authors SIG
