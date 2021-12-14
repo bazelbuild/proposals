@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2021-12-13 | [Proposal for subpackages built-in helper function](https://docs.google.com/document/d/13UOT0GoQofxDW40ILzH2sWpUOmuYy6QZ7CUmhej9vgk/edit?usp=sharing) | [@kkress](https://github.com/kkress)                                 | Bazel |
 |   2021-11-09 | [Guidance for Rules Authors how to deal with Bazel versions / upgrades](https://docs.google.com/document/d/1s_8AihGXbYujNWU_VjKNYKQb8_QGGGq7iKwAVQgjbn0/edit?usp=sharing) | [@philwo](https://github.com/philwo)                                 | Bazel |
 |   2021-08-24 | [Rules authors SIG](designs/2021-08-10-rules-authors-sig.md) | [@alexeagle](https://github.com/alexeagle)                                 | Community |
 |   2021-06-17 | [Starlark fail(errorcode="")](https://docs.google.com/document/d/1N98CCcZ8pCLDfh9U2hRwSdSvsiSjKdZ2cHWyiQ1PWRE) | [@aiuto](https://github.com/aiuto)                                 | Documentation / Event Stream |
