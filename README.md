@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2022-01-24 | [Optional Toolchains](designs/2022-01-21-optional-toolchains.md) | [@katre](https://github.com/katre) | Configurability |
 |   2021-11-09 | [Guidance for Rules Authors how to deal with Bazel versions / upgrades](https://docs.google.com/document/d/1s_8AihGXbYujNWU_VjKNYKQb8_QGGGq7iKwAVQgjbn0/edit?usp=sharing) | [@philwo](https://github.com/philwo)                                 | Bazel |
 |   2021-08-24 | [Rules authors SIG](designs/2021-08-10-rules-authors-sig.md) | [@alexeagle](https://github.com/alexeagle)                                 | Community |
 |   2021-06-17 | [Starlark fail(errorcode="")](https://docs.google.com/document/d/1N98CCcZ8pCLDfh9U2hRwSdSvsiSjKdZ2cHWyiQ1PWRE) | [@aiuto](https://github.com/aiuto)                                 | Documentation / Event Stream |
@@ -33,7 +34,6 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2022-01-21 | [Optional Toolchains](designs/2022-01-21-optional-toolchains.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
 |   2021-06-25 | [Better Starlark analysis unit tests](https://docs.google.com/document/d/12sC92mq7WasTvDWsm4U782oCegitfi1jbgOnMIGCe-A/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 

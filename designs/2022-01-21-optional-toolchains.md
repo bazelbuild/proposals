@@ -1,13 +1,13 @@
 ---
 created: 2022-01-21
-last updated: 2022-01-21
-status: Draft
+last updated: 2022-01-24
+status: In Review
 reviewers:
   - gregce
   - trybka
 title: Optional Toolchains
 authors: katre
-discussion thread:
+discussion thread: https://groups.google.com/g/bazel-dev/c/PdRF3Lmrln8/m/dzQk3vFkAQAJ
 ---
 
 # Abstract
