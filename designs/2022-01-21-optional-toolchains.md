@@ -1,6 +1,6 @@
 ---
 created: 2022-01-21
-last updated: 2022-01-24
+last updated: 2022-01-26
 status: In Review
 reviewers:
   - gregce
@@ -34,7 +34,12 @@ In order to make toolchain resolution more useful, and remove these wasteful
 
 There are two possible ways to implement this feature.
 
-## Option 1: All toolchains are optional
+## API Changes
+
+There are two different options for rule authors to express what toolchain types
+their rules require.
+
+### Option 1: All toolchains are optional
 
 This option presents the simplest API: all toolchain types declared by a rule in
 the `toolchains` parameter are optional, and could potentially not be present
@@ -46,7 +51,7 @@ Existing rules will need to migrate to handle this case, although this is
 entirely for error handling, as any build that succeeds with mandatory
 toolchains will also succeed with optional toolchains.
 
-## Option 2: A richer API
+### Option 2: A richer API
 
 This option allows for rules to decide whether toolchain types are optional, by
 allowing the `toolchain_types` parameter to have more data.
@@ -95,7 +100,7 @@ The full API for `config.toolchain_type` would be:
 
 Other parameters can be added as needed.
 
-### Sidebar: Why not a dict?
+#### Sidebar: Why not a dict?
 
 One option that seems simpler at first is to just use existing Starlark data
 structures, such as lists and dicts, instead of a new `config.toolchain_type`
@@ -115,6 +120,8 @@ to adapt in the future, so an explicit API is preferred.
 
 ## Changes to Toolchain Resolution Logic
 
+Regardless of the API, the changes to toolchain resolution are the same.
+
 Currently, the toolchain resolution logic is this:
 
 1.  For each toolchain type requested, create a map from execution platform to
@@ -128,9 +135,21 @@ Currently, the toolchain resolution logic is this:
 To handle optional toolchains, step 2 will need to be changed. Instead of
 finding the highest priority execution platform that specifies *all* toolchain
 types, we find the highest priority execution platform that satisfies *the most*
-toolchain types.
+toolchain types. Any execution platform that is missing a mandatory toolchain
+type will still be removed from consideration.
 
-As an example, consider the following situation:
+"Priority" for both execution platforms and toolchains is by order of
+registration.
+
+1.  First, those added via flags (`--extra_execution_platforms` and
+    `--extra_toolchains`)
+2.  Then, those added in the WORKSPACE, or in files loaded from the WORKSPACE
+    (via `register_execution_platforms` and `register_toolchains`)
+3.  Finally, the host platform is always added as the lowest priority execution
+    platform
+
+As a simplified example, consider the following situation (which ignores the
+host platform):
 
 1.  `//platform:exec1` is registered first.
     1.  Toolchain `//toolchain:concrete2` (with type `//toolchain:type2`)
