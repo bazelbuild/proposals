@@ -1,6 +1,6 @@
 ---
 created: 2022-01-21
-last updated: 2022-01-26
+last updated: 2022-01-27
 status: In Review
 reviewers:
   - gregce
@@ -36,25 +36,12 @@ There are two possible ways to implement this feature.
 
 ## API Changes
 
-There are two different options for rule authors to express what toolchain types
-their rules require.
+A new API will be added to define a rule's requested toolchain types, which can
+specify whether the toolchain type is mandatory or not.
 
-### Option 1: All toolchains are optional
-
-This option presents the simplest API: all toolchain types declared by a rule in
-the `toolchains` parameter are optional, and could potentially not be present
-when the rule implementation is executed. Rule implementations should check the
-result of `ctx.toolchains[toolchain_type]` and raise an error if the value is
-`None` and this cannot be handled.
-
-Existing rules will need to migrate to handle this case, although this is
-entirely for error handling, as any build that succeeds with mandatory
-toolchains will also succeed with optional toolchains.
-
-### Option 2: A richer API
-
-This option allows for rules to decide whether toolchain types are optional, by
-allowing the `toolchain_types` parameter to have more data.
+In addition, the legacy string/label format will also be accepted, and will
+assume that the toolchain type is mandatory. This allows rules to make no
+changes and continue to have the same behavior as is currently implemented.
 
 Current rules use this:
 
@@ -67,7 +54,7 @@ foo_library = rule(
 )
 ```
 
-With this option, the rule creation is instead:
+With this API, the rule creation is instead:
 
 ```py
 foo_library = rule(
@@ -98,7 +85,12 @@ The full API for `config.toolchain_type` would be:
 | Positional            | String or Label | The toolchain type to be used.    |
 | `mandatory`           | Boolean         | Whether or not the toolchain type must be found during  toolchain resolution. |
 
+The `mandatory` argument to `config.toolchain_type` will default to True.
+
 Other parameters can be added as needed.
+
+**Note:** Any rule still using the current syntax will have all toolchain types
+considered to be mandatory.
 
 #### Sidebar: Why not a dict?
 
@@ -120,7 +112,8 @@ to adapt in the future, so an explicit API is preferred.
 
 ## Changes to Toolchain Resolution Logic
 
-Regardless of the API, the changes to toolchain resolution are the same.
+The changes to toolchain resolution are fairly simple, and not directly related
+to the API that rules use to define which toolchains are mandatory.
 
 Currently, the toolchain resolution logic is this:
 
@@ -189,29 +182,44 @@ matched?
 
 # Migration and Backwards Compatibility
 
-Under either option, rule authors should be aware of the new capabilities and
-update their rule implementations to handle `ctx.toolchains[toolchain_type]`
-evaluating to `None`. With the first proposal (no API change), all rules should
-begin migration ASAP, but the changes will be backwards compatible (the check
-will never be used with mandatory toolchains).
+With the new API for `toolchains`, rule authors who want to use optional
+toolchains will need to check which Bazel version the rules are used with and
+then decide which form to use. However, rule authors who are happy to continue
+using mandatory toolchains will be able to continue as before, with no worry
+that `ctx.toolchains[toolchain_type]` will evaluate to `None`.
 
-With the second option (new API for `toolchains`), rule authors who want to use
-optional toolchains will need to check which Bazel version the rules are used
-with and then decide which form to use. However, rule authors who are happy to
-continue using mandatory toolchains will be able to continue as before, with no
-worry that `ctx.toolchains[toolchain_type]` will evaluate to `None`.
+Rule authors who choose to use optional toolchains should update their rule
+implementations to handle `ctx.toolchains[toolchain_type]` evaluating to `None`.
 
 # Possible future work
 
-One possibility for future changes (using the API changes in version 2) are
-changes to how missing toolchains are handled. Instead of Bazel generating an
-error for missing optional toolchains (as happens now), in the future Bazel
-could simply indicate that a target which cannot find all mandatory toolchains
-is incompatible with the current target platform, and use the existing support
-for
+One possibility for future changes to update how missing toolchains are handled.
+Instead of Bazel generating an error for missing optional toolchains (as happens
+now), in the future Bazel could simply indicate that a target which cannot find
+all mandatory toolchains is incompatible with the current target platform, and
+use the existing support for
 [skipping incompatible targets](https://docs.bazel.build/versions/5.0.0/platforms.html#skipping-incompatible-targets).
 
 Instead of an API change, it could also be possible for rule implementations to
 return the
 [`IncompatiblePlatformProvider`](https://docs.bazel.build/versions/5.0.0/skylark/lib/IncompatiblePlatformProvider.html)
 to indicate that a target which is missing a toolchain cannot be built.
+
+# Alternatives Considered
+
+## API Changes
+
+### Option 1: All toolchains are optional
+
+**Note:** This option was not selected, because the richer API makes migration
+simpler and is a better match for existing APIs (such as attribute definition).
+
+This option presents the simplest API: all toolchain types declared by a rule in
+the `toolchains` parameter are optional, and could potentially not be present
+when the rule implementation is executed. Rule implementations should check the
+result of `ctx.toolchains[toolchain_type]` and raise an error if the value is
+`None` and this cannot be handled.
+
+Existing rules will need to migrate to handle this case, although this is
+entirely for error handling, as any build that succeeds with mandatory
+toolchains will also succeed with optional toolchains.
