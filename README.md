@@ -20,7 +20,6 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
-|   2022-01-24 | [Optional Toolchains](designs/2022-01-21-optional-toolchains.md) | [@katre](https://github.com/katre) | Configurability |
 |   2021-11-09 | [Guidance for Rules Authors how to deal with Bazel versions / upgrades](https://docs.google.com/document/d/1s_8AihGXbYujNWU_VjKNYKQb8_QGGGq7iKwAVQgjbn0/edit?usp=sharing) | [@philwo](https://github.com/philwo)                                 | Bazel |
 |   2021-08-24 | [Rules authors SIG](designs/2021-08-10-rules-authors-sig.md) | [@alexeagle](https://github.com/alexeagle)                                 | Community |
 |   2021-06-17 | [Starlark fail(errorcode="")](https://docs.google.com/document/d/1N98CCcZ8pCLDfh9U2hRwSdSvsiSjKdZ2cHWyiQ1PWRE) | [@aiuto](https://github.com/aiuto)                                 | Documentation / Event Stream |
@@ -41,6 +40,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2022-02-04 | [Optional Toolchains](designs/2022-01-21-optional-toolchains.md) | [@katre](https://github.com/katre) | Configurability |
 |   2021-06-23 | [Improving native.existing_rules](designs/2021-06-15-improving-native.existing_rules.md)                               | [@tetromino](https://github.com/tetromino), [@brandjon](https://github.com/brandjon) | Build Language      |
 |   2021-06-09 | [Aspects Propagating other Aspects](https://docs.google.com/document/d/1WPq2g__IwrsSsxn4-rcfTSQODDtnKQTDhnHvtA37nlQ/edit?usp=sharing) | [@messa](https://github.com/mai93) | Starlark |
 |   2021-04-22 | [Custom constructors for providers](https://docs.google.com/document/d/1peAeaMOh9AkDgzMcOeJPkMCChYjFCkfdsPsKhgOxwfY/edit?usp=sharing)                                              | [@brandjon](https://github.com/brandjon)                                 | Build Language      |
