@@ -11,7 +11,9 @@ authors:
 
 # Abstract
 
-This section gives a short summary of the proposal.
+Repeatable Starlark flags should be represented as `config.string_list` rather than `config.string`.
+This would both reduce the amount of special casing required across the codebase and allow any list
+of strings as a default value, not just singleton lists.
 
 # Background
 
