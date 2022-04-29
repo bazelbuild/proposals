@@ -20,8 +20,10 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2022-03-18 | [proto_common module](https://docs.google.com/document/d/1dY_jfRvnH8SjRXGIfg8av-vquyWsvIZydXJOywvaR1A/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Proto Rules |
+|   2022-02-18 | [Coding guidelines for Starlark rules](https://docs.google.com/document/d/1uuX1Gz6Kvivp-oOqGja342VrVO534PLF0m_zFtFIBcc/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Starlark Rules |
 |   2021-11-09 | [Guidance for Rules Authors how to deal with Bazel versions / upgrades](https://docs.google.com/document/d/1s_8AihGXbYujNWU_VjKNYKQb8_QGGGq7iKwAVQgjbn0/edit?usp=sharing) | [@philwo](https://github.com/philwo)                                 | Bazel |
-|   2021-08-24 | [Rules authors SIG](designs/2021-08-10-rules-authors-sig.md) | [@alexeagle](https://github.com/alexeagle)                                 | Community |
+|   2021-08-02 | [Bazel Central Registry Policies and Procedures](https://docs.google.com/document/d/1ReuBBp4EHnsuvcpfXM6ITDmP2lrOu8DGlePMUKvDnXM/edit?usp=sharing) | [@meteorcloudy](https://github.com/meteorcloudy)                                 | External Repositories |
 |   2021-06-17 | [Starlark fail(errorcode="")](https://docs.google.com/document/d/1N98CCcZ8pCLDfh9U2hRwSdSvsiSjKdZ2cHWyiQ1PWRE) | [@aiuto](https://github.com/aiuto)                                 | Documentation / Event Stream |
 |   2021-03-06 | [OSS License Declarations](https://docs.google.com/document/d/1XszGbpMYNHk_FGRxKJ9IXW10KxMPdQpF5wWbZFpA4C8) | [@aiuto](https://github.com/aiuto)                                 | Product |
 |   2021-03-06 | [Remote Persistent Workers](designs/2021-03-06-remote-persistent-workers.md)                                              | [@ulfjack](https://github.com/ulfjack)                                 | Remote Execution      |
@@ -36,7 +38,8 @@ list.
 |   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
 |   2021-06-25 | [Better Starlark analysis unit tests](https://docs.google.com/document/d/12sC92mq7WasTvDWsm4U782oCegitfi1jbgOnMIGCe-A/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2022-03-07 | [Representing repeatable Starlark flags as config.string_list](designs/2022-03-06-representation-of-repeatable-starlark-flags.md) | [@fmeum](https://github.com/fmeum) | Configurability, Build Language |
-|   2022-03-11 | [@since(version) annotations in documentation.](https://docs.google.com/document/d/17JBmzeY2NpCWbAGQjsqtmMRLOl0n8IcPYCMOYyFsG1k/edit#) | [@aiuto](https://github.com/aiuto) | Documentation |
+|   2022-04-25 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
+|   2022-04-29 | [@since(version) annotations in documentation.](https://docs.google.com/document/d/17JBmzeY2NpCWbAGQjsqtmMRLOl0n8IcPYCMOYyFsG1k/edit#) | [@aiuto](https://github.com/aiuto) | Documentation |
 
 ### Approved
 
@@ -62,6 +65,7 @@ list.
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
 |   2022-01-14 | [Proposal for subpackages built-in helper function](https://docs.google.com/document/d/13UOT0GoQofxDW40ILzH2sWpUOmuYy6QZ7CUmhej9vgk/edit?usp=sharing) | [@kkress](https://github.com/kkress)                                 | Bazel |
+|   2021-03-06 | [Rules authors SIG](designs/2021-08-10-rules-authors-sig.md) | [@alexeagle](https://github.com/alexeagle)                                 | Community |
 |   2021-02-18 | [Require ProtoInfo for proto_lang_toolchain#blacklisted_protos](https://docs.google.com/document/d/1UmF_P4NDVl6Nw4JsHoHYp74iCdEQNh1O3-SVAX1CdjU/edit#) | [@Yannic](https://github.com/Yannic)   | Protobuf |
 |   2021-02-16 | [Selecting Between Python 2 and 3](https://github.com/bazelbuild/rules_python/blob/master/proposals/2018-10-25-selecting-between-python-2-and-3.md)                            | [@brandjon](https://github.com/brandjon)                                           | Python |
 |   2021-02-16 | [Remote Downloads](designs/2020-01-14-remote-downloads.md) | [@EricBurnett](https://github.com/EricBurnett), [@jmillikin](https://john-millikin.com), [@sstriker](https://github.com/sstriker) | External Repositories |
@@ -99,7 +103,7 @@ list.
 |   2020-05-13 | [Execution Transitions](designs/2019-02-12-execution-transitions.md) | [@katre](https://github.com/katre) | Configurability |
 |   2020-05-13 | [Old Flags to Platform Migration](https://docs.google.com/document/d/1Vg_tPgiZbSrvXcJ403vZVAGlsWhH9BUDrAxMOYnO0Ls) | [@aragos](https://github.com/aragos) |  Configurability |
 |   2019-12-20 | [Incompatible Target Skipping](https://docs.google.com/document/d/12n5QNHmFSkuh5yAbdEex64ot4hRgR-moL1zRimU7wHQ/edit?ts=5dfbe2fe)               |  [@AustinSchuh](https://github.com/AustinSchuh), [@gregestren](https://github.com/gregestren)                                        | Configurability
-|   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability           
+|   2019-12-17 | [cquery somepath: easy mode](https://docs.google.com/document/d/1ZbcOi8htQrKichHGWq6Dc8-HI7oFjvoBYeRoTedsgWY/)                                                                               | [@gregestren](https://github.com/gregestren)                                         | Configurability
 |   2019-12-17 | [Exposing Target Platform Constraints](designs/2019-11-11-target-platform-constraints.md)                                       | [@katre](https://github.com/katre)       | Configurability |
 |   2019-10-24 | [Visibility for source files](designs/2019-10-24-file-visibility.md)                                                                                      | [@aehlig](https://github.com/aehlig)                                         | Build API
 |   2019-04-22 | [Move //tools/build_defs/pkg to rules_pkg](https://docs.google.com/document/d/1GAbAiW0nVbxGlwsdXhFIcn3owlZJkMJiXBt-ttA9z_k/edit)     | [@aiuto](https://github.com/aiuto) | Bazel |
