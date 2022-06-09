@@ -3,7 +3,9 @@ created: 2022-06.07
 last updated: 2022-06.07
 status: To be reviewed
 reviewers:
-  - TBD
+  - @tjgq
+  - @wyverald
+  - @bergsieker
 title: Credential Helpers for Bazel
 authors:
   - Yannic
