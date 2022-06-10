@@ -1,6 +1,6 @@
 ---
 created: 2022-06.07
-last updated: 2022-06.07
+last updated: 2022-06-10
 status: To be reviewed
 reviewers:
   - @tjgq
@@ -80,11 +80,33 @@ often.
 
 Since Bazel wouldn't know which credential helper to call, users must
 explicitly configure Bazel by passing `--credential_helper`, which can either
-be an absolute path, or a string. In case the value is a string (`foo`), Bazel
-will look for an executable with the name `foo-bazel-credential-helper` on the
-path. Since the credential helper must be available very early in the build
-(i.e., during the loading phase for fetching external repositories), it cannot
-be a label to a target.
+be an absolute path, or a string. In case the value is a string (e.g.,
+`foo-bazel-credential-helper`), Bazel will look for an executable with the
+provided name on the path. As a special case of absolute paths, the value may
+start with `%workspace%` (e.g., `%workspace%/foo/bar/baz.sh`), in which case
+`%workspace%` is replaced by the absolute path to the workspace. Since the
+credential helper must be available very early in the build (i.e., during the
+loading phase for fetching external repositories), it cannot be a label to a
+target.
+
+When executing the credential helper, Bazel will always set the path to the
+workspace as working directory (i.e., `$(pwd)` will be `%workspace%`).
+
+Since users may need to use multiple credential helpers (e.g., one for fetching
+external repositories and another one for connecting to a `Remote Cache`), users
+may optionally specify the (wildcard) DNS name for which the credential helper
+should be used as prefix to the path of the binary, seperated by
+`%path_separator%` (i.e., `:` on Linux/macOS and `;` on Windows). In case there
+are multiple credential helpers specified, Bazel will use the most specific
+match to fetch credentials. For example, assuming a user passes
+`--credential_heler=foo --credential_helper=*.example.com:bar --credential_helper=example.com:baz`,
+Bazel will run `baz` to get credentials for `example.com`, `bar` for fetching
+credentials for `a.example.com` or `x.y.z.example.com`, and `foo` for fetching
+credentials for any other DNS name. In case there are multiple credential
+helpers specified for the same (wildcard) DNS name, the later entry overrides
+the earlier entry (e.g., credential helpers from the command-line override
+credential helpers from `%workspace%/.bazelrc`, which in turn overrides values
+from the user or system `.bazelrc`).
 
 
 # Backward-compatibility
