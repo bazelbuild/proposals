@@ -78,6 +78,15 @@ service (e.g., in the form of RPCs against a `Remote Cache`), Bazel may
 (optionally) cache credentials to avoid running the credential helper binary too
 often.
 
+Credential helpers cannot rely on `std{in,out,err}` to communicate with the
+user (i.e., Bazel will not show any output of the credential helper to the user
+or forward any inputs from the user to the crednetial helper). Workflows that
+require user-interaction (e.g., for 2FA, e.g., with a Yubikey) will need to
+notify the user about the required interaction through another channel (e.g.,
+using a OS dialog or opening a browser). Bazel will, however, print a message
+with at least the path of the credential helper as part of its normal output
+whenever running a credential helper (at `INFO` level).
+
 Since Bazel wouldn't know which credential helper to call, users must
 explicitly configure Bazel by passing `--credential_helper`, which can either
 be an absolute path, or the name of an executable. In case the value is the name
