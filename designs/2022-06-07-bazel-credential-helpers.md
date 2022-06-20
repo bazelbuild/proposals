@@ -99,7 +99,7 @@ should be used as prefix to the path of the binary, seperated by
 `%path_separator%` (i.e., `:` on Linux/macOS and `;` on Windows). In case there
 are multiple credential helpers specified, Bazel will use the most specific
 match to fetch credentials. For example, assuming a user passes
-`--credential_heler=foo --credential_helper=*.example.com:bar --credential_helper=example.com:baz`,
+`--credential_helper=foo --credential_helper=*.example.com:bar --credential_helper=example.com:baz`,
 Bazel will run `baz` to get credentials for `example.com`, `bar` for fetching
 credentials for `a.example.com` or `x.y.z.example.com`, and `foo` for fetching
 credentials for any other DNS name. In case there are multiple credential
