@@ -69,8 +69,14 @@ command to execute. For now, there will only be one valid value:
   }
   ```
 
-  Upon failure, the credential helper may provide a human-readable error
+  If the credential helper exists with any exit code `!= 0`, or if its output
+  does not follow the protocol (e.g., is invalid JSON), Bazel will abort the
+  operation with an appropriate `FailureDetail` indicating the reason (i.e.,
+  the build fails). A credential helper may provide a human-readable error
   message in its standard error that Bazel will print.
+
+  TODO(yannic): Specify the appropriate `FailureDetail`. Is there an existing
+  one we can use or do we need to define a new one?
 
 Whenever connecting to a remote server, Bazel will execute the credential helper
 to retrieve credentials. Since there are usually many connections to the same
