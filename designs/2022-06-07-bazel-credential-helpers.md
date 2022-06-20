@@ -88,16 +88,16 @@ with at least the path of the credential helper as part of its normal output
 whenever running a credential helper (at `INFO` level).
 
 Since Bazel wouldn't know which credential helper to call, users must
-explicitly configure Bazel by passing `--credential_helper`, which can either
-be an absolute path, or the name of an executable. In case the value is the name
-of an executable (e.g., `foo-bazel-credential-helper`), Bazel will look for an
-executable with the provided name on the path. The name of the executable must
-not contain any path seperators (`/`, and `\` on Windows). As a special case of
-absolute paths, the value may start with `%workspace%` (e.g.,
-`%workspace%/foo/bar/baz.sh`), in which case `%workspace%` is replaced by the
-absolute path to the workspace. Since the credential helper must be available
-very early in the build (i.e., during the loading phase for fetching external
-repositories), it cannot be a label to a target.
+explicitly configure Bazel by passing `--credential_helper=<path>`, where
+`<path>` can either be an absolute path, or the name of an executable. In case
+`<path>` is the name of an executable (e.g., `foo-bazel-credential-helper`),
+Bazel will look for an executable with the provided name on the `PATH`. The name
+of the executable must not contain any path seperators (`/`, and `\` on
+Windows). As a special case of absolute paths, the value may start with
+`%workspace%` (e.g., `%workspace%/foo/bar/baz.sh`), in which case `%workspace%`
+is replaced by the absolute path to the workspace. Since the credential helper
+must be available very early in the build (i.e., during the loading phase for
+fetching external repositories), it cannot be a label to a target.
 
 When executing the credential helper, Bazel will always set the path to the
 workspace as working directory (i.e., `$(pwd)` will be `%workspace%`).
@@ -107,12 +107,12 @@ external repositories and another one for connecting to a `Remote Cache`), users
 may optionally specify a pattern to match which addresses to use the credential
 helper for by passing `<pattern>` as prefix to the path of the credential
 helper, seperated by the left-most occurence of `=` (i.e.,
-`--credential_helper=<pattern>=<path>`). `<pattern>` can either be a DNS name
-matching a single domain (e.g., `example.com`), or a wildcard DNS name matching
-the domain itself and all subdomains by prefixing the DNS name with `*.` (e.g.,
-`*.example.com` would match `example.com`, `foo.example.com`, and so on).
-Wildcards that match only a subset of all possible subdomains, or regular
-expressions, are not supported.
+`--credential_helper=<pattern>=<path>`, where `<path>` is as defined above).
+`<pattern>` can either be a DNS name matching a single domain (e.g.,
+`example.com`), or a wildcard DNS name matching the domain itself and all
+subdomains by prefixing the DNS name with `*.` (e.g., `*.example.com` would
+match `example.com`, `foo.example.com`, and so on). Wildcards that match only a
+subset of all possible subdomains, or regular expressions, are not supported.
 
 In case there are multiple credential helpers specified, Bazel
 will use the most specific match to fetch credentials. For example, assuming a
