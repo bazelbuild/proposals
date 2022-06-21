@@ -123,7 +123,7 @@ subset of all possible subdomains, or regular expressions, are not supported.
 In case there are multiple credential helpers specified, Bazel
 will use the most specific match to fetch credentials. For example, assuming a
 user passes
-`--credential_helper=foo --credential_helper=*.example.com:bar --credential_helper=example.com:baz`,
+`--credential_helper=foo --credential_helper=*.example.com=bar --credential_helper=example.com=baz`,
 Bazel will run `baz` to get credentials for `example.com`, `bar` for fetching
 credentials for `a.example.com` or `x.y.z.example.com`, and `foo` for fetching
 credentials for any other DNS name. In case there are multiple credential
