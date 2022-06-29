@@ -1,7 +1,7 @@
 ---
 created: 2022-06.07
-last updated: 2022-06.07
-status: To be reviewed
+last updated: 2022-06-29
+status: Under Review
 reviewers:
   - @tjgq
   - @wyverald
@@ -10,6 +10,13 @@ title: Credential Helpers for Bazel
 authors:
   - Yannic
 ---
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted as described in "Key words for use in RFCs to
+Indicate Requirement Levels"
+[RFC2119](https://datatracker.ietf.org/doc/html/rfc2119). The interpretation
+should only be applied when the terms appear in all capital letters.
 
 
 # Abstract
@@ -69,8 +76,14 @@ command to execute. For now, there will only be one valid value:
   }
   ```
 
-  Upon failure, the credential helper may provide a human-readable error
+  If the credential helper exits with any exit code `!= 0`, or if its output
+  does not follow the protocol (e.g., is invalid JSON), Bazel will abort the
+  operation with an appropriate `FailureDetail` indicating the reason (i.e.,
+  the build fails). A credential helper may provide a human-readable error
   message in its standard error that Bazel will print.
+
+  TODO(yannic): Specify the appropriate `FailureDetail`. Is there an existing
+  one we can use or do we need to define a new one?
 
 Whenever connecting to a remote server, Bazel will execute the credential helper
 to retrieve credentials. Since there are usually many connections to the same
@@ -78,13 +91,61 @@ service (e.g., in the form of RPCs against a `Remote Cache`), Bazel may
 (optionally) cache credentials to avoid running the credential helper binary too
 often.
 
+Credential helpers cannot rely on `std{in,out,err}` to communicate with the
+user (i.e., Bazel will not show any output of the credential helper to the user
+or forward any inputs from the user to the crednetial helper). In general,
+workflows *SHOULD NOT* require user-interaction. Workflows that do require user
+input *SHOULD* do so asynchronously (i.e., when there's a need for
+user-interaction, e.g., to login, the helper should fail and provide
+instructions what the user should do, e.g., run `foo login` to get credentials
+before running Bazel again). For debugging, we will also add a flag
+`--credential_helper_debug={true,false}` to Bazel that, if enabled, will cause
+Bazel to print a message with at least the path of the credential helper as part
+of its normal output whenever running a credential helper (at `INFO` level).
+
 Since Bazel wouldn't know which credential helper to call, users must
-explicitly configure Bazel by passing `--credential_helper`, which can either
-be an absolute path, or a string. In case the value is a string (`foo`), Bazel
-will look for an executable with the name `foo-bazel-credential-helper` on the
-path. Since the credential helper must be available very early in the build
-(i.e., during the loading phase for fetching external repositories), it cannot
-be a label to a target.
+explicitly configure Bazel by passing `--credential_helper=<path>`, where
+`<path>` can either be an absolute path, or the name of an executable. In case
+`<path>` is the name of an executable (e.g., `foo-bazel-credential-helper`), it
+*MUST NOT* contain any path seperators (`/`, and `\` on Windows), and Bazel will
+look for an executable with the provided name on the `PATH` from the environment
+variables passed to the credential helper (see paragraph below for more precise
+definition). As a special case of absolute paths, the value may start with
+`%workspace%` (e.g., `%workspace%/foo/bar/baz.sh`), in which case `%workspace%`
+is replaced by the absolute path to the workspace. Since the credential helper
+must be available very early in the build (i.e., during the loading phase for
+fetching external repositories), it cannot be a label to a target.
+
+When executing the credential helper, Bazel will make all environment variables
+from the shell `bazel` is running in available to the subprocess, and set the
+working directory to the absolute path of the workspace (i.e., from within the
+credential helper, `$(pwd)` will be `%workspace%`).
+
+Since users may need to use multiple credential helpers (e.g., one for fetching
+external repositories and another one for connecting to a `Remote Cache`), users
+may optionally specify a pattern to match which addresses to use the credential
+helper for by passing `<pattern>` as prefix to the path of the credential
+helper, seperated by the left-most occurence of `=` (i.e.,
+`--credential_helper=<pattern>=<path>`, where `<path>` is as defined above).
+`<pattern>` can either be a DNS name matching a single domain (e.g.,
+`example.com`), or a wildcard DNS name matching the domain itself and all
+subdomains by prefixing the DNS name with `*.` (e.g., `*.example.com` would
+match `example.com`, `foo.example.com`, and so on). Wildcards that match only a
+subset of all possible subdomains, or regular expressions, are not supported.
+
+In case there are multiple credential helpers specified, Bazel
+will use the most specific match to fetch credentials. If there is no credential
+helper matching the remote service, Bazel will not invoke any helpers and send
+no credentials (i.e., there's no implicit default credential helper). For
+example, assuming a user passes
+`--credential_helper=foo --credential_helper=*.example.com=bar --credential_helper=example.com=baz`,
+Bazel will run `baz` to get credentials for `example.com`, `bar` for fetching
+credentials for `a.example.com` or `x.y.z.example.com`, and `foo` for fetching
+credentials for any other DNS name. In case there are multiple credential
+helpers specified for the same (wildcard) DNS name, the later entry overrides
+the earlier entry (e.g., credential helpers from the command-line override
+credential helpers from `%workspace%/.bazelrc`, which in turn overrides values
+from the user or system `.bazelrc`).
 
 
 # Backward-compatibility
