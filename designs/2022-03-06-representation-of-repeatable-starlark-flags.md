@@ -61,16 +61,14 @@ This approach to repeatable flags has the following drawbacks:
 Repeatable string flags could instead be represented as `string_list` build settings that only
 differ from the default one in the way usages of the flags on the command-line are parsed.
 
-Specifically, a new named parameter `flag_style` can be added to `config.string_list` with the
+Specifically, a new named parameter `repeatable` can be added to `config.string_list` with the
 following behavior:
 
-* The type of the parameter is `String`.
-* The default value of the parameter is `None` (i.e., the parameter is optional).
-* The allowed values for the parameter are `None`, `"comma"`, and `"repeated"`.
-* It is an error to set `flag_style` to a value other than `None` if `flag` is not set to `True`.
-* If `flag` is `True` and `flag_style` is either `None` or `"comma"`, the `string_list` setting
-  behaves as it does now.
-* If `flag` is `True` and `flag_style` is `"repeated"`, the `string_list` setting behaves as it does
+* The type of the parameter is `boolean`.
+* The default value of the parameter is `False` (i.e., the parameter is optional).
+* It is an error to set `repeatable` to a value other than `False` if `flag` is not set to `True`.
+* If `flag` is `True` and `repeatable` is set to `False`, the `string_list` setting behaves as it does now.
+* If `flag` is `True` and `repeatable` is set to `True`, the `string_list` setting behaves as it does
   now with the exception that the value of the setting set on the command line is a list containing
   the unmodified values of each individual occurrence of the flag in the order they appear. In
   particular, the values are *not* split on a comma. This parsing behavior agrees with that of a
@@ -82,7 +80,7 @@ With this new parameter, the example from the previous section could look as fol
 # rules_cc/cc/internal/config.bzl
 repeatable_string_flag = rule(
     implementation = _impl,
-    build_setting = config.string_list(flag = True, flag_style = "repeated")
+    build_setting = config.string_list(flag = True, repeatable = True)
 )
 
 # rules_cc/cc/BUILD.bazel
@@ -110,9 +108,10 @@ Starlark semantics flag defaulting to `true` could be added and used specified i
 
 ## Alternatives considered
 
-Instead of a `String` parameter `flag_style`, the new parameter of `config.string_list` could be a
-`boolean` named `repeated` or `allow_multiple` that enables the new flag behavior. However, this
-would make it less clear that the individual flag values are not split on commas.
+Instead of a `boolean` parameter `repeated`, the new parameter of `config.string_list` could be a
+`String` argument that allows to specify the name of a "flag passing style". This would allow for
+the introduction of flag styles other than comma-separated and repeated and potentially be more
+self-documenting, but also complicates the API without a clear current need.
 
 # Backward-compatibility
 
@@ -122,7 +121,7 @@ backwards-compatible change.
 If the additional step of deprecating `allow_multiple` and introducing an incompatible flag for it
 is taken, rulesets will have to migrate to `config.string_list` at some point. The migration is
 straightforward: `config.string(flag = True, allow_multiple = True)` has to be replaced with
-`config.string_list(flag = True, flag_style = "repeated")` and the `build_setting_default` value has
+`config.string_list(flag = True, repeated = True)` and the `build_setting_default` value has
 to be set as a list. This change does not impact users of the ruleset in any way.
 
 [bazel#13817]: https://github.com/bazelbuild/bazel/issues/13817
