@@ -67,12 +67,23 @@ following behavior:
 * The type of the parameter is `boolean`.
 * The default value of the parameter is `False` (i.e., the parameter is optional).
 * It is an error to set `repeatable` to a value other than `False` if `flag` is not set to `True`.
-* If `flag` is `True` and `repeatable` is set to `False`, the `string_list` setting behaves as it does now.
+* If `flag` is `True` and `repeatable` is set to `False`, the `string_list` setting behaves as it does now:
+
+```
+--copt=a,b,c        --> ["a", "b", "c"]
+--copt=a --copt=b,c --> ["b", "c"]
+```
+
 * If `flag` is `True` and `repeatable` is set to `True`, the `string_list` setting behaves as it does
   now with the exception that the value of the setting set on the command line is a list containing
   the unmodified values of each individual occurrence of the flag in the order they appear. In
   particular, the values are *not* split on a comma. This parsing behavior agrees with that of a
-  `config.string` flag with `allow_multiple = True`.
+  `config.string` flag with `allow_multiple = True`:
+  
+```
+--copt=a,b,c        --> ["a,b,c"]
+--copt=a --copt=b,c --> ["a", "b,c"]
+```
 
 With this new parameter, the example from the previous section could look as follows:
 
