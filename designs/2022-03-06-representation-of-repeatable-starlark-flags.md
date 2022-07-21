@@ -1,7 +1,7 @@
 ---
 created: 2022-03-06
 last updated: 2022-03-07
-status: To be reviewed
+status: [Implemented](https://github.com/bazelbuild/bazel/commit/cdf01a39ab9def4d46f41595ac1ac9206a96d6f8)
 reviewers:
   - @gregestren
 title: "Representing repeatable Starlark flags as config.string_list"
