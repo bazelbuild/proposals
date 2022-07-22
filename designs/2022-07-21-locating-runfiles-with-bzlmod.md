@@ -73,8 +73,8 @@ In more formal terms, the complete repository mapping maintained by Bazel is a f
 The repository mapping manifest would then look as follows:
 
 1. The repository mapping manifest is an ASCII file named `<executable>.repo_mapping` and placed in the same directory as the target's executable.
-2. Every triple `(C, A, repo_mapping(C, A))` is written as a single line terminated by `\n`, with the three components separated by a single space.
-   Since neither canonical nor apparent repository names can contain spaces, this is unambiguous.
+2. Every triple `(C, A, repo_mapping(C, A))` is written as a single line terminated by `\n`, with the three components separated by `,`.
+   Since neither canonical nor apparent repository names can contain commas, this is unambiguous.
    As a special case, if `repo_mapping(C, A)` is the empty string (i.e., when the apparent name resolves to the main repository), it is serialized as the workspace name instead.
    This is necessary since the main repository is stored under this name.
 3. The lines of the manifest are sorted lexicographically.
@@ -83,10 +83,10 @@ The repository mapping manifest would then look as follows:
     - `T` transitively depends on a target in `C` that directly depends on a target advertising `RunfilesLibraryInfo`;
     - `T`'s runfiles contain an artifact owned by a target in `repo_mapping(C, A)`.
    This property ensures that the repository mapping manifest only contains the entries that are actually needed for the target to resolve its runfiles.
-   If all rather than this limited set of entries were emitted into the manifest, all actions depending on T would have to rerun if any repository containing a transitive dependency of T would declare a new dependency or change an apparent repository name, even if that repository neither contributes a runfile nor looks up runfiles at runtime.
+   If all entries (instead of just this limited set) were emitted into the manifest, all actions depending on T would have to rerun if any repository containing a transitive dependency of T would declare a new dependency or change an apparent repository name, even if that repository neither contributes a runfile nor looks up runfiles at runtime.
 
 In order to help runfiles libraries find the repository mapping manifest, it is added to the runfiles manifest (and thus the runfiles directory) under the fixed path `_repo_mapping`.
-Since user-supplied repository names cannot start with `_`, there is no risk of collision with actual runfiles.
+Since canonical repository names do not start with `_`, there is no risk of this synthetic part being a prefix of an actual runfile.
 
 ### Example
 
@@ -124,12 +124,12 @@ cc_binary(
 )
 ```
 
-With `my_module` as the root module and Bzlmod enabled, the repository mapping manifest of `//:some_tool` would look as follows (spaces are represented as `[ ]` for clarity):
+With `my_module` as the root module and Bzlmod enabled, the repository mapping manifest of `//:some_tool` would look as follows:
 
 ```
-[ ]my_module[ ]@my_module
-[ ]my_workspace[ ]@my_module
-[ ]my_protobuf[ ]@protobuf~3.19.2
+,my_module,@my_module
+,my_workspace,@my_module
+,my_protobuf,@protobuf~3.19.2
 ```
 
 Note that the repository mapping manifest does *not* contain any entries where `C` is `@protobuf~3.19.2` since the `//:protoc` target does not transitively depend on a runfiles library.
@@ -138,7 +138,7 @@ It also doesn't contain any entries referencing `rules_go`, even though the main
 The repository mapping manifest of `//:other_tool` would look as follows:
 
 ```
-[ ]my_protobuf[ ]@protobuf~3.19.2
+,my_protobuf,@protobuf~3.19.2
 ```
 
 This manifest does *not* contain any entries where `repo_mapping(C, A)` is `my_workspace` since the target does not include any runfiles from the main repository.
@@ -146,8 +146,8 @@ This manifest does *not* contain any entries where `repo_mapping(C, A)` is `my_w
 If a module `other_module` depends on `my_module` and contains a target that depends on `@my_module//:some_tool`, then that target's repository mapping manifest would contain the following lines (among others):
 
 ```
-@my_module~1.2.3[ ]my_module[ ]@my_module~1.2.3
-@my_module~1.2.3[ ]my_protobuf[ ]@protobuf~3.19.2
+@my_module~1.2.3,my_module,@my_module~1.2.3
+@my_module~1.2.3,my_protobuf,@protobuf~3.19.2
 ```
 
 ### Implementation details
