@@ -201,7 +201,7 @@ This includes:
 - Passing in runfiles paths from Starlark via environment variables or arguments.
 - Generating code constants containing already repo-mapped runfiles paths (see [rules_runfiles](https://github.com/fmeum/rules_runfiles)).
 
-This fallback behavior is not prone to ambiguity: With Bzlmod, canonical repository names always starts with an `@`, which is never contained in a valid apparent repository name.
+This fallback behavior is not prone to ambiguity: With Bzlmod, canonical names of non-main repositories always starts with an `@`, which is never contained in a valid apparent repository name.
 
 ### Backwards compatibility
 
