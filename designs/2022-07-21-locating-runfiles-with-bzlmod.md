@@ -174,17 +174,13 @@ Concretely, runfiles libraries should modify their current lookup procedure desc
 
    b. If the runfiles library is not shipped with Bazel, it should fall back to the original lookup procedure. This is necessary to support the use of runfiles libraries with versions of Bazel that do not yet create the manifest.
 
-2. The runfiles library parses the repository mapping manifest and stores a map of `A` to `repo_mapping(C, A)` for the fixed canonical repository name `C` corresponding to the repository from which the `Create` method was called.
+2. The runfiles library parses the repository mapping manifest and stores a map of `(C, A)` to `repo_mapping(C, A)` for all entries in the manifest.
 
-   The precise way in which `C` is determined depends on the nature of the language.
-   Suggestions are provided as part of Change 4 below and may involve additional steps performed by the end user, e.g., passing a certain variable as an argument to the `Create` method.
+3. When `Rlocation` is called with a runfiles-root-relative path `rpath`, after validating `rpath`, the runfiles library extracts the first path segment, understood to be an apparent repository name `A`, of `rpath`. It also determines `C`, the canonical name of the repository from which it was called, in a language-specific way (see Change 4 below suggestions). If `C` can't be determined, the runfiles library sets `C` to the empty string, which corresponds to performing runfiles lookups using the mapping of the main repository. It then looks up the map entry for the key `(C, A)` created in Step 2.
 
-   If `C` can't be determined, the runfiles library sets `C` to the empty string, which corresponds to performing runfiles lookups from within the repository mapping context of the main repository.
-4. When `Rlocation` is called with a runfiles-root-relative path `rpath`, after validating `rpath`, the runfiles library extracts the first path segment, understood to be an apparent repository name `A`, of `rpath` and looks it up in the map created in Step 2.
+   a. If `(C, A)` is contained in the map, the runfiles library continues the original lookup procedure for the modified path `repo_mapping(C, A) + rpath[rpath.find('/'):]`.
 
-   a. If `A` is contained in the map, the runfiles library continues the original lookup procedure for the modified path `repo_mapping(C, A) + rpath[rpath.find('/'):]`.
-
-   b. If `A` is not contained in the map, the runfiles library continues the original lookup procedure for the unmodified path `rpath`.
+   b. If `(C, A)` is not contained in the map, the runfiles library continues the original lookup procedure for the unmodified path `rpath`.
 
 The precise way in which this procedure is implemented depends on the particular implementation of the runfiles library for each language.
 For example, the runfiles library for Bash doesn't offer a `Create` method and implicitly looks up the runfiles library or manifest on each invocation of the `rlocation` function.
