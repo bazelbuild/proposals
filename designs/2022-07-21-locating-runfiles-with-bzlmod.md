@@ -75,7 +75,7 @@ The repository mapping manifest would then look as follows:
 1. The repository mapping manifest is an ASCII file named `<executable>.repo_mapping` and placed in the same directory as the target's executable.
 2. Every triple `(C, A, repo_mapping(C, A))` is written as a single line terminated by `\n`, with the three components separated by `,`.
    Since neither canonical nor apparent repository names can contain commas, this is unambiguous.
-   As a special case, if `repo_mapping(C, A)` is the empty string (i.e., when the apparent name resolves to the main repository), it is serialized as the workspace name instead.
+   As a special case, if `repo_mapping(C, A)` is the empty string (i.e., when the apparent name resolves to the main repository), it is serialized as the workspace name (either the value of the `name` attribute of the `workspace` function or `__main__`) instead.
    This is necessary since the main repository is stored under this name.
 3. The lines of the manifest are sorted lexicographically.
    This ordering is equivalent to the lexicographical ordering of the triples comprising the repository mapping.
@@ -127,8 +127,8 @@ cc_binary(
 With `my_module` as the root module and Bzlmod enabled, the repository mapping manifest of `//:some_tool` would look as follows:
 
 ```
-,my_module,@my_module
-,my_workspace,@my_module
+,my_module,my_workspace
+,my_workspace,my_workspace
 ,my_protobuf,@protobuf~3.19.2
 ```
 
