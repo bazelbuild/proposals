@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2022-07-07 | [Enabling Global exec_groups](https://github.com/bazelbuild/proposals/new/main/designs/2022-07-07_global_exec_groups.md)                           | [@susinmotion](https://github.com/susinmotion)  |  Configurability     |
 |   2022-05-13 | [OSS Licenses and Bazel Dependency Management]( https://docs.google.com/document/d/1oY53dQ0pOPEbEvIvQ3TvHcFKClkimlF9AtN89EPiVJU/edit#)                           | [@aiuto](https://github.com/aiuto)                       | External Repositories      |
 |   2022-05-12 | [Bzlmod External Dependencies Inspection Tool](https://docs.google.com/document/d/1akmJfcEQ2jlB9E4ADQvKA1LNpWE87rdCMwV_Mq8Mqwc/edit?usp=sharing)                           | [@andyrinne12](https://github.com/andyrinne12)                       | External Repositories      |
 |   2022-03-18 | [proto_common module](https://docs.google.com/document/d/1dY_jfRvnH8SjRXGIfg8av-vquyWsvIZydXJOywvaR1A/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Proto Rules |
@@ -40,7 +41,6 @@ list.
 |   2020-05-31 | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing) | [@comius](https://github.com/comius) | Proto Rules |
 |   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
 |   2021-06-25 | [Better Starlark analysis unit tests](https://docs.google.com/document/d/12sC92mq7WasTvDWsm4U782oCegitfi1jbgOnMIGCe-A/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
-|   2022-03-07 | [Representing repeatable Starlark flags as config.string_list](designs/2022-03-06-representation-of-repeatable-starlark-flags.md) | [@fmeum](https://github.com/fmeum) | Configurability, Build Language |
 |   2022-04-25 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2022-04-29 | [@since(version) annotations in documentation.](https://docs.google.com/document/d/17JBmzeY2NpCWbAGQjsqtmMRLOl0n8IcPYCMOYyFsG1k/edit#) | [@aiuto](https://github.com/aiuto) | Documentation |
 
@@ -48,6 +48,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2022-06-30 | [Credential Helpers for Bazel](designs/2022-06-07-bazel-credential-helpers.md) | [@Yannic](https://github.com/Yannic) | External Repositories |
 |   2022-05-25 | [Canonical label literals](https://docs.google.com/document/d/1N81qfCa8oskCk5LqTW-LNthy6EBrDot7bdUsjz6JFC4/edit#)                                         | [@Wyverald](https://github/Wyverald)                                         | External Repositories |
 |   2022-05-11 | [Deprecating managed_directories](https://docs.google.com/document/d/1u9V5RUc7i6Urh8gGfnSurxpWA7JMRtwCi1Pr5BHeE44/edit?usp=sharing)                                              | [@lberki](https://github.com/lberki)                                 | External Repositories      |
 |   2022-02-04 | [Optional Toolchains](designs/2022-01-21-optional-toolchains.md) | [@katre](https://github.com/katre) | Configurability |
@@ -69,6 +70,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2022-03-07 | [Representing repeatable Starlark flags as config.string_list](designs/2022-03-06-representation-of-repeatable-starlark-flags.md) | [@fmeum](https://github.com/fmeum) | Configurability, Build Language |
 |   2022-01-14 | [Proposal for subpackages built-in helper function](https://docs.google.com/document/d/13UOT0GoQofxDW40ILzH2sWpUOmuYy6QZ7CUmhej9vgk/edit?usp=sharing) | [@kkress](https://github.com/kkress)                                 | Bazel |
 |   2021-03-06 | [Rules authors SIG](designs/2021-08-10-rules-authors-sig.md) | [@alexeagle](https://github.com/alexeagle)                                 | Community |
 |   2021-02-18 | [Require ProtoInfo for proto_lang_toolchain#blacklisted_protos](https://docs.google.com/document/d/1UmF_P4NDVl6Nw4JsHoHYp74iCdEQNh1O3-SVAX1CdjU/edit#) | [@Yannic](https://github.com/Yannic)   | Protobuf |
