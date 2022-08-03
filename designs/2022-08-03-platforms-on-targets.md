@@ -62,7 +62,7 @@ cc_binary(
     name = "some_binary",
     srcs = [...],
     deps = [...],
-    platform = ":gwindows",
+    platform = ":windows",
 )
 ```
 
