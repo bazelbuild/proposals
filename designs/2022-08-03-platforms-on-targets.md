@@ -11,7 +11,7 @@ authors:
 
 # Background
 
-Most Blaze targets, especially library targets, and inherently multi-platform:
+Most Bazel targets, especially library targets, and inherently multi-platform:
 they are intended to be built and used on any type of target platform that a
 user may need to build them for. Other targets, however, are inherently
 single-platform:
@@ -149,7 +149,6 @@ target platform based on the `platform` attribute for the target. Other parts of
 `BuildView` and `AnalysisPhaseRunner` will also need to update for the increased
 number of top-level configurations that can be present.
 
-
 ## Detecting conflicts
 
 When a target is being configured in
@@ -160,7 +159,7 @@ and if they do not match, and error can be reported.
 # Backwards Compatibility
 
 Any targets which do not set the `platform` attribute will continue to use the
-target platform from the topo-level config, either the one set explicitly at the
+target platform from the top-level config, either the one set explicitly at the
 command line or the default.
 
 # Potential Future Work
