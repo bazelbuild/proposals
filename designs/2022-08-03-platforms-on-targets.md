@@ -1,12 +1,11 @@
 ---
 created: 2022-08-03
 last updated: 2022-08-03
-status: Draft
-reviewers:
-  - @gregestren
+status: Under Review
+reviewers: @gregestren
 title: Platforms on Targets
-authors:
-  - katre
+authors: katre
+discussion thread: https://groups.google.com/g/bazel-dev/c/QK7CI__ReDM
 ---
 
 # Background
