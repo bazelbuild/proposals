@@ -76,7 +76,8 @@ The repository mapping manifest would then look as follows:
 2. Every triple `(C, A, repo_mapping(C, A))` is written as a single line terminated by `\n`, with the three components separated by `,`.
    Since neither canonical nor apparent repository names can contain commas, this is unambiguous.
    As a special case, if `repo_mapping(C, A)` is the empty string (i.e., when the apparent name resolves to the main repository), it is serialized as the workspace name (either the value of the `name` attribute of the `workspace` function or `__main__`) instead.
-   This is necessary since the main repository is stored under this name.
+   This is necessary since the main repository is stored under this name in the runfiles tree.
+   As a further special case, if `A` is the empty string, which happens only for the main workspace, the corresponding entry is skipped.
 3. The lines of the manifest are sorted lexicographically.
    This ordering is equivalent to the lexicographical ordering of the triples comprising the repository mapping.
 4. The repository mapping manifest for an executable target `T` consists only of those entries `(C, A, repo_mapping(C, A))` for which both of the following conditions are satisfied:
@@ -114,36 +115,21 @@ cc_binary(
    ],
    deps = ["@bazel_tools//tools/cpp/runfiles"],
 )
-cc_binary(
-   name = "other_tool",
-   srcs = ["main.cpp"],
-   data = [
-       "@my_protobuf//:protoc",
-   ],
-   deps = ["@bazel_tools//tools/cpp/runfiles"],
-)
 ```
 
 With `my_module` as the root module and Bzlmod enabled, the repository mapping manifest of `//:some_tool` would look as follows:
 
 ```
 ,my_module,my_workspace
-,my_workspace,my_workspace
 ,my_protobuf,@protobuf~3.19.2
+,my_workspace,my_workspace
 ```
 
 * The manifest contains the canonical repository name for the workspace and module name since `//:some_tool` has a data dependency on `//:data.txt` and a direct dependency on a runfiles library.
 * The manifest contains the canonical repository name for protobuf since `//:some_tool` has a data dependency on `@my_protobuf//:protoc` and a direct dependency on a runfiles library.
 * The manifest does *not* contain any entries where `C` is `@protobuf~3.19.2` since the `//:protoc` target does not transitively depend on a runfiles library.
 * The manifest does *not* contain any entries referencing `rules_go`, even though the main module depends on it. `rules_go` neither contributes any runfiles to `//:some_tool` nor any target that depends on a runfiles library.
-
-The repository mapping manifest of `//:other_tool` would look as follows:
-
-```
-,my_protobuf,@protobuf~3.19.2
-```
-
-This manifest does *not* contain any entries where `repo_mapping(C, A)` is `my_workspace` since the target does not include any runfiles from the main repository.
+* The manifest does *not* contain any entries where `repo_mapping(C, A)` is `bazel_tool` since the target does not include any runfiles from that repository.
 
 If a module `other_module` depends on `my_module` and contains a target that depends on `@my_module//:some_tool`, then that target's repository mapping manifest would contain the following lines (among others):
 
