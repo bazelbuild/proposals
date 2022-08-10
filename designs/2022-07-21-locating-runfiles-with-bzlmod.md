@@ -132,8 +132,10 @@ With `my_module` as the root module and Bzlmod enabled, the repository mapping m
 ,my_protobuf,@protobuf~3.19.2
 ```
 
-Note that the repository mapping manifest does *not* contain any entries where `C` is `@protobuf~3.19.2` since the `//:protoc` target does not transitively depend on a runfiles library.
-It also doesn't contain any entries referencing `rules_go`, even though the main module depends on it.
+* The manifest contains the canonical repository name for the workspace and module name since `//:some_tool` has a data dependency on `//:data.txt` and a direct dependency on a runfiles library.
+* The manifest contains the canonical repository name for protobuf since `//:some_tool` has a data dependency on `@my_protobuf//:protoc` and a direct dependency on a runfiles library.
+* The manifest does *not* contain any entries where `C` is `@protobuf~3.19.2` since the `//:protoc` target does not transitively depend on a runfiles library.
+* The manifest does *not* contain any entries referencing `rules_go`, even though the main module depends on it. `rules_go` neither contributes any runfiles to `//:some_tool` nor any target that depends on a runfiles library.
 
 The repository mapping manifest of `//:other_tool` would look as follows:
 
@@ -152,7 +154,9 @@ If a module `other_module` depends on `my_module` and contains a target that dep
 
 ### Implementation details
 
-- Add a new internal `RunfilesLibraryUsersProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target that directly depend on a runfiles library.
+- Add a new field to `RunfilesProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target that directly depend on a runfiles library.
+  Alternatively, this information could be tracked by a new provider that is only added if needed.
+  The latter may perform better with respect to memory consumption as most targets in a build will not transitively depend on a runfiles library.
 - In [`RuleConfiguredTargetBuilder#build()`], collect the `RunfilesLibraryUsersProvider` of all non-implicit, non-tool dependencies and add the `RepositoryName` and `RepositoryMapping` of the current target if any such dependency advertises `RunfilesLibraryInfo`.
   This is very similar to the logic in [`InstrumentedFilesCollector#forwardAll`], which forwards information about source files instrumented for coverage without requiring every rule implementation to cooperate.
 - Pass the `RepositoryMapping`s to `RunfilesSupport` and let it register a new action that writes the repository mapping manifest for only those repositories that are actually contributing runfiles.
