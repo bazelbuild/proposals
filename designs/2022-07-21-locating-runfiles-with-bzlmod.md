@@ -154,9 +154,8 @@ If a module `other_module` depends on `my_module` and contains a target that dep
 
 ### Implementation details
 
-- Add a new field to `RunfilesProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target that directly depend on a runfiles library.
-  Alternatively, this information could be tracked by a new provider that is only added if needed.
-  The latter may perform better with respect to memory consumption as most targets in a build will not transitively depend on a runfiles library.
+- Add a new internal `RunfilesLibraryUsersProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target that directly depend on a runfiles library.
+  Adding a new provider is preferred over adding fields on e.g. the existing `RunfilesProvider` since the latter is controlled by rule implementations, but even non-cooperating rules need to forward and augment the repository mapping information.
 - In [`RuleConfiguredTargetBuilder#build()`], collect the `RunfilesLibraryUsersProvider` of all non-implicit, non-tool dependencies and add the `RepositoryName` and `RepositoryMapping` of the current target if any such dependency advertises `RunfilesLibraryInfo`.
   This is very similar to the logic in [`InstrumentedFilesCollector#forwardAll`], which forwards information about source files instrumented for coverage without requiring every rule implementation to cooperate.
 - Pass the `RepositoryMapping`s to `RunfilesSupport` and let it register a new action that writes the repository mapping manifest for only those repositories that are actually contributing runfiles.
