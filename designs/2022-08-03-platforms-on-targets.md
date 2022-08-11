@@ -1,6 +1,6 @@
 ---
 created: 2022-08-03
-last updated: 2022-08-03
+last updated: 2022-08-11
 status: Under Review
 reviewers: @gregestren
 title: Platforms on Targets
@@ -38,6 +38,12 @@ targets will be added in three phases:
 Stage 3 may be delayed or dropped based on the progress with the first two, and
 whether or not users need this feature.
 
+Bazel will support specifying a single platform per target. Some build rules
+(such as builds for Android or iOS) allow builds for so-called "fat" binaries
+with multiple CPU architectures. These rules will need their own support for
+these richer sets of platforms, presumably via their own flags and attributes,
+and will not be handled via this proposal.
+
 ## Syntax
 
 To support declaring platforms on targets, a new attribute will be added to
@@ -45,8 +51,6 @@ rules by default, called `platform`. The attribute will take a label as a value,
 be optional with no default value, and will require the value to provide the
 PlatformInfo provider. The attribute will not be configurable (so a select
 cannot be used to set the value).
-
-**Open question:** Should this be a `label_list` valued `platforms` attribute?
 
 ```
 platform(
