@@ -2,7 +2,7 @@
 ---
 created: 2022-07-21
 last updated: 2022-07-21
-status: Draft
+status: Approved
 reviewers:
   - @Wyverald
   - @oquenchil
