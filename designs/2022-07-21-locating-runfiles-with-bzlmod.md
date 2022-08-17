@@ -5,7 +5,7 @@ last updated: 2022-07-21
 status: Draft
 reviewers:
   - @Wyverald
-  - @meteorcloudy
+  - @oquenchil
   - @phst
 title: Locating runfiles with Bzlmod
 authors:
@@ -140,10 +140,11 @@ If a module `other_module` depends on `my_module` and contains a target that dep
 
 ### Implementation details
 
-- Add a new internal `RunfilesLibraryUsersProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target that directly depend on a runfiles library.
-  Adding a new provider is preferred over adding fields on e.g. the existing `RunfilesProvider` since the latter is controlled by rule implementations, but even non-cooperating rules need to forward and augment the repository mapping information.
-- In [`RuleConfiguredTargetBuilder#build()`], collect the `RunfilesLibraryUsersProvider` of all non-implicit, non-tool dependencies and add the `RepositoryName` and `RepositoryMapping` of the current target if any such dependency advertises `RunfilesLibraryInfo`.
-  This is very similar to the logic in [`InstrumentedFilesCollector#forwardAll`], which forwards information about source files instrumented for coverage without requiring every rule implementation to cooperate.
+- Add a new field to `RunfilesProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target that directly depend on a runfiles library.
+- When creating an instance of `RunfilesProvider`, collect this information for all non-implicit, non-tool dependencies and add the `RepositoryName` and `RepositoryMapping` of the current target if any such dependency advertises `RunfilesLibraryInfo`.
+  This is very similar to the logic in [`InstrumentedFilesCollector#forwardAll`], which forwards information about source files instrumented for coverage.
+  Note that this means that custom rules that never call `ctx.runfiles` but instead forward the runfiles from a dependency will not be accounted for if they also depend on a target advertising `RunfilesLibraryInfo`.
+  This is considered acceptable as the alternative would be to add an entirely new provider and forcibly populate it in `RuleConfiguredTargetBuilder` for something that is a very pathological edge case.
 - Pass the `RepositoryMapping`s to `RunfilesSupport` and let it register a new action that writes the repository mapping manifest for only those repositories that are actually contributing runfiles.
   This requires maintaining the inverse of the mapping `RepositoryMapping` in a `Multimap`: repository mappings are not necessarily injective.
 - Add the repository mapping manifest artifact to the runfiles middleman and the runfiles source manifest.
