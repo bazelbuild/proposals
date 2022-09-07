@@ -1,7 +1,7 @@
 
 ---
 created: 2022-07-21
-last updated: 2022-07-21
+last updated: 2022-09-07
 status: Approved
 reviewers:
   - @Wyverald
@@ -46,24 +46,7 @@ The fact that canonical repository names have to be treated as dynamic with Bzlm
 
 # Proposed changes
 
-## 1. Add a new provider that marks runfiles libraries
-
-Both Change 2 and 4 described in this proposal require Bazel targets that provide runfiles lookup functionality to be marked with a distinct provider `RunfilesLibraryInfo` exposed to Starlark.
-The provider carries no data, it is purely used as a marker.
-
-A target that depends on a target advertising this provider will be given access to a serialized form of its repository mapping at runtime as described in Part 2.
-
-Furthermore, depending on the nature of the programming language of the target, the language-specific rules can use this information to generate code that allows the target compile-time access to its canonical repository name as described in Change 4.
-
-### Backwards compatibility
-
-Adding a new global symbol is a backwards-compatible change.
-
-In order to support Bzlmod, rulesets providing runfiles libraries will have to be updated to advertise the new provider.
-Since a new global symbol can't be feature-detected in Starlark, this can only be done once the ruleset providing the runfiles libraries targets a Bazel version that offers the new provider as its minimum supported version.
-For runfiles libraries that do not ship with Bazel, it would thus be helpful to cherry-pick this change into Bazel 5.
-
-## 2. Emit a repository mapping manifest for each executable target
+## 1. Emit a repository mapping manifest for each executable target
 
 At runtime, an executable target has to be able to translate an apparent repository name to a canonical repository name.
 This requires serializing the repository mapping of every transitive dependency of the target that may perform runfiles lookups to a file that can be accessed at runtime, similar to the existing runfiles manifest.
@@ -81,10 +64,10 @@ The repository mapping manifest would then look as follows:
 3. The lines of the manifest are sorted lexicographically.
    This ordering is equivalent to the lexicographical ordering of the triples comprising the repository mapping.
 4. The repository mapping manifest for an executable target `T` consists only of those entries `(C, A, repo_mapping(C, A))` for which both of the following conditions are satisfied:
-    - `T` transitively depends on a target in `C` that directly depends on a target advertising `RunfilesLibraryInfo`;
+    - `T` transitively depends on a target in `C`;
     - `T`'s runfiles contain an artifact owned by a target in `repo_mapping(C, A)`.
    This property ensures that the repository mapping manifest only contains the entries that are actually needed for the target to resolve its runfiles.
-   If all entries (instead of just this limited set) were emitted into the manifest, all actions depending on T would have to rerun if any repository containing a transitive dependency of T would declare a new dependency or change an apparent repository name, even if that repository neither contributes a runfile nor looks up runfiles at runtime.
+   If all entries (instead of just this limited set) were emitted into the manifest, all actions depending on T would have to rerun if any repository containing a transitive dependency of T would declare a new dependency or change an apparent repository name, even if that repository neither contributes a runfile nor is contained in the transitive closure of T.
 
 In order to help runfiles libraries find the repository mapping manifest, it is added to the runfiles manifest (and thus the runfiles directory) under the fixed path `_repo_mapping`.
 Since canonical repository names do not start with `_`, there is no risk of this synthetic part being a prefix of an actual runfile.
@@ -121,30 +104,33 @@ With `my_module` as the root module and Bzlmod enabled, the repository mapping m
 
 ```
 ,my_module,my_workspace
-,my_protobuf,@protobuf~3.19.2
+,my_protobuf,protobuf~3.19.2
 ,my_workspace,my_workspace
+protobuf~3.19.2,protobuf,protobuf~3.19.2
 ```
 
-* The manifest contains the canonical repository name for the workspace and module name since `//:some_tool` has a data dependency on `//:data.txt` and a direct dependency on a runfiles library.
-* The manifest contains the canonical repository name for protobuf since `//:some_tool` has a data dependency on `@my_protobuf//:protoc` and a direct dependency on a runfiles library.
-* The manifest does *not* contain any entries where `C` is `@protobuf~3.19.2` since the `//:protoc` target does not transitively depend on a runfiles library.
-* The manifest does *not* contain any entries referencing `rules_go`, even though the main module depends on it. `rules_go` neither contributes any runfiles to `//:some_tool` nor any target that depends on a runfiles library.
-* The manifest does *not* contain any entries where `repo_mapping(C, A)` is `bazel_tool` since the target does not include any runfiles from that repository.
+* The manifest contains the mapping to the canonical repository name for the workspace and module name since `//:some_tool` has a data dependency on `//:data.txt` and a direct dependency on a runfiles library.
+* The manifest contains the mapping of `my_protobuf` (used by the main module) to the canonical repository name for protobuf since `//:some_tool` has a data dependency on `@@protobuf~3.19.2//:protoc`.
+* The manifest contains the mapping of `protobuf` (used by the protobuf module) to the canonical repository name for protobuf since `//:some_tool` has a data dependency on `@@protobuf~3.19.2//:protoc`.
+* The manifest does *not* contain any entries where `C` is `rules_go~0.33.0` since `rules_go` does not contribute a target to the transitive closure of `//:some_tool`.
+* The manifest does *not* contain any entries where `C` is `bazel_tools` since `bazel_tools` does not depend on any module providing runfiles (`protobuf` or the main module).
+* The manifest does *not* contain any entries where `repo_mapping(C, A)` is `rules_go~0.33.0` or `bazel_tools` since these repositories do not contribute runfiles to the transitive closure of `//:some_tool`.
 
-If a module `other_module` depends on `my_module` and contains a target that depends on `@my_module//:some_tool`, then that target's repository mapping manifest would contain the following lines (among others):
+If a module `other_module` depends on `my_module` and contains a target that depends on `@@my_module~1.2.3//:some_tool`, then that target's repository mapping manifest would contain the following lines (among others):
 
 ```
-@my_module~1.2.3,my_module,@my_module~1.2.3
-@my_module~1.2.3,my_protobuf,@protobuf~3.19.2
+my_module~1.2.3,my_module,my_module~1.2.3
+my_module~1.2.3,my_protobuf,protobuf~3.19.2
+protobuf~3.19.2,protobuf,protobuf~3.19.2
 ```
 
 ### Implementation details
 
-- Add a new field to `RunfilesProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target that directly depend on a runfiles library.
-- When creating an instance of `RunfilesProvider`, collect this information for all non-implicit, non-tool dependencies and add the `RepositoryName` and `RepositoryMapping` of the current target if any such dependency advertises `RunfilesLibraryInfo`.
+- Add a new field to `RunfilesProvider` to track the `RepositoryName` and `RepositoryMapping` of transitive dependencies of a given target.
+- When creating an instance of `RunfilesProvider`, collect this information for all non-tool dependencies and add the `RepositoryName` and `RepositoryMapping` of the current target.
   This is very similar to the logic in [`InstrumentedFilesCollector#forwardAll`], which forwards information about source files instrumented for coverage.
-  Note that this means that custom rules that never call `ctx.runfiles` but instead forward the runfiles from a dependency will not be accounted for if they also depend on a target advertising `RunfilesLibraryInfo`.
-  This is considered acceptable as the alternative would be to add an entirely new provider and forcibly populate it in `RuleConfiguredTargetBuilder` for something that is a very pathological edge case.
+  Toolchain dependencies built in the target configuration have to be included as well - a language runtime may need to look up runfiles at runtime.
+- Alternatively, use [`RuleConfiguredTargetValue#getTransitivePackagesForPackageRootResolution`](https://github.com/bazelbuild/bazel/blob/72787a1267a6087923aca83bf161f93c0a1323e0/src/main/java/com/google/devtools/build/lib/skyframe/RuleConfiguredTargetValue.java#L44) if available at the right times.
 - Pass the `RepositoryMapping`s to `RunfilesSupport` and let it register a new action that writes the repository mapping manifest for only those repositories that are actually contributing runfiles.
   This requires maintaining the inverse of the mapping `RepositoryMapping` in a `Multimap`: repository mappings are not necessarily injective.
 - Add the repository mapping manifest artifact to the runfiles middleman and the runfiles source manifest.
@@ -153,7 +139,7 @@ If a module `other_module` depends on `my_module` and contains a target that dep
 
 Emitting a new file into the runfiles tree is a backwards-compatible change.
 
-## 3. Extend the runfiles libraries to take repository mappings into account
+## 2. Extend the runfiles libraries to take repository mappings into account
 
 Based on Change 2, runfiles libraries can now apply the repository mapping at runtime.
 Concretely, runfiles libraries should modify their current lookup procedure described in the [original design doc](https://docs.google.com/document/d/e/2PACX-1vSDIrFnFvEYhKsCMdGdD40wZRBX3m3aZ5HhVj4CtHPmiXKDCxioTUbYsDydjKtFDAzER5eg7OjJWs3V/pub) as follows:
@@ -170,7 +156,7 @@ Concretely, runfiles libraries should modify their current lookup procedure desc
 
    a. If `(C, A)` is contained in the map, the runfiles library continues the original lookup procedure for the modified path `repo_mapping(C, A) + rpath[rpath.find('/'):]`.
 
-   b. If `(C, A)` is not contained in the map, the runfiles library continues the original lookup procedure for the unmodified path `rpath`.
+   b. If `(C, A)` is not contained in the map and `A` contains a tilde `~`, the runfiles library continues the original lookup procedure for the unmodified path `rpath`. Otherwise, it emits a descriptive error message.
 
 The precise way in which this procedure is implemented depends on the particular implementation of the runfiles library for each language.
 For example, the runfiles library for Bash doesn't offer a `Create` method and implicitly looks up the runfiles library or manifest on each invocation of the `rlocation` function.
@@ -187,7 +173,7 @@ This includes:
 - Passing in runfiles paths from Starlark via environment variables or arguments.
 - Generating code constants containing already repo-mapped runfiles paths (see [rules_runfiles](https://github.com/fmeum/rules_runfiles)).
 
-This fallback behavior is not prone to ambiguity: With Bzlmod, canonical names of non-main repositories always starts with an `@`, which is never contained in a valid apparent repository name.
+This fallback behavior is not prone to ambiguity: With Bzlmod, canonical names of non-main repositories always a `~`, but apparent repo names do not.
 
 ### Backwards compatibility
 
@@ -201,34 +187,33 @@ The following changes solve the two problems described in the background section
 However, due to the federated nature of rulesets, which in many cases aren't even released with Bazel, and the wildly different natures of the languages they cover, these changes are at this point only to be treated as suggestions.
 Further feedback from ruleset and Stardoc maintainers as well as language experts is required to ensure that these changes actually provide the best possible API and work correctly in all cases.
 
-## 4. Make the canonical repository name of the current repository available at runtime
+## 3. Make the canonical repository name of the current repository available at runtime
 
-Using the new features described in Part 2 and 3, repository mapping aware runfiles lookups can be performed knowing the canonical repository name of the repository containing the code that performs the lookup.
+Using the new features described in Part 1 and 2, repository mapping aware runfiles lookups can be performed knowing the canonical repository name of the repository containing the code that performs the lookup.
 The canonical repository name is not an absolute constant known to the end user --- it is an implementation detail of Bzlmod and e.g. contains module versions that may change depending on the outcome of the dependency resolution algorithm.
 
 For compiled languages, some amount of language-specific code generation will likely be needed to make that information available at runtime.
-Ideally, this code generation would be performed by the language-specific rules themselves if and only if a direct dependency of a target advertises the `RunfilesLibraryInfo` provider.
 For example, the following changes could be made to the rules for compiled languages shipped with Bazel:
 
-- **C/C++**: If a `cc_*` target has a direct dependency advertising `RunfilesLibraryInfo`, implicitly add a `local_define` of `BAZEL_CURRENT_REPOSITORY_NAME` with value the canonical repository name of the repository containing the target. Then, require users to pass `BAZEL_CURRENT_REPOSITORY_NAME` as an argument to the runfiles library's `Create` method.
-- **Java**: If a `java_*` target has a direct dependency advertising `RunfilesLibraryInfo`, generate a source file providing a `static final String` constant `com.google.devtools.build.runfiles.RunfilesHelper.CURRENT_REPOSITORY_NAME` with value the canonical repository name of the repository containing the target.
+- **C/C++**: Unconditionally add a `local_define` of `BAZEL_CURRENT_REPOSITORY` with value the canonical repository name of the repository containing the target. Then, require users to pass `BAZEL_CURRENT_REPOSITORY` as an argument to the runfiles library's `Create` method.
+- **Java**: Generate a source file providing a `static final String` constant `com.google.devtools.build.runfiles.RunfilesHelper.CURRENT_REPOSITORY` with value the canonical repository name of the repository containing the target.
   Separately compile this source file with `neverlink = True` and implicitly add it as compile-time dependency of the target.
   Since the Java Language Specification mandates that [`static` constants are inlined](https://docs.oracle.com/javase/specs/jls/se17/html/jls-14.html#d5e26341), this will ensure that no reference to the `RunfilesHelper` class is emitted into the compilation output of the target.
-  Each target can then reference the same `CURRENT_REPOSITORY_NAME` constant and pass it to the `Create` method of `Runfiles`.
+  Each target can then reference the same `CURRENT_REPOSITORY` constant and pass it to the `Create` method of `Runfiles`.
+  Since this would require adding two additional actions to each Java target, it will be more efficient to implement this directly in `buildjar`.
 
 For other compiled as well as dynamic languages, the canonical repository name may instead be obtained directly by the runfiles library by parsing the path of the calling source file. For example, Go has [runtime.Caller](https://pkg.go.dev/runtime#Caller), Python has `inspect.getframeinfo(sys._getframe(1)).filename` and Bash has `caller`.
 
-## 5. Make Stardoc compatible with repository mappings
+## 4. Make Stardoc compatible with repository mappings
 
 Using the new functionality suggested by this proposal, Stardoc can be made aware of repository mappings as follows:
 
-1. Add an implicit dependency on a global helper target advertising `RunfilesLibraryInfo` to `bzl_library`.
-2. Create a new `stardoc_runfiles` rule that consumes `bzl_library` targets and advertises a `DefaultInfo` with all transitive `.bzl` files in `runfiles` and a no-op executable in `executable`.
-3. Replace the current `stardoc` rule with a macro that evaluates to both a `stardoc_runfiles` and a `stardoc` target, with the latter referencing the former and adding it to the `tools` of the actual Stardoc action.
+1. Create a new `stardoc_runfiles` rule that consumes `bzl_library` targets and advertises a `DefaultInfo` with all transitive `.bzl` files in `runfiles` and a no-op executable in `executable`.
+2. Replace the current `stardoc` rule with a macro that evaluates to both a `stardoc_runfiles` and a `stardoc` target, with the latter referencing the former and adding it to the `tools` of the actual Stardoc action.
    This stages all `.bzl` files as runfiles and, due to 1., ensures that they are covered by the generated `.repo_mapping` manifest.
-4. At runtime, parse the runfiles path of a root `.bzl` file to obtain its canonical repository name and use the Java runfiles library to look up the paths of dependencies according to this repository's repository mapping.
+3. At runtime, parse the runfiles path of a root `.bzl` file to obtain its canonical repository name and use the Java runfiles library to look up the paths of dependencies according to this repository's repository mapping.
 
-Steps 2 and 3 could alternatively be replaced by implementing and using one of the new features proposed in [bazelbuild/bazel#15486](https://github.com/bazelbuild/bazel/issues/15486).
+Steps 1 and 2 could alternatively be replaced by implementing and using one of the new features proposed in [bazelbuild/bazel#15486](https://github.com/bazelbuild/bazel/issues/15486).
 
 [RunfilesHelper]: https://github.com/fmeum/bazel/commit/fdbc85448553ef46e620bbfc09cb3c11b7e05425#diff-75515109d2df88a368ed059a7ad73a424d0bd1db785d1939f41531266b7769b2
 [`InstrumentedFilesCollector#forwardAll`]: https://cs.opensource.google/bazel/bazel/+/master:src/main/java/com/google/devtools/build/lib/analysis/test/InstrumentedFilesCollector.java;l=65;drc=86b800e4066389d4535fbdf280cfe9447b06df15;bpv=1;bpt=1
