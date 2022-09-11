@@ -64,8 +64,7 @@ This native launcher idea has been proposed a few times by bazel contributors an
 * [Richard Levasseur (Google)](https://github.com/bazelbuild/rules_python/issues/691#issuecomment-1186379617)
 
 Some related work has been done that fixes Linux to Windows cross-builds of the Windows launcher. See: [Fix Linux to Windows cross compilation of py_binary, java_binary and sh_binary using MinGW](https://github.com/bazelbuild/bazel/pull/16019)
-This proposal would aim to go further and have these launchers available on all platforms to that a Windows to Linux 
-launcher build could occur (assuming appropriate toolchains).
+This proposal would aim to go further and have these launchers available on all platforms, including cross_builds where appropriate toolchains are in place.
 
 Once this proposal is implemented, it would enable cross-builds of hermetic `py_binary` for all major platforms. It
 would also remove the complexity introduced by having so many chains of nested execution to launch a python program.
