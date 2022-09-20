@@ -20,7 +20,7 @@ This document describes an approach for launching `py_binary` artifacts hermetic
 Currently, `py_binary` is non-hermetic and launches inconsistently between platforms.
 
 On macos and Linux, there is a [python_stub](https://github.com/bazelbuild/bazel/blob/master/src/main/java/com/google/devtools/build/lib/bazel/rules/python/python_stub_template.txt)
-that is non-hermetic and requires a "bootstrap" Python interpreter on the host. The "shebang" can be overridden, but
+that is non-hermetic and requires a bootstrap Python interpreter on the host. The "shebang" can be overridden, but
 a "shebang" is always dependent on the runtime host.
 
 On Windows, there is a [native launcher](https://github.com/meteorcloudy/bazel/blob/master/src/tools/launcher/python_launcher.cc)
