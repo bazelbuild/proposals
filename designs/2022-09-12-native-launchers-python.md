@@ -36,7 +36,7 @@ users who expect Bazel to output self-contained binary artifacts for a target pl
 
 The reason this situation exists is because of "bootstrapping". Ultimately, *something* needs to find the Python
 interpreter in the runfiles and use that to launch the program. Currently, Bazel assumes the target platform will
-be able to provide the "bootstrapping" functionality.
+be able to provide the bootstrapping functionality.
 
 
 # Proposal
