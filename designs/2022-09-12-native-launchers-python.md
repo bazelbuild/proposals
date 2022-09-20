@@ -31,7 +31,7 @@ Related issues:
 * [Neither python_top nor python toolchain works with starlark actions on windows](https://github.com/bazelbuild/bazel/issues/7947#issuecomment-495265016)
 
 This situation is undesirable because it assumes that the target platform has a bootstrapping python interpreter 
-available and makes the hermetic python interpreters available with `rules_python` less useful. It is also surprising to 
+available and makes the hermetic Python interpreters available with `rules_python` less useful. It is also surprising to 
 users who expect bazel to output self-contained binary artifacts for a target platform.
 
 The reason this situation exists is because of "bootstrapping". Ultimately, *something* needs to find the python
