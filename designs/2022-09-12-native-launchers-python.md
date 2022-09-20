@@ -41,7 +41,7 @@ be able to provide the bootstrapping functionality.
 
 # Proposal
 
-Extend the native launcher functionality to all platforms and use it to locate the relevant python interpreter and 
+Extend the native launcher functionality to all platforms and use it to locate the relevant Python interpreter and 
 python program in the `runfiles` tree to launch the `py_binary`. No assumptions should be made about the target platform.
 
 In pseudo-code, the proposal is as follows:
