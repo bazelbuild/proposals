@@ -69,7 +69,7 @@ This proposal would aim to go further and have these launchers available on all 
 Once this proposal is implemented, it would enable cross-builds of hermetic `py_binary` for all major platforms. It
 would also remove the complexity introduced by having so many chains of nested execution to launch a Python program.
 
-Finally, while this proposal is specific to python, this solution could perhaps be reused for `java_binary`, `sh_binary`
+Finally, while this proposal is specific to Python, this solution could perhaps be reused for `java_binary`, `sh_binary`
 and perhaps be made available for any custom rules that require an interpreter to launch.
 
 
