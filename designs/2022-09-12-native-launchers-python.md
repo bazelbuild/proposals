@@ -12,7 +12,7 @@ authors:
 
 # Abstract
 
-This document describes an approach for launching `py_binary` artifacts hermetically using the resolved python toolchain.
+This document describes an approach for launching `py_binary` artifacts hermetically using the resolved Python toolchain.
 
 
 # Background
