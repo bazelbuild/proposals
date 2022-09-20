@@ -24,7 +24,7 @@ that is non-hermetic and requires a "bootstrap" python interpreter on the host. 
 a "shebang" is always dependent on the runtime host.
 
 On Windows, there is a [native launcher](https://github.com/meteorcloudy/bazel/blob/master/src/tools/launcher/python_launcher.cc)
-that launches `python.exe` on the host which then launches the `py_binary` with the same `python_stub` as macos and linux.
+that launches `python.exe` on the host which then launches the `py_binary` with the same `python_stub` as macos and Linux.
 
 Related issues:
 * [py_binary with hermetic toolchain requires a system interpreter](https://github.com/bazelbuild/rules_python/issues/691)
