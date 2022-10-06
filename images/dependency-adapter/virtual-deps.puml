@@ -1,0 +1,16 @@
+@startuml
+package "Local Repository" {
+    [ Executable A ] as A
+    cloud "Library B" as B
+}
+
+package "External Repository (shared_libs)" {
+    cloud "Library C" as C
+    [ Library D ] as D
+}
+
+A -[#red]-> B: <back:white><b><back:white><color:red> ERROR: no such package 'B'
+A -[#red]r-> C: <back:white><b><back:white><color:red>ERROR: no such package '@shared_libs//C'
+C ..> D: <back:white> //D:libD
+
+@enduml

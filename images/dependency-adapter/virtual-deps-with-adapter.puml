@@ -1,0 +1,26 @@
+@startuml
+package "Local Repository" {
+    [ Executable A ] as A
+    node "dependency adapter" as adapter_local {
+        cloud "<color:grey>Library B" as B
+        [ Library B ] as B_concrete
+    }
+}
+
+package "External Repository (shared_libs)" {
+    node "dependency adapter" as adapter_shared {
+        cloud "<color:grey>Library C" as C
+        [ Library C ] as C_concrete
+    }
+    [ Library D ] as D
+}
+
+A -d-> adapter_local
+adapter_local --> B_concrete: <back:white> //B:libB
+B .[#grey]r.|> B_concrete: <color:grey>//convert to //\n<color:grey>//concrete //
+A -r-> adapter_shared
+C .[#grey]d.|> C_concrete: <color:grey>// convert to//\n<color:grey>// concrete//
+adapter_shared -r-> C_concrete: <back:white>//@shared_libs~//C:libC //
+C_concrete --> D: <back:white> //D:libD
+
+@enduml
