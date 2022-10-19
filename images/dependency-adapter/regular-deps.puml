@@ -1,0 +1,16 @@
+@startuml
+package "Local Repository" {
+    [ Executable A ] as A
+    [ Library B ] as B
+}
+
+package "External Repository (shared_libs)" {
+    [ Library C ] as C
+    [ Library D ] as D
+}
+
+A --> B: <back:white> //B:libB
+A -r-> C: <back:white>@shared_libs//C:libC
+C --> D: <back:white> //D:libD
+
+@enduml
