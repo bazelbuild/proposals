@@ -44,6 +44,7 @@ list.
 |   2021-06-25 | [Better Starlark analysis unit tests](https://docs.google.com/document/d/12sC92mq7WasTvDWsm4U782oCegitfi1jbgOnMIGCe-A/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2022-04-25 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2022-04-29 | [@since(version) annotations in documentation.](https://docs.google.com/document/d/17JBmzeY2NpCWbAGQjsqtmMRLOl0n8IcPYCMOYyFsG1k/edit#) | [@aiuto](https://github.com/aiuto) | Documentation |
+|   2022-12-15 | [Bzlmod lockfile](https://docs.google.com/document/d/1HPeH_L-lRK54g8A27gv0q7cbk18nwJ-jOq_14XEiZdc/edit#heading=h.5mcn15i0e1ch) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
 
 ### Approved
 
