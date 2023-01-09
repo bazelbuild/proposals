@@ -46,7 +46,6 @@ list.
 |   2022-04-25 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2022-04-29 | [@since(version) annotations in documentation.](https://docs.google.com/document/d/17JBmzeY2NpCWbAGQjsqtmMRLOl0n8IcPYCMOYyFsG1k/edit#) | [@aiuto](https://github.com/aiuto) | Documentation |
 
-
 ### Approved
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
