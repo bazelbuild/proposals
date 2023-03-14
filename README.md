@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2023-03-14 | [REPO.bazel](https://docs.google.com/document/d/1rS-B3d_sfZFY2AcSwIq2ibQc7X1lgeycddLJqjYKgOA/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-03-07 | [Build Stamping API for Starlark rules](https://docs.google.com/document/d/1YNC0DvT0l1ZC5DuwXlSeEX_d-bGEKRK-z81UBXEhEVE/edit?usp=sharing) | [@buildbreaker2021](https://github.com/buildbreaker2021) | Starlark Rules |
 |   2023-01-30 | [Transitive static libraries](https://docs.google.com/document/d/1jN0LUmp6_-rV9_f-Chx-Cs6t_5iOm3fziOklzBGjGIg/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++ |
 |   2023-01-23 | [Remote Cache Eviction for Build without the Bytes](https://docs.google.com/document/d/1wM61xufcMS5W0LQ0ar5JBREiN9zKfgu6AnHVD7BSkR4/edit#) | [@coeuvre](https://github.com/cowuvre) | Remote Execution |
