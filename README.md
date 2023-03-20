@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2023-03-17 | [C/C++ standard resolution for Bazel modules](https://docs.google.com/document/d/132vEDnQZY0PtF9ko6HoLQ2dqk6meZnSrUfc1gsKuBkk/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++, External Repositories |
 |   2023-03-17 | [More accurate cquery](https://docs.google.com/document/d/1x-RqFFEcGIzVgtYHIq6s6Qt4vYtJWz3nuHIuqeI89dU/edit#) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2023-03-14 | [REPO.bazel](https://docs.google.com/document/d/1rS-B3d_sfZFY2AcSwIq2ibQc7X1lgeycddLJqjYKgOA/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-03-07 | [Build Stamping API for Starlark rules](https://docs.google.com/document/d/1YNC0DvT0l1ZC5DuwXlSeEX_d-bGEKRK-z81UBXEhEVE/edit?usp=sharing) | [@buildbreaker2021](https://github.com/buildbreaker2021) | Starlark Rules |
@@ -45,7 +46,6 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2023-03-17 | [C/C++ standard resolution for Bazel modules](https://docs.google.com/document/d/132vEDnQZY0PtF9ko6HoLQ2dqk6meZnSrUfc1gsKuBkk/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++, External Repositories |
 |   2023-01-18 | [Modular cc toolchains](https://docs.google.com/document/d/1-etGNsPneQ8W7MBMxtLloEq-Jj9ng1G-Pip-cWtTg_Y/edit?usp=sharing) | [@silvergasp](https://github.com/silvergasp) | CC toolchain rules |
 |   2022-05-31 | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing) | [@comius](https://github.com/comius) | Proto Rules |
 |   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
