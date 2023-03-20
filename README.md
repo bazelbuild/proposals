@@ -46,6 +46,7 @@ list.
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit#heading=h.5mcn15i0e1ch) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2023-01-18 | [Modular cc toolchains](https://docs.google.com/document/d/1-etGNsPneQ8W7MBMxtLloEq-Jj9ng1G-Pip-cWtTg_Y/edit?usp=sharing) | [@silvergasp](https://github.com/silvergasp) | CC toolchain rules |
 |   2022-05-31 | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing) | [@comius](https://github.com/comius) | Proto Rules |
 |   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
