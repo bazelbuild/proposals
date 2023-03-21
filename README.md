@@ -20,6 +20,7 @@ list.
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2023-03-21 | [Bazel feature detection in Starlark](https://docs.google.com/document/d/1HJf3gMYIrzmTRqbD4nWXH2eJRHXjLrOU0mmIeZplUzY/edit#) | [@Wyverald](https://github.com/Wyverald) | General, Starlark Rules |
 |   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2023-03-17 | [C/C++ standard resolution for Bazel modules](https://docs.google.com/document/d/132vEDnQZY0PtF9ko6HoLQ2dqk6meZnSrUfc1gsKuBkk/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++, External Repositories |
 |   2023-03-17 | [More accurate cquery](https://docs.google.com/document/d/1x-RqFFEcGIzVgtYHIq6s6Qt4vYtJWz3nuHIuqeI89dU/edit#) | [@gregestren](https://github.com/gregestren) | Configurability |
