@@ -21,7 +21,6 @@ list.
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
 |   2023-03-21 | [Bazel feature detection in Starlark](https://docs.google.com/document/d/1HJf3gMYIrzmTRqbD4nWXH2eJRHXjLrOU0mmIeZplUzY/edit#) | [@Wyverald](https://github.com/Wyverald) | General, Starlark Rules |
-|   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2023-03-17 | [C/C++ standard resolution for Bazel modules](https://docs.google.com/document/d/132vEDnQZY0PtF9ko6HoLQ2dqk6meZnSrUfc1gsKuBkk/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++, External Repositories |
 |   2023-03-17 | [More accurate cquery](https://docs.google.com/document/d/1x-RqFFEcGIzVgtYHIq6s6Qt4vYtJWz3nuHIuqeI89dU/edit#) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2023-03-14 | [REPO.bazel](https://docs.google.com/document/d/1rS-B3d_sfZFY2AcSwIq2ibQc7X1lgeycddLJqjYKgOA/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
@@ -59,6 +58,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2022-12-07 | [Exec platform per toolchain](https://docs.google.com/document/d/1-rbP_hmKs9D639YWw5F_JyxPxL2bi6dSmmvj_WXak9M/edit?usp=sharing) |  [@comius](https://github.com/comius) [@kotlaja](https://github.com/kotlaja) | Configurability |
 |   2022-08-17 | [Locating runfiles with Bzlmod](designs/2022-07-21-locating-runfiles-with-bzlmod.md) | [@fmeum](https://github.com/fmeum) | External Repositories, Bazel |
 |   2022-06-30 | [Credential Helpers for Bazel](designs/2022-06-07-bazel-credential-helpers.md) | [@Yannic](https://github.com/Yannic) | External Repositories |
