@@ -27,7 +27,6 @@ list.
 |   2023-03-07 | [Build Stamping API for Starlark rules](https://docs.google.com/document/d/1YNC0DvT0l1ZC5DuwXlSeEX_d-bGEKRK-z81UBXEhEVE/edit?usp=sharing) | [@buildbreaker2021](https://github.com/buildbreaker2021) | Starlark Rules |
 |   2023-01-23 | [Remote Cache Eviction for Build without the Bytes](https://docs.google.com/document/d/1wM61xufcMS5W0LQ0ar5JBREiN9zKfgu6AnHVD7BSkR4/edit#) | [@coeuvre](https://github.com/cowuvre) | Remote Execution |
 |   2022-12-15 | [Bzlmod lockfile](https://docs.google.com/document/d/1HPeH_L-lRK54g8A27gv0q7cbk18nwJ-jOq_14XEiZdc/edit#heading=h.5mcn15i0e1ch) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
-|   2022-10-17 | [Dependency adapters for virtual targets](designs/2022-10-17-dependency-adapter.md) | [@vdye](https://github.com/vdye) | Bazel |
 |   2022-10-11 | [Renaming applicable_licenses](https://docs.google.com/document/d/1uyJjkKbE8kV8EinakaR9q-Un25zCukhoH_dRBkWHSKQ) | [@aiuto](https://github.com/aiuto) | Configuration |
 |   2022-07-07 | [Enabling Global exec_groups](https://github.com/bazelbuild/proposals/new/main/designs/2022-07-07_global_exec_groups.md)                           | [@susinmotion](https://github.com/susinmotion)  |  Configurability     |
 |   2022-05-13 | [OSS Licenses and Bazel Dependency Management]( https://docs.google.com/document/d/1oY53dQ0pOPEbEvIvQ3TvHcFKClkimlF9AtN89EPiVJU/edit#)                           | [@aiuto](https://github.com/aiuto)                       | External Repositories      |
@@ -164,6 +163,7 @@ list.
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
+|   2022-10-17 | [Dependency adapters for virtual targets](designs/2022-10-17-dependency-adapter.md) | [@vdye](https://github.com/vdye) | Bazel |
 |   2022-11-16 | [Platforms on Targets](designs/2022-08-03-platforms-on-targets.md) | [@katre](https://github.com/katre) | Configuration |
 |   2021-07-21 | [Monorepo Toolchain Registration](designs/2021-07-08-monorepo-toolchain-registration.md) | [@katre](https://github.com/katre) | Toolchains |
 |   2021-02-16 | [Semantics of the expansion of Labels](https://docs.google.com/document/d/1bEhKy1lQB-EIpNxSYgRLtZ8p07dRe0g-t7D5j5jxLb0)| [@aehlig](https://github.com/aehlig)                                               | External Repositories |
