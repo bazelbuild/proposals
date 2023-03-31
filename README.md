@@ -28,7 +28,6 @@ list.
 |   2023-01-23 | [Remote Cache Eviction for Build without the Bytes](https://docs.google.com/document/d/1wM61xufcMS5W0LQ0ar5JBREiN9zKfgu6AnHVD7BSkR4/edit#) | [@coeuvre](https://github.com/cowuvre) | Remote Execution |
 |   2022-10-17 | [Dependency adapters for virtual targets](designs/2022-10-17-dependency-adapter.md) | [@vdye](https://github.com/vdye) | Bazel |
 |   2022-10-11 | [Renaming applicable_licenses](https://docs.google.com/document/d/1uyJjkKbE8kV8EinakaR9q-Un25zCukhoH_dRBkWHSKQ) | [@aiuto](https://github.com/aiuto) | Configuration |
-|   2022-07-07 | [Enabling Global exec_groups](https://github.com/bazelbuild/proposals/new/main/designs/2022-07-07_global_exec_groups.md)                           | [@susinmotion](https://github.com/susinmotion)  |  Configurability     |
 |   2022-05-13 | [OSS Licenses and Bazel Dependency Management]( https://docs.google.com/document/d/1oY53dQ0pOPEbEvIvQ3TvHcFKClkimlF9AtN89EPiVJU/edit#)                           | [@aiuto](https://github.com/aiuto)                       | External Repositories      |
 |   2022-03-18 | [proto_common module](https://docs.google.com/document/d/1dY_jfRvnH8SjRXGIfg8av-vquyWsvIZydXJOywvaR1A/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Proto Rules |
 |   2022-02-18 | [Coding guidelines for Starlark rules](https://docs.google.com/document/d/1uuX1Gz6Kvivp-oOqGja342VrVO534PLF0m_zFtFIBcc/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Starlark Rules |
@@ -163,6 +162,7 @@ list.
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
+|   2022-07-07 | [Enabling Global exec_groups](https://github.com/bazelbuild/proposals/new/main/designs/2022-07-07_global_exec_groups.md)                           | [@susinmotion](https://github.com/susinmotion)  |  Configurability     |
 |   2023-03-30 | [Guidance for Rules Authors how to deal with Bazel versions / upgrades](https://docs.google.com/document/d/1s_8AihGXbYujNWU_VjKNYKQb8_QGGGq7iKwAVQgjbn0/edit?usp=sharing) | [@philwo](https://github.com/philwo)                                 | Bazel |
 |   2022-11-16 | [Platforms on Targets](designs/2022-08-03-platforms-on-targets.md) | [@katre](https://github.com/katre) | Configuration |
 |   2021-07-21 | [Monorepo Toolchain Registration](designs/2021-07-08-monorepo-toolchain-registration.md) | [@katre](https://github.com/katre) | Toolchains |
