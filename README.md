@@ -30,7 +30,6 @@ list.
 |   2022-07-07 | [Enabling Global exec_groups](https://github.com/bazelbuild/proposals/new/main/designs/2022-07-07_global_exec_groups.md)                           | [@susinmotion](https://github.com/susinmotion)  |  Configurability     |
 |   2022-03-18 | [proto_common module](https://docs.google.com/document/d/1dY_jfRvnH8SjRXGIfg8av-vquyWsvIZydXJOywvaR1A/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Proto Rules |
 |   2022-02-18 | [Coding guidelines for Starlark rules](https://docs.google.com/document/d/1uuX1Gz6Kvivp-oOqGja342VrVO534PLF0m_zFtFIBcc/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Starlark Rules |
-|   2021-02-10 | [Remote Output Service: place bazel-out/ on a FUSE file system](designs/2021-02-09-remote-output-service.md)                                              | [@EdSchouten](https://github.com/EdSchouten)                                 | Remote Execution      |
 
 ### Draft
 
@@ -47,6 +46,7 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2023-06-12 | [Remote Output Service: place bazel-out/ on a FUSE file system](designs/2021-02-09-remote-output-service.md)                                              | [@EdSchouten](https://github.com/EdSchouten)                                 | Remote Execution      |
 |   2022-10-11 | [Renaming applicable_licenses](https://docs.google.com/document/d/1uyJjkKbE8kV8EinakaR9q-Un25zCukhoH_dRBkWHSKQ) | [@aiuto](https://github.com/aiuto) | Configuration |
 |   2023-01-30 | [Transitive static libraries](https://docs.google.com/document/d/1jN0LUmp6_-rV9_f-Chx-Cs6t_5iOm3fziOklzBGjGIg/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++ |
 |   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
