@@ -64,7 +64,6 @@ list.
 |   2021-04-22 | [Custom constructors for providers](https://docs.google.com/document/d/1peAeaMOh9AkDgzMcOeJPkMCChYjFCkfdsPsKhgOxwfY/edit?usp=sharing)                                              | [@brandjon](https://github.com/brandjon)                                 | Build Language      |
 |   2021-03-24 | [Java common refactoring](https://docs.google.com/document/d/10isTEK5W9iCPp4BIyGBrLY5iti3Waaam6EeGVSjq3r8/edit?usp=sharing)                                             | [@comius](https://github.com/comius)                                 | Java rules      |
 |   2021-02-15 | [External directory reshuffling](https://docs.google.com/document/d/1X1-JkqkmzvYmDHnr3OyHpFyKgoFb7K2BXs0xgYcetiM/edit#) | [@lberki](https://github.com/lberki) | External Repositories |
-|   2021-02-15 | [Rules for software license compliance](https://docs.google.com/document/d/1uwBuhAoBNrw8tmFs-NxlssI6VRolidGYdYqagLqHWt8)     | [@aiuto](https://github.com/aiuto) | License Rules, Bazel |
 |   2021-02-15 | [C++ rules skylark migration plan](https://docs.google.com/document/d/1Adqu7--verca4gCh3ZdnVMjjCz4VzurHxKEZAh9u03E)                | [@mhlopko](https://github.com/mhlopko)                                         | C++                   |
 |   2020-12-22 | [Injecting Starlark Values Into Builtins](https://docs.google.com/document/d/1GW7UVo1s9X0cti9OMgT3ga5ozKYUWLPk9k8c4-34rC4/edit#) | [@brandjon](https://github.com/brandjon) | Starlark |
 |   2019-07-11 | [Load Bazel Protobuf rules from @rules_proto](https://docs.google.com/document/d/1Wai_okIK_NnhNJZai5nkTUvZVHdV5pp1YwNLFtWwpC4/edit?usp=sharing) | [@Yannic](https://github.com/Yannic) | Protobuf |
@@ -76,6 +75,7 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2021-02-15 | [Rules for software license compliance](https://docs.google.com/document/d/1uwBuhAoBNrw8tmFs-NxlssI6VRolidGYdYqagLqHWt8)     | [@aiuto](https://github.com/aiuto) | License Rules, Bazel |
 |   2023-03-31 | [Optional Toolchains](designs/2022-01-21-optional-toolchains.md) | [@katre](https://github.com/katre) | Configurability |
 |   2022-05-25 | [Canonical label literals](https://docs.google.com/document/d/1N81qfCa8oskCk5LqTW-LNthy6EBrDot7bdUsjz6JFC4/edit#)                                         | [@Wyverald](https://github/Wyverald)                                         | External Repositories |(https://github.com/ulfjack)                                 | Remote Execution      |
 |   2022-03-07 | [Representing repeatable Starlark flags as config.string_list](designs/2022-03-06-representation-of-repeatable-starlark-flags.md) | [@fmeum](https://github.com/fmeum) | Configurability, Build Language |
