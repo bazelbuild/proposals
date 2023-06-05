@@ -1,6 +1,6 @@
 ---
 created: 2023-06-04
-last updated: 2023-06-04
+last updated: 2023-06-05
 status: Draft
 reviewers:
   -
@@ -116,6 +116,36 @@ The likihood of misconfiguration can be reduced with;
 - `--[no]require_platform_scoped_strategies` to make inclusion of platforms in spawn strategy flags mandatory.
 - `--[no]exhaustive_platform_strategies` to make specifiction of spawn strategies for every registered execution platform required.
 
+
+## Priority
+
+Currently;
+- Description (`--stategy_regexp`), unless mnemonic is `TestRunner`.
+- Mnemonic (`--strategy`).
+- Defaults (`--spawn_strategy` or Bazel generated defaults).
+
+This will become;
+- Platform + description.
+- Description.
+- Platform + mnemonic.
+- Mnemonic.
+- Platform defaults (user specified only).
+- Defaults.
+
+## Risks
+
+`SpawnStrategyRegistry#getStrategies(Spawn,EventHandler)` can retrieve a `PlatformInfo` instance for the execution platform via `Spawn#getExecutionPlatform()`, however it is annotated as nullable. A quick search showed `null` being returned in the following places.
+- `ActionTemplate#getExecutionPlatform()`, described as a placeholder action that expands out to a list later.
+- `MiddlemanAction#getExecutionPlatform()`, a non-executable action.
+- `RuleContext#getExecutionPlatform()`, null if `getToolchainContext()` returns null.
+- `RuleContext#getExecutionPlatform(String)`, null if `getToolchainContext()` returns null and no toolchain exists for the specified exec group.
+- `SymlinkAction#getExecutionPlatform()`, a non-executable action.
+- `SolibSymlinkAction#getExecutionPlatform()`, a non-executable action.
+- `TestActionKeyCacher#getExecutionPlatform()`, test implementation detail.
+- `ResourceOwnerStub#getExecutionPlatform()`, nullable but throws, test implementation detail.
+- `FakeResourecOwner#getExecutionPlatform`, test implementation detail.
+
+It is plausible that for all `Spawn` interface implementations `null` is never returned by `getExecutionPlatform()`. If this can be proven, the nullable annotations should be removed to reflect the changed requirements. That being the execution platform must be known so the correct spawn strategy can be selected. At least 1 unreferenced code path noted that `null` is reserved for the host platform.
 
 # Backward-compatibility
 
