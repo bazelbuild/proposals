@@ -1,11 +1,11 @@
 ---
 created: 2023-06-08
-last updated: 2023-06-08
-status: Draft
+last updated: 2023-06-09
+status: In Review
 reviewers: gregestren
-title: Standard Platform transitions
+title: Standard Platform Transitions
 authors: katre
-discussion thread: 
+discussion thread: https://github.com/bazelbuild/bazel/discussions/18628
 ---
 
 # Overview
