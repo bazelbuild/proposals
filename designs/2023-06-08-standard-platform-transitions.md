@@ -178,28 +178,6 @@ py_binary(
 Regardless of what platform the top-level `:flasher` binary is built for, the
 `:foo_embedded` target will be built for `//my/new:platform`.
 
-**Open Question**:
-
-Should there be an inline macro variant, like this:
-
-```py
-cc_binary(name = "foo")
-
-py_binary(
-    name = "flasher",
-    srcs = ...,
-    data = [
-        platform_data(
-            target = ":foo",
-            platform = "//my/new:platform",
-        ),
-    ],
-)
-```
-
-This is easier for BUILD authors, but obscures the name of the new target,
-which may be undesirable.
-
 ## Depend on a target built for multiple platforms
 
 In theory, a similar `multiplatform_data` rule could be written which does a
