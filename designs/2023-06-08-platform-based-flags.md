@@ -1,11 +1,11 @@
 ---
 created: 2023-06-08
 last updated: 2023-06-14
-status: Draft
+status: In Review
 reviewers: gregestren
 title: Platform-based Flags
 authors: katre
-discussion thread: 
+discussion thread: https://github.com/bazelbuild/bazel/discussions/18672
 ---
 
 # Overview
