@@ -162,6 +162,7 @@ list.
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
+|   2023-06-21 | [Integrated bzl_library](https://docs.google.com/document/d/1Q6gCrbdA2omw0uV2kN6qqoUS1hucNoVxJ-Tep8iSQAU/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark |
 |   2022-02-18 | [Coding guidelines for Starlark rules](https://docs.google.com/document/d/1uuX1Gz6Kvivp-oOqGja342VrVO534PLF0m_zFtFIBcc/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Starlark Rules |
 |   2019-07-11 | [Load Bazel Protobuf rules from @rules_proto](https://docs.google.com/document/d/1Wai_okIK_NnhNJZai5nkTUvZVHdV5pp1YwNLFtWwpC4/edit?usp=sharing) | [@Yannic](https://github.com/Yannic) | Protobuf |
 |   2022-07-07 | [Enabling Global exec_groups](https://github.com/bazelbuild/proposals/new/main/designs/2022-07-07_global_exec_groups.md)                           | [@susinmotion](https://github.com/susinmotion)  |  Configurability     |
