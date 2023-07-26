@@ -61,8 +61,8 @@ A credential helper can be any program that can read values from standard input.
 We use the first argument in the command line to differentiate the kind of
 command to execute. For now, there will only be one valid value:
 - `get`: Retrieves credentials. The payload provided as standard input to the
-  credential helper will be a `json` object with a single key `url` containing
-  the url (including the protocol) to get credentials for (`{"url": "..."}`).
+  credential helper will be a `json` object with a single key `uri` containing
+  the URI (including the protocol) to get credentials for (`{"uri": "..."}`).
 
   Upon success, the credential helper must provide a `json` object adhering to
   the following spec in standard output:
