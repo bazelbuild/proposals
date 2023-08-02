@@ -6,13 +6,27 @@ This is an index of all proposals and design documents for
 ## Workflow
 
 New proposals follow the [design process](https://bazel.build/designs/index.html)
-and are sent for review on the
-[bazel-dev](https://groups.google.com/forum/#!forum/bazel-dev) mailing
-list.
+and are sent for review as a [GitHub discussion](https://github.com/bazelbuild/bazel/discussions).
 
 ### State diagram of the design process
 
-![State diagram of the design process](images/states.png)
+```mermaid
+stateDiagram-v2    
+    ur: Under review
+    
+    Draft --> ur
+    ur --> Approved
+    Approved --> Implemented
+    Draft --> Dropped
+    ur --> Dropped
+    Approved --> Dropped
+    
+    classDef success fill:#ded
+    classDef failure fill:#fcc
+    
+    class Implemented success
+    class Dropped failure
+```
 
 # Index
 
