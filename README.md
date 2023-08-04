@@ -4,7 +4,7 @@ This is an index of all documents for [Bazel](https://bazel.build).
 
 There are two kinds:
 * Design docs that are subject to the workflow described below
-* Live documents that are constantly updated
+* Live documents for which the workflow is not a good fit
 
 ## Design doc workflow
 
