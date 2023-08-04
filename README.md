@@ -1,9 +1,12 @@
-# Bazel Proposals and Design Documents
+# Bazel Documents
 
-This is an index of all proposals and design documents for
-[Bazel](https://bazel.build).
+This is an index of all documents for [Bazel](https://bazel.build).
 
-## Workflow
+There are two kinds:
+* Design docs that are subject to the workflow described below
+* Live documents that are constantly updated
+
+## Design doc workflow
 
 New proposals follow the [design process](https://bazel.build/designs/index.html)
 and are sent for review as a [GitHub discussion](https://github.com/bazelbuild/bazel/discussions).
@@ -28,7 +31,15 @@ stateDiagram-v2
     class Dropped failure
 ```
 
-# Index
+# Live documents
+
+| Last updated | Title                                                                                                                                                     | Author(s) alias                               |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 2023-08-01   | [Problems with Bazel's code coverage collection](https://docs.google.com/document/d/1JP-9pjiRBHmepgFzBI-U9G2nAzCWK5YoemGVVKmQsBM)                         | [@c-mita](https://github.com/c-mita)          |
+| 2023-07-27   | [A Guide to Skyframe StateMachines](https://bazel.build/contribute/statemachine-guide)                                                                    | [@aoeui](https://github.com/aoeui)            |
+| 2022-02-17   | [The Bazel codebase](https://bazel.build/contribute/codebase)                                                                                             | [@lberki](https://github.com/lberki)          |
+
+# Design docs
 
 ### Under review
 
