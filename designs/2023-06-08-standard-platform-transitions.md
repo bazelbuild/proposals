@@ -1,7 +1,7 @@
 ---
 created: 2023-06-08
-last updated: 2023-06-09
-status: In Review
+last updated: 2023-08-08
+status: Approved
 reviewers: gregestren
 title: Standard Platform Transitions
 authors: katre
