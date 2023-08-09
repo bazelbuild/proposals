@@ -76,6 +76,27 @@ Some flags should be disallowed in the `flags` attribute:
 -  `--platforms`: This leads to circular evaluation
    -  Possibly other platform-like flags (such as `--android_platforms`) should also be disallowed?
 
+## Rejected Alternative: Starlark Dict type
+
+Another alternative is to represent the `flags` attribute as a Starlark dict,
+with the keys being flag names and the values being flag values. This might be
+slightly clearer, but has a number of problems:
+
+### Mixed types
+
+If the `flags` was a dict, users would expect to be able to specify boolean,
+int, or Label-valued flags with the Starlark bool, number, or Label types
+respectively. However, Starlark does not allow dicts with mixed types for
+values, so users would have to convert the values to string anyway, causing
+confusion and errors.
+
+### Parsing already exists
+
+The implementation of this feature has to re-use the existing flag parser,
+which already knows how to convert strings to the data types needed for each
+flag. Splitting the flag and value would just complicate this and require
+deeper changes to the existing parser.
+
 # Semantics
 
 When the target platform is changed, the flags are applied to the
@@ -91,6 +112,17 @@ semantics:
    -  Any flags which are present on the platform but have changed will not be
       reset.
    -  Platform mapping will still be skipped.
+
+## Flag parsing
+
+Flags will be parsed as they appear on the command line. Relative labels for
+label-valued flags will not be supported.
+
+## Flag errors
+
+Any errors will be reported and handled when the platform is used as a target
+platform: there will be no -processing of the `flags` attribute to check for
+invalid flags.
 
 ## Initial Configuration
 
@@ -139,7 +171,7 @@ parsing. If that turns out to be the case, Bazel will need to detect that flags
 are set both explicitly at the command line/bazelrc and in the platform, and
 emit a warning.
 
-# Transitions
+## Transitions
 
 When the `--platforms` flag is changed in a transition (whether native or
 Starlark), flags from the platform (if any) need to be applied. However, any
@@ -169,51 +201,6 @@ case, the order of changes is:
 3. Perform platform mapping to discover the new target platform.
 4. Apply flags from the new target platform to the configuration.
 5. Re-apply the other flags from the original transition.
-
-## Rejected Alternative: Starlark Dict type
-
-Another alternative is to represent the `flags` attribute as a Starlark dict,
-with the keys being flag names and the values being flag values. This might be
-slightly clearer, but has a number of problems:
-
-### Mixed types
-
-If the `flags` was a dict, users would expect to be able to specify boolean,
-int, or Label-valued flags with the Starlark bool, number, or Label types
-respectively. However, Starlark does not allow dicts with mixed types for
-values, so users would have to convert the values to string anyway, causing
-confusion and errors.
-
-### Parsing already exists
-
-The implementation of this feature has to re-use the existing flag parser,
-which already knows how to convert strings to the data types needed for each
-flag. Splitting the flag and value would just complicate this and require
-deeper changes to the existing parser.
-
-# Semantics
-
-## Flag parsing
-
-Flags will be parsed as they appear on the command line. Relative labels for
-label-valued flags will not be supported.
-
-**Open questions:**
-
-* Do flags on the command line override platform flags, or vice versa?
-
-## Flag errors
-
-Any errors will be reported and handled when the platform is used as a target
-platform: there will be no -processing of the `flags` attribute to check for
-invalid flags.
-
-## Mixed platform-based flags and platform mappings
-
-Platform mappings will continue to be applied after platform-based flags are
-added, allowing flags to be migrated one-by-one if desired. If the same flag is
-repeated in both the platform and the mappings file, that may cause issues
-depending on the flag’s specific semantics.
 
 # Compatibility
 
