@@ -1,6 +1,6 @@
 ---
 created: 2023-06-04
-last updated: 2023-06-05
+last updated: 2023-08-12
 status: Draft
 reviewers:
   -
@@ -102,8 +102,8 @@ e.g.
 ```ini
 # //.bazelrc
 build --spawn_strategy=//:darwin_arm64=worker,sandboxed,local
-build --strategy=//:darwin_arm64=FOO=local
-build --strategy_regexp=//:darwin_arm64=//foo.*\.cc=local
+build --strategy=FOO=//:darwin_arm64=local
+build --strategy_regexp=//foo.*\.cc=//:darwin_arm64=local
 ```
 
 The motivation behind this approach is;
