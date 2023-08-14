@@ -1,7 +1,7 @@
 ---
 created: 2023-06-08
-last updated: 2023-08-11
-status: In Review
+last updated: 2023-08-14
+status: Approved
 reviewers: gregestren, sdtwigg
 title: Platform-based Flags
 authors: katre
