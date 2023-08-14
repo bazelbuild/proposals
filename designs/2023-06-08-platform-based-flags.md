@@ -1,6 +1,6 @@
 ---
 created: 2023-06-08
-last updated: 2023-08-04
+last updated: 2023-08-11
 status: In Review
 reviewers: gregestren, sdtwigg
 title: Platform-based Flags
@@ -191,16 +191,43 @@ processing will be more difficult. If it turns out to be difficult to apply
 these semantics, then we may need to change the ~30 native transitions to use
 an API more similar to Starlark transitions.
 
-Transitions which unset the value of `--platforms` will work similarly, but
-with the additional wrinkle that platform mapping will be used to find the new
-target platform, but platform mapping may depend on the new flags. In this
-case, the order of changes is:
+### Transitions That Unset Platforms
 
-1. Discover that `--platforms` has been unset.
-2. Apply all other flags to the configuration.
-3. Perform platform mapping to discover the new target platform.
-4. Apply flags from the new target platform to the configuration.
-5. Re-apply the other flags from the original transition.
+Some transitions currently unset the `--platforms` flag in order to signal that
+the actual target platform should be selected by the platform mappings system.
+In this case, the platform's flags will be applied after the transition's
+flags.
+
+This is a problem if the platform's flags do not match what is in the mappings
+file. As an example:
+
+```sh
+$ cat platforms/BUILD
+platform(
+    name = "device",
+    constraint_values = [...],
+    flags = [
+        "--cpu=arm32",
+        "--//custom_flag=true",
+    ],
+)
+
+$ cat platform_mappings
+flags:
+    --cpu=arm64
+        //platforms:device
+```
+
+If a transition unsets `--platforms` and sets `--cpu=arm64`, the selected
+platform (due to the platform mappings) will be `//platforms:device`, which
+will then apply its flags and change `--cpu` to `--cpu=arm32`. This is
+confusing, but can be detected and a warning issued, and is arguably an error
+that should be corrected.
+
+A more difficult case is where the transition, in addition to unsetting
+`--platforms` and setting `--cpu=arm64`, also sets `--//custom_flag=false`.
+This change will also be overridden by the platform's flags, and will not issue
+a warning.
 
 # Compatibility
 
