@@ -35,6 +35,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                               |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 2023-08-30   | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing)                                     | [@comius](https://github.com/comius)          |
 | 2023-08-01   | [Problems with Bazel's code coverage collection](https://docs.google.com/document/d/1JP-9pjiRBHmepgFzBI-U9G2nAzCWK5YoemGVVKmQsBM)                         | [@c-mita](https://github.com/c-mita)          |
 | 2023-07-27   | [A Guide to Skyframe StateMachines](https://bazel.build/contribute/statemachine-guide)                                                                    | [@aoeui](https://github.com/aoeui)            |
 | 2022-02-17   | [The Bazel codebase](https://bazel.build/contribute/codebase)                                                                                             | [@lberki](https://github.com/lberki)          |
@@ -48,7 +49,6 @@ stateDiagram-v2
 |   2023-08-08 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2023-08-08 | [`bazel mod fix`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
 |   2023-08-08 | [Inheritance of Target Incompatibility](https://docs.google.com/document/d/127pgkR610qaz1k3-OVgt3tbEeMKAm_jFNeRQcUc99d0/edit) | [@fmeum](https://github.com/fmeum) | Platforms, Configurability |
-|   2023-08-01 | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing) | [@comius](https://github.com/comius) | Proto Rules |
 |   2023-06-30 | [Fingerprinting Starlark Functions](https://docs.google.com/document/d/1OYtToAPNk19yxd-b19-6VKXUg1b6KtiWqZgXhezFy0Y/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark and actions |
 |   2023-06-16 | [Extending Bazel rules](https://docs.google.com/document/d/1p6z-shWf9sdqo_ep7dcjZCGvqN5r2jsPkJCqHHgfRp4/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
 |   2023-06-15 | [Integrated bzl_library](https://docs.google.com/document/d/1Q6gCrbdA2omw0uV2kN6qqoUS1hucNoVxJ-Tep8iSQAU/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark |
@@ -82,7 +82,6 @@ stateDiagram-v2
 |   2022-10-11 | [Renaming applicable_licenses](https://docs.google.com/document/d/1uyJjkKbE8kV8EinakaR9q-Un25zCukhoH_dRBkWHSKQ) | [@aiuto](https://github.com/aiuto) | Configuration |
 |   2023-01-30 | [Transitive static libraries](https://docs.google.com/document/d/1jN0LUmp6_-rV9_f-Chx-Cs6t_5iOm3fziOklzBGjGIg/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++ |
 |   2022-12-15 | [Bzlmod lockfile](https://docs.google.com/document/d/1HPeH_L-lRK54g8A27gv0q7cbk18nwJ-jOq_14XEiZdc/edit#heading=h.5mcn15i0e1ch) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
-|   2022-12-07 | [Exec platform per toolchain](https://docs.google.com/document/d/1-rbP_hmKs9D639YWw5F_JyxPxL2bi6dSmmvj_WXak9M/edit?usp=sharing) |  [@comius](https://github.com/comius) [@kotlaja](https://github.com/kotlaja) | Configurability |
 |   2022-05-12 | [Bzlmod External Dependencies Inspection Tool](https://docs.google.com/document/d/1akmJfcEQ2jlB9E4ADQvKA1LNpWE87rdCMwV_Mq8Mqwc/edit?usp=sharing)                           | [@andyrinne12](https://github.com/andyrinne12)                       | External Repositories      |
 |   2022-05-11 | [Deprecating managed_directories](https://docs.google.com/document/d/1u9V5RUc7i6Urh8gGfnSurxpWA7JMRtwCi1Pr5BHeE44/edit?usp=sharing)                                              | [@lberki](https://github.com/lberki)                                 | External Repositories      |
 |   2021-02-15 | [External directory reshuffling](https://docs.google.com/document/d/1X1-JkqkmzvYmDHnr3OyHpFyKgoFb7K2BXs0xgYcetiM/edit#) | [@lberki](https://github.com/lberki) | External Repositories |
@@ -95,6 +94,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2022-09-05 | [Automatic exec groups for toolchains](https://docs.google.com/document/d/1-rbP_hmKs9D639YWw5F_JyxPxL2bi6dSmmvj_WXak9M/edit?usp=sharing) |  [@comius](https://github.com/comius) [@kotlaja](https://github.com/kotlaja) | Configurability |
 |   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2022-08-17 | [Locating runfiles with Bzlmod](designs/2022-07-21-locating-runfiles-with-bzlmod.md) | [@fmeum](https://github.com/fmeum) | External Repositories, Bazel |
 |   2023-06-13 | [Credential Helpers for Bazel](designs/2022-06-07-bazel-credential-helpers.md) | [@Yannic](https://github.com/Yannic) | External Repositories |
