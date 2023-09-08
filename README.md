@@ -46,6 +46,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2023-09-07 | [A true repository cache](https://docs.google.com/document/d/1ZScqiIQi9l7_8eikbsGI-rjupdbCI7wgm1RYD76FJfM/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-08-08 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2023-08-08 | [`bazel mod fix`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
 |   2023-08-08 | [Inheritance of Target Incompatibility](https://docs.google.com/document/d/127pgkR610qaz1k3-OVgt3tbEeMKAm_jFNeRQcUc99d0/edit) | [@fmeum](https://github.com/fmeum) | Platforms, Configurability |
