@@ -35,6 +35,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                               |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 2023-09-26   | [Bazelbuild Repositories Maintenance Guide](https://docs.google.com/document/d/1L1JFgjpZ7SrBinb24DC_5nTIELeYDacikcme-YcA7xs/edit?usp=sharing)             | [@comius](https://github.com/comius) and [@meteorcloudy](https://github.com/meteorcloudy)  | 
 | 2023-08-30   | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing)                                     | [@comius](https://github.com/comius)          |
 | 2023-08-01   | [Problems with Bazel's code coverage collection](https://docs.google.com/document/d/1JP-9pjiRBHmepgFzBI-U9G2nAzCWK5YoemGVVKmQsBM)                         | [@c-mita](https://github.com/c-mita)          |
 | 2023-07-27   | [A Guide to Skyframe StateMachines](https://bazel.build/contribute/statemachine-guide)                                                                    | [@aoeui](https://github.com/aoeui)            |
