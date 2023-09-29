@@ -35,6 +35,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                               |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 2023-09-26   | [Bazelbuild Repositories Maintenance Guide](https://docs.google.com/document/d/1L1JFgjpZ7SrBinb24DC_5nTIELeYDacikcme-YcA7xs/edit?usp=sharing)             | [@comius](https://github.com/comius) and [@meteorcloudy](https://github.com/meteorcloudy)  | 
 | 2023-08-30   | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing)                                     | [@comius](https://github.com/comius)          |
 | 2023-08-01   | [Problems with Bazel's code coverage collection](https://docs.google.com/document/d/1JP-9pjiRBHmepgFzBI-U9G2nAzCWK5YoemGVVKmQsBM)                         | [@c-mita](https://github.com/c-mita)          |
 | 2023-07-27   | [A Guide to Skyframe StateMachines](https://bazel.build/contribute/statemachine-guide)                                                                    | [@aoeui](https://github.com/aoeui)            |
@@ -131,7 +132,6 @@ stateDiagram-v2
 |   2021-02-15 | [Multiplex persistent worker](https://docs.google.com/document/d/1OC0cVj1Y1QYo6n-wlK6mIwwG7xS2BJX7fuvf1r5LtnU/edit?usp=sharing)               | [@borkaehw](https://github.com/borkaehw) | Bazel |
 |   2021-02-15 | [Starlark Build Configuration](https://docs.google.com/document/d/1vc8v-kXjvgZOdQdnxPTaV0rrLxtP2XwnD2tAZlYJOqw)                     | [@juliexxia](https://github.com/juliexxia), [@gregestren](https://github.com/gregestren)                                   | Configurability       |
 |   2021-02-15 | [Crosstool in Skylark](https://docs.google.com/document/d/1Nqf16jqDGWSrPp4VuRxh0iNnVBoAXsO0meDH69J9xoc/edit)           | [@scentini](https://github.com/scentini), [@mhlopko](https://github.com/mhlopko)   | C++                   |
-|   2021-02-15 | [Extensibility For Native Rules](https://bazel.build/designs/2016/08/04/extensibility-for-native-rules.html)           | [@dslomov](https://github.com/dslomov)                                             | Starlark               |
 |   2021-02-15 | [Declared Providers](https://bazel.build/designs/skylark/declared-providers.html)                                      | [@dslomov](https://github.com/dslomov), [@laurentlb](https://github.com/laurentlb) | Starlark               |
 |   2021-02-15 | [Java Platformization](https://docs.google.com/document/d/1MVbBxbKVKRJJY7DnkptHpvz7ROhyAYy4a-TZ-n7Q0r4/edit)                                          | [@comius](https://github.com/comius)       | Configurability |
 |   2021-02-15 | [Starlark Shorthand Flag Mapping](https://docs.google.com/document/d/1qDz9VEJNEY-sybYCg53WqIQFbsBMR3gVDYbFFwS1OM4/edit?usp=sharing) | [@WarkahScott](https://github.com/WarkahScott) | Configurability |
