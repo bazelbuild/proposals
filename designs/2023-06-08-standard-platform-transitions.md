@@ -2,9 +2,11 @@
 created: 2023-06-08
 last updated: 2023-08-08
 status: Approved
-reviewers: gregestren
+reviewers:
+  - gregestren
 title: Standard Platform Transitions
-authors: katre
+authors:
+  - katre
 discussion thread: https://github.com/bazelbuild/bazel/discussions/18628
 ---
 

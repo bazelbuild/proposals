@@ -1,15 +1,14 @@
-
 ---
 created: 2022-07-21
 last updated: 2022-09-07
 status: Approved
 reviewers:
-  - @Wyverald
-  - @oquenchil
-  - @phst
+  - wyverald
+  - oquenchil
+  - phst
 title: Locating runfiles with Bzlmod
 authors:
-  - @fmeum
+  - fmeum
 ---
 
 # Abstract
