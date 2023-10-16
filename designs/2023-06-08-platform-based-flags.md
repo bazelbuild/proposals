@@ -2,9 +2,12 @@
 created: 2023-06-08
 last updated: 2023-08-14
 status: Approved
-reviewers: gregestren, sdtwigg
+reviewers:
+  - gregestren
+  - sdtwigg
 title: Platform-based Flags
-authors: katre
+authors:
+  - katre
 discussion thread: https://github.com/bazelbuild/bazel/discussions/18672
 ---
 
