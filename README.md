@@ -36,7 +36,6 @@ stateDiagram-v2
 | Last updated | Title                                                                                                                                                     | Author(s) alias                               |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | 2023-10-09   | [Starlark Rules Roadmap](https://docs.google.com/document/d/12mYYtp2aJ6q1_yhguyMKh6onSZ2afJW9VctRz0hy6-Q/edit?usp=sharing)                                | [@comius](https://github.com/comius)          |
-| 2023-09-19   | [Bazel Ruleset GOVERNANCE \| MECHANICS](https://docs.google.com/document/d/16ab9hd-WnE2_mmN4_2aLQMk7X-KnZQd-HIXn11CLWS8/edit#heading=h.pt22stgudw8n)      | [@radvani13](https://github.com/radvani13)    |
 | 2023-09-26   | [Bazelbuild Repositories Maintenance Guide](https://docs.google.com/document/d/1L1JFgjpZ7SrBinb24DC_5nTIELeYDacikcme-YcA7xs/edit?usp=sharing)             | [@comius](https://github.com/comius) and [@meteorcloudy](https://github.com/meteorcloudy)  | 
 | 2023-08-30   | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing)                                     | [@comius](https://github.com/comius)          |
 | 2023-08-01   | [Problems with Bazel's code coverage collection](https://docs.google.com/document/d/1JP-9pjiRBHmepgFzBI-U9G2nAzCWK5YoemGVVKmQsBM)                         | [@c-mita](https://github.com/c-mita)          |
@@ -49,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+| 2023-09-19   | [Bazel Ruleset GOVERNANCE \| MECHANICS](https://docs.google.com/document/d/16ab9hd-WnE2_mmN4_2aLQMk7X-KnZQd-HIXn11CLWS8/edit#heading=h.pt22stgudw8n)      | [@radvani13](https://github.com/radvani13)    | Rules |
 |   2023-09-12 | [Proto toolchainization](https://docs.google.com/document/d/1CE6wJHNfKbUPBr7-mmk_0Yo3a4TaqcTPE0OWNuQkhPs/edit?usp=sharing) | [@comius](https://github.com/comius) | Protos
 |   2023-09-07 | [A true repository cache](https://docs.google.com/document/d/1ZScqiIQi9l7_8eikbsGI-rjupdbCI7wgm1RYD76FJfM/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-08-08 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
