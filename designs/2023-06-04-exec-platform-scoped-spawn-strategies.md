@@ -1,25 +1,20 @@
 ---
 created: 2023-06-04
-last updated: 2023-08-12
+last updated: 2023-12-06
 status: Draft
 reviewers:
-  -
+  - TBD
 title: Execution platform scoped spawn strategies
 authors:
   - Silic0nS0ldier
 ---
 
-
 # Abstract
 
-<!-- This section gives a short summary of the proposal. -->
 Bazel has the primitives to correctly configure a multi-platform build with regard to inputs, but not spawn strategies. This proposal seeks to address the capability gap by building on existing concepts.
-
 
 # Background
 
-<!-- This section can give context. For example, it can explain the current state and
-have pointers to previous design documents. -->
 There are several spawn strategies;
 - `remote`
 - `worker`
@@ -78,59 +73,56 @@ build --extra_exec_platforms=...
 bazel build //:foo-bin --platforms=//:darwin_arm64,//:linux_amd64,//:win_amd64
 ```
 
-In this scenario _all_ actions will be executed on the remote or pulled from its cache. If `//:foo-bin` has previously been built with the exact same inputs (and configuration???) the build will pass thanks to the cache hit, otherwise the build will fail (e.g. attempted to run darwin executable on Linux or found no suitable executor).
+In this scenario _all_ actions will be executed on the remote or pulled from its cache. If `//:foo-bin` has previously been built with the exact same inputs (subject to configuration impacting output paths) the build will pass thanks to the cache hit, otherwise the build will fail (e.g. attempted to run darwin executable on Linux or found no suitable executor).
 
 There are ways to work around this problem, but all have costs.
-- ...separate builds for platforms not buildable with remote...
-- ...somehow customise mnemonics or description...
+- Build targets and platforms with unique execution requirements in a separate invocation.
+  This increases build command complexity.
+- Customise mnemonics and/or descriptions such that they vary across execution platforms, and target spawn strategies accordingly.
+  This keeps commands simple, but increases build configuration complexity. Patching rulesets may also be necessary.
 
-For this trivial scenario the challenges can be overcome with relative ease, however this does not scale well. ...dependencies...
-
+For this trivial scenario the challenges can be overcome with relative ease, however this does not scale well.
 
 # Proposal
 
-<!-- The actual proposal. This should be detailed enough for users to understand the
-change, its motivations, and the rationale. When appropriate, include rejected
-alternatives (and why they were rejected).
-
-The current file is a template. Copy it, update it to your needs. Feel free to add or
-remove sections. -->
 Support scoping of existing spawn strategy flags to a specific execution platform.
 
 e.g.
 
 ```ini
 # //.bazelrc
+# When the exec platform is "//:darwin_arm64" use one of "worker,sandboxed,local" by default
 build --spawn_strategy=//:darwin_arm64=worker,sandboxed,local
+# For actions with the "FOO" mnemonic and exec platform "//:darwin_arm64" use "local"
 build --strategy=FOO=//:darwin_arm64=local
+# For actions with a description which matches regex "//foo.*\.cc" and exec platform "//:darwin_arm64" use "local"
 build --strategy_regexp=//foo.*\.cc=//:darwin_arm64=local
 ```
 
 The motivation behind this approach is;
 1. Implementation simplicity. A prototype should not require any significant changes to Bazel internals.
-2. Existing strategy flags are easy for scripts to interact with. e.g. an opt-in remote support script can be run before a build ensure a tunnel is opened and write out of a `.bazelrc` file which is read with `try-import`.
+2. Existing strategy flags are easy for scripts to interact with. e.g. an opt-in remote support script can be run before a build to ensure a tunnel is opened and write out a `.bazelrc` file which is read with `try-import`.
 
-...
+## Flags
 
 The likihood of misconfiguration can be reduced with;
 - `--[no]require_platform_scoped_strategies` to make inclusion of platforms in spawn strategy flags mandatory.
 - `--[no]exhaustive_platform_strategies` to make specifiction of spawn strategies for every registered execution platform required.
 
-
 ## Priority
 
 Currently;
-- Description (`--stategy_regexp`), unless mnemonic is `TestRunner`.
-- Mnemonic (`--strategy`).
-- Defaults (`--spawn_strategy` or Bazel generated defaults).
+1. Description (`--stategy_regexp=<regex>=...`), unless mnemonic is `TestRunner`.
+2. Mnemonic (`--strategy=<mnemonic>=...`).
+3. Defaults (`--spawn_strategy=...` or Bazel generated defaults).
 
 This will become;
-- Platform + description.
-- Description.
-- Platform + mnemonic.
-- Mnemonic.
-- Platform defaults (user specified only).
-- Defaults.
+1. Platform + description (`--stategy_regexp=<platform=<regex>=...`), unless mnemonic is `TestRunner`.
+2. Description (`--stategy_regexp=<regex>=...`), unless mnemonic is `TestRunner`.
+3. Platform + mnemonic (`--strategy=<platform>=<mnemonic>=...`).
+4. Mnemonic (`--strategy=<mnemonic>=...`).
+5. Platform defaults (`--spawn_strategy=<platform>=...`).
+6. Defaults (`--spawn_strategy=...` or Bazel generated defaults).
 
 ## Risks
 
@@ -147,8 +139,23 @@ This will become;
 
 It is plausible that for all `Spawn` interface implementations `null` is never returned by `getExecutionPlatform()`. If this can be proven, the nullable annotations should be removed to reflect the changed requirements. That being the execution platform must be known so the correct spawn strategy can be selected. At least 1 unreferenced code path noted that `null` is reserved for the host platform.
 
+## Dynamic Execution
+
+The current draft of this proposal has not deeply explored interactions with dynamic execution, however since dynamic execution relies on using the same configuration for local and remote spawns this is likely to be a complementary addition.
+
+The `dynamic` spawn strategy type itself naturally fits with the changes proposed to "standard" flags. The dynamic execution specific flags would likely be changed in a similar manner.
+
+e.g.
+
+```ini
+build --spawn_strategy=//:linux_amd64=dynamic
+# There is currently only 1 remote strategy, so this is technically unnecessary
+build --dynamic_remote_strategy=//:linux_amd64=<mnemonic>=<strategy>
+build --dynamic_remote_strategy=//:linux_amd64=<strategy> # default for exec platform
+build --dynamic_local_strategy=//:linux_amd64=<mnemonic>=<strategy>
+build --dynamic_local_strategy=//:linux_amd64=<strategy> # default for exec platform
+```
+
 # Backward-compatibility
 
-<!-- Describe here how this proposal impacts backward compatibility. If the proposal
-is implemented, can it possibly break any user? -->
 All changes are opt-in and additive. Compatibility breaks would indicate an implementation flaw. Builtin rules may have some unknowns.
