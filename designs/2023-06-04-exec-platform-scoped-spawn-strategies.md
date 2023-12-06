@@ -1,10 +1,10 @@
 ---
 created: 2023-06-04
-last updated: 2023-12-06
+last updated: 2023-12-07
 status: Draft
 reviewers:
-  - TBD
-title: Execution platform scoped spawn strategies
+  - katre
+title: Execution Platform Scoped Spawn Strategies
 authors:
   - Silic0nS0ldier
 ---
@@ -72,6 +72,10 @@ build --extra_exec_platforms=...
 # Shell at //
 bazel build //:foo-bin --platforms=//:darwin_arm64,//:linux_amd64,//:win_amd64
 ```
+
+> [!NOTE]
+> Currently `--platforms` only supports [one target platform](https://github.com/bazelbuild/bazel/issues/19807), this example is illustrative.
+> In practise multi-platform builds occur when transitions are used.
 
 In this scenario _all_ actions will be executed on the remote or pulled from its cache. If `//:foo-bin` has previously been built with the exact same inputs (subject to configuration impacting output paths) the build will pass thanks to the cache hit, otherwise the build will fail (e.g. attempted to run darwin executable on Linux or found no suitable executor).
 
