@@ -70,6 +70,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2023-12-07 | [`--remote_local_fallback` Respects Strategy Declarations](designs/2023-12-07-remote-local-fallback-respects-declarations.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
 | 2023-10-25   | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
 | 2023-10-25   | [Better SBOMS: annotated rule attributes](https://docs.google.com/document/d/1ReiTFz5N98D9bGPgL45ziQnGT8xJAunug9JJ89gZsm8/edit)                                | [@aiuto](https://github.com/aiuto)          |
 |   2023-10-23 | [Incremental builds with small memory footprint](https://docs.google.com/document/d/1k1Ajt283hf0eGYDcE5QQbfrXYTQB04RPWSHeF9sd9aw/edit?usp=sharing) | [@lberki](https://github.com/lberki) | Core |
