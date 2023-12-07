@@ -1,6 +1,6 @@
 ---
 created: 2023-12-07
-last updated: 2023-12-07
+last updated: 2023-12-08
 status: Draft
 reviewers:
   - TBD
@@ -12,7 +12,7 @@ authors:
 # Abstract
 
 The flag `--remote_local_fallback` makes it possible for remotely executed action spawns that fail to fallback to the `local` spawn strategy.
-This proposal seeks to treat spawn retries behave identically to actions tagged with `no-remote`.
+This proposal seeks to treat spawn retries identically to actions tagged with `no-remote`.
 
 # Background
 
@@ -25,7 +25,7 @@ e.g.
 build --strategy=Foo=remote
 ```
 
-Requiring that an action be only spawned locally may reflect a technical limitation.
+Requiring that an action be only spawned remotely may reflect a technical limitation.
 Such as the remote offering a Windows environment while Bazel itself is running on a macOS machine.
 The Windows binaries cannot be reasonably expected to work on macOS, and compatibility layers to support such a scenario are unlikely to provide identical behaviour.
 
@@ -40,11 +40,13 @@ Even in a context where remote and local environments are identical, `local` may
 
 # Proposal
 
-A new flag `--incompatible_strict_remote_local_fallback` will be introduced which when flipped makes `--remote_local_fallback` rerun spawn strategy with `remote` ignored.
+A new flag `--incompatible_strict_remote_local_fallback` will be introduced which when flipped makes `--remote_local_fallback` rerun spawn strategy selection with `remote` ignored.
 
 This means;
 * All registered strategies along with their filters are considered (`--spawn_strategy`, `--strategy`, `--strategy_regexp`, etc).
 * If a `remote` spawned action has no local fallback, no attempt to spawn locally is made and the build fails.
+
+To avoid confusion, the `--remote_local_fallback_strategy` flag (currently marked as a deprecated no-op, ([#7480](https://github.com/bazelbuild/bazel/issues/7480))) will be removed.
 
 # Backward-compatibility
 
