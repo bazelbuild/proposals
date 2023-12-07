@@ -2,9 +2,10 @@
 created: 2022-10-17
 last updated: 2022-10-17
 status: Draft
-reviewers: TBD
+reviewers:
 title: Dependency adapters for virtual targets
-authors: `@vdye`
+authors:
+  - vdye
 ---
 
 # Abstract

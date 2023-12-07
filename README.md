@@ -1,39 +1,79 @@
-# Bazel Proposals and Design Documents
+# Bazel Documents
 
-This is an index of all proposals and design documents for
-[Bazel](https://bazel.build).
+This is an index of all documents for [Bazel](https://bazel.build).
 
-## Workflow
+There are two kinds:
+* Design docs that are subject to the workflow described below
+* Live documents for which the workflow is not a good fit
+
+## Design doc workflow
 
 New proposals follow the [design process](https://bazel.build/designs/index.html)
-and are sent for review on the
-[bazel-dev](https://groups.google.com/forum/#!forum/bazel-dev) mailing
-list.
+and are sent for review as a [GitHub discussion](https://github.com/bazelbuild/bazel/discussions).
 
 ### State diagram of the design process
 
-![State diagram of the design process](images/states.png)
+```mermaid
+stateDiagram-v2    
+    ur: Under review
+    
+    Draft --> ur
+    ur --> Approved
+    Approved --> Implemented
+    Draft --> Dropped
+    ur --> Dropped
+    Approved --> Dropped
+    
+    classDef success fill:#ded
+    classDef failure fill:#fcc
+    
+    class Implemented success
+    class Dropped failure
+```
 
-# Index
+# Live documents
+
+| Last updated | Title                                                                                                                                                     | Author(s) alias                               |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+| 2023-10-09   | [Starlark Rules Roadmap](https://docs.google.com/document/d/12mYYtp2aJ6q1_yhguyMKh6onSZ2afJW9VctRz0hy6-Q/edit?usp=sharing)                                | [@comius](https://github.com/comius)          |
+| 2023-09-26   | [Bazelbuild Repositories Maintenance Guide](https://docs.google.com/document/d/1L1JFgjpZ7SrBinb24DC_5nTIELeYDacikcme-YcA7xs/edit?usp=sharing)             | [@comius](https://github.com/comius) and [@meteorcloudy](https://github.com/meteorcloudy)  | 
+| 2023-08-30   | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing)                                     | [@comius](https://github.com/comius)          |
+| 2023-08-01   | [Problems with Bazel's code coverage collection](https://docs.google.com/document/d/1JP-9pjiRBHmepgFzBI-U9G2nAzCWK5YoemGVVKmQsBM)                         | [@c-mita](https://github.com/c-mita)          |
+| 2023-07-27   | [A Guide to Skyframe StateMachines](https://bazel.build/contribute/statemachine-guide)                                                                    | [@aoeui](https://github.com/aoeui)            |
+| 2022-02-17   | [The Bazel codebase](https://bazel.build/contribute/codebase)                                                                                             | [@lberki](https://github.com/lberki)          |
+
+# Design docs
 
 ### Under review
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
 |   2023-12-07 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
+|   2023-12-5 | [Offline & Vendor Modes](https://docs.google.com/document/d/1P9WwRvpGLi9Tw-AKN7dZ2AeRmfVsl_-lH-N9g3UkVMI) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
+|   2023-11-09 | [Avoiding accidental secret leaks in the BEP](https://docs.google.com/document/d/1-ou6dLV9xsjSSrKf3uJdZKZo-BUlTqbf0OAmKoe_W1s/edit) | [@jmmv](https://github.com/jmmv) | Core |
+|   2023-09-19 | [Bazel Ruleset GOVERNANCE \| MECHANICS](https://docs.google.com/document/d/16ab9hd-WnE2_mmN4_2aLQMk7X-KnZQd-HIXn11CLWS8/edit#heading=h.pt22stgudw8n)      | [@radvani13](https://github.com/radvani13)    | Rules |
+|   2023-10-25 | [C++20 Modules Support](designs/2023-10-25-cxx20-modules-support.md) | [@PikachuHyA](https://github.com/PikachuHyA) | C++ |
+|   2023-09-12 | [Proto toolchainization](https://docs.google.com/document/d/1CE6wJHNfKbUPBr7-mmk_0Yo3a4TaqcTPE0OWNuQkhPs/edit?usp=sharing) | [@comius](https://github.com/comius) | Protos
+|   2023-09-07 | [A true repository cache](https://docs.google.com/document/d/1ZScqiIQi9l7_8eikbsGI-rjupdbCI7wgm1RYD76FJfM/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
+|   2023-08-08 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
+|   2023-08-08 | [Inheritance of Target Incompatibility](https://docs.google.com/document/d/127pgkR610qaz1k3-OVgt3tbEeMKAm_jFNeRQcUc99d0/edit) | [@fmeum](https://github.com/fmeum) | Platforms, Configurability |
+|   2023-06-30 | [Fingerprinting Starlark Functions](https://docs.google.com/document/d/1OYtToAPNk19yxd-b19-6VKXUg1b6KtiWqZgXhezFy0Y/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark and actions |
+|   2023-06-16 | [Extending Bazel rules](https://docs.google.com/document/d/1p6z-shWf9sdqo_ep7dcjZCGvqN5r2jsPkJCqHHgfRp4/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
+|   2023-06-15 | [Integrated bzl_library](https://docs.google.com/document/d/1Q6gCrbdA2omw0uV2kN6qqoUS1hucNoVxJ-Tep8iSQAU/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark |
 |   2023-05-31 | [subrule: Decomposing Starlark rules](https://docs.google.com/document/d/1RbNC88QieKvBEwir7iV5zZU08AaMlOzxhVkPnmKDedQ/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
 |   2023-05-04 | [Directory watching API for repo rules](https://docs.google.com/document/d/17RZKMuMjAIgNfFdrsLhqNsMTQDSS-BBA-S-fCSBPV7M/edit#) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-03-17 | [C/C++ standard resolution for Bazel modules](https://docs.google.com/document/d/132vEDnQZY0PtF9ko6HoLQ2dqk6meZnSrUfc1gsKuBkk/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++, External Repositories |
 |   2023-03-17 | [More accurate cquery](https://docs.google.com/document/d/1x-RqFFEcGIzVgtYHIq6s6Qt4vYtJWz3nuHIuqeI89dU/edit#) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2022-10-17 | [Dependency adapters for virtual targets](designs/2022-10-17-dependency-adapter.md) | [@vdye](https://github.com/vdye) | Bazel |
-|   2021-02-10 | [Remote Output Service: place bazel-out/ on a FUSE file system](designs/2021-02-09-remote-output-service.md)                                              | [@EdSchouten](https://github.com/EdSchouten)                                 | Remote Execution      |
 
 ### Draft
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+| 2023-10-25   | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
+| 2023-10-25   | [Better SBOMS: annotated rule attributes](https://docs.google.com/document/d/1ReiTFz5N98D9bGPgL45ziQnGT8xJAunug9JJ89gZsm8/edit)                                | [@aiuto](https://github.com/aiuto)          |
+|   2023-10-23 | [Incremental builds with small memory footprint](https://docs.google.com/document/d/1k1Ajt283hf0eGYDcE5QQbfrXYTQB04RPWSHeF9sd9aw/edit?usp=sharing) | [@lberki](https://github.com/lberki) | Core |
 |   2023-01-18 | [Modular cc toolchains](https://docs.google.com/document/d/1-etGNsPneQ8W7MBMxtLloEq-Jj9ng1G-Pip-cWtTg_Y/edit?usp=sharing) | [@silvergasp](https://github.com/silvergasp) | CC toolchain rules |
-|   2022-05-31 | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing) | [@comius](https://github.com/comius) | Proto Rules |
 |   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
 |   2021-06-25 | [Better Starlark analysis unit tests](https://docs.google.com/document/d/12sC92mq7WasTvDWsm4U782oCegitfi1jbgOnMIGCe-A/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2022-04-25 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
@@ -43,17 +83,17 @@ list.
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2023-12-06 | [`bazel mod tidy`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
+|   2023-08-14 | [Platform-based flags](designs/2023-06-08-platform-based-flags.md) | [@katre](https://github.com/katre) | Platforms |
+|   2023-08-08 | [Standard platform transitions](designs/2023-06-08-standard-platform-transitions.md) | [@katre](https://github.com/katre) | Platforms |
+|   2023-06-12 | [Remote Output Service: place bazel-out/ on a FUSE file system](designs/2021-02-09-remote-output-service.md)                                              | [@EdSchouten](https://github.com/EdSchouten)                                 | Remote Execution      |
 |   2023-03-21 | [Bazel feature detection in Starlark](https://docs.google.com/document/d/1HJf3gMYIrzmTRqbD4nWXH2eJRHXjLrOU0mmIeZplUzY/edit#) | [@Wyverald](https://github.com/Wyverald) | General, Starlark Rules |
 |   2023-03-14 | [REPO.bazel](https://docs.google.com/document/d/1rS-B3d_sfZFY2AcSwIq2ibQc7X1lgeycddLJqjYKgOA/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-03-07 | [Build Stamping API for Starlark rules](https://docs.google.com/document/d/1YNC0DvT0l1ZC5DuwXlSeEX_d-bGEKRK-z81UBXEhEVE/edit?usp=sharing) | [@buildbreaker2021](https://github.com/buildbreaker2021) | Starlark Rules |
 |   2023-01-23 | [Remote Cache Eviction for Build without the Bytes](https://docs.google.com/document/d/1wM61xufcMS5W0LQ0ar5JBREiN9zKfgu6AnHVD7BSkR4/edit#) | [@coeuvre](https://github.com/cowuvre) | Remote Execution |
 |   2022-10-11 | [Renaming applicable_licenses](https://docs.google.com/document/d/1uyJjkKbE8kV8EinakaR9q-Un25zCukhoH_dRBkWHSKQ) | [@aiuto](https://github.com/aiuto) | Configuration |
 |   2023-01-30 | [Transitive static libraries](https://docs.google.com/document/d/1jN0LUmp6_-rV9_f-Chx-Cs6t_5iOm3fziOklzBGjGIg/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++ |
-|   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2022-12-15 | [Bzlmod lockfile](https://docs.google.com/document/d/1HPeH_L-lRK54g8A27gv0q7cbk18nwJ-jOq_14XEiZdc/edit#heading=h.5mcn15i0e1ch) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
-|   2022-12-07 | [Exec platform per toolchain](https://docs.google.com/document/d/1-rbP_hmKs9D639YWw5F_JyxPxL2bi6dSmmvj_WXak9M/edit?usp=sharing) |  [@comius](https://github.com/comius) [@kotlaja](https://github.com/kotlaja) | Configurability |
-|   2022-08-17 | [Locating runfiles with Bzlmod](designs/2022-07-21-locating-runfiles-with-bzlmod.md) | [@fmeum](https://github.com/fmeum) | External Repositories, Bazel |
-|   2022-06-30 | [Credential Helpers for Bazel](designs/2022-06-07-bazel-credential-helpers.md) | [@Yannic](https://github.com/Yannic) | External Repositories |
 |   2022-05-12 | [Bzlmod External Dependencies Inspection Tool](https://docs.google.com/document/d/1akmJfcEQ2jlB9E4ADQvKA1LNpWE87rdCMwV_Mq8Mqwc/edit?usp=sharing)                           | [@andyrinne12](https://github.com/andyrinne12)                       | External Repositories      |
 |   2022-05-11 | [Deprecating managed_directories](https://docs.google.com/document/d/1u9V5RUc7i6Urh8gGfnSurxpWA7JMRtwCi1Pr5BHeE44/edit?usp=sharing)                                              | [@lberki](https://github.com/lberki)                                 | External Repositories      |
 |   2021-02-15 | [External directory reshuffling](https://docs.google.com/document/d/1X1-JkqkmzvYmDHnr3OyHpFyKgoFb7K2BXs0xgYcetiM/edit#) | [@lberki](https://github.com/lberki) | External Repositories |
@@ -66,6 +106,10 @@ list.
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2022-09-05 | [Automatic exec groups for toolchains](https://docs.google.com/document/d/1-rbP_hmKs9D639YWw5F_JyxPxL2bi6dSmmvj_WXak9M/edit?usp=sharing) |  [@comius](https://github.com/comius) [@kotlaja](https://github.com/kotlaja) | Configurability |
+|   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
+|   2022-08-17 | [Locating runfiles with Bzlmod](designs/2022-07-21-locating-runfiles-with-bzlmod.md) | [@fmeum](https://github.com/fmeum) | External Repositories, Bazel |
+|   2023-06-13 | [Credential Helpers for Bazel](designs/2022-06-07-bazel-credential-helpers.md) | [@Yannic](https://github.com/Yannic) | External Repositories |
 |   2022-03-18 | [proto_common module](https://docs.google.com/document/d/1dY_jfRvnH8SjRXGIfg8av-vquyWsvIZydXJOywvaR1A/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Proto Rules |
 |   2021-06-23 | [Improving native.existing_rules](designs/2021-06-15-improving-native.existing_rules.md)                               | [@tetromino](https://github.com/tetromino), [@brandjon](https://github.com/brandjon) | Build Language      |
 |   2021-06-09 | [Aspects Propagating other Aspects](https://docs.google.com/document/d/1WPq2g__IwrsSsxn4-rcfTSQODDtnKQTDhnHvtA37nlQ/edit?usp=sharing) | [@messa](https://github.com/mai93) | Starlark |
@@ -97,7 +141,6 @@ list.
 |   2021-02-15 | [Multiplex persistent worker](https://docs.google.com/document/d/1OC0cVj1Y1QYo6n-wlK6mIwwG7xS2BJX7fuvf1r5LtnU/edit?usp=sharing)               | [@borkaehw](https://github.com/borkaehw) | Bazel |
 |   2021-02-15 | [Starlark Build Configuration](https://docs.google.com/document/d/1vc8v-kXjvgZOdQdnxPTaV0rrLxtP2XwnD2tAZlYJOqw)                     | [@juliexxia](https://github.com/juliexxia), [@gregestren](https://github.com/gregestren)                                   | Configurability       |
 |   2021-02-15 | [Crosstool in Skylark](https://docs.google.com/document/d/1Nqf16jqDGWSrPp4VuRxh0iNnVBoAXsO0meDH69J9xoc/edit)           | [@scentini](https://github.com/scentini), [@mhlopko](https://github.com/mhlopko)   | C++                   |
-|   2021-02-15 | [Extensibility For Native Rules](https://bazel.build/designs/2016/08/04/extensibility-for-native-rules.html)           | [@dslomov](https://github.com/dslomov)                                             | Starlark               |
 |   2021-02-15 | [Declared Providers](https://bazel.build/designs/skylark/declared-providers.html)                                      | [@dslomov](https://github.com/dslomov), [@laurentlb](https://github.com/laurentlb) | Starlark               |
 |   2021-02-15 | [Java Platformization](https://docs.google.com/document/d/1MVbBxbKVKRJJY7DnkptHpvz7ROhyAYy4a-TZ-n7Q0r4/edit)                                          | [@comius](https://github.com/comius)       | Configurability |
 |   2021-02-15 | [Starlark Shorthand Flag Mapping](https://docs.google.com/document/d/1qDz9VEJNEY-sybYCg53WqIQFbsBMR3gVDYbFFwS1OM4/edit?usp=sharing) | [@WarkahScott](https://github.com/WarkahScott) | Configurability |
@@ -159,6 +202,7 @@ list.
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
+|   2023-06-21 | [Integrated bzl_library](https://docs.google.com/document/d/1Q6gCrbdA2omw0uV2kN6qqoUS1hucNoVxJ-Tep8iSQAU/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark |
 |   2022-02-18 | [Coding guidelines for Starlark rules](https://docs.google.com/document/d/1uuX1Gz6Kvivp-oOqGja342VrVO534PLF0m_zFtFIBcc/edit?usp=sharing) | [@comius](https://github.com/comius)                                 | Starlark Rules |
 |   2019-07-11 | [Load Bazel Protobuf rules from @rules_proto](https://docs.google.com/document/d/1Wai_okIK_NnhNJZai5nkTUvZVHdV5pp1YwNLFtWwpC4/edit?usp=sharing) | [@Yannic](https://github.com/Yannic) | Protobuf |
 |   2022-07-07 | [Enabling Global exec_groups](https://github.com/bazelbuild/proposals/new/main/designs/2022-07-07_global_exec_groups.md)                           | [@susinmotion](https://github.com/susinmotion)  |  Configurability     |
