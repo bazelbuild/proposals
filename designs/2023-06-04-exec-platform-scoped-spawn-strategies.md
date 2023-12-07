@@ -103,9 +103,15 @@ build --strategy=FOO=//:darwin_arm64=local
 build --strategy_regexp=//foo.*\.cc=//:darwin_arm64=local
 ```
 
-The motivation behind this approach is;
-1. Implementation simplicity. A prototype should not require any significant changes to Bazel internals.
-2. Existing strategy flags are easy for scripts to interact with. e.g. an opt-in remote support script can be run before a build to ensure a tunnel is opened and write out a `.bazelrc` file which is read with `try-import`.
+The goal behind this proposal is to address the capability gap (picking appropriate spawn strategies for execution platforms) while work on a more comprehensive solution continues ([#19904](https://github.com/bazelbuild/bazel/issues/19904)).
+As such;
+* Scope is narrow by design.
+* API surface changes need to be minimal and optional (no migration).
+* Implementation (in Bazel) needs to be simple, to minimise the backward compatibility burden if/when the system is redesigned.
+
+This does not seek to solve;
+* `--remote_local_fallback` triggering fallbacks when remote and local environments are inconsistent. ([#7202](https://github.com/bazelbuild/bazel/issues/7202)) ([#15519](https://github.com/bazelbuild/bazel/issues/15519))
+* Unifying execution strategies and platforms, though this proposal seeks to close the gap. ([#11432](https://github.com/bazelbuild/bazel/issues/11432))
 
 ## Flags
 
@@ -128,21 +134,6 @@ This will become;
 5. Platform defaults (`--spawn_strategy=<platform>=...`).
 6. Defaults (`--spawn_strategy=...` or Bazel generated defaults).
 
-## Risks
-
-`SpawnStrategyRegistry#getStrategies(Spawn,EventHandler)` can retrieve a `PlatformInfo` instance for the execution platform via `Spawn#getExecutionPlatform()`, however it is annotated as nullable. A quick search showed `null` being returned in the following places.
-- `ActionTemplate#getExecutionPlatform()`, described as a placeholder action that expands out to a list later.
-- `MiddlemanAction#getExecutionPlatform()`, a non-executable action.
-- `RuleContext#getExecutionPlatform()`, null if `getToolchainContext()` returns null.
-- `RuleContext#getExecutionPlatform(String)`, null if `getToolchainContext()` returns null and no toolchain exists for the specified exec group.
-- `SymlinkAction#getExecutionPlatform()`, a non-executable action.
-- `SolibSymlinkAction#getExecutionPlatform()`, a non-executable action.
-- `TestActionKeyCacher#getExecutionPlatform()`, test implementation detail.
-- `ResourceOwnerStub#getExecutionPlatform()`, nullable but throws, test implementation detail.
-- `FakeResourecOwner#getExecutionPlatform`, test implementation detail.
-
-It is plausible that for all `Spawn` interface implementations `null` is never returned by `getExecutionPlatform()`. If this can be proven, the nullable annotations should be removed to reflect the changed requirements. That being the execution platform must be known so the correct spawn strategy can be selected. At least 1 unreferenced code path noted that `null` is reserved for the host platform.
-
 ## Dynamic Execution
 
 The current draft of this proposal has not deeply explored interactions with dynamic execution, however since dynamic execution relies on using the same configuration for local and remote spawns this is likely to be a complementary addition.
@@ -159,6 +150,21 @@ build --dynamic_remote_strategy=//:linux_amd64=<strategy> # default for exec pla
 build --dynamic_local_strategy=//:linux_amd64=<mnemonic>=<strategy>
 build --dynamic_local_strategy=//:linux_amd64=<strategy> # default for exec platform
 ```
+
+## Risks
+
+`SpawnStrategyRegistry#getStrategies(Spawn,EventHandler)` can retrieve a `PlatformInfo` instance for the execution platform via `Spawn#getExecutionPlatform()`, however it is annotated as nullable. A quick search showed `null` being returned in the following places.
+- `ActionTemplate#getExecutionPlatform()`, described as a placeholder action that expands out to a list later.
+- `MiddlemanAction#getExecutionPlatform()`, a non-executable action.
+- `RuleContext#getExecutionPlatform()`, null if `getToolchainContext()` returns null.
+- `RuleContext#getExecutionPlatform(String)`, null if `getToolchainContext()` returns null and no toolchain exists for the specified exec group.
+- `SymlinkAction#getExecutionPlatform()`, a non-executable action.
+- `SolibSymlinkAction#getExecutionPlatform()`, a non-executable action.
+- `TestActionKeyCacher#getExecutionPlatform()`, test implementation detail.
+- `ResourceOwnerStub#getExecutionPlatform()`, nullable but throws, test implementation detail.
+- `FakeResourecOwner#getExecutionPlatform`, test implementation detail.
+
+It is plausible that for all `Spawn` interface implementations `null` is never returned by `getExecutionPlatform()`. If this can be proven, the nullable annotations should be removed to reflect the changed requirements. That being the execution platform must be known so the correct spawn strategy can be selected. At least 1 unreferenced code path noted that `null` is reserved for the host platform.
 
 # Backward-compatibility
 
