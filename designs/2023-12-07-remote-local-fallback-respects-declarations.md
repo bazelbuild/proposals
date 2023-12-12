@@ -1,9 +1,9 @@
 ---
 created: 2023-12-07
-last updated: 2023-12-08
-status: Draft
+last updated: 2023-12-12
+status: Under Review
 reviewers:
-  - TBD
+  - tigq
 title: `--remote_local_fallback` Respects Strategy Declarations
 authors:
   - Silic0nS0ldier
@@ -45,8 +45,8 @@ A new flag `--incompatible_strict_remote_local_fallback` will be introduced whic
 This means;
 * All registered strategies along with their filters are considered (`--spawn_strategy`, `--strategy`, `--strategy_regexp`, etc).
 * If a `remote` spawned action has no local fallback, no attempt to spawn locally is made and the build fails.
-
-To avoid confusion, the `--remote_local_fallback_strategy` flag (currently marked as a deprecated no-op, ([#7480](https://github.com/bazelbuild/bazel/issues/7480))) will be removed.
+* The `--remote_local_fallback_strategy` flag will have no effect.
+  Note that it is incorrectly documentated as a no-op in Bazel 7.0.0 (see [#15519 (comment)](https://github.com/bazelbuild/bazel/issues/15519#issuecomment-1841940599)).
 
 # Backward-compatibility
 
