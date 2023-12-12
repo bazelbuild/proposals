@@ -3,7 +3,7 @@ created: 2023-12-07
 last updated: 2023-12-12
 status: Under Review
 reviewers:
-  - tigq
+  - tjgq
 title: `--remote_local_fallback` Respects Strategy Declarations
 authors:
   - Silic0nS0ldier
