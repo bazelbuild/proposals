@@ -1,6 +1,6 @@
 ---
 created: 2023-06-04
-last updated: 2023-12-07
+last updated: 2023-12-21
 status: Under Review
 reviewers:
   - katre
@@ -57,7 +57,6 @@ platform(
 foo_binary(
     name = "foo-bin"
 )
-
 ```
 
 ```ini
@@ -89,70 +88,47 @@ For this trivial scenario the challenges can be overcome with relative ease, how
 
 # Proposal
 
-Support scoping of existing spawn strategy flags to a specific execution platform.
-
-e.g.
+Make it possible to declare spawn strategies supported by an execution platform.
 
 ```ini
 # //.bazelrc
-# When the exec platform is "//:darwin_arm64" use one of "worker,sandboxed,local" by default
-build --spawn_strategy=//:darwin_arm64=worker,sandboxed,local
-# For actions with the "FOO" mnemonic and exec platform "//:darwin_arm64" use "local"
-build --strategy=FOO=//:darwin_arm64=local
-# For actions with a description which matches regex "//foo.*\.cc" and exec platform "//:darwin_arm64" use "local"
-build --strategy_regexp=//foo.*\.cc=//:darwin_arm64=local
+# When the exec platform is "//:darwin_arm64" only allow one of "worker,sandboxed,local"
+build --execution_platform_supported_strategies=//:darwin_arm64=worker,sandboxed,local
+# For "//:linux_amd64" only allow "remote"
+build --execution_platform_supported_strategies=//:linux_amd64=remote
 ```
 
 The goal behind this proposal is to address the capability gap (picking appropriate spawn strategies for execution platforms) while work on a more comprehensive solution continues ([#19904](https://github.com/bazelbuild/bazel/issues/19904)).
 As such;
 * Scope is narrow by design.
 * API surface changes need to be minimal and optional (no migration).
-* Implementation (in Bazel) needs to be simple, to minimise the backward compatibility burden if/when the system is redesigned.
+* Implementation (in Bazel) needs to be simple, to minimise the backward compatibility burden if/when the subsystem is redesigned.
 
 This does not seek to solve;
 * `--remote_local_fallback` triggering fallbacks when remote and local environments are inconsistent. ([#7202](https://github.com/bazelbuild/bazel/issues/7202)) ([#15519](https://github.com/bazelbuild/bazel/issues/15519))
 * Unifying execution strategies and platforms, though this proposal seeks to close the gap. ([#11432](https://github.com/bazelbuild/bazel/issues/11432))
+  Specifically, this proposal will not allow Bazel to pick another execution platform when no spawn strategy is usable.
 
 ## Flags
 
 The likihood of misconfiguration can be reduced with;
 - `--[no]require_platform_scoped_strategies` to make inclusion of platforms in spawn strategy flags mandatory.
-- `--[no]exhaustive_platform_strategies` to make specifiction of spawn strategies for every registered execution platform required.
-
-## Priority
-
-Currently;
-1. Description (`--stategy_regexp=<regex>=...`), unless mnemonic is `TestRunner`.
-2. Mnemonic (`--strategy=<mnemonic>=...`).
-3. Defaults (`--spawn_strategy=...` or Bazel generated defaults).
-
-This will become;
-1. Platform + description (`--stategy_regexp=<platform=<regex>=...`), unless mnemonic is `TestRunner`.
-2. Description (`--stategy_regexp=<regex>=...`), unless mnemonic is `TestRunner`.
-3. Platform + mnemonic (`--strategy=<platform>=<mnemonic>=...`).
-4. Mnemonic (`--strategy=<mnemonic>=...`).
-5. Platform defaults (`--spawn_strategy=<platform>=...`).
-6. Defaults (`--spawn_strategy=...` or Bazel generated defaults).
 
 ## Dynamic Execution
 
-The current draft of this proposal has not deeply explored interactions with dynamic execution, however since dynamic execution relies on using the same configuration for local and remote spawns this is likely to be a complementary addition.
-
-The `dynamic` spawn strategy type itself naturally fits with the changes proposed to "standard" flags. The dynamic execution specific flags would likely be changed in a similar manner.
-
-e.g.
-
-```ini
-build --spawn_strategy=//:linux_amd64=dynamic
-# There is currently only 1 remote strategy, so this is technically unnecessary
-build --dynamic_remote_strategy=//:linux_amd64=<mnemonic>=<strategy>
-build --dynamic_remote_strategy=//:linux_amd64=<strategy> # default for exec platform
-build --dynamic_local_strategy=//:linux_amd64=<mnemonic>=<strategy>
-build --dynamic_local_strategy=//:linux_amd64=<strategy> # default for exec platform
-```
+Strategies supplied for the `dynamic` meta-strategy via `--dynamic_remote_strategy` and `--dynamic_local_strategy` will follow the same strategy support rules.
 
 ## Risks
 
+### Actions Lacking Execution Platform
+
+It is theoretically possible for an which relies on spawn strategies (`ctx.actions.run` and `ctx.actions.run_shell`) to lack an execution platform, though almost certainly a bug (`exec_properties` wouldn't be included for `remote` spawns).
+
+An [investigation](https://github.com/bazelbuild/bazel/issues/20505#issuecomment-1856144402) by [`@katre`](https://github.com/katre) indicates that at present only file write actions (`ctx.actions.write`, `ctx.actions.symlink`, `ctx.actions.expand_template`) lack a platform (their platform is inherently always that of the host), however there are no guards to enforce this.
+
+An option is to accept the risk that a bug could sneak in later, and fix it when discovered. Alternatively Bazel could be refactored internally so that invocations of `getExecutionPlatform` never return `null`.
+
+Source code references;
 `SpawnStrategyRegistry#getStrategies(Spawn,EventHandler)` can retrieve a `PlatformInfo` instance for the execution platform via `Spawn#getExecutionPlatform()`, however it is annotated as nullable. A quick search showed `null` being returned in the following places.
 - `ActionTemplate#getExecutionPlatform()`, described as a placeholder action that expands out to a list later.
 - `MiddlemanAction#getExecutionPlatform()`, a non-executable action.
@@ -162,10 +138,23 @@ build --dynamic_local_strategy=//:linux_amd64=<strategy> # default for exec plat
 - `SolibSymlinkAction#getExecutionPlatform()`, a non-executable action.
 - `TestActionKeyCacher#getExecutionPlatform()`, test implementation detail.
 - `ResourceOwnerStub#getExecutionPlatform()`, nullable but throws, test implementation detail.
-- `FakeResourecOwner#getExecutionPlatform`, test implementation detail.
-
-It is plausible that for all `Spawn` interface implementations `null` is never returned by `getExecutionPlatform()`. If this can be proven, the nullable annotations should be removed to reflect the changed requirements. That being the execution platform must be known so the correct spawn strategy can be selected. At least 1 unreferenced code path noted that `null` is reserved for the host platform.
+- `FakeResourecOwner#getExecutionPlatform()`, test implementation detail.
 
 # Backward-compatibility
 
 All changes are opt-in and additive. Compatibility breaks would indicate an implementation flaw. Builtin rules may have some unknowns.
+
+# Alternatives Considered
+
+## Declare Support in Platform Declaration
+
+A variation on the proposal where supported strategies are declared directly on `platform` via a new `supported_strategies` attribute was considered and ultimately rejected as;
+
+* The new attribute may be used by rulesets, increasing the cost of removal if/when the system is redesigned and implicitly increasing the scope of the proposal.
+* Platforms used as execution platforms may be defined in an external repository, making them harder to configure.
+
+It is also worth considering the current status of the `platform(...)` abstraction, which is currently 2 things;
+1. A collection of constraints. (`constraints`)
+2. An opaque collection of properties for remote execution. (`exec_properties`)
+
+(1) has value for all target and execution platform use cases, while (2) is limited to a subset of execution platform use cases (configuring remote execution services). It is probable the `exec_properties` attribute will be relocated in a future redesign of the spawn strategy subsystem.
