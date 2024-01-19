@@ -48,13 +48,16 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-01-18 | [Bazel Remote Output Service](https://docs.google.com/document/d/1W6Tqq8cndssnDI0yzFSoj95oezRKcIhU57nwLHaN1qk/edit) | [@coeuvre](https://github.com/coeuvre) | Remote Execution |
+|   2023-12-21 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
+|   2023-12-12 | [`--remote_local_fallback` Respects Strategy Declarations](designs/2023-12-07-remote-local-fallback-respects-declarations.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
+|   2023-12-5 | [Offline & Vendor Modes](https://docs.google.com/document/d/1P9WwRvpGLi9Tw-AKN7dZ2AeRmfVsl_-lH-N9g3UkVMI) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
 |   2023-11-09 | [Avoiding accidental secret leaks in the BEP](https://docs.google.com/document/d/1-ou6dLV9xsjSSrKf3uJdZKZo-BUlTqbf0OAmKoe_W1s/edit) | [@jmmv](https://github.com/jmmv) | Core |
 |   2023-09-19 | [Bazel Ruleset GOVERNANCE \| MECHANICS](https://docs.google.com/document/d/16ab9hd-WnE2_mmN4_2aLQMk7X-KnZQd-HIXn11CLWS8/edit#heading=h.pt22stgudw8n)      | [@radvani13](https://github.com/radvani13)    | Rules |
 |   2023-10-25 | [C++20 Modules Support](designs/2023-10-25-cxx20-modules-support.md) | [@PikachuHyA](https://github.com/PikachuHyA) | C++ |
 |   2023-09-12 | [Proto toolchainization](https://docs.google.com/document/d/1CE6wJHNfKbUPBr7-mmk_0Yo3a4TaqcTPE0OWNuQkhPs/edit?usp=sharing) | [@comius](https://github.com/comius) | Protos
 |   2023-09-07 | [A true repository cache](https://docs.google.com/document/d/1ZScqiIQi9l7_8eikbsGI-rjupdbCI7wgm1RYD76FJfM/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-08-08 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
-|   2023-08-08 | [`bazel mod fix`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
 |   2023-08-08 | [Inheritance of Target Incompatibility](https://docs.google.com/document/d/127pgkR610qaz1k3-OVgt3tbEeMKAm_jFNeRQcUc99d0/edit) | [@fmeum](https://github.com/fmeum) | Platforms, Configurability |
 |   2023-06-30 | [Fingerprinting Starlark Functions](https://docs.google.com/document/d/1OYtToAPNk19yxd-b19-6VKXUg1b6KtiWqZgXhezFy0Y/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark and actions |
 |   2023-06-16 | [Extending Bazel rules](https://docs.google.com/document/d/1p6z-shWf9sdqo_ep7dcjZCGvqN5r2jsPkJCqHHgfRp4/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
@@ -83,6 +86,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2023-12-06 | [`bazel mod tidy`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
 |   2023-08-14 | [Platform-based flags](designs/2023-06-08-platform-based-flags.md) | [@katre](https://github.com/katre) | Platforms |
 |   2023-08-08 | [Standard platform transitions](designs/2023-06-08-standard-platform-transitions.md) | [@katre](https://github.com/katre) | Platforms |
 |   2023-06-12 | [Remote Output Service: place bazel-out/ on a FUSE file system](designs/2021-02-09-remote-output-service.md)                                              | [@EdSchouten](https://github.com/EdSchouten)                                 | Remote Execution      |
