@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-01-24 | [Simplifying lockfile maintenance](https://docs.google.com/document/d/1TjA7-M5njkI1F38IC0pm305S9EOmxcUwaCIvaSmansg/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2024-01-22 | [Garbage collection for the disk cache](https://docs.google.com/document/d/16aGm4u9EgW199M1WjjbVbVCJSfa8RApWPcKnZYnVbrI) | [@tjgq](https://github.com/tjgq) | Performance |
 |   2024-01-18 | [Bazel Remote Output Service](https://docs.google.com/document/d/1W6Tqq8cndssnDI0yzFSoj95oezRKcIhU57nwLHaN1qk/edit) | [@coeuvre](https://github.com/coeuvre) | Remote Execution |
 |   2023-12-21 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
@@ -73,7 +74,6 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2024-01-24 | [Simplifying lockfile maintenance](https://docs.google.com/document/d/1TjA7-M5njkI1F38IC0pm305S9EOmxcUwaCIvaSmansg/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2023-11-23 | [Regular rules in module extensions](https://docs.google.com/document/d/1OsEHpsJXXMC9SFAmAh20S42Dbmgdj4cNyYAsFOHMibo/edit) | [@matts1](https://github.com/matts1) | External Repositories |
 |   2023-10-25 | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
 |   2023-10-25 | [Better SBOMS: annotated rule attributes](https://docs.google.com/document/d/1ReiTFz5N98D9bGPgL45ziQnGT8xJAunug9JJ89gZsm8/edit)                                | [@aiuto](https://github.com/aiuto)          |
