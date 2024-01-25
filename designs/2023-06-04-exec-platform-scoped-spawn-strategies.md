@@ -102,8 +102,8 @@ This does not seek to solve;
 
 ## Flags
 
-The likihood of misconfiguration can be reduced with;
-- `--[no]strict_exec_platform_strategies` to require that every exec platform (including host) have a strategies allowlist (checked after workspace evaluation).
+The likelihood of misconfiguration can be reduced with;
+- `--[no]require_platform_scoped_strategies` to require that every exec platform (including host) have a strategies allowlist (checked after workspace evaluation).
 
 ## Dynamic Execution
 
