@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-01-24 | [Simplifying lockfile maintenance](https://docs.google.com/document/d/1TjA7-M5njkI1F38IC0pm305S9EOmxcUwaCIvaSmansg/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2024-01-22 | [Garbage collection for the disk cache](https://docs.google.com/document/d/16aGm4u9EgW199M1WjjbVbVCJSfa8RApWPcKnZYnVbrI) | [@tjgq](https://github.com/tjgq) | Performance |
 |   2024-01-18 | [Bazel Remote Output Service](https://docs.google.com/document/d/1W6Tqq8cndssnDI0yzFSoj95oezRKcIhU57nwLHaN1qk/edit) | [@coeuvre](https://github.com/coeuvre) | Remote Execution |
 |   2023-12-21 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
