@@ -1,6 +1,6 @@
 ---
 created: 2023-06-04
-last updated: 2024-01-26
+last updated: 2024-02-10
 status: Under Review
 reviewers:
   - katre
@@ -84,9 +84,9 @@ Make it possible to declare spawn strategies supported by an execution platform.
 ```ini
 # //.bazelrc
 # Allow usage of "worker", "sandboxed" or "local" when exec platform is "//:darwin_arm64"
-build --allowed_strategies_execution_platform//:darwin_arm64=worker,sandboxed,local
+build --allowed_strategies_by_exec_platform//:darwin_arm64=worker,sandboxed,local
 # Allow usage of "remote" when exec platform is "//:linux_amd64"
-build --allowed_strategies_execution_platform=//:linux_amd64=remote
+build --allowed_strategies_by_exec_platform=//:linux_amd64=remote
 ```
 
 The goal behind this proposal is to address the capability gap (picking appropriate spawn strategies for execution platforms) while work on a more comprehensive solution continues ([#19904](https://github.com/bazelbuild/bazel/issues/19904)).
