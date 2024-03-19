@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
 |   2024-02-10 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
 |   2024-02-06 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
 |   2024-01-24 | [Simplifying lockfile maintenance](https://docs.google.com/document/d/1TjA7-M5njkI1F38IC0pm305S9EOmxcUwaCIvaSmansg/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
@@ -66,7 +67,6 @@ stateDiagram-v2
 |   2023-06-16 | [Extending Bazel rules](https://docs.google.com/document/d/1p6z-shWf9sdqo_ep7dcjZCGvqN5r2jsPkJCqHHgfRp4/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
 |   2023-06-15 | [Integrated bzl_library](https://docs.google.com/document/d/1Q6gCrbdA2omw0uV2kN6qqoUS1hucNoVxJ-Tep8iSQAU/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark |
 |   2023-05-31 | [subrule: Decomposing Starlark rules](https://docs.google.com/document/d/1RbNC88QieKvBEwir7iV5zZU08AaMlOzxhVkPnmKDedQ/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
-|   2023-05-04 | [Directory watching API for repo rules](https://docs.google.com/document/d/17RZKMuMjAIgNfFdrsLhqNsMTQDSS-BBA-S-fCSBPV7M/edit#) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-03-17 | [C/C++ standard resolution for Bazel modules](https://docs.google.com/document/d/132vEDnQZY0PtF9ko6HoLQ2dqk6meZnSrUfc1gsKuBkk/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++, External Repositories |
 |   2023-03-17 | [More accurate cquery](https://docs.google.com/document/d/1x-RqFFEcGIzVgtYHIq6s6Qt4vYtJWz3nuHIuqeI89dU/edit#) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2022-10-17 | [Dependency adapters for virtual targets](designs/2022-10-17-dependency-adapter.md) | [@vdye](https://github.com/vdye) | Bazel |
@@ -112,6 +112,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2023-05-04 | [Directory watching API for repo rules](https://docs.google.com/document/d/17RZKMuMjAIgNfFdrsLhqNsMTQDSS-BBA-S-fCSBPV7M/edit#) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2022-09-05 | [Automatic exec groups for toolchains](https://docs.google.com/document/d/1-rbP_hmKs9D639YWw5F_JyxPxL2bi6dSmmvj_WXak9M/edit?usp=sharing) |  [@comius](https://github.com/comius) [@kotlaja](https://github.com/kotlaja) | Configurability |
 |   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
 |   2022-08-17 | [Locating runfiles with Bzlmod](designs/2022-07-21-locating-runfiles-with-bzlmod.md) | [@fmeum](https://github.com/fmeum) | External Repositories, Bazel |
