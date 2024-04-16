@@ -1,13 +1,13 @@
 ---
 created: 2024-04-16
 last updated: 2024-04-16
-status: draft
+status: review
 reviewers:
   - gregestren
 title: Starlark Transition Composition
 authors:
   - katre
-discussion thread: 
+discussion thread: https://github.com/bazelbuild/bazel/discussions/22019
 ---
 
 # Overview
