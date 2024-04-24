@@ -1,6 +1,6 @@
 ---
 created: 2024-04-16
-last updated: 2024-04-16
+last updated: 2024-04-24
 status: review
 reviewers:
   - gregestren
@@ -23,16 +23,24 @@ but that hasn't yet been exposed to Starlark for custom transitions.
 # Composition Semantics
 
 The existing native composition takes two transitions (either of which may
-already be a composed transition), and has fairly basic semantics:
+already be a composed transition), and has fairly basic semantics.
 
-1. If both transitions are 1:1 ("patch") transitions, then the composed
-   transition is also 1:1.
-2. If either transition is a 1:2+ ("split") transition, then the composed
-   transition is also 1:2+.
-   1. Composing two split transitions is not allowed, due to the large number of
-      generated configurations.
-3. The actual configuration change applies the first transition, and then
-   applies the second transition to each split of the result.
+1. The first transition is applied to the configuration.
+   1. This will produce either a single result configuation (for a 1:1
+      transition), or several (for a 1:2+ transition).
+2. The second transition is then applied to each result configuration.
+   1. If the second transition has any `input` flags, those are read from the
+      first result. The second transition may then decide based on its logic
+      what the `output` flags are.
+   2. If the first transition was a 1:2+ transition, the second transition must
+      be a 1:1 transition.
+   3. If the first transition was a 1:1 transition, the second transition can be
+      a 1:1 transition or a 1:2+ transition.
+3. All result configurations from both transition applications are then
+   collected and used as normal. Rules see a single (composed) transition, and
+   cannot tell how many transitions were actually applied.
+4. Composed transitions can themselves be composed, with the same limitation
+   that there is only a single 1:2+ transition allowed anywhere in the chain.
 
 These semantics will be kept in the Starlark version of transition composition.
 
