@@ -1,6 +1,6 @@
 ---
 created: 2024-04-16
-last updated: 2024-04-24
+last updated: 2024-04-26
 status: review
 reviewers:
   - gregestren
@@ -46,28 +46,20 @@ These semantics will be kept in the Starlark version of transition composition.
 
 # Proposal
 
-The existing Starlark transitions will be extended to allow composition using
-the `+` operator (using the existing
-[`HasBinary`](https://cs.opensource.google/bazel/bazel/+/master:src/main/java/net/starlark/java/eval/HasBinary.java)
-interface):
+A new field will be added to the existing `config` global object, and called
+`config.compose_transitions`. It will take one or more arguments, and return a
+new transition that is the composition of the inputs following the above
+semantics.
 
-```py
-transition1 = transition(...)
-transition2 = transition(...)
-composed = transition1 + transition2
-```
-
-In all cases, the first operand must be a transition (either a Starlark
-transition, or a native transition exposed to Starlark).
-
-The second transition may be:
-
-1. Another Starlark or native transition
-   1. Including the [`config.exec`](https://bazel.build/rules/lib/toplevel/config#exec) form of the execution transition.
-2. The string "exec", for the execution transition on the default exec group.
-3. The string "target", for a target transition.
-   1. This is effectively a no-op but is allowed for symmetry with the [`cfg`
-      parameter of `attr.label`](https://bazel.build/rules/lib/toplevel/attr#label.cfg)
+Arguments may be:
+1. An existing native transition exposed to Starlark, such as
+   [`config.exec`](https://bazel.build/rules/lib/toplevel/config#exec) or
+   `android_common.multi_cpu_configuration`.
+2. An existing Starlark transition, from [the existing `transition`
+   API](https://bazel.build/rules/lib/builtins/transition).
+3. Legacy transition names, as strings:
+   1. "exec": The execution transition for the default exec group.
+   2. "target": A no-op transition that makes no changes to the configuration.
 
 The composed transitions can be used like other Starlark transitions, including
 on rules and attributes, although the usual restriction that a 1:2+ transition
