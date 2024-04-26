@@ -46,10 +46,16 @@ These semantics will be kept in the Starlark version of transition composition.
 
 # Proposal
 
-A new field will be added to the existing `config` global object, and called
-`config.compose_transitions`. It will take one or more arguments, and return a
-new transition that is the composition of the inputs following the above
-semantics.
+A new method will be added to [the existing Starlark
+ConfigurationTransitionApi](https://cs.opensource.google/bazel/bazel/+/master:src/main/java/com/google/devtools/build/lib/starlarkbuildapi/config/ConfigurationTransitionApi.java?q=symbol%3A%5Cbcom.google.devtools.build.lib.starlarkbuildapi.config.ConfigurationTransitionApi%5Cb%20case%3Ayes)
+to enable composing a transition object with the current transition, called
+`and_then`. The method will not mutate the existing transition but will return a
+new value. Only one argument is allowed, but since the result is also a
+`ConfigurationTransitionApi` instance further calls can be chained.
+
+The legacy string values `"exec"` and `"target"` will not be allowed, only
+actual transition objects. To enable no-op transitions, the `"target"`
+transition will also be exposed via `config.target`.
 
 Arguments may be:
 1. An existing native transition exposed to Starlark, such as
@@ -57,9 +63,6 @@ Arguments may be:
    `android_common.multi_cpu_configuration`.
 2. An existing Starlark transition, from [the existing `transition`
    API](https://bazel.build/rules/lib/builtins/transition).
-3. Legacy transition names, as strings:
-   1. "exec": The execution transition for the default exec group.
-   2. "target": A no-op transition that makes no changes to the configuration.
 
 The composed transitions can be used like other Starlark transitions, including
 on rules and attributes, although the usual restriction that a 1:2+ transition
