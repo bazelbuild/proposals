@@ -1,7 +1,7 @@
 ---
 created: 2024-04-16
-last updated: 2024-04-26
-status: review
+last updated: 2024-04-29
+status: approved
 reviewers:
   - gregestren
 title: Starlark Transition Composition
@@ -63,6 +63,10 @@ Arguments may be:
    `android_common.multi_cpu_configuration`.
 2. An existing Starlark transition, from [the existing `transition`
    API](https://bazel.build/rules/lib/builtins/transition).
+
+(This may require some extra overloads or superinterfaces in the Java
+implementation top handle the distinctions between bare transitions and
+transition factories, but this shouldn't be visible to Starlark code.)
 
 The composed transitions can be used like other Starlark transitions, including
 on rules and attributes, although the usual restriction that a 1:2+ transition
