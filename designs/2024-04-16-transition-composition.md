@@ -1,6 +1,6 @@
 ---
 created: 2024-04-16
-last updated: 2024-04-24
+last updated: 2024-04-26
 status: review
 reviewers:
   - gregestren
@@ -46,28 +46,23 @@ These semantics will be kept in the Starlark version of transition composition.
 
 # Proposal
 
-The existing Starlark transitions will be extended to allow composition using
-the `+` operator (using the existing
-[`HasBinary`](https://cs.opensource.google/bazel/bazel/+/master:src/main/java/net/starlark/java/eval/HasBinary.java)
-interface):
+A new method will be added to [the existing Starlark
+ConfigurationTransitionApi](https://cs.opensource.google/bazel/bazel/+/master:src/main/java/com/google/devtools/build/lib/starlarkbuildapi/config/ConfigurationTransitionApi.java?q=symbol%3A%5Cbcom.google.devtools.build.lib.starlarkbuildapi.config.ConfigurationTransitionApi%5Cb%20case%3Ayes)
+to enable composing a transition object with the current transition, called
+`and_then`. The method will not mutate the existing transition but will return a
+new value. Only one argument is allowed, but since the result is also a
+`ConfigurationTransitionApi` instance further calls can be chained.
 
-```py
-transition1 = transition(...)
-transition2 = transition(...)
-composed = transition1 + transition2
-```
+The legacy string values `"exec"` and `"target"` will not be allowed, only
+actual transition objects. To enable no-op transitions, the `"target"`
+transition will also be exposed via `config.target`.
 
-In all cases, the first operand must be a transition (either a Starlark
-transition, or a native transition exposed to Starlark).
-
-The second transition may be:
-
-1. Another Starlark or native transition
-   1. Including the [`config.exec`](https://bazel.build/rules/lib/toplevel/config#exec) form of the execution transition.
-2. The string "exec", for the execution transition on the default exec group.
-3. The string "target", for a target transition.
-   1. This is effectively a no-op but is allowed for symmetry with the [`cfg`
-      parameter of `attr.label`](https://bazel.build/rules/lib/toplevel/attr#label.cfg)
+Arguments may be:
+1. An existing native transition exposed to Starlark, such as
+   [`config.exec`](https://bazel.build/rules/lib/toplevel/config#exec) or
+   `android_common.multi_cpu_configuration`.
+2. An existing Starlark transition, from [the existing `transition`
+   API](https://bazel.build/rules/lib/builtins/transition).
 
 The composed transitions can be used like other Starlark transitions, including
 on rules and attributes, although the usual restriction that a 1:2+ transition
