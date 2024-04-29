@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-04-29 | [Selectively Enabling Execution Platforms](designs/2024-04-26-platform-exec-settings.md) | [@katre](https://github.com/katre) | Configuration |
 |   2024-04-16 | [Starlark Transition Composition](designs/2024-04-16-transition-composition.md) | [@katre](https://github.com/katre) | Configuration |
 |   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
 |   2024-02-10 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
@@ -76,7 +77,6 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2024-04-26 | [Selectively Enabling Execution Platforms](designs/2024-04-26-platform-exec-settings.md) | [@katre](https://github.com/katre) | Configuration |
 |   2023-11-23 | [Regular rules in module extensions](https://docs.google.com/document/d/1OsEHpsJXXMC9SFAmAh20S42Dbmgdj4cNyYAsFOHMibo/edit) | [@matts1](https://github.com/matts1) | External Repositories |
 |   2023-10-25 | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
 |   2023-10-25 | [Better SBOMS: annotated rule attributes](https://docs.google.com/document/d/1ReiTFz5N98D9bGPgL45ziQnGT8xJAunug9JJ89gZsm8/edit)                                | [@aiuto](https://github.com/aiuto)          |
