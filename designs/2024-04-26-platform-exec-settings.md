@@ -1,13 +1,13 @@
 ---
 created: 2024-04-26
-last updated: 2024-04-26
-status: draft
+last updated: 2024-04-29
+status: under review
 reviewers:
   - gregestren
 title: Selectively Enabling Execution Platforms
 authors:
   - katre
-discussion thread: 
+discussion thread: https://github.com/bazelbuild/bazel/discussions/22170
 ---
 
 # Overview
