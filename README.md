@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-05-06 | [Latent Dependencies](https://docs.google.com/document/d/1BLgnPvWqI1hfUh-rXD6Gw6QqqjwAyJuqhjuAL0t6lBw/edit) | [@lberki](https://github.com/lberki) | Build Language |
 |   2024-04-29 | [Selectively Enabling Execution Platforms](designs/2024-04-26-platform-exec-settings.md) | [@katre](https://github.com/katre) | Configuration |
 |   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
 |   2024-02-10 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
