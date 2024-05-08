@@ -46,6 +46,9 @@ suring toolchain resolution, each execution platform will check the enabled
 settings and any that don't match the configuration will be skipped (and
 reported if toolchain resolution debugging is active).
 
+This attribute has no influence on whether a platform can be used as a target
+platform (ie, with the `--platforms` flag).
+
 ## Example of platform settings
 
 ```
