@@ -49,7 +49,6 @@ stateDiagram-v2
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
 |   2024-05-06 | [Latent Dependencies](https://docs.google.com/document/d/1BLgnPvWqI1hfUh-rXD6Gw6QqqjwAyJuqhjuAL0t6lBw/edit) | [@lberki](https://github.com/lberki) | Build Language |
-|   2024-04-29 | [Selectively Enabling Execution Platforms](designs/2024-04-26-platform-exec-settings.md) | [@katre](https://github.com/katre) | Configuration |
 |   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
 |   2024-02-10 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
 |   2024-02-06 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
@@ -91,6 +90,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2024-05-08 | [Selectively Enabling Execution Platforms](designs/2024-04-26-platform-exec-settings.md) | [@katre](https://github.com/katre) | Configuration |
 |   2024-04-29 | [Starlark Transition Composition](designs/2024-04-16-transition-composition.md) | [@katre](https://github.com/katre) | Configuration |
 |   2023-12-06 | [`bazel mod tidy`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
 |   2023-08-14 | [Platform-based flags](designs/2023-06-08-platform-based-flags.md) | [@katre](https://github.com/katre) | Platforms |
