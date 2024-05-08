@@ -40,7 +40,7 @@ all of the settings are true for the current configuration.
 # Proposal
 
 To allow execution platforms to control whether they are active, a new attribute
-will be added, named `enabled_settings`, which will take targets that provide
+will be added, named `required_settings`, which will take targets that provide
 `ConfigMatchingProvider`. When the list of execution platforms is evaluated
 suring toolchain resolution, each execution platform will check the enabled
 settings and any that don't match the configuration will be skipped (and
@@ -60,7 +60,7 @@ platform(
     name = "remote_extra_logging",
     constraint_values = CONSTRAINT_VALUES,
     exec_properties = ...,
-    enabled_settings = [
+    required_settings = [
         ":extra_logging_enabled",
     ],
 )
@@ -75,8 +75,8 @@ platform(
 If both of these platforms are available (either via
 `register_execution_platforms` or `--extra_toolchains`), and the default for the
 `--//flag:extra_logging` flag is `False`, then the `remote` platform will be
-used because the `enabled_settings` will not match. Once the flag is set, the
-`enabled_settings` will match, and the `remote_extra_logging` platform will be available (and is
+used because the `required_settings` will not match. Once the flag is set, the
+`required_settings` will match, and the `remote_extra_logging` platform will be available (and is
 registered before the other).
 
 In this case, to be very specific, an additional `config_setting` could be
