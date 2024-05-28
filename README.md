@@ -89,7 +89,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
-|   2024-05-24 | [Latent Dependencies](https://docs.google.com/document/d/1BLgnPvWqI1hfUh-rXD6Gw6QqqjwAyJuqhjuAL0t6lBw/edit) | [@lberki](https://github.com/lberki) | Build Language |
+|   2024-05-24 | [Dormant Dependencies](https://docs.google.com/document/d/1BLgnPvWqI1hfUh-rXD6Gw6QqqjwAyJuqhjuAL0t6lBw/edit) | [@lberki](https://github.com/lberki) | Build Language |
 |   2024-05-08 | [Selectively Enabling Execution Platforms](designs/2024-04-26-platform-exec-settings.md) | [@katre](https://github.com/katre) | Configuration |
 |   2024-04-29 | [Starlark Transition Composition](designs/2024-04-16-transition-composition.md) | [@katre](https://github.com/katre) | Configuration |
 |   2023-12-06 | [`bazel mod tidy`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
