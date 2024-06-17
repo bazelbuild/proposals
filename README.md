@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-06-17 | [Generic Flag Propagation Model](https://docs.google.com/document/d/1wIMpW1DsA0CEOs0bo9-maWbNEz4eAAyoIH59lJlZt_o/edit?usp=sharing) | [@aranguyen](https://github.com/aranguyen) | Configurability |
 |   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
 |   2024-02-10 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
 |   2024-02-06 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
