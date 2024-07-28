@@ -1,7 +1,7 @@
 ---
 created: 2023-06-04
-last updated: 2024-02-10
-status: Under Review
+last updated: 2024-07-28
+status: Approved
 reviewers:
   - katre
 title: Execution Platform Scoped Spawn Strategies
