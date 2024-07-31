@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-07-31 | [SEP-001 Bootstraping Starlark Types](https://docs.google.com/document/d/1Sid7EAbBd_w_T7D94Li_f_bK3zMTztFbzIMvcpzo1wY/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark |
 |   2024-07-17 | [Dormant Dependencies II](https://docs.google.com/document/d/1IqzjxpB9jnJMvkYCgwawAdvXkdjenEDeCxu1S-D-XQk/edit) | [@lberki](https://github.com/lberki) | Build Language |
 |   2024-06-17 | [Generic Flag Propagation Model](https://docs.google.com/document/d/1wIMpW1DsA0CEOs0bo9-maWbNEz4eAAyoIH59lJlZt_o/edit?usp=sharing) | [@aranguyen](https://github.com/aranguyen) | Configurability |
 |   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
