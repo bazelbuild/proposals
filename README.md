@@ -78,6 +78,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2024-08-15 | [Execution platform selection for test actions in multi-platform builds](https://docs.google.com/document/d/1SAOYTvd-3B7U6TH4M7ad2n1r0x2gS2Z0xE0v1NgqxJo/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
 |   2024-07-28 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
 |   2023-11-23 | [Regular rules in module extensions](https://docs.google.com/document/d/1OsEHpsJXXMC9SFAmAh20S42Dbmgdj4cNyYAsFOHMibo/edit) | [@matts1](https://github.com/matts1) | External Repositories |
 |   2023-10-25 | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
