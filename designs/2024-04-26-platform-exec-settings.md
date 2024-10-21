@@ -42,7 +42,7 @@ all of the settings are true for the current configuration.
 To allow execution platforms to control whether they are active, a new attribute
 will be added, named `required_settings`, which will take targets that provide
 `ConfigMatchingProvider`. When the list of execution platforms is evaluated
-suring toolchain resolution, each execution platform will check the enabled
+during toolchain resolution, each execution platform will check the enabled
 settings and any that don't match the configuration will be skipped (and
 reported if toolchain resolution debugging is active).
 
