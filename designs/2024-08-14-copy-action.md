@@ -76,7 +76,7 @@ Compared to existing solutions, `actions.copy` should;
 
 ## Example Usage
 
-### Skylib's [`copy_directory`]https://github.com/bazelbuild/bazel-skylib/blob/5c071b5006bb9799981d04d74a28bdee2f000d4a/rules/private/copy_directory_private.bzl
+### Skylib's [`copy_directory`](https://github.com/bazelbuild/bazel-skylib/blob/5c071b5006bb9799981d04d74a28bdee2f000d4a/rules/private/copy_directory_private.bzl)
 
 ```starlark
 def _copy_directory_impl(ctx):
