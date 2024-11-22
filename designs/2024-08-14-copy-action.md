@@ -12,8 +12,7 @@ authors:
 
 # Abstract
 
-Copying of files and directories is a common need that is currently underserved in Bazel. This proposal seeks to make this a builtin capability to
-improve performance and simplify rule development.
+Copying of files and directories is a common need that is currently underserved in Bazel. This proposal seeks to make this a builtin capability to improve performance and simplify rule development.
 
 # Background
 
@@ -101,7 +100,7 @@ copy_directory = rule(
 ```
 
 Compared to the canonical implementation;
-- Implementation is significantly smaller drops a (fairly light) import.
+- Implementation is significantly smaller and drops a (fairly light) import.
 - Spawn action branches replaced by `copy` action.
 - `is_windows` attribute to pick spawn action branch is gone.
 - Macro to automatically set `is_windows` is gone.
