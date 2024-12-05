@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-12-04 | [Aspect Propagation Controller](https://docs.google.com/document/d/1LfglQ4naytDXmvT2Y8ptnoWOv8awhuaToNGmD2dRGdU/edit?usp=sharing) | [@mai93](https://github.com/mai93) | Rules API |
 |   2024-08-15 | [Execution platform selection for test actions in multi-platform builds](https://docs.google.com/document/d/1SAOYTvd-3B7U6TH4M7ad2n1r0x2gS2Z0xE0v1NgqxJo/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
 |   2024-08-08 | [Per-target execution platform constraints for exec groups](https://docs.google.com/document/d/1u4zP5MLU3HOt-qlyiNnlxcu4SqOB5tnm32v02vLnd5U/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
 |   2024-08-01 | [Introspecting selects](https://docs.google.com/document/d/1c-8GNkz57pDgBGPdJoXJ42aCFHr-gN-Ebon9Zx1COsk/edit)  | [@comius](https://github.com/comius) | Configurability |
