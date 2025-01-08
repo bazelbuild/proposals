@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
 |   2024-12-04 | [Aspect Propagation Controller](https://docs.google.com/document/d/1LfglQ4naytDXmvT2Y8ptnoWOv8awhuaToNGmD2dRGdU/edit?usp=sharing) | [@mai93](https://github.com/mai93) | Rules API |
 |   2024-08-15 | [Execution platform selection for test actions in multi-platform builds](https://docs.google.com/document/d/1SAOYTvd-3B7U6TH4M7ad2n1r0x2gS2Z0xE0v1NgqxJo/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
 |   2024-08-08 | [Per-target execution platform constraints for exec groups](https://docs.google.com/document/d/1u4zP5MLU3HOt-qlyiNnlxcu4SqOB5tnm32v02vLnd5U/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
@@ -80,7 +81,6 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
 |   2024-08-29 | [A New Code Coverage API](https://docs.google.com/document/d/1HWGRrzE17rVuCpSniA1W3MeqKl-puX_sEzqUGyMxW5E) | [@c-mita](https://github.com/cmita) | Code Coverage |
 |   2023-11-23 | [Regular rules in module extensions](https://docs.google.com/document/d/1OsEHpsJXXMC9SFAmAh20S42Dbmgdj4cNyYAsFOHMibo/edit) | [@matts1](https://github.com/matts1) | External Repositories |
 |   2023-10-25 | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
