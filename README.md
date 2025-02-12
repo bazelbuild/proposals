@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2025-02-11 | [Optional and nodep external dependencies](https://docs.google.com/document/d/1JsfbH9kdMe3dyOY-IR8SUakS541A7OM8pQcKpxTRMRs/edit?tab=t.0) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
 |   2024-12-04 | [Aspect Propagation Controller](https://docs.google.com/document/d/1LfglQ4naytDXmvT2Y8ptnoWOv8awhuaToNGmD2dRGdU/edit?usp=sharing) | [@mai93](https://github.com/mai93) | Rules API |
 |   2024-08-15 | [Execution platform selection for test actions in multi-platform builds](https://docs.google.com/document/d/1SAOYTvd-3B7U6TH4M7ad2n1r0x2gS2Z0xE0v1NgqxJo/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
@@ -56,12 +57,10 @@ stateDiagram-v2
 |   2024-07-31 | [SEP-001 Bootstraping Starlark Types](https://docs.google.com/document/d/1Sid7EAbBd_w_T7D94Li_f_bK3zMTztFbzIMvcpzo1wY/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark |
 |   2024-07-17 | [Dormant Dependencies II](https://docs.google.com/document/d/1IqzjxpB9jnJMvkYCgwawAdvXkdjenEDeCxu1S-D-XQk/edit) | [@lberki](https://github.com/lberki) | Build Language |
 |   2024-06-17 | [Generic Flag Propagation Model](https://docs.google.com/document/d/1wIMpW1DsA0CEOs0bo9-maWbNEz4eAAyoIH59lJlZt_o/edit?usp=sharing) | [@aranguyen](https://github.com/aranguyen) | Configurability |
-|   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
 |   2024-02-06 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
 |   2024-01-22 | [Garbage collection for the disk cache](https://docs.google.com/document/d/16aGm4u9EgW199M1WjjbVbVCJSfa8RApWPcKnZYnVbrI) | [@tjgq](https://github.com/tjgq) | Performance |
 |   2024-01-18 | [Bazel Remote Output Service](https://docs.google.com/document/d/1W6Tqq8cndssnDI0yzFSoj95oezRKcIhU57nwLHaN1qk/edit) | [@coeuvre](https://github.com/coeuvre) | Remote Execution |
 |   2023-12-12 | [`--remote_local_fallback` Respects Strategy Declarations](designs/2023-12-07-remote-local-fallback-respects-declarations.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
-|   2023-12-5 | [Offline & Vendor Modes](https://docs.google.com/document/d/1P9WwRvpGLi9Tw-AKN7dZ2AeRmfVsl_-lH-N9g3UkVMI) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
 |   2023-11-09 | [Avoiding accidental secret leaks in the BEP](https://docs.google.com/document/d/1-ou6dLV9xsjSSrKf3uJdZKZo-BUlTqbf0OAmKoe_W1s/edit) | [@jmmv](https://github.com/jmmv) | Core |
 |   2023-09-19 | [Bazel Ruleset GOVERNANCE \| MECHANICS](https://docs.google.com/document/d/16ab9hd-WnE2_mmN4_2aLQMk7X-KnZQd-HIXn11CLWS8/edit#heading=h.pt22stgudw8n)      | [@radvani13](https://github.com/radvani13)    | Rules |
 |   2023-10-25 | [C++20 Modules Support](designs/2023-10-25-cxx20-modules-support.md) | [@PikachuHyA](https://github.com/PikachuHyA) | C++ |
@@ -117,7 +116,9 @@ stateDiagram-v2
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
 |   2024-06-06 | [Simplifying lockfile maintenance](https://docs.google.com/document/d/1TjA7-M5njkI1F38IC0pm305S9EOmxcUwaCIvaSmansg/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
+|   2024-03-18 | [A new home for the host platform](https://docs.google.com/document/d/1g5JAAOfLsvQKBGqzSLFp1hIYFoQsgOslsjaIGV6P7Tk/edit) | [@Wyverald](https://github.com/Wyverald) | Configurability, External Repositories |
 |   2023-12-06 | [`bazel mod tidy`](https://docs.google.com/document/d/13LbK_1WhA4la0eH7yISjnMvXs2cKFXD-adKPu0i0RK0/edit) | [@fmeum](https://github.com/fmeum) | External dependencies |
+|   2023-12-5 | [Offline & Vendor Modes](https://docs.google.com/document/d/1P9WwRvpGLi9Tw-AKN7dZ2AeRmfVsl_-lH-N9g3UkVMI) | [@salmasamy](https://github.com/SalmaSamy) | Bazel, External Repositories |
 |   2023-05-04 | [Directory watching API for repo rules](https://docs.google.com/document/d/17RZKMuMjAIgNfFdrsLhqNsMTQDSS-BBA-S-fCSBPV7M/edit#) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2023-03-21 | [Bazel feature detection in Starlark](https://docs.google.com/document/d/1HJf3gMYIrzmTRqbD4nWXH2eJRHXjLrOU0mmIeZplUzY/edit#) | [@Wyverald](https://github.com/Wyverald) | General, Starlark Rules |
 |   2023-03-20 | [Automatic use_repo fixups for module extensions](https://docs.google.com/document/d/1dj8SN5L6nwhNOufNqjBhYkk5f-BJI_FPYWKxlB3GAmA/edit) | [@fmeum](https://github.com/fmeum) | External Repositories |
