@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2025-03-12 | [Executing WebAssembly in repository rules](https://github.com/bazelbuild/proposals/blob/main/designs/2025-03-07-wasm-repository-rules.md) | [@jmillikin](https://github.com/jmillikin) | External Repositories |
 |   2025-02-11 | [Optional and nodep external dependencies](https://docs.google.com/document/d/1JsfbH9kdMe3dyOY-IR8SUakS541A7OM8pQcKpxTRMRs/edit?tab=t.0) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
 |   2024-12-04 | [Aspect Propagation Controller](https://docs.google.com/document/d/1LfglQ4naytDXmvT2Y8ptnoWOv8awhuaToNGmD2dRGdU/edit?usp=sharing) | [@mai93](https://github.com/mai93) | Rules API |
