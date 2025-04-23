@@ -107,6 +107,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2025-04-23 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2025-04-17 | [Aspect Propagation Controller](https://docs.google.com/document/d/1LfglQ4naytDXmvT2Y8ptnoWOv8awhuaToNGmD2dRGdU/edit?usp=sharing) | [@mai93](https://github.com/mai93) | Rules API |
 |   2025-04-17 | [Dormant Dependencies II](https://docs.google.com/document/d/1IqzjxpB9jnJMvkYCgwawAdvXkdjenEDeCxu1S-D-XQk/edit) | [@lberki](https://github.com/lberki) | Build Language |
 |   2025-04-17 | [subrule: Decomposing Starlark rules](https://docs.google.com/document/d/1RbNC88QieKvBEwir7iV5zZU08AaMlOzxhVkPnmKDedQ/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
@@ -217,7 +218,6 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
-|   2025-04-17 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2025-04-17 | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
 |   2025-04-17 | [Avoiding accidental secret leaks in the BEP](https://docs.google.com/document/d/1-ou6dLV9xsjSSrKf3uJdZKZo-BUlTqbf0OAmKoe_W1s/edit) | [@jmmv](https://github.com/jmmv) | Core |
 |   2025-04-17 | [Splitting large BEP events](https://docs.google.com/document/d/1O1vXaIiXPfSJZv__OaEHHoMftE7PwlAFePmF-mfN3pQ) | [@buchgr](https://github.com/buchgr) | Build Event Protocol |
