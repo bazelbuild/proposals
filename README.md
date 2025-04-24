@@ -49,25 +49,13 @@ stateDiagram-v2
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
 |   2025-03-12 | [Executing WebAssembly in repository rules](https://github.com/bazelbuild/proposals/blob/main/designs/2025-03-07-wasm-repository-rules.md) | [@jmillikin](https://github.com/jmillikin) | External Repositories |
-|   2025-02-11 | [Optional and nodep external dependencies](https://docs.google.com/document/d/1JsfbH9kdMe3dyOY-IR8SUakS541A7OM8pQcKpxTRMRs/edit?tab=t.0) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
-|   2024-08-15 | [Execution platform selection for test actions in multi-platform builds](https://docs.google.com/document/d/1SAOYTvd-3B7U6TH4M7ad2n1r0x2gS2Z0xE0v1NgqxJo/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
-|   2024-08-08 | [Per-target execution platform constraints for exec groups](https://docs.google.com/document/d/1u4zP5MLU3HOt-qlyiNnlxcu4SqOB5tnm32v02vLnd5U/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
-|   2024-08-01 | [Introspecting selects](https://docs.google.com/document/d/1c-8GNkz57pDgBGPdJoXJ42aCFHr-gN-Ebon9Zx1COsk/edit)  | [@comius](https://github.com/comius) | Configurability |
 |   2024-07-31 | [SEP-001 Bootstraping Starlark Types](https://docs.google.com/document/d/1Sid7EAbBd_w_T7D94Li_f_bK3zMTztFbzIMvcpzo1wY/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark |
-|   2024-06-17 | [Generic Flag Propagation Model](https://docs.google.com/document/d/1wIMpW1DsA0CEOs0bo9-maWbNEz4eAAyoIH59lJlZt_o/edit?usp=sharing) | [@aranguyen](https://github.com/aranguyen) | Configurability |
-|   2024-02-06 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
-|   2024-01-22 | [Garbage collection for the disk cache](https://docs.google.com/document/d/16aGm4u9EgW199M1WjjbVbVCJSfa8RApWPcKnZYnVbrI) | [@tjgq](https://github.com/tjgq) | Performance |
-|   2024-01-18 | [Bazel Remote Output Service](https://docs.google.com/document/d/1W6Tqq8cndssnDI0yzFSoj95oezRKcIhU57nwLHaN1qk/edit) | [@coeuvre](https://github.com/coeuvre) | Remote Execution |
 |   2023-12-12 | [`--remote_local_fallback` Respects Strategy Declarations](designs/2023-12-07-remote-local-fallback-respects-declarations.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
-|   2023-09-19 | [Bazel Ruleset GOVERNANCE \| MECHANICS](https://docs.google.com/document/d/16ab9hd-WnE2_mmN4_2aLQMk7X-KnZQd-HIXn11CLWS8/edit#heading=h.pt22stgudw8n)      | [@radvani13](https://github.com/radvani13)    | Rules |
 |   2023-10-25 | [C++20 Modules Support](designs/2023-10-25-cxx20-modules-support.md) | [@PikachuHyA](https://github.com/PikachuHyA) | C++ |
 |   2023-09-12 | [Proto toolchainization](https://docs.google.com/document/d/1CE6wJHNfKbUPBr7-mmk_0Yo3a4TaqcTPE0OWNuQkhPs/edit?usp=sharing) | [@comius](https://github.com/comius) | Protos
-|   2023-09-07 | [A true repository cache](https://docs.google.com/document/d/1ZScqiIQi9l7_8eikbsGI-rjupdbCI7wgm1RYD76FJfM/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
-|   2023-08-08 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2023-08-08 | [Inheritance of Target Incompatibility](https://docs.google.com/document/d/127pgkR610qaz1k3-OVgt3tbEeMKAm_jFNeRQcUc99d0/edit) | [@fmeum](https://github.com/fmeum) | Platforms, Configurability |
 |   2023-06-30 | [Fingerprinting Starlark Functions](https://docs.google.com/document/d/1OYtToAPNk19yxd-b19-6VKXUg1b6KtiWqZgXhezFy0Y/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark and actions |
-|   2023-06-16 | [Extending Bazel rules](https://docs.google.com/document/d/1p6z-shWf9sdqo_ep7dcjZCGvqN5r2jsPkJCqHHgfRp4/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
 |   2023-06-15 | [Integrated bzl_library](https://docs.google.com/document/d/1Q6gCrbdA2omw0uV2kN6qqoUS1hucNoVxJ-Tep8iSQAU/edit?usp=sharing) | [@brandjon](https://github.com/brandjon) | Starlark |
 |   2023-03-17 | [C/C++ standard resolution for Bazel modules](https://docs.google.com/document/d/132vEDnQZY0PtF9ko6HoLQ2dqk6meZnSrUfc1gsKuBkk/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | C++, External Repositories |
 |   2023-03-17 | [More accurate cquery](https://docs.google.com/document/d/1x-RqFFEcGIzVgtYHIq6s6Qt4vYtJWz3nuHIuqeI89dU/edit#) | [@gregestren](https://github.com/gregestren) | Configurability |
@@ -76,19 +64,18 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2025-04-24 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
 |   2024-08-29 | [A New Code Coverage API](https://docs.google.com/document/d/1HWGRrzE17rVuCpSniA1W3MeqKl-puX_sEzqUGyMxW5E) | [@c-mita](https://github.com/cmita) | Code Coverage |
-|   2023-11-23 | [Regular rules in module extensions](https://docs.google.com/document/d/1OsEHpsJXXMC9SFAmAh20S42Dbmgdj4cNyYAsFOHMibo/edit) | [@matts1](https://github.com/matts1) | External Repositories |
-|   2023-10-25 | [Better SBOMS: annotated rule attributes](https://docs.google.com/document/d/1ReiTFz5N98D9bGPgL45ziQnGT8xJAunug9JJ89gZsm8/edit)                                | [@aiuto](https://github.com/aiuto)          |
-|   2023-10-23 | [Incremental builds with small memory footprint](https://docs.google.com/document/d/1k1Ajt283hf0eGYDcE5QQbfrXYTQB04RPWSHeF9sd9aw/edit?usp=sharing) | [@lberki](https://github.com/lberki) | Core |
-|   2023-01-18 | [Modular cc toolchains](https://docs.google.com/document/d/1-etGNsPneQ8W7MBMxtLloEq-Jj9ng1G-Pip-cWtTg_Y/edit?usp=sharing) | [@silvergasp](https://github.com/silvergasp) | CC toolchain rules |
-|   2020-10-09 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
-|   2021-06-25 | [Better Starlark analysis unit tests](https://docs.google.com/document/d/12sC92mq7WasTvDWsm4U782oCegitfi1jbgOnMIGCe-A/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2022-04-29 | [@since(version) annotations in documentation.](https://docs.google.com/document/d/17JBmzeY2NpCWbAGQjsqtmMRLOl0n8IcPYCMOYyFsG1k/edit#) | [@aiuto](https://github.com/aiuto) | Documentation |
 
 ### Approved
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2025-04-24 | [Incremental builds with small memory footprint](https://docs.google.com/document/d/1k1Ajt283hf0eGYDcE5QQbfrXYTQB04RPWSHeF9sd9aw/edit?usp=sharing) | [@lberki](https://github.com/lberki) | Core |
+|   2025-04-24 | [Execution platform selection for test actions in multi-platform builds](https://docs.google.com/document/d/1SAOYTvd-3B7U6TH4M7ad2n1r0x2gS2Z0xE0v1NgqxJo/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
+|   2025-04-24 | [Bazel Remote Output Service](https://docs.google.com/document/d/1W6Tqq8cndssnDI0yzFSoj95oezRKcIhU57nwLHaN1qk/edit) | [@coeuvre](https://github.com/coeuvre) | Remote Execution |
+|   2025-04-24 | [A true repository cache](https://docs.google.com/document/d/1ZScqiIQi9l7_8eikbsGI-rjupdbCI7wgm1RYD76FJfM/edit) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
 |   2024-07-28 | [Execution Platform Scoped Spawn Strategies](designs/2023-06-04-exec-platform-scoped-spawn-strategies.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Configurability, Execution Strategy |
 |   2024-05-08 | [Selectively Enabling Execution Platforms](designs/2024-04-26-platform-exec-settings.md) | [@katre](https://github.com/katre) | Configuration |
 |   2024-04-29 | [Starlark Transition Composition](designs/2024-04-16-transition-composition.md) | [@katre](https://github.com/katre) | Configuration |
@@ -107,6 +94,12 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                      | Author(s) alias                                  | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ | --------              |
+|   2025-04-24 | [Optional and nodep external dependencies](https://docs.google.com/document/d/1JsfbH9kdMe3dyOY-IR8SUakS541A7OM8pQcKpxTRMRs/edit?tab=t.0) | [@Wyverald](https://github.com/Wyverald) | External Repositories |
+|   2025-04-24 | [Per-target execution platform constraints for exec groups](https://docs.google.com/document/d/1u4zP5MLU3HOt-qlyiNnlxcu4SqOB5tnm32v02vLnd5U/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
+|   2025-04-24 | [Generic Flag Propagation Model](https://docs.google.com/document/d/1wIMpW1DsA0CEOs0bo9-maWbNEz4eAAyoIH59lJlZt_o/edit?usp=sharing) | [@aranguyen](https://github.com/aranguyen) | Configurability |
+|   2025-04-24 | [Garbage collection for the disk cache](https://docs.google.com/document/d/16aGm4u9EgW199M1WjjbVbVCJSfa8RApWPcKnZYnVbrI) | [@tjgq](https://github.com/tjgq) | Performance |
+|   2025-04-24 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
+|   2025-04-24 | [Extending Bazel rules](https://docs.google.com/document/d/1p6z-shWf9sdqo_ep7dcjZCGvqN5r2jsPkJCqHHgfRp4/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
 |   2025-04-17 | [Aspect Propagation Controller](https://docs.google.com/document/d/1LfglQ4naytDXmvT2Y8ptnoWOv8awhuaToNGmD2dRGdU/edit?usp=sharing) | [@mai93](https://github.com/mai93) | Rules API |
 |   2025-04-17 | [Dormant Dependencies II](https://docs.google.com/document/d/1IqzjxpB9jnJMvkYCgwawAdvXkdjenEDeCxu1S-D-XQk/edit) | [@lberki](https://github.com/lberki) | Build Language |
 |   2025-04-17 | [subrule: Decomposing Starlark rules](https://docs.google.com/document/d/1RbNC88QieKvBEwir7iV5zZU08AaMlOzxhVkPnmKDedQ/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
@@ -217,6 +210,13 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                           | Author(s) alias                            | Category              |
 |--------------|-----------------------------------------------------------------------------------------------------------------|--------------------------------------------|-----------------------|
+|   2025-04-24 | [Regular rules in module extensions](https://docs.google.com/document/d/1OsEHpsJXXMC9SFAmAh20S42Dbmgdj4cNyYAsFOHMibo/edit) | [@matts1](https://github.com/matts1) | External Repositories |
+|   2025-04-24 | [Better SBOMS: annotated rule attributes](https://docs.google.com/document/d/1ReiTFz5N98D9bGPgL45ziQnGT8xJAunug9JJ89gZsm8/edit)                                | [@aiuto](https://github.com/aiuto)          |
+|   2025-04-24 | [Modular cc toolchains](https://docs.google.com/document/d/1-etGNsPneQ8W7MBMxtLloEq-Jj9ng1G-Pip-cWtTg_Y/edit?usp=sharing) | [@silvergasp](https://github.com/silvergasp) | CC toolchain rules |
+|   2025-04-24 | [Adding http mirror to accelerate repos downloading](designs/2020-10-09-http-mirror.md) | [@yancl](https://github.com/yancl) | External Repositories |
+|   2025-04-24 | [Better Starlark analysis unit tests](https://docs.google.com/document/d/12sC92mq7WasTvDWsm4U782oCegitfi1jbgOnMIGCe-A/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
+|   2025-04-24 | [Introspecting selects](https://docs.google.com/document/d/1c-8GNkz57pDgBGPdJoXJ42aCFHr-gN-Ebon9Zx1COsk/edit)  | [@comius](https://github.com/comius) | Configurability |
+|   2025-04-24 | [Bazel Ruleset GOVERNANCE \| MECHANICS](https://docs.google.com/document/d/16ab9hd-WnE2_mmN4_2aLQMk7X-KnZQd-HIXn11CLWS8/edit#heading=h.pt22stgudw8n)      | [@radvani13](https://github.com/radvani13)    | Rules |
 |   2025-04-17 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2025-04-17 | [Faster aspects: pruning on the way down](https://docs.google.com/document/d/1Md4BX2v-VMV-qNmc-wdeImTCdBK9BRF6YNktmOBVVVY/edit)                                | [@aiuto](https://github.com/aiuto)          |
 |   2025-04-17 | [Avoiding accidental secret leaks in the BEP](https://docs.google.com/document/d/1-ou6dLV9xsjSSrKf3uJdZKZo-BUlTqbf0OAmKoe_W1s/edit) | [@jmmv](https://github.com/jmmv) | Core |
