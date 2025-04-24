@@ -100,6 +100,7 @@ stateDiagram-v2
 |   2025-04-24 | [Garbage collection for the disk cache](https://docs.google.com/document/d/16aGm4u9EgW199M1WjjbVbVCJSfa8RApWPcKnZYnVbrI) | [@tjgq](https://github.com/tjgq) | Performance |
 |   2025-04-24 | [Standard exec configurations](https://docs.google.com/document/d/1fyeR2eYP7wlN36btaEV2gjZOYW_PANpJI-XNVErZXwQ/edit) | [@gregestren](https://github.com/gregestren) | Configurability |
 |   2025-04-24 | [Extending Bazel rules](https://docs.google.com/document/d/1p6z-shWf9sdqo_ep7dcjZCGvqN5r2jsPkJCqHHgfRp4/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
+|   2025-04-23 | [Extend expand_template() API to reduce retained memory](https://docs.google.com/document/d/1Bjos2J0eLfxiy3_GU7LxOlciJAAqcbZCIIZ2VK0o5Wo/edit?usp=sharing) | [@hvadehra](https://github.com/hvadehra) | Starlark |
 |   2025-04-17 | [Aspect Propagation Controller](https://docs.google.com/document/d/1LfglQ4naytDXmvT2Y8ptnoWOv8awhuaToNGmD2dRGdU/edit?usp=sharing) | [@mai93](https://github.com/mai93) | Rules API |
 |   2025-04-17 | [Dormant Dependencies II](https://docs.google.com/document/d/1IqzjxpB9jnJMvkYCgwawAdvXkdjenEDeCxu1S-D-XQk/edit) | [@lberki](https://github.com/lberki) | Build Language |
 |   2025-04-17 | [subrule: Decomposing Starlark rules](https://docs.google.com/document/d/1RbNC88QieKvBEwir7iV5zZU08AaMlOzxhVkPnmKDedQ/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark Rules |
