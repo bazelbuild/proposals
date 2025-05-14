@@ -3,7 +3,7 @@ title: Executing WebAssembly in repository rules
 authors: [jmillikin]
 created: 2025-03-12
 last updated: 2025-05-14
-status: [Approved](https://github.com/bazelbuild/bazel/discussions/25537#discussioncomment-13145966)
+status: Approved (https://github.com/bazelbuild/bazel/discussions/25537#discussioncomment-13145966)
 reviewers:
   - meteorcloudy
   - Wyverald
