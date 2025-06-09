@@ -7,6 +7,7 @@ reviewers:
 title: Execution Platform Scoped Spawn Strategies
 authors:
   - Silic0nS0ldier
+discussion thread: https://github.com/bazelbuild/bazel/discussions/20497
 ---
 
 # Abstract
