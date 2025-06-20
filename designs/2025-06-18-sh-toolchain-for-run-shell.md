@@ -1,10 +1,11 @@
 ---
 created: 2025-06-18
 last updated: 2025-06-18
-status: To be reviewed
+status: To be reviewed (https://github.com/bazelbuild/bazel/issues/26326)
 reviewers:
   - fmeum
-title: Template for proposals
+  - malt3
+title: Use sh_toolchain for run_shell actions and genrule's
 authors:
   - jacky8hyf
 ---
@@ -96,6 +97,7 @@ To achieve this in the above setup, the user can create a new
 [`repository_ctx.which()`](https://bazel.build/rules/lib/builtins/repository_ctx#which)
 and
 [`repository_ctx.symlink()`](https://bazel.build/rules/lib/builtins/repository_ctx#symlink).
+
 Then, for example:
 
 ```
@@ -108,6 +110,8 @@ sh_toolchain(
     ],
 )
 ```
+
+Complete example: https://cs.android.com/android/kernel/superproject/+/common-android-mainline:build/kernel/kleaf/impl/declare_host_tools.bzl;drc=4ec1c642f1f8218d94959ba162822025f1f33c9e
 
 Alternatively, to make user's life easier, `sh_toolchain()` could add a
 `host_tools` attribute.
