@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2025-06-19 | [Use sh_toolchain for run_shell actions and genrule's](designs/2025-06-18-sh-toolchain-for-run-shell.md) | [@jacky8hyf](https://github.com/jacky8hyf) | Execution, Starlark rules |
 |   2025-06-09 | [Starlarkify native Bazel flags](https://docs.google.com/document/d/1yOvi4hVV7Ja32ocwVb4lsEUnijftk8nilXPncYm-BH8/edit?tab=t.0#heading=h.d2e9ejnlsvd) | [@gregestren](https://github.com/gregestren) [@katre](https://github.com/katre) | Configurability, Starlark rules |
 |   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
 |   2024-07-31 | [SEP-001 Bootstraping Starlark Types](https://docs.google.com/document/d/1Sid7EAbBd_w_T7D94Li_f_bK3zMTztFbzIMvcpzo1wY/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark |
