@@ -49,7 +49,6 @@ stateDiagram-v2
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
 |   2025-06-19 | [Use sh_toolchain for run_shell actions and genrule's](designs/2025-06-18-sh-toolchain-for-run-shell.md) | [@jacky8hyf](https://github.com/jacky8hyf) | Execution, Starlark rules |
-|   2025-06-09 | [Starlarkify native Bazel flags](https://docs.google.com/document/d/1yOvi4hVV7Ja32ocwVb4lsEUnijftk8nilXPncYm-BH8/edit?tab=t.0#heading=h.d2e9ejnlsvd) | [@gregestren](https://github.com/gregestren) [@katre](https://github.com/katre) | Configurability, Starlark rules |
 |   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
 |   2024-07-31 | [SEP-001 Bootstraping Starlark Types](https://docs.google.com/document/d/1Sid7EAbBd_w_T7D94Li_f_bK3zMTztFbzIMvcpzo1wY/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark |
 |   2023-10-25 | [C++20 Modules Support](designs/2023-10-25-cxx20-modules-support.md) | [@PikachuHyA](https://github.com/PikachuHyA) | C++ |
@@ -66,6 +65,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                  | Author(s) alias                                                                    | Category              |
 | ------------ | ------------------------------------------------------------------------------------------------------------------     | ---------------------------------------------------------------------------------- | --------              |
+|   2025-07-22 | [Starlarkify native Bazel flags](https://docs.google.com/document/d/1yOvi4hVV7Ja32ocwVb4lsEUnijftk8nilXPncYm-BH8/edit?tab=t.0#heading=h.d2e9ejnlsvd) | [@gregestren](https://github.com/gregestren) [@katre](https://github.com/katre) | Configurability, Starlark rules |
 |   2025-05-14 | [Executing WebAssembly in repository rules](https://github.com/bazelbuild/proposals/blob/main/designs/2025-03-07-wasm-repository-rules.md) | [@jmillikin](https://github.com/jmillikin) | External Repositories |
 |   2025-04-24 | [Incremental builds with small memory footprint](https://docs.google.com/document/d/1k1Ajt283hf0eGYDcE5QQbfrXYTQB04RPWSHeF9sd9aw/edit?usp=sharing) | [@lberki](https://github.com/lberki) | Core |
 |   2025-04-24 | [Execution platform selection for test actions in multi-platform builds](https://docs.google.com/document/d/1SAOYTvd-3B7U6TH4M7ad2n1r0x2gS2Z0xE0v1NgqxJo/edit) | [@fmeum](https://github.com/fmeum) | Configurability, Execution |
