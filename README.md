@@ -58,6 +58,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2025-11-09 | [Starlark type system design](https://docs.google.com/document/d/17bGpij0gPWJFbxHLKTTwfKj8dAldD1kr8MYAa0zMUMs/edit?usp=sharing)   | [@brandjon](https://github.com/brandjon)  | Starlark |
 |   2025-04-24 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
 |   2024-08-29 | [A New Code Coverage API](https://docs.google.com/document/d/1HWGRrzE17rVuCpSniA1W3MeqKl-puX_sEzqUGyMxW5E) | [@c-mita](https://github.com/cmita) | Code Coverage |
 
