@@ -48,6 +48,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                                                     | Author(s) alias                                                              | Category              |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------------------- |
+|   2026-03-03 | [Hierarchical constraint settings](https://docs.google.com/document/d/1Lq-0aPBOT0cat1wcFbnPmurbyo05NpZXu0uGq12H_HE/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | Configurability |
 |   2025-06-19 | [Use sh_toolchain for run_shell actions and genrule's](designs/2025-06-18-sh-toolchain-for-run-shell.md) | [@jacky8hyf](https://github.com/jacky8hyf) | Execution, Starlark rules |
 |   2024-12-07 | [Starlark API for Baseline Coverage](https://docs.google.com/document/d/1D_y9PAimvn566VyeLDu-FZLKrAcv48CL6ftKU03_dKs) | [@fmeum](https://github.com/fmeum) | Code Coverage, BES |
 |   2024-07-31 | [SEP-001 Bootstraping Starlark Types](https://docs.google.com/document/d/1Sid7EAbBd_w_T7D94Li_f_bK3zMTztFbzIMvcpzo1wY/edit?usp=sharing) | [@comius](https://github.com/comius) | Starlark |
@@ -58,7 +59,6 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
-|   2026-03-03 | [Hierarchical constraint settings](https://docs.google.com/document/d/1Lq-0aPBOT0cat1wcFbnPmurbyo05NpZXu0uGq12H_HE/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | Configurability |
 |   2025-11-09 | [Starlark type system design](https://docs.google.com/document/d/17bGpij0gPWJFbxHLKTTwfKj8dAldD1kr8MYAa0zMUMs/edit?usp=sharing)   | [@brandjon](https://github.com/brandjon)  | Starlark |
 |   2025-04-24 | [Linking on multiple platforms](https://docs.google.com/document/d/1zm1UOftT2xHQiNNxNO7XU_BOn2KrXjFlx5tl4QBVjV0/edit#heading=h.3b2hgzp0x4ct)   | [@comius](https://github.com/comius)  | C++ linking |
 |   2024-08-29 | [A New Code Coverage API](https://docs.google.com/document/d/1HWGRrzE17rVuCpSniA1W3MeqKl-puX_sEzqUGyMxW5E) | [@c-mita](https://github.com/cmita) | Code Coverage |
