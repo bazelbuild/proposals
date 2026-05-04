@@ -58,6 +58,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2026-05-04 | [RunfilesGroupInfo: a protocol for structured runfiles](https://github.com/hermeticbuild/rules_runfiles_group) | [@malt3](https://github.com/malt3) | Starlark Rules, Packaging |
 |   2026-04-14 | [BCR Module indexing](designs/2026-04-14-bcr-module-indexing.md) | [@jordan-bonser](https://github.com/jordan-bonser) | External Repositories |
 |   2026-03-03 | [Hierarchical constraint settings](https://docs.google.com/document/d/1Lq-0aPBOT0cat1wcFbnPmurbyo05NpZXu0uGq12H_HE/edit?usp=sharing) | [@fmeum](https://github.com/fmeum) | Configurability |
 |   2025-11-09 | [Starlark type system design](https://docs.google.com/document/d/17bGpij0gPWJFbxHLKTTwfKj8dAldD1kr8MYAa0zMUMs/edit?usp=sharing)   | [@brandjon](https://github.com/brandjon)  | Starlark |
