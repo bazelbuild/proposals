@@ -1,6 +1,6 @@
 ---
 created: 2026-04-14
-last updated: 2026-04-14
+last updated: 2026-06-02
 status: Draft
 reviewers:
   - meteorcloudy
@@ -25,7 +25,7 @@ This means unless you know a module exists in a registry and what its exact name
 
 # Proposal
 
-I propose we add an `index.json` under the `modules` directory of the registry, which will list the modules that exist in the registry.
+I propose we add an `index.json` at the root of the registry, which will list the modules that exist in that registry.
 
 The format of the file would be a simple JSON object, which lists out the modules in the registry:
 
@@ -66,50 +66,22 @@ $ bazel mod search "llvm"
 
 This functionality would make use of the `index.json` to perform the lookup.
 
-## Adding a Module
+## Generating the Index
 
-As part of adding a module to the BCR, there needs to be a mechanism to ensure that a PR to add a module also has the addition of the module to the `index.json`. One approach to this would be to add logic to a script ran as part of the PR Pipeline, that would ensure the new module exists in the index. The `bcr_validate.py` may be a good candidate for this logic.
+To ensure that we don't add any extra churn when adding modules to the registry during the normal PR process, the `index.json` should be created as a pre-deployment step rather than living inside of the Git repository itself.
 
-## Handling Merge Conflicts
+A separate script will be made that will walk the `modules/` directory of the repo and generate the index file from the information contained in there.
 
-With there being a single file that needs to be modified on each module addition, it could become an issue in terms of merge conflicts. To combat this I suggest we do a number of things:
-- Ensure the `index.json` is in alphabetical order.
-- Create a custom Git merge driver to resolve the conflicts in alphabetical order.
+In the future, if it is deemed that additional information about the modules themselves is needed then the script can be adapted to extract that information from the `metadata.json` file of each of the modules.
 
-### Merge Driver
-Creating a custom merge driver is fairly simple. The approach that is usually taken is to add a new merge driver to the git config:
+In terms of enabling this for the BCR, the generation of this file could be performed in [bcr_postsubmit.py](https://github.com/bazelbuild/continuous-integration/blob/f64e8b84498cfde2fb1845c5ca7e4761ca30c129/buildkite/bazel-central-registry/bcr_postsubmit.py#L153) before being uploaded to GCS.
 
-For example:
-
-```
-[merge "alphabetical"]
-    name = merge using alphabetical diff
-    driver = git merge-file -L %A -L %O -L %B -p --diff-algorithm=<chosen-diff-algorithm> > %A %O %B > %A
-```
-
-Enabling this for a specific file can be done by adding to the `.gitattributes` like so:
-
-```
-modules/index.json merge=alphabetical
-```
-
-### Diff Algorithm
-
-The simplest approach may be to use a different git `diff-algorithm` for the merge. This completely depends on how effective the various diff algorithms deal with the alphabetically sorted module list. If there is a clear outlier which resolves the conflicts correctly then this would be as simple as changing the driver to the above git merge-file example `git merge-file -L %A -L %O -L %B -p --diff-algorithm=<chosen-diff-algorithm> > %A %O %B > %A`.
-
-### JSON Merge Driver Script
-
-Alternatively using a JSON friendly programming language, you could create a script which is JSON aware and performs the merge via sorting the JSON alphabetically:
-
-```
-[merge "alphabetical"]
-    name = merge using alphabetical diff
-    driver = python scripts/merge_json_sorted.py %O %A %B
-```
 
 # Backward-compatibility
 
-There needs to be an upgrade path available to allow registries that have already been created to add an `index.json` and have it populated with modules that are already in their own registry.
+There needs to be an upgrade path available to allow registries that have already been created to add an `index.json` and have it populated with modules that are already in their own registry. This should be fairly simple as the file will be generated rather than living in the git repository itself. Existing registries can download the script and run it from their own registry repo, and then upload that to where their registry is hosted.
+
+For registries which are not backed by a git repository, generating the file in the JSON format shown above should be trivial.
 
 There should also be the assumption that not all registries will have an `index.json` and any future tooling around this functionality will need to also assume this.
 
