@@ -14,19 +14,19 @@ and are sent for review as a [GitHub discussion](https://github.com/bazelbuild/b
 ### State diagram of the design process
 
 ```mermaid
-stateDiagram-v2    
+stateDiagram-v2
     ur: Under review
-    
+
     Draft --> ur
     ur --> Approved
     Approved --> Implemented
     Draft --> Dropped
     ur --> Dropped
     Approved --> Dropped
-    
+
     classDef success fill:#ded
     classDef failure fill:#fcc
-    
+
     class Implemented success
     class Dropped failure
 ```
@@ -36,7 +36,7 @@ stateDiagram-v2
 | Last updated | Title                                                                                                                                                     | Author(s) alias                               |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | 2023-10-09   | [Starlark Rules Roadmap](https://docs.google.com/document/d/12mYYtp2aJ6q1_yhguyMKh6onSZ2afJW9VctRz0hy6-Q/edit?usp=sharing)                                | [@comius](https://github.com/comius)          |
-| 2023-09-26   | [Bazelbuild Repositories Maintenance Guide](https://docs.google.com/document/d/1L1JFgjpZ7SrBinb24DC_5nTIELeYDacikcme-YcA7xs/edit?usp=sharing)             | [@comius](https://github.com/comius) and [@meteorcloudy](https://github.com/meteorcloudy)  | 
+| 2023-09-26   | [Bazelbuild Repositories Maintenance Guide](https://docs.google.com/document/d/1L1JFgjpZ7SrBinb24DC_5nTIELeYDacikcme-YcA7xs/edit?usp=sharing)             | [@comius](https://github.com/comius) and [@meteorcloudy](https://github.com/meteorcloudy)  |
 | 2023-08-30   | [Bazel Proto Rules](https://docs.google.com/document/d/1l5JrFOxjU1USWXoc_KeBIjBoae5nkaL5AqhNiHLYeyI/edit?usp=sharing)                                     | [@comius](https://github.com/comius)          |
 | 2023-08-01   | [Problems with Bazel's code coverage collection](https://docs.google.com/document/d/1JP-9pjiRBHmepgFzBI-U9G2nAzCWK5YoemGVVKmQsBM)                         | [@c-mita](https://github.com/c-mita)          |
 | 2023-07-27   | [A Guide to Skyframe StateMachines](https://bazel.build/contribute/statemachine-guide)                                                                    | [@aoeui](https://github.com/aoeui)            |
@@ -58,6 +58,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2026-07-22 | [Copy Action](designs/2024-08-14-copy-action.md) | [@Silic0nS0ldier](https://github.com/Silic0nS0ldier) | Actions |
 |   2026-07-20 | [Artifact Aliasing](designs/2026-07-20-artifact-alias.md) | [@thesayyn](https://github.com/thesayyn) | Actions |
 |   2026-07-21 | [Sandbox Protocol](designs/2026-07-21-sandbox-protocol.md) | [@thesayyn](https://github.com/thesayyn) | Sandboxing |
 |   2026-06-02 | [BCR Module indexing](designs/2026-04-14-bcr-module-indexing.md) | [@jordan-bonser](https://github.com/jordan-bonser) | External Repositories |
