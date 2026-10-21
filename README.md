@@ -58,6 +58,7 @@ stateDiagram-v2
 
 | Last updated | Title                                                                                                                           | Author(s) alias                          | Category |
 |--------------|---------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
+|   2026-10-20 | [IDE provider](designs/2026-10-20-ide-provider.md) | [@aehlig](https://github.com/aehlig) | Starlark rules, BCR |
 |   2026-07-20 | [Artifact Aliasing](designs/2026-07-20-artifact-alias.md) | [@thesayyn](https://github.com/thesayyn) | Actions |
 |   2026-07-21 | [Sandbox Protocol](designs/2026-07-21-sandbox-protocol.md) | [@thesayyn](https://github.com/thesayyn) | Sandboxing |
 |   2026-06-02 | [BCR Module indexing](designs/2026-04-14-bcr-module-indexing.md) | [@jordan-bonser](https://github.com/jordan-bonser) | External Repositories |
